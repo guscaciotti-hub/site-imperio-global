@@ -106,7 +106,7 @@ p{ margin:0 0 1rem }
   border-bottom:1px solid var(--linha);
 }
 .nav{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; height:74px }
-.nav__logo img{ height:34px; width:auto }
+.nav__logo img{ height:44px; width:auto; display:block }
 .nav__menu{ display:flex; align-items:center; gap:1.75rem }
 .nav__links{ display:flex; align-items:center; gap:1.5rem }
 .nav__links a{
@@ -266,6 +266,8 @@ p{ margin:0 0 1rem }
 .site-footer{ background:var(--azul-imperio-900); color:var(--prata-tecnica); padding:clamp(48px,7vw,72px) 0 2rem }
 .footer__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2rem }
 .footer__grid img{ height:32px; margin-bottom:1rem }
+/* logótipo original (cores) sobre chip branco no rodapé escuro */
+.site-footer .footer__logo{ height:auto; width:210px; max-width:75%; background:#fff; padding:11px 15px; border-radius:8px; margin-bottom:1.25rem }
 .site-footer h4{ color:#fff; font-family:var(--font-titulo); font-size:.95rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:1rem }
 .site-footer a{ color:var(--prata-tecnica); display:inline-block; padding:.2rem 0 }
 .site-footer a:hover{ color:#fff }

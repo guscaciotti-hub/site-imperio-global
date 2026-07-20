@@ -465,7 +465,7 @@ function header(lang, page, S) {
   <header class="site-header">
     <div class="container nav">
       <a class="nav__logo" href="${relLink(lang, lang, 'index')}" aria-label="${logoAlt}">
-        <img src="${B}assets/logo/imperio_primary.svg" alt="${logoAlt}" width="300" height="64">
+        <img src="${B}assets/logo/imperio-oficial.png" alt="${logoAlt}" width="640" height="197">
       </a>
       <button class="nav__toggle" aria-label="${S.nav.index}" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
       <div class="nav__menu" id="menu-principal">
@@ -487,7 +487,7 @@ function footer(lang, S) {
     <div class="container">
       <div class="footer__grid">
         <div>
-          <img src="${B}assets/logo/imperio_white.svg" alt="${logoAlt}" width="300" height="64">
+          <img class="footer__logo" src="${B}assets/logo/imperio-oficial.png" alt="${logoAlt}" width="640" height="197">
           <p>${S.tagline}</p>
         </div>
         <div>

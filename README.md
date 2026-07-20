@@ -102,5 +102,5 @@ Ativar em **Settings → Pages → Source: GitHub Actions** e correr o workflow 
 ## Notas
 
 - **Traduções EN/FR** foram feitas a partir do PT (validado). **Devem passar por revisão nativa** antes da publicação — FR em registo europeu/Bélgica.
-- **Logótipos** em `assets/logo/` são uma **recriação fiel** ao manual (cores/estrutura oficiais). Substituir pelos ficheiros vetoriais oficiais quando disponibilizados.
+- **Logótipo:** o site usa o **logótipo oficial** do cliente (`assets/logo/imperio-oficial.png`, recortado e com fundo transparente) no header e no rodapé. O símbolo do favicon (`imperio_symbol.svg`) é uma recriação do globo; substituir pelo símbolo oficial vetorial se disponibilizado. Para logótipo nítido em ecrãs de alta resolução, fornecer versão **SVG** e trocar `imperio-oficial.png` por ela.
 - Idioma de referência: **Português europeu (PT-PT)**.
