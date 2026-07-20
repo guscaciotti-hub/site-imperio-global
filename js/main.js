@@ -59,7 +59,21 @@ const T = I18N[LANG] || I18N.pt;
   const heroes = document.querySelectorAll('.hero');
   if (!heroes.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const COLORS = ['#0072CE', '#0072CE', '#5aa9ec', '#AFC4D6', '#ffffff'];
+  // Sprites de brilho (bokeh) pré-renderizados — partículas de energia nas cores da marca
+  function makeSprite(mid){
+    const s = 64, oc = document.createElement('canvas'); oc.width = oc.height = s;
+    const g = oc.getContext('2d');
+    const gr = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+    gr.addColorStop(0, 'rgba(255,255,255,0.95)');
+    gr.addColorStop(0.28, mid);
+    gr.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(s / 2, s / 2, s / 2, 0, 6.2832); g.fill();
+    return oc;
+  }
+  const SPRITES = [
+    makeSprite('rgba(0,114,206,0.55)'), makeSprite('rgba(90,169,236,0.60)'),
+    makeSprite('rgba(120,180,240,0.50)'), makeSprite('rgba(175,196,214,0.45)'),
+  ];
 
   heroes.forEach((hero) => {
     const canvas = document.createElement('canvas');
@@ -74,50 +88,36 @@ const T = I18N[LANG] || I18N.pt;
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.max(1, w * dpr); canvas.height = Math.max(1, h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fx = w * 0.9; fy = h * 0.52;                     // ponto de fuga (horizonte, à direita)
-      const n = Math.min(170, Math.round(w * h / 8500));
+      const n = Math.min(120, Math.round(w * h / 13000));
       parts = Array.from({ length: n }, () => spawn(true));
     }
-    // partícula emitida do ponto de fuga, acelerando para fora (baixo-esquerda) → efeito de perspetiva
+    // partícula de energia: nasce em baixo (na zona luminosa da foto) e sobe, dissipando no topo
     function spawn(seed){
-      const a = Math.PI * 0.5 + (Math.random() * Math.PI * 0.85);  // ~90°..245°
-      const p = { a, r: seed ? Math.random() * Math.hypot(w, h) : Math.random() * 30,
-                  v: 0.4 + Math.random() * 1.1, acc: 1.012 + Math.random() * 0.01,
-                  c: COLORS[(Math.random() * COLORS.length) | 0], px: 0, py: 0 };
-      p.px = fx + Math.cos(a) * p.r; p.py = fy + Math.sin(a) * p.r;
-      return p;
+      const bright = Math.random() < 0.72;               // maioria na zona de luz (direita/centro)
+      const x = bright ? (0.36 + Math.random() * 0.64) * w : Math.random() * w;
+      const y = seed ? Math.random() * h : h * (0.60 + Math.random() * 0.45);
+      return {
+        x, y,
+        r: 0.8 + Math.random() * 2.4,                    // raio do ponto
+        vy: -(0.10 + Math.random() * 0.34),              // sobe (vertical, de baixo para cima)
+        swAmp: 4 + Math.random() * 14, swSpd: 0.006 + Math.random() * 0.014, phase: Math.random() * 6.28,
+        age: seed ? Math.random() * 260 : 0, dur: 240 + Math.random() * 340,
+        s: SPRITES[(Math.random() * SPRITES.length) | 0],
+      };
     }
     function step(){
       ctx.clearRect(0, 0, w, h);
-      // brilho (bloom) no horizonte, de onde a luz emana
-      const bloom = ctx.createRadialGradient(fx, fy, 0, fx, fy, Math.max(w, h) * 0.28);
-      bloom.addColorStop(0, 'rgba(120,180,240,0.30)');
-      bloom.addColorStop(0.5, 'rgba(0,114,206,0.10)');
-      bloom.addColorStop(1, 'rgba(0,114,206,0)');
       ctx.globalCompositeOperation = 'lighter';
-      ctx.globalAlpha = 1; ctx.fillStyle = bloom; ctx.fillRect(0, 0, w, h);
-
-      const maxR = Math.hypot(w, h) * 1.05;
-      ctx.lineCap = 'round';
       for (const p of parts){
-        const cos = Math.cos(p.a), sin = Math.sin(p.a);
-        const x = fx + cos * p.r, y = fy + sin * p.r;
-        const t = p.r / maxR;                          // 0 (horizonte) → 1 (perto)
-        const alpha = Math.min(1, t * 2.4) * (1 - t * 0.85);
-        const lw = 0.5 + t * 2.8;
-        const len = Math.min(6 + p.v * 11, 80);        // rasto cresce com a velocidade
-        const tx = x - cos * len, ty = y - sin * len;
-        const g = ctx.createLinearGradient(tx, ty, x, y);
-        g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, p.c);
-        ctx.strokeStyle = g; ctx.globalAlpha = Math.max(0, alpha) * 0.9; ctx.lineWidth = lw;
-        ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(x, y); ctx.stroke();
-        if (t > 0.3){                                   // brilho na cabeça
-          ctx.globalAlpha = Math.max(0, alpha);
-          ctx.fillStyle = p.c;
-          ctx.beginPath(); ctx.arc(x, y, lw * 1.1, 0, 6.2832); ctx.fill();
-        }
-        p.px = x; p.py = y; p.v *= p.acc; p.r += p.v;
-        if (p.r > maxR || x < -30 || y < -30 || y > h + 30) Object.assign(p, spawn(false));
+        p.age++;
+        p.y += p.vy;                                     // sobe
+        const x = p.x + Math.sin(p.phase + p.age * p.swSpd) * p.swAmp;  // leve oscilação horizontal
+        const t = p.age / p.dur;                         // 0 → 1 ao longo da vida
+        const alpha = Math.sin(Math.max(0, Math.min(1, t)) * Math.PI);  // aparece e dissipa suavemente
+        const sz = p.r * 9;
+        ctx.globalAlpha = alpha * 0.9;
+        ctx.drawImage(p.s, x - sz / 2, p.y - sz / 2, sz, sz);
+        if (t >= 1 || p.y < -30) Object.assign(p, spawn(false));       // renasce em baixo
       }
       ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
       if (running) raf = requestAnimationFrame(step);
