@@ -1,0 +1,17 @@
+<!-- Império Global — símbolo (globo) para favicon / aplicação isolada.
+     RECRIAÇÃO FIEL ao manual. TODO: substituir pelo vetor oficial (imperio_symbol.svg). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Império Global">
+  <g fill="none" stroke="#013F80" stroke-width="2">
+    <circle cx="32" cy="30" r="26"/>
+    <ellipse cx="32" cy="30" rx="17" ry="26"/>
+    <ellipse cx="32" cy="30" rx="8" ry="26"/>
+    <line x1="32" y1="4" x2="32" y2="56"/>
+    <line x1="9" y1="17" x2="55" y2="17"/>
+    <line x1="6" y1="30" x2="58" y2="30"/>
+    <line x1="9" y1="43" x2="55" y2="43"/>
+  </g>
+  <g fill="none" stroke="#0072CE" stroke-width="2" stroke-linecap="round">
+    <path d="M40 48 Q50 50 56 47"/><path d="M39 51 Q47 55 54 54"/>
+  </g>
+  <g fill="#0072CE"><circle cx="56" cy="47" r="1.8"/><circle cx="54" cy="54" r="1.8"/></g>
+</svg>

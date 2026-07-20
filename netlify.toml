@@ -1,0 +1,9 @@
+# Netlify — publica a raiz do repositório (site estático, sem build).
+[build]
+  publish = "."
+
+# A página 404.html é servida automaticamente pelo Netlify em rotas inexistentes.
+
+# NOTA (formulários): o site usa Formspree por omissão (ver /js/main.js).
+# Para usar Netlify Forms em vez do Formspree, adicionar `netlify` ao <form>
+# e um campo oculto form-name. Ver instruções no README.

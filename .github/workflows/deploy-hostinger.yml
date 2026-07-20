@@ -1,0 +1,44 @@
+name: Publicar na Hostinger
+
+# Publica o site (raiz do repositório) na public_html da Hostinger via FTP,
+# a cada push no branch principal. Configuração única: criar os 3 secrets
+# FTP_HOST, FTP_USERNAME e FTP_PASSWORD em Settings > Secrets and variables > Actions.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir que o site existe antes de publicar
+        run: test -f index.html
+
+      - name: Enviar site para public_html (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          # raiz da conta FTP principal da Hostinger contém public_html;
+          # se a sua conta FTP já cair DENTRO de public_html, troque para "./"
+          server-dir: public_html/
+          # não enviar ficheiros de desenvolvimento
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            build.mjs
+            README.md
+            netlify.toml
+            package*.json

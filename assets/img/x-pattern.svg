@@ -1,0 +1,7 @@
+<!-- Grafismo «X» da marca — usado como padrão de fundo em secções escuras (≤8% opacidade via CSS). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="170" viewBox="0 0 170 170">
+  <g stroke="#AFC4D6" stroke-width="6" stroke-linecap="round" fill="none">
+    <line x1="60" y1="60" x2="110" y2="110"/>
+    <line x1="110" y1="60" x2="60" y2="110"/>
+  </g>
+</svg>

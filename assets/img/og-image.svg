@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#013F80"/><stop offset="1" stop-color="#012C5A"/>
+    </linearGradient>
+    <linearGradient id="xg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0072CE"/><stop offset="1" stop-color="#AFC4D6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- padrão X discreto -->
+  <g stroke="#AFC4D6" stroke-width="8" stroke-linecap="round" opacity=".06">
+    <g transform="translate(930,110)"><line x1="0" y1="0" x2="64" y2="64"/><line x1="64" y1="0" x2="0" y2="64"/></g>
+    <g transform="translate(1030,320)"><line x1="0" y1="0" x2="64" y2="64"/><line x1="64" y1="0" x2="0" y2="64"/></g>
+    <g transform="translate(900,470)"><line x1="0" y1="0" x2="64" y2="64"/><line x1="64" y1="0" x2="0" y2="64"/></g>
+  </g>
+  <!-- globo wireframe -->
+  <g transform="translate(96,230) scale(2.9)" fill="none" stroke="#ffffff" stroke-width="1.5">
+    <circle cx="32" cy="30" r="26"/><ellipse cx="32" cy="30" rx="17" ry="26"/><ellipse cx="32" cy="30" rx="8" ry="26"/>
+    <line x1="32" y1="4" x2="32" y2="56"/><line x1="9" y1="17" x2="55" y2="17"/><line x1="6" y1="30" x2="58" y2="30"/><line x1="9" y1="43" x2="55" y2="43"/>
+  </g>
+  <!-- wordmark -->
+  <text x="330" y="298" font-family="Archivo, sans-serif" font-weight="700" font-size="82" fill="#ffffff" letter-spacing="2">IMPÉRIO</text>
+  <text x="576" y="345" font-family="Archivo, sans-serif" font-weight="700" font-size="40" fill="#AFC4D6" letter-spacing="8">GLOBAL</text>
+  <text x="332" y="392" font-family="Inter, sans-serif" font-weight="500" font-size="27" fill="#AFC4D6">Excellence in Telecommunications</text>
+  <rect x="332" y="420" width="72" height="5" fill="#0072CE"/>
+  <text x="332" y="472" font-family="Inter, sans-serif" font-weight="400" font-size="24" fill="#e8eef6" opacity=".9">Infraestruturas de telecomunicações · Portugal · Bélgica</text>
+</svg>

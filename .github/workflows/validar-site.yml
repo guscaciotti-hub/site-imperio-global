@@ -1,0 +1,31 @@
+name: Validar site (screenshots)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: validar-site
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Instalar Playwright + Chromium
+        run: npm install playwright@1.60.0 && npx playwright install --with-deps chromium
+      - name: Gerar screenshots (desktop + celular)
+        run: node .github/scripts/screenshots.mjs
+      - name: Publicar prints no branch "validacao"
+        run: |
+          cd shots
+          git init -b validacao
+          git add .
+          git -c user.name="validador" -c user.email="actions@users.noreply.github.com" \
+            commit -m "Screenshots de validacao ($(date -u +%Y-%m-%d\ %H:%M) UTC)"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" validacao
