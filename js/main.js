@@ -74,8 +74,27 @@ const T = I18N[LANG] || I18N.pt;
     makeSprite('rgba(0,114,206,0.55)'), makeSprite('rgba(90,169,236,0.60)'),
     makeSprite('rgba(120,180,240,0.50)'), makeSprite('rgba(175,196,214,0.45)'),
   ];
+  // Sprites para FUNDO CLARO — ponto azul sólido (visível sobre branco), blend normal
+  function makeSpriteDark(core){
+    const s = 64, oc = document.createElement('canvas'); oc.width = oc.height = s;
+    const g = oc.getContext('2d');
+    const gr = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+    gr.addColorStop(0, core);
+    gr.addColorStop(0.45, core.replace(/[\d.]+\)$/, '0.35)'));
+    gr.addColorStop(1, 'rgba(0,114,206,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(s / 2, s / 2, s / 2, 0, 6.2832); g.fill();
+    return oc;
+  }
+  const SPRITES_DARK = [
+    makeSpriteDark('rgba(0,90,166,0.95)'), makeSpriteDark('rgba(0,114,206,0.90)'),
+    makeSpriteDark('rgba(44,46,90,0.85)'), makeSpriteDark('rgba(0,114,206,0.80)'),
+  ];
 
   heroes.forEach((hero) => {
+    const light = hero.classList.contains('hero--light');   // fundo claro → pontos azuis, blend normal
+    const sprites = light ? SPRITES_DARK : SPRITES;
+    const comp = light ? 'source-over' : 'lighter';
+    const baseAlpha = light ? 0.55 : 0.72;
     const canvas = document.createElement('canvas');
     canvas.className = 'hero__fiber';
     canvas.setAttribute('aria-hidden', 'true');
@@ -102,12 +121,12 @@ const T = I18N[LANG] || I18N.pt;
         vy: -(0.10 + Math.random() * 0.34),              // sobe (vertical, de baixo para cima)
         swAmp: 4 + Math.random() * 14, swSpd: 0.006 + Math.random() * 0.014, phase: Math.random() * 6.28,
         age: seed ? Math.random() * 260 : 0, dur: 240 + Math.random() * 340,
-        s: SPRITES[(Math.random() * SPRITES.length) | 0],
+        s: sprites[(Math.random() * sprites.length) | 0],
       };
     }
     function step(){
       ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = comp;
       for (const p of parts){
         p.age++;
         p.y += p.vy;                                     // sobe
@@ -115,7 +134,7 @@ const T = I18N[LANG] || I18N.pt;
         const t = p.age / p.dur;                         // 0 → 1 ao longo da vida
         const alpha = Math.sin(Math.max(0, Math.min(1, t)) * Math.PI);  // aparece e dissipa suavemente
         const sz = p.r * 8;
-        ctx.globalAlpha = alpha * 0.72;
+        ctx.globalAlpha = alpha * baseAlpha;
         ctx.drawImage(p.s, x - sz / 2, p.y - sz / 2, sz, sz);
         if (t >= 1 || p.y < -30) Object.assign(p, spawn(false));       // renasce em baixo
       }
