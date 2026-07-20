@@ -26,10 +26,25 @@ const FILE = {
 };
 const PAGES = Object.keys(FILE);
 
+// Caminho absoluto a partir da raiz do site — usado para SEO (canonical/hreflang/OG).
 const pathFor = (lang, page) => {
   const pre = lang === 'pt' ? '' : `/${lang}`;
   if (page === 'index') return pre + '/';
   return `${pre}/${FILE[page]}`;
+};
+
+// Prefixo relativo para assets (css/js/imagens) conforme a profundidade do idioma.
+// PT está na raiz (''); EN/FR estão um nível abaixo ('../'). Torna o site portável
+// em qualquer base (raiz de domínio, subpasta do GitHub Pages, etc.).
+const upFor = (lang) => (lang === 'pt' ? '' : '../');
+
+// Ligação interna RELATIVA entre páginas (preserva a página ao trocar de idioma).
+const relLink = (fromLang, toLang, page) => {
+  const up = upFor(fromLang);
+  const toDir = toLang === 'pt' ? '' : `${toLang}/`;
+  const file = page === 'index' ? '' : FILE[page];
+  const r = up + toDir + file;
+  return r === '' ? './' : r;
 };
 
 /* -------------------------------------------------- Ícones de linha (SVG) */
@@ -396,6 +411,7 @@ const logoAlt = 'Império Global';
 
 function head(lang, page, S) {
   const p = S.pages[page];
+  const B = upFor(lang);
   const canonical = BASE + pathFor(lang, page);
   const alt = LANGS.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + pathFor(l, page)}">`).join('\n');
   const jsonld = page === 'index' ? `
@@ -423,32 +439,33 @@ ${alt}
   <meta name="twitter:title" content="${p.title}">
   <meta name="twitter:description" content="${p.desc}">
   <meta name="twitter:image" content="${BASE}/assets/img/og-image.png">
-  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/icon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/icon-180.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="${B}assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="${B}assets/favicon/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="${B}assets/favicon/icon-180.png">
+  <link rel="manifest" href="${B}site.webmanifest">
   <meta name="theme-color" content="#013F80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="/css/style.css">${jsonld}
+  <link rel="stylesheet" href="${B}css/style.css">${jsonld}
 </head>
 <body>
   <a href="#conteudo" class="skip-link" style="position:absolute;left:-999px">${S.skip}</a>`;
 }
 
 function header(lang, page, S) {
+  const B = upFor(lang);
   const links = ['index','sobre','servicos','areas','recrutamento','contacto']
-    .map(k => `          <a href="${pathFor(lang, k)}"${k === page ? ' aria-current="page"' : ''}>${S.nav[k]}</a>`)
+    .map(k => `          <a href="${relLink(lang, lang, k)}"${k === page ? ' aria-current="page"' : ''}>${S.nav[k]}</a>`)
     .join('\n');
   const langsel = LANGS.map(l =>
-    `<a href="${pathFor(l, page)}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`
+    `<a href="${relLink(lang, l, page)}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`
   ).join('<span>|</span>');
   return `
   <header class="site-header">
     <div class="container nav">
-      <a class="nav__logo" href="${pathFor(lang,'index')}" aria-label="${logoAlt}">
-        <img src="/assets/logo/imperio_primary.svg" alt="${logoAlt}" width="300" height="64">
+      <a class="nav__logo" href="${relLink(lang, lang, 'index')}" aria-label="${logoAlt}">
+        <img src="${B}assets/logo/imperio_primary.svg" alt="${logoAlt}" width="300" height="64">
       </a>
       <button class="nav__toggle" aria-label="${S.nav.index}" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
       <div class="nav__menu" id="menu-principal">
@@ -463,27 +480,28 @@ ${links}
 }
 
 function footer(lang, S) {
+  const B = upFor(lang);
   return `
   </main>
   <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
         <div>
-          <img src="/assets/logo/imperio_white.svg" alt="${logoAlt}" width="300" height="64">
+          <img src="${B}assets/logo/imperio_white.svg" alt="${logoAlt}" width="300" height="64">
           <p>${S.tagline}</p>
         </div>
         <div>
           <h4>${S.footer.nav}</h4>
-          <a href="${pathFor(lang,'index')}">${S.nav.index}</a><br>
-          <a href="${pathFor(lang,'sobre')}">${S.nav.sobre}</a><br>
-          <a href="${pathFor(lang,'servicos')}">${S.nav.servicos}</a><br>
-          <a href="${pathFor(lang,'areas')}">${S.nav.areas}</a>
+          <a href="${relLink(lang,lang,'index')}">${S.nav.index}</a><br>
+          <a href="${relLink(lang,lang,'sobre')}">${S.nav.sobre}</a><br>
+          <a href="${relLink(lang,lang,'servicos')}">${S.nav.servicos}</a><br>
+          <a href="${relLink(lang,lang,'areas')}">${S.nav.areas}</a>
         </div>
         <div>
           <h4>${S.footer.empresa}</h4>
-          <a href="${pathFor(lang,'recrutamento')}">${S.nav.recrutamento}</a><br>
-          <a href="${pathFor(lang,'contacto')}">${S.nav.contacto}</a><br>
-          <a href="${pathFor(lang,'privacidade')}">${S.footer.privacidade}</a>
+          <a href="${relLink(lang,lang,'recrutamento')}">${S.nav.recrutamento}</a><br>
+          <a href="${relLink(lang,lang,'contacto')}">${S.nav.contacto}</a><br>
+          <a href="${relLink(lang,lang,'privacidade')}">${S.footer.privacidade}</a>
         </div>
         <div>
           <h4>${S.footer.contacto}</h4>
@@ -501,11 +519,11 @@ function footer(lang, S) {
     <div class="cookies__actions">
       <button class="btn btn--primario" data-cookie="accept">${S.cookies.accept}</button>
       <button class="btn btn--secundario" data-cookie="reject">${S.cookies.reject}</button>
-      <a href="${pathFor(lang,'privacidade')}" class="btn btn--secundario">${S.cookies.more}</a>
+      <a href="${relLink(lang,lang,'privacidade')}" class="btn btn--secundario">${S.cookies.more}</a>
     </div>
   </div>
   <a class="whatsapp-float" href="#" aria-label="WhatsApp" rel="noopener">${ICON.wa}</a>
-  <script src="/js/main.js" defer></script>
+  <script src="${B}js/main.js" defer></script>
 </body>
 </html>`;
 }
@@ -516,7 +534,7 @@ function ctaFinal(lang, S) {
       <div class="container">
         <h2 class="rv">${S.cta.title}</h2>
         <p class="lead rv" style="margin:0 auto 1.5rem">${S.cta.text}</p>
-        <a href="${pathFor(lang,'contacto')}" class="btn btn--primario rv">${S.cta.btn}</a>
+        <a href="${relLink(lang,lang,'contacto')}" class="btn btn--primario rv">${S.cta.btn}</a>
       </div>
     </section>`;
 }
@@ -540,8 +558,8 @@ function bodyIndex(lang, S) {
         <h1 class="rv">${p.heroTitle}</h1>
         <p class="hero__sub rv">${p.heroSub}</p>
         <div class="hero__cta rv">
-          <a href="${pathFor(lang,'contacto')}" class="btn btn--primario">${p.ctaPrimary}</a>
-          <a href="${pathFor(lang,'servicos')}" class="btn btn--fantasma">${p.ctaSecondary}</a>
+          <a href="${relLink(lang,lang,'contacto')}" class="btn btn--primario">${p.ctaPrimary}</a>
+          <a href="${relLink(lang,lang,'servicos')}" class="btn btn--fantasma">${p.ctaSecondary}</a>
         </div>
       </div>
     </section>
@@ -553,7 +571,7 @@ function bodyIndex(lang, S) {
         <h2 class="rv">${p.servTitle}</h2>
         <div class="grid grid--4" style="margin-top:2.5rem">${cards}
         </div>
-        <p class="center" style="margin-top:2.5rem"><a href="${pathFor(lang,'servicos')}" class="btn btn--secundario">${p.servAll}</a></p>
+        <p class="center" style="margin-top:2.5rem"><a href="${relLink(lang,lang,'servicos')}" class="btn btn--secundario">${p.servAll}</a></p>
       </div>
     </section>
     <section class="section section--nevoa">
@@ -661,7 +679,7 @@ function field(id, label, input, req = true) {
 function bodyRecrutamento(lang, S) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
-  const consent = p.consent.replace('{priv}', pathFor(lang, 'privacidade'));
+  const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
@@ -697,7 +715,7 @@ function bodyRecrutamento(lang, S) {
 function bodyContacto(lang, S) {
   const p = S.pages.contacto; const f = p.f;
   const opts = p.assuntos.map(a => `<option>${a}</option>`).join('');
-  const consent = p.consent.replace('{priv}', pathFor(lang, 'privacidade'));
+  const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
@@ -765,7 +783,7 @@ function body404(lang, S) {
       <div class="code">${p.code}</div>
       <h1>${p.h1}</h1>
       <p class="lead" style="margin:1rem auto 2rem">${p.text}</p>
-      <a href="${pathFor(lang,'index')}" class="btn btn--primario">${p.btn}</a>
+      <a href="${relLink(lang,lang,'index')}" class="btn btn--primario">${p.btn}</a>
     </section>`;
 }
 
