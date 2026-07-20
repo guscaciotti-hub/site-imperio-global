@@ -170,7 +170,7 @@ p{ margin:0 0 1rem }
     linear-gradient(100deg, rgba(1,44,90,.92) 0%, rgba(1,44,90,.72) 38%, rgba(1,31,64,.30) 72%, rgba(1,20,43,.55) 100%),
     linear-gradient(to bottom, rgba(1,20,43,0) 55%, rgba(1,20,43,.55) 100%);
 }
-.hero--home .hero__fiber{ opacity:.55; mix-blend-mode:screen }  /* feixes animados sobre a foto, discretos */
+.hero--home .hero__fiber{ opacity:.45; mix-blend-mode:screen }  /* partículas subtis sobre a foto */
 @keyframes kenburns{
   from{ transform:scale(1.04) translate(0,0) }
   to{ transform:scale(1.12) translate(-1.4%,-1%) }

@@ -88,7 +88,7 @@ const T = I18N[LANG] || I18N.pt;
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.max(1, w * dpr); canvas.height = Math.max(1, h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.min(120, Math.round(w * h / 13000));
+      const n = Math.min(90, Math.round(w * h / 20000));
       parts = Array.from({ length: n }, () => spawn(true));
     }
     // partícula de energia: nasce em baixo (na zona luminosa da foto) e sobe, dissipando no topo
@@ -98,7 +98,7 @@ const T = I18N[LANG] || I18N.pt;
       const y = seed ? Math.random() * h : h * (0.60 + Math.random() * 0.45);
       return {
         x, y,
-        r: 0.8 + Math.random() * 2.4,                    // raio do ponto
+        r: 0.5 + Math.random() * 1.3,                    // raio do ponto (subtil)
         vy: -(0.10 + Math.random() * 0.34),              // sobe (vertical, de baixo para cima)
         swAmp: 4 + Math.random() * 14, swSpd: 0.006 + Math.random() * 0.014, phase: Math.random() * 6.28,
         age: seed ? Math.random() * 260 : 0, dur: 240 + Math.random() * 340,
@@ -114,8 +114,8 @@ const T = I18N[LANG] || I18N.pt;
         const x = p.x + Math.sin(p.phase + p.age * p.swSpd) * p.swAmp;  // leve oscilação horizontal
         const t = p.age / p.dur;                         // 0 → 1 ao longo da vida
         const alpha = Math.sin(Math.max(0, Math.min(1, t)) * Math.PI);  // aparece e dissipa suavemente
-        const sz = p.r * 9;
-        ctx.globalAlpha = alpha * 0.9;
+        const sz = p.r * 7;
+        ctx.globalAlpha = alpha * 0.5;
         ctx.drawImage(p.s, x - sz / 2, p.y - sz / 2, sz, sz);
         if (t >= 1 || p.y < -30) Object.assign(p, spawn(false));       // renasce em baixo
       }
