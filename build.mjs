@@ -552,7 +552,7 @@ function bodyIndex(lang, S) {
   const stats = p.stats.map(x => `
           <div class="rv"><div class="stat__num" data-count="${x.n}"${x.pre ? ` data-prefix="${x.pre}"` : ''}>${x.pre}0</div><div class="stat__label">${x.l}</div></div>`).join('');
   return `
-    <section class="hero hero--home">
+    <section class="hero hero--home hero--light">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner">
         <h1 class="rv">${p.heroTitle}</h1>
