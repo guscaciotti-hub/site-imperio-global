@@ -992,25 +992,18 @@ function field(id, label, input, req = true) {
           </div>`;
 }
 
-function bodyRecrutamento(lang, S, up = upFor(lang)) {
+function bodyRecrutamento(lang, S) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  // Banner de topo (imagem com título e intro embutidos) — só PT, pois o texto é PT.
-  const imgHero = lang === 'pt';
-  const hero = imgHero ? `
-    <h1 class="sr-only">${p.h1}</h1>
-    <section class="hero-photo">
-      <img src="${up}assets/img/recrutamento.jpg" alt="${p.eyebrow} — ${p.h1}. ${p.intro}" width="1717" height="916" loading="eager" fetchpriority="high">
-    </section>` : `
+  return `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1></div>
-    </section>`;
-  return `${hero}
-    <section class="section"${imgHero ? ' style="padding-top:clamp(24px,4vw,40px)"' : ''}>
+    </section>
+    <section class="section">
       <div class="container">
-        ${imgHero ? '' : `<p class="lead rv">${p.intro}</p>`}
+        <p class="lead rv">${p.intro}</p>
         <h2 class="rv" style="margin:2.5rem 0 1.5rem">${p.formTitle}</h2>
         <!-- Formspree: ver FORMSPREE_ID em /js/main.js. Alternativa Netlify Forms: ver README. -->
         <form class="form rv" data-formspree method="POST" enctype="multipart/form-data" novalidate>
