@@ -900,18 +900,13 @@ function bodyIndex(lang, S, up = upFor(lang)) {
 ${ctaFinal(lang, S)}`;
 }
 
-// PADRÃO de hero com imagem (banner desenhado, ~75vh). O texto está embutido
-// na imagem em PT, por isso só se usa em PT; EN/FR mantêm o hero de texto traduzido.
+// PADRÃO de hero com fotografia de fundo + texto real (HTML) alinhado ao
+// container/logo — como o hero da home. Altura controlada (~60vh). Funciona
+// em qualquer idioma (o texto é HTML, não está embutido na imagem).
 function heroBanner(lang, up, img, eyebrow, h1) {
-  if (lang !== 'pt') return `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${eyebrow}</span><h1>${h1}</h1></div>
-    </section>`;
   return `
-    <h1 class="sr-only">${h1}</h1>
-    <section class="hero-photo">
-      <img src="${up}assets/img/${img}" alt="${eyebrow} — ${h1}" width="1717" height="916" loading="eager" fetchpriority="high">
+    <section class="hero hero--photo" style="background-image:url('${up}assets/img/${img}')">
+      <div class="container hero__inner"><span class="eyebrow">${eyebrow}</span><h1>${h1}</h1></div>
     </section>`;
 }
 
@@ -919,7 +914,7 @@ function bodySobre(lang, S, up = upFor(lang)) {
   const p = S.pages.sobre;
   const valores = p.valores.map(x => `
           <article class="card"><h3>${x.t}</h3><p>${x.d}</p></article>`).join('');
-  return `${heroBanner(lang, up, 'sobre.jpg', p.eyebrow, p.h1)}
+  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1)}
     <section class="section">
       <div class="container">
         <p class="lead rv">${p.intro}</p>

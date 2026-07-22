@@ -463,10 +463,20 @@ p{ margin:0 0 1rem }
 .article-cover img{ display:block; width:100%; height:auto }
 .article-lead__meta{ max-width:1000px; margin:1.25rem 0 0; color:var(--cinza-texto); display:flex; align-items:center; flex-wrap:wrap; gap:.6rem }
 .article-lead__meta .badge{ margin:0 }
-/* PADRÃO — hero com imagem (banner desenhado). ~75vh no desktop; sem distorcao. */
-.hero-photo{ width:100%; overflow:hidden; line-height:0; background:var(--azul-imperio) }
-.hero-photo img{ display:block; width:100%; height:clamp(420px,74vh,800px); object-fit:cover; object-position:left center }
-@media (max-width:640px){ .hero-photo img{ height:58vw; min-height:220px } }
+/* PADRÃO — hero com fotografia de fundo + texto alinhado ao container (como a home) */
+.hero--photo{ background-color:#01142b; background-size:cover; background-position:center right;
+  background-repeat:no-repeat; min-height:clamp(440px,58vh,580px);
+  display:flex; align-items:center; padding-block:clamp(40px,6vw,64px) }
+.hero--photo::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(100deg, rgba(1,18,40,.55) 0%, rgba(1,18,40,.28) 42%, rgba(1,18,40,0) 66%) }
+.hero--photo .hero__inner{ position:relative; z-index:3; max-width:var(--max); width:100% }
+.hero--photo .hero__inner > *{ max-width:640px }
+.hero--photo h1{ color:#fff }
+.hero--photo .eyebrow{ color:var(--azul-sinal) }
+@media (max-width:640px){
+  .hero--photo{ min-height:clamp(340px,52vh,460px); background-position:center }
+  .hero--photo::after{ background:linear-gradient(180deg, rgba(1,18,40,.62) 0%, rgba(1,18,40,.42) 60%, rgba(1,18,40,.30) 100%) }
+}
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }
 .toc ul{ margin:0; padding:0 }
