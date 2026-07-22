@@ -814,8 +814,9 @@ function ctaFinal(lang, S) {
 }
 
 /* -------------------------------------------------- Corpo por página */
-function bodyIndex(lang, S) {
+function bodyIndex(lang, S, up = upFor(lang)) {
   const p = S.pages.index;
+  const HX = HOME_EXTRA[lang];
   const cards = p.serv.map(s => `
           <article class="card rv">
             <div class="card__icon" aria-hidden="true">${ICON[s.i]}</div>
@@ -826,6 +827,42 @@ function bodyIndex(lang, S) {
   // Números do hero — estáticos (valor final desde o 1.º frame; só fade-in via .rv, sem contagem)
   const heroStats = p.heroStats.map(x => `
           <div class="hero-stat"><span class="hero-stat__num">${x.v}</span><span class="hero-stat__label">${x.l}</span></div>`).join('');
+  // Secção do blog na home — últimos artigos
+  const blogHref = relLinkUp(up, lang, 'blog');
+  const latest = ARTICLES.filter(a => a.langs[lang]).sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+  const blogSection = latest.length ? `
+    <section class="section section--nevoa">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow rv">${HX.blogEyebrow}</span><h2 class="rv mb-0">${HX.blogTitle}</h2></div>
+          <a href="${blogHref}" class="btn btn--secundario rv">${HX.blogAll}</a>
+        </div>
+        <div class="post-grid" style="margin-top:2.5rem">${latest.map(a => articleCard(lang, a, blogHref)).join('')}</div>
+      </div>
+    </section>` : '';
+  // Secção Newsletter (premium)
+  const nlConsent = HX.nlConsent.replace('{priv}', relLinkUp(up, lang, 'privacidade'));
+  const newsletter = `
+    <section class="newsletter section--x">
+      <div class="container newsletter__inner">
+        <span class="eyebrow rv">${HX.nlEyebrow}</span>
+        <h2 class="rv">${HX.nlTitle}</h2>
+        <p class="newsletter__text rv">${HX.nlText}</p>
+        <!-- Newsletter via Formspree — TODO: confirmar lista/endpoint dedicado. -->
+        <form class="newsletter__form rv" data-formspree method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Newsletter — Império Global">
+          <div class="newsletter__row">
+            <input id="nl-email" name="email" type="email" required placeholder="${HX.nlPlaceholder}" aria-label="${HX.nlPlaceholder}">
+            <button type="submit" class="btn btn--primario">${HX.nlBtn}</button>
+          </div>
+          <div class="consent newsletter__consent">
+            <input id="nl-consent" name="consentimento" type="checkbox" required>
+            <label for="nl-consent">${nlConsent}</label>
+          </div>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>`;
   return `
     <section class="hero hero--home">
       <div class="hero__pattern" aria-hidden="true"></div>
@@ -859,7 +896,7 @@ function bodyIndex(lang, S) {
         <div class="grid grid--4 stagger" style="margin-top:2.5rem">${pillars}
         </div>
       </div>
-    </section>
+    </section>${blogSection}${newsletter}
 ${ctaFinal(lang, S)}`;
 }
 
@@ -1176,6 +1213,25 @@ for (const l of LANGS) {
   STRINGS[l].pages.blog = { title: BLOG_UI[l].metaTitle, desc: BLOG_UI[l].metaDesc };
 }
 
+// Textos da Home: secção do blog + newsletter
+const HOME_EXTRA = {
+  pt: { blogEyebrow:'Insights', blogTitle:'Do nosso blog', blogAll:'Ver o blog',
+    nlEyebrow:'Newsletter', nlTitle:'Um artigo técnico por mês. Sem ruído.',
+    nlText:'Receba as nossas análises sobre construção, expansão e manutenção de infraestruturas de telecomunicações. Um email por mês — cancela quando quiser.',
+    nlPlaceholder:'O seu email profissional', nlBtn:'Subscrever',
+    nlConsent:'Autorizo o envio da newsletter e li a <a href="{priv}">Política de Privacidade</a>.' },
+  en: { blogEyebrow:'Insights', blogTitle:'From our blog', blogAll:'Visit the blog',
+    nlEyebrow:'Newsletter', nlTitle:'One technical article a month. No noise.',
+    nlText:'Get our analysis on the construction, expansion and maintenance of telecommunications infrastructure. One email a month — unsubscribe anytime.',
+    nlPlaceholder:'Your work email', nlBtn:'Subscribe',
+    nlConsent:'I agree to receive the newsletter and have read the <a href="{priv}">Privacy Policy</a>.' },
+  fr: { blogEyebrow:'Perspectives', blogTitle:'Notre blog', blogAll:'Voir le blog',
+    nlEyebrow:'Newsletter', nlTitle:'Un article technique par mois. Sans bruit.',
+    nlText:'Recevez nos analyses sur la construction, l’expansion et la maintenance d’infrastructures de télécommunications. Un e-mail par mois — désabonnement à tout moment.',
+    nlPlaceholder:'Votre e-mail professionnel', nlBtn:'S’abonner',
+    nlConsent:'J’accepte de recevoir la newsletter et j’ai lu la <a href="{priv}">Politique de confidentialité</a>.' },
+};
+
 const articleUrl = (lang, art) => (lang === 'pt' ? `/blog/${art.slug}.html` : `/${lang}/blog/${art.slug}.html`);
 const stripTags = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const readingTime = (html) => Math.max(1, Math.round(stripTags(html).split(' ').length / 200));
@@ -1192,11 +1248,11 @@ function articleLangSel(lang, art, up) {
   }).join('<span>|</span>');
 }
 
-function articleCard(lang, art, up) {
+function articleCard(lang, art, hrefPrefix = '') {
   const a = art.langs[lang]; if (!a) return '';
   const cat = CATEGORIES[lang][art.cat] || art.cat;
   const rt = readingTime(a.body);
-  const href = `${art.slug}.html`;
+  const href = `${hrefPrefix}${art.slug}.html`;
   return `
         <article class="post-card" data-cat="${art.cat}">
           <a href="${href}" class="post-card__thumb" aria-hidden="true" tabindex="-1"><span>${cat}</span></a>
@@ -1215,7 +1271,7 @@ function bodyBlogIndex(lang, S, up) {
   const cats = [...new Set(arts.map(a => a.cat))];
   const filters = `<button class="chip is-active" data-filter="all">${ui.all}</button>` +
     cats.map(c => `<button class="chip" data-filter="${c}">${CATEGORIES[lang][c]}</button>`).join('');
-  const cards = arts.map(a => articleCard(lang, a, up)).join('') || `<p>${ui.empty}</p>`;
+  const cards = arts.map(a => articleCard(lang, a)).join('') || `<p>${ui.empty}</p>`;
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,100px)">
       <div class="container hero__inner"><span class="eyebrow">${ui.eyebrow}</span><h1>${ui.h1}</h1><p class="hero__sub" style="margin-bottom:0">${ui.lead}</p></div>
@@ -1258,7 +1314,7 @@ function bodyArticle(lang, art, S, up) {
     <section class="section section--nevoa">
       <div class="container">
         <h2 style="margin-bottom:1.5rem">${ui.related}</h2>
-        <div class="post-grid">${related.map(r => articleCard(lang, r, up)).join('')}</div>
+        <div class="post-grid">${related.map(r => articleCard(lang, r)).join('')}</div>
       </div>
     </section>` : '';
   return `

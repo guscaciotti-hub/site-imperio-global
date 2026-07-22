@@ -112,6 +112,26 @@
         </div>
       </div>
     </section>
+    <section class="newsletter section--x">
+      <div class="container newsletter__inner">
+        <span class="eyebrow rv">Newsletter</span>
+        <h2 class="rv">One technical article a month. No noise.</h2>
+        <p class="newsletter__text rv">Get our analysis on the construction, expansion and maintenance of telecommunications infrastructure. One email a month — unsubscribe anytime.</p>
+        <!-- Newsletter via Formspree — TODO: confirmar lista/endpoint dedicado. -->
+        <form class="newsletter__form rv" data-formspree method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Newsletter — Império Global">
+          <div class="newsletter__row">
+            <input id="nl-email" name="email" type="email" required placeholder="Your work email" aria-label="Your work email">
+            <button type="submit" class="btn btn--primario">Subscribe</button>
+          </div>
+          <div class="consent newsletter__consent">
+            <input id="nl-consent" name="consentimento" type="checkbox" required>
+            <label for="nl-consent">I agree to receive the newsletter and have read the <a href="../en/privacidade.html">Privacy Policy</a>.</label>
+          </div>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
 
     <section class="section cta-final">
       <div class="container">

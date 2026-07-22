@@ -112,6 +112,26 @@
         </div>
       </div>
     </section>
+    <section class="newsletter section--x">
+      <div class="container newsletter__inner">
+        <span class="eyebrow rv">Newsletter</span>
+        <h2 class="rv">Un article technique par mois. Sans bruit.</h2>
+        <p class="newsletter__text rv">Recevez nos analyses sur la construction, l’expansion et la maintenance d’infrastructures de télécommunications. Un e-mail par mois — désabonnement à tout moment.</p>
+        <!-- Newsletter via Formspree — TODO: confirmar lista/endpoint dedicado. -->
+        <form class="newsletter__form rv" data-formspree method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Newsletter — Império Global">
+          <div class="newsletter__row">
+            <input id="nl-email" name="email" type="email" required placeholder="Votre e-mail professionnel" aria-label="Votre e-mail professionnel">
+            <button type="submit" class="btn btn--primario">S’abonner</button>
+          </div>
+          <div class="consent newsletter__consent">
+            <input id="nl-consent" name="consentimento" type="checkbox" required>
+            <label for="nl-consent">J’accepte de recevoir la newsletter et j’ai lu la <a href="../fr/privacidade.html">Politique de confidentialité</a>.</label>
+          </div>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
 
     <section class="section cta-final">
       <div class="container">

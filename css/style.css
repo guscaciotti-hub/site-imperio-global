@@ -476,3 +476,28 @@ p{ margin:0 0 1rem }
   .post-grid{ grid-template-columns:1fr }
   .article__body blockquote{ font-size:1.15rem }
 }
+
+/* Cabeçalho de secção (título + botão) — usado na secção do blog da home */
+.section-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:1.5rem; flex-wrap:wrap }
+.section-head .eyebrow{ margin-bottom:.5rem }
+
+/* ==================================================== NEWSLETTER (premium) */
+.newsletter{ position:relative; overflow:hidden; color:#fff;
+  background:linear-gradient(135deg, var(--indigo-profundo), var(--azul-imperio-900));
+  padding:clamp(64px,8vw,104px) 0 }
+.newsletter__inner{ max-width:640px; margin-inline:auto; text-align:center; position:relative; z-index:1 }
+.newsletter .eyebrow{ color:var(--prata-tecnica) }
+.newsletter h2{ color:#fff; max-width:22ch; margin-inline:auto }
+.newsletter__text{ color:var(--prata-tecnica); margin:0 auto; max-width:52ch }
+.newsletter__form{ margin-top:1.75rem }
+.newsletter__row{ display:flex; gap:.75rem }
+.newsletter__row input{ flex:1; min-width:0; padding:.9rem 1.1rem; font-size:1rem; color:#fff;
+  border:1px solid rgba(255,255,255,.22); border-radius:var(--raio); background:rgba(255,255,255,.08) }
+.newsletter__row input::placeholder{ color:rgba(255,255,255,.6) }
+.newsletter__row input:focus{ outline:none; border-color:var(--azul-sinal); background:rgba(255,255,255,.14) }
+.newsletter__row .btn{ white-space:nowrap }
+.newsletter__consent{ margin-top:1rem; justify-content:center; text-align:left; color:var(--prata-tecnica); font-size:.85rem }
+.newsletter__consent a{ color:#fff; text-decoration:underline }
+.newsletter__consent input{ accent-color:var(--azul-sinal) }
+.newsletter .form__status{ color:#fff; text-align:center }
+@media (max-width:560px){ .newsletter__row{ flex-direction:column } .newsletter__row .btn{ width:100% } }
