@@ -837,7 +837,7 @@ function bodyIndex(lang, S, up = upFor(lang)) {
           <div><span class="eyebrow rv">${HX.blogEyebrow}</span><h2 class="rv mb-0">${HX.blogTitle}</h2></div>
           <a href="${blogHref}" class="btn btn--secundario rv">${HX.blogAll}</a>
         </div>
-        <div class="post-grid" style="margin-top:2.5rem">${latest.map(a => articleCard(lang, a, blogHref)).join('')}</div>
+        <div class="post-grid" style="margin-top:2.5rem">${latest.map(a => articleCard(lang, a, blogHref, up)).join('')}</div>
       </div>
     </section>` : '';
   // Secção Newsletter (premium)
@@ -992,18 +992,29 @@ function field(id, label, input, req = true) {
           </div>`;
 }
 
-function bodyRecrutamento(lang, S) {
+function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  return `
+  // Banner de topo (imagem com título e intro embutidos) — só PT, pois o texto é PT.
+  const imgHero = lang === 'pt';
+  const hero = imgHero ? `
+    <h1 class="sr-only">${p.h1}</h1>
+    <section class="section article-lead">
+      <div class="container">
+        <figure class="article-cover page-cover">
+          <img src="${up}assets/img/recrutamento.jpg" alt="${p.eyebrow} — ${p.h1}. ${p.intro}" width="1717" height="916" loading="eager" fetchpriority="high">
+        </figure>
+      </div>
+    </section>` : `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1></div>
-    </section>
-    <section class="section">
+    </section>`;
+  return `${hero}
+    <section class="section"${imgHero ? ' style="padding-top:clamp(24px,4vw,40px)"' : ''}>
       <div class="container">
-        <p class="lead rv">${p.intro}</p>
+        ${imgHero ? '' : `<p class="lead rv">${p.intro}</p>`}
         <h2 class="rv" style="margin:2.5rem 0 1.5rem">${p.formTitle}</h2>
         <!-- Formspree: ver FORMSPREE_ID em /js/main.js. Alternativa Netlify Forms: ver README. -->
         <form class="form rv" data-formspree method="POST" enctype="multipart/form-data" novalidate>
@@ -1248,14 +1259,16 @@ function articleLangSel(lang, art, up) {
   }).join('<span>|</span>');
 }
 
-function articleCard(lang, art, hrefPrefix = '') {
+function articleCard(lang, art, hrefPrefix = '', assetUp = '') {
   const a = art.langs[lang]; if (!a) return '';
   const cat = CATEGORIES[lang][art.cat] || art.cat;
   const rt = readingTime(a.body);
   const href = `${hrefPrefix}${art.slug}.html`;
+  const hasCover = !!art.cover;
+  const coverStyle = hasCover ? ` style="background-image:url('${assetUp}assets/img/blog/${art.cover}')"` : '';
   return `
         <article class="post-card" data-cat="${art.cat}">
-          <a href="${href}" class="post-card__thumb" aria-hidden="true" tabindex="-1"><span>${cat}</span></a>
+          <a href="${href}" class="post-card__thumb${hasCover ? ' post-card__thumb--img' : ''}"${coverStyle} aria-hidden="true" tabindex="-1"><span>${cat}</span></a>
           <div class="post-card__body">
             <span class="badge">${cat}</span>
             <h3><a href="${href}">${a.title}</a></h3>
@@ -1271,7 +1284,7 @@ function bodyBlogIndex(lang, S, up) {
   const cats = [...new Set(arts.map(a => a.cat))];
   const filters = `<button class="chip is-active" data-filter="all">${ui.all}</button>` +
     cats.map(c => `<button class="chip" data-filter="${c}">${CATEGORIES[lang][c]}</button>`).join('');
-  const cards = arts.map(a => articleCard(lang, a)).join('') || `<p>${ui.empty}</p>`;
+  const cards = arts.map(a => articleCard(lang, a, '', up)).join('') || `<p>${ui.empty}</p>`;
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,100px)">
       <div class="container hero__inner"><span class="eyebrow">${ui.eyebrow}</span><h1>${ui.h1}</h1><p class="hero__sub" style="margin-bottom:0">${ui.lead}</p></div>
@@ -1291,10 +1304,11 @@ function headArticle(lang, art, S, up) {
   const avail = LANGS.filter(l => art.langs[l]);
   const alt = avail.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + articleUrl(l, art)}">`).join('\n');
   const rt = readingTime(a.body);
-  const schema = `{"@context":"https://schema.org","@type":"Article","headline":${JSON.stringify(a.title)},"description":${JSON.stringify(a.desc)},"inLanguage":"${lang}","datePublished":"${art.date}","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"${BASE}/assets/favicon/icon-512.png"}},"mainEntityOfPage":"${canonical}","image":"${BASE}/assets/img/blog/${art.slug}-og.png","timeRequired":"PT${rt}M"}`;
+  const ogImg = `${BASE}/assets/img/blog/${art.cover || art.slug + '-og.png'}`;
+  const schema = `{"@context":"https://schema.org","@type":"Article","headline":${JSON.stringify(a.title)},"description":${JSON.stringify(a.desc)},"inLanguage":"${lang}","datePublished":"${art.date}","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"${BASE}/assets/favicon/icon-512.png"}},"mainEntityOfPage":"${canonical}","image":"${ogImg}","timeRequired":"PT${rt}M"}`;
   return head(lang, 'blog', S, up, {
     title: `${a.title} — Império Global`, desc: a.desc, canonical, alt,
-    ogImage: `${BASE}/assets/img/blog/${art.slug}-og.png`, schema,
+    ogImage: ogImg, schema,
   });
 }
 
@@ -1314,18 +1328,29 @@ function bodyArticle(lang, art, S, up) {
     <section class="section section--nevoa">
       <div class="container">
         <h2 style="margin-bottom:1.5rem">${ui.related}</h2>
-        <div class="post-grid">${related.map(r => articleCard(lang, r)).join('')}</div>
+        <div class="post-grid">${related.map(r => articleCard(lang, r, '', up)).join('')}</div>
       </div>
     </section>` : '';
-  return `
+  const hero = art.cover ? `
+    <h1 class="sr-only">${a.title}</h1>
+    <section class="section article-lead">
+      <div class="container">
+        <a class="article-back" href="${relLinkUp(up, lang, 'blog')}">← ${S.nav.blog}</a>
+        <figure class="article-cover">
+          <img src="${up}assets/img/blog/${art.cover}" alt="${a.title}" width="1536" height="1024" loading="eager" fetchpriority="high">
+        </figure>
+        <p class="article-meta article-lead__meta"><span class="badge">${cat}</span>${ui.by} ${ui.author} · ${fmtDate(lang, art.date)} · ${rt} ${ui.min}</p>
+      </div>
+    </section>` : `
     <section class="hero" style="padding-block:clamp(48px,8vw,88px)">
       <div class="container hero__inner" style="max-width:820px">
         <span class="eyebrow">${cat}</span>
         <h1 style="font-size:clamp(1.8rem,4.5vw,2.5rem)">${a.title}</h1>
         <p class="article-meta">${ui.by} ${ui.author} · ${fmtDate(lang, art.date)} · ${rt} ${ui.min}</p>
       </div>
-    </section>
-    <section class="section">
+    </section>`;
+  return `${hero}
+    <section class="section" style="padding-top:clamp(24px,4vw,40px)">
       <div class="container">
         <div class="article">
           ${tocHtml}
@@ -1356,6 +1381,7 @@ const ARTICLES = [
     slug: 'manutencao-preventiva-corretiva-fibra-otica',
     cat: 'manutencao',
     date: '2026-07-21',
+    cover: 'manutencao-preventiva-corretiva-fibra-otica-cover.jpg',
     langs: {
       pt: {
         title: 'Manutenção preventiva vs. corretiva em redes de fibra ótica',
