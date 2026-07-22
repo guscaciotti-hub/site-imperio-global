@@ -1000,12 +1000,8 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const imgHero = lang === 'pt';
   const hero = imgHero ? `
     <h1 class="sr-only">${p.h1}</h1>
-    <section class="section article-lead">
-      <div class="container">
-        <figure class="article-cover page-cover">
-          <img src="${up}assets/img/recrutamento.jpg" alt="${p.eyebrow} — ${p.h1}. ${p.intro}" width="1717" height="916" loading="eager" fetchpriority="high">
-        </figure>
-      </div>
+    <section class="hero-photo">
+      <img src="${up}assets/img/recrutamento.jpg" alt="${p.eyebrow} — ${p.h1}. ${p.intro}" width="1717" height="916" loading="eager" fetchpriority="high">
     </section>` : `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>

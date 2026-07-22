@@ -464,6 +464,9 @@ p{ margin:0 0 1rem }
 .article-lead__meta{ max-width:1000px; margin:1.25rem 0 0; color:var(--cinza-texto); display:flex; align-items:center; flex-wrap:wrap; gap:.6rem }
 .article-lead__meta .badge{ margin:0 }
 .page-cover{ max-width:none }
+/* Faixa hero com imagem (substitui a faixa azul), altura de um hero, sem distorcao */
+.hero-photo{ width:100%; overflow:hidden; line-height:0; background:var(--azul-imperio) }
+.hero-photo img{ display:block; width:100%; height:clamp(320px,33vw,560px); object-fit:cover; object-position:left center }
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }
 .toc ul{ margin:0; padding:0 }
