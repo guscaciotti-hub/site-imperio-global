@@ -234,6 +234,12 @@ p{ margin:0 0 1rem }
 .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; text-align:center }
 .stat__num{ font-family:var(--font-titulo); font-weight:700; font-size:clamp(2.4rem,6vw,3.6rem); color:#fff; line-height:1 }
 .stat__label{ color:var(--prata-tecnica); margin-top:.4rem; font-size:1rem }
+/* Cartões de dados (página Sobre) */
+.stats-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem }
+.stat-card{ border-left:3px solid var(--azul-sinal); padding-left:1.25rem }
+.stat-card__label{ display:block; color:#fff; font-family:var(--font-titulo); font-weight:600; font-size:1.05rem; margin-top:.25rem }
+.stat-card p{ color:var(--prata-tecnica); font-size:.95rem; margin:.5rem 0 0 }
+@media (max-width:768px){ .stats-cards{ grid-template-columns:1fr; gap:1.5rem } }
 
 /* -------------------------------------------------- Blocos de conteúdo */
 .prose{ max-width:70ch }
@@ -287,7 +293,28 @@ p{ margin:0 0 1rem }
 
 /* -------------------------------------------------- Rodapé */
 .site-footer{ background:var(--azul-imperio-900); color:var(--prata-tecnica); padding:clamp(48px,7vw,72px) 0 2rem }
-.footer__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2rem }
+.footer__grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr 1.3fr 1fr; gap:2rem }
+.footer-certifications{ display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; margin-top:2rem; padding:1rem 1.25rem; background:#fff; border-radius:var(--raio); width:max-content; max-width:100% }
+.footer-certifications img{ height:60px; width:auto }
+
+/* -------------------------------------------------- Impressão (Código de Ética → PDF) */
+@media print {
+  .site-header, .site-footer, .cookies, .whatsapp-float, .no-print,
+  .hero__fiber, .hero__pattern, .skip-link { display:none !important }
+  body{ background:#fff !important; color:#000 !important; font-size:11pt }
+  .hero{ background:#fff !important; min-height:0 !important; padding:0 0 10pt !important;
+    border-bottom:2px solid #013F80; margin-bottom:16pt }
+  .hero::before, .hero::after{ display:none !important }
+  .hero h1{ color:#013F80 !important; font-size:20pt }
+  .hero .eyebrow{ color:#0072CE !important }
+  .hero p{ color:#333 !important }
+  .section{ padding:0 !important }
+  .codigo-doc{ max-width:100% !important }
+  .prose h2{ color:#013F80 !important; break-after:avoid }
+  .prose p, .prose li{ break-inside:avoid }
+  a{ color:#000 !important; text-decoration:none }
+  @page{ margin:20mm 18mm }
+}
 .footer__grid img{ height:32px; margin-bottom:1rem }
 /* logótipo original (cores) sobre chip branco no rodapé escuro */
 .site-footer .footer__logo{ height:auto; width:210px; max-width:75%; background:#fff; padding:11px 15px; border-radius:8px; margin-bottom:1.25rem }

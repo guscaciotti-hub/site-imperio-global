@@ -1,40 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: confirmar o domínio final (https://www.imperioglobal.eu). Regenerar se mudar. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://www.imperioglobal.eu/</loc>
+<!-- Gerado automaticamente por build.mjs. Não editar à mão. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.imperioglobal.eu/</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/sobre.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/sobre.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/sobre.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/sobre.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/sobre.html"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/servicos.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/servicos.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/servicos.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/servicos.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/servicos.html"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/areas.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/areas.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/areas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/areas.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/areas.html"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/recrutamento.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/recrutamento.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/recrutamento.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/recrutamento.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/recrutamento.html"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/contacto.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/contacto.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/contacto.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/contacto.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/contacto.html"/>
   </url>
-  <url><loc>https://www.imperioglobal.eu/privacidade.html</loc>
+  <url>
+    <loc>https://www.imperioglobal.eu/privacidade.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/privacidade.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/privacidade.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/privacidade.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/canal-denuncias.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/canal-denuncias.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/canal-denuncias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/canal-denuncias.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/codigo-etica.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/codigo-etica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/codigo-etica.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/codigo-etica.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/cookies.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/termos.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/termos.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/termos.html"/>
   </url>
 </urlset>

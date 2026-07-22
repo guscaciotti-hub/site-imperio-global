@@ -99,6 +99,18 @@ Ativar em **Settings → Pages → Source: GitHub Actions** e correr o workflow 
 - **Responsivo** mobile-first (480 / 768 / 1100px) com menu hambúrguer.
 - **Marca:** cores e tipografia (Archivo + Inter) conforme o Manual de Identidade Visual; elemento «X» como padrão discreto; ícones de linha.
 
+## Aguardando input do cliente (TODOs)
+
+Elementos que dependem de confirmação — cada um marcado com `<!-- TODO -->` no código:
+
+- [ ] **Autorização para nomear MEO / NOS / Vodafone / Proximus** — afeta a linha do hero e a página Sobre (aguarda Soraia).
+- [ ] **Email `denuncias@imperioglobal.eu`** — confirmar/criar; usado no Canal de Denúncias (formulário + email direto).
+- [ ] **Certificações** (ISO 9001 / 14001 / 45001, Alvará IMPIC, ANACOM, EN 1090…) — slot pronto e comentado no rodapé; fornecer PNGs em `/assets/certifications/`.
+- [ ] **Fotografias reais da operação** — para o futuro banco de imagens do blog.
+- [ ] **Nomes de 3 projetos** referenciáveis publicamente — para a futura página `/projetos`.
+- [ ] **Datas** (aprovação do Código de Ética) e **comarca/sede** (Termos) — placeholders `<!-- TODO -->`.
+- [ ] **Formspree ID** e ativação do **WhatsApp** (ver acima).
+
 ## Notas
 
 - **Traduções EN/FR** foram feitas a partir do PT (validado). **Devem passar por revisão nativa** antes da publicação — FR em registo europeu/Bélgica.

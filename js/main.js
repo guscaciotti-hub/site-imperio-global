@@ -255,16 +255,18 @@ document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Da
 
   function validate(form, fileInput){
     let ok = true;
-    // consentimento RGPD obrigatório
-    const consent = form.querySelector('input[name="consentimento"]');
+    // consentimento/declaração obrigatório (qualquer checkbox required do formulário)
+    const consent = form.querySelector('input[type=checkbox][required]');
     if (consent && !consent.checked){ setError(consent, T.consent); ok = false; }
-    // validação de ficheiro (CV)
+    // validação de ficheiro — extensões a partir do atributo accept; limite via data-maxmb (def. 5)
     if (fileInput && fileInput.files.length){
       const f = fileInput.files[0];
-      const okType = /\.(pdf|docx?|)$/i.test(f.name) && /(pdf|word|officedocument|msword|octet-stream)/i.test(f.type || 'application/pdf');
-      const byExt = /\.(pdf|doc|docx)$/i.test(f.name);
-      if (!byExt){ setError(fileInput, T.fileType); ok = false; }
-      else if (f.size > 5 * 1024 * 1024){ setError(fileInput, T.fileBig); ok = false; }
+      const accept = (fileInput.getAttribute('accept') || '.pdf,.doc,.docx').replace(/\s/g, '');
+      const exts = accept.split(',').map(s => s.replace('.', '')).filter(Boolean);
+      const okExt = new RegExp('\\.(' + exts.join('|') + ')$', 'i').test(f.name);
+      const maxMb = parseInt(fileInput.dataset.maxmb || '5', 10);
+      if (!okExt){ setError(fileInput, T.fileType); ok = false; }
+      else if (f.size > maxMb * 1024 * 1024){ setError(fileInput, T.fileBig.replace(/\d+/, String(maxMb))); ok = false; }
     }
     return ok;
   }
