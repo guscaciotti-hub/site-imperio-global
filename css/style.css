@@ -196,6 +196,15 @@ p{ margin:0 0 1rem }
 .hero__sub{ font-size:clamp(1.05rem, 2.2vw, 1.4rem); color:var(--prata-tecnica); max-width:56ch; margin-bottom:2rem }
 .hero__cta{ display:flex; flex-wrap:wrap; gap:1rem }
 
+/* Bloco de números do hero — estático (fade-in via .rv, sem contagem). Filete Azul Sinal. */
+.hero-stats{ display:flex; flex-wrap:wrap; gap:clamp(1.5rem,5vw,3.25rem); margin:2rem 0 2.25rem; padding-top:1.4rem; border-top:3px solid var(--azul-sinal) }
+.hero-stat__num{ display:block; font-family:var(--font-titulo); font-weight:700; font-size:clamp(2rem,5vw,3.4rem); line-height:1; color:#fff; letter-spacing:-.01em }
+.hero-stat__label{ display:block; margin-top:.4rem; color:var(--prata-tecnica); font-size:.95rem; max-width:15ch; line-height:1.35 }
+@media (max-width:560px){ .hero-stats{ gap:1.25rem } .hero-stat__num{ font-size:2rem } .hero-stat__label{ font-size:.85rem } }
+/* Variante clara: número em Azul Império, legenda grafite */
+.hero--light .hero-stat__num{ color:var(--azul-imperio) }
+.hero--light .hero-stat__label{ color:var(--cinza-texto) }
+
 /* -------------------------------------------------- Faixa de credibilidade */
 .trust{ background:var(--indigo-profundo); color:var(--prata-tecnica); text-align:center; padding:1.1rem 0; font-size:.95rem }
 .trust strong{ color:#fff; font-family:var(--font-titulo) }

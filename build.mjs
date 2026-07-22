@@ -85,9 +85,10 @@ const STRINGS = {
       index: {
         title:'Império Global — Infraestruturas de telecomunicações · Portugal e Bélgica',
         desc:'A Império Global constrói, expande e mantém infraestruturas de telecomunicações em Portugal e na Bélgica, ao serviço de operadores, empresas privadas e entidades públicas.',
-        heroTitle:'A base sólida de cada conexão',
-        heroSub:'Construção, expansão e manutenção de infraestruturas de telecomunicações em Portugal e na Bélgica.',
+        heroTitle:'Construímos as redes que ligam Portugal e a Bélgica.',
+        heroSub:'Soluções end-to-end para construção, expansão e manutenção de infraestruturas de telecomunicações. Ao serviço de operadores, empreiteiros e entidades públicas.',
         ctaPrimary:'Fale connosco', ctaSecondary:'Os nossos serviços',
+        heroStats:[ { v:'8', l:'anos de operação' }, { v:'50+', l:'profissionais especializados' }, { v:'2', l:'países · Portugal e Bélgica' } ],
         trust:'Parceiro de operadores de referência.',
         servEyebrow:'O que fazemos', servTitle:'Infraestruturas que suportam as redes de acesso',
         serv:[
@@ -199,9 +200,10 @@ const STRINGS = {
       index: {
         title:'Império Global — Telecommunications infrastructure · Portugal and Belgium',
         desc:'Império Global builds, expands and maintains telecommunications infrastructure in Portugal and Belgium, serving operators, private companies and public entities.',
-        heroTitle:'The solid foundation of every connection',
-        heroSub:'Construction, expansion and maintenance of telecommunications infrastructure in Portugal and Belgium.',
+        heroTitle:'We build the networks that connect Portugal and Belgium.',
+        heroSub:'End-to-end solutions for the construction, expansion and maintenance of telecommunications infrastructure. Serving operators, contractors and public entities.',
         ctaPrimary:'Contact us', ctaSecondary:'Our services',
+        heroStats:[ { v:'8', l:'years of operation' }, { v:'50+', l:'specialised professionals' }, { v:'2', l:'countries · Portugal and Belgium' } ],
         trust:'Trusted partner of leading operators.',
         servEyebrow:'What we do', servTitle:'Infrastructure that supports access networks',
         serv:[
@@ -307,9 +309,10 @@ const STRINGS = {
       index: {
         title:'Império Global — Infrastructures de télécommunications · Portugal et Belgique',
         desc:"Império Global construit, étend et entretient des infrastructures de télécommunications au Portugal et en Belgique, au service des opérateurs, des entreprises privées et des entités publiques.",
-        heroTitle:'La base solide de chaque connexion',
-        heroSub:"Construction, expansion et maintenance d'infrastructures de télécommunications au Portugal et en Belgique.",
+        heroTitle:'Nous construisons les réseaux qui relient le Portugal et la Belgique.',
+        heroSub:"Des solutions end-to-end pour la construction, l'expansion et la maintenance d'infrastructures de télécommunications. Au service des opérateurs, des entreprises de travaux et des entités publiques.",
         ctaPrimary:'Contactez-nous', ctaSecondary:'Nos services',
+        heroStats:[ { v:'8', l:'ans d’activité' }, { v:'50+', l:'professionnels spécialisés' }, { v:'2', l:'pays · Portugal et Belgique' } ],
         trust:"Partenaire d'opérateurs de référence.",
         servEyebrow:'Ce que nous faisons', servTitle:"Des infrastructures qui soutiennent les réseaux d'accès",
         serv:[
@@ -549,14 +552,18 @@ function bodyIndex(lang, S) {
           </article>`).join('');
   const pillars = p.pillars.map(x => `
           <div class="pillar rv"><h3>${x.t}</h3><p>${x.d}</p></div>`).join('');
-  const stats = p.stats.map(x => `
-          <div class="rv"><div class="stat__num" data-count="${x.n}"${x.pre ? ` data-prefix="${x.pre}"` : ''}>${x.pre}0</div><div class="stat__label">${x.l}</div></div>`).join('');
+  // Números do hero — estáticos (valor final desde o 1.º frame; só fade-in via .rv, sem contagem)
+  const heroStats = p.heroStats.map(x => `
+          <div class="hero-stat"><span class="hero-stat__num">${x.v}</span><span class="hero-stat__label">${x.l}</span></div>`).join('');
   return `
     <section class="hero hero--home">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner">
         <h1 class="rv">${p.heroTitle}</h1>
         <p class="hero__sub rv">${p.heroSub}</p>
+        <!-- TODO: se autorizado pelo cliente (aguarda resposta da Soraia), inserir aqui a linha "Ao serviço de MEO, NOS, Vodafone e Proximus." em Archivo SemiBold 1.1rem, cor Prata Técnica (#AFC4D6). -->
+        <div class="hero-stats rv" role="list" aria-label="Números da empresa">${heroStats}
+        </div>
         <div class="hero__cta rv">
           <a href="${relLink(lang,lang,'contacto')}" class="btn btn--primario">${p.ctaPrimary}</a>
           <a href="${relLink(lang,lang,'servicos')}" class="btn btn--fantasma">${p.ctaSecondary}</a>
@@ -582,14 +589,7 @@ function bodyIndex(lang, S) {
         </div>
       </div>
     </section>
-    <section class="section section--escura">
-      <div class="hero__pattern" aria-hidden="true" style="opacity:.05"></div>
-      <div class="container">
-        <div class="stats">${stats}
-        </div>
-        <!-- TODO: confirmar números reais com o cliente. -->
-      </div>
-    </section>${ctaFinal(lang, S)}`;
+${ctaFinal(lang, S)}`;
 }
 
 function bodySobre(lang, S) {
