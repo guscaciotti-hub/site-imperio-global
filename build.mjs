@@ -21,7 +21,7 @@ const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
 // Nome do ficheiro por página (igual nos 3 idiomas → o seletor só troca o prefixo)
 const FILE = {
   index: '', sobre: 'sobre.html', servicos: 'servicos.html', areas: 'areas.html',
-  recrutamento: 'recrutamento.html', contacto: 'contacto.html',
+  blog: 'blog/', recrutamento: 'recrutamento.html', contacto: 'contacto.html',
   privacidade: 'privacidade.html',
   canaldenuncias: 'canal-denuncias.html', codigoetica: 'codigo-etica.html',
   cookies: 'cookies.html', termos: 'termos.html',
@@ -41,14 +41,18 @@ const pathFor = (lang, page) => {
 // em qualquer base (raiz de domínio, subpasta do GitHub Pages, etc.).
 const upFor = (lang) => (lang === 'pt' ? '' : '../');
 
-// Ligação interna RELATIVA entre páginas (preserva a página ao trocar de idioma).
-const relLink = (fromLang, toLang, page) => {
-  const up = upFor(fromLang);
+// Ligação interna RELATIVA com prefixo "up" explícito (nº de ../ até à raiz do site).
+// Permite páginas em subpastas mais profundas (ex.: /blog/, /en/blog/).
+const relLinkUp = (up, toLang, page) => {
   const toDir = toLang === 'pt' ? '' : `${toLang}/`;
   const file = page === 'index' ? '' : FILE[page];
   const r = up + toDir + file;
   return r === '' ? './' : r;
 };
+// Ligação interna RELATIVA entre páginas de profundidade padrão (preserva a página ao trocar de idioma).
+const relLink = (fromLang, toLang, page) => relLinkUp(upFor(fromLang), toLang, page);
+// Prefixo "up" para uma página (considera idioma + se está numa subpasta como /blog/).
+const upForPage = (lang, page) => upFor(lang) + (page === 'blog' ? '../' : '');
 
 /* -------------------------------------------------- Ícones de linha (SVG) */
 const ICON = {
@@ -76,7 +80,7 @@ const ICON = {
 const STRINGS = {
   pt: {
     htmlLang: 'pt',
-    nav: { index:'Início', sobre:'Sobre', servicos:'Serviços', areas:'Áreas de Atuação', recrutamento:'Recrutamento', contacto:'Contacto' },
+    nav: { index:'Início', sobre:'Sobre', servicos:'Serviços', areas:'Áreas de Atuação', blog:'Blog', recrutamento:'Recrutamento', contacto:'Contacto' },
     skip: 'Saltar para o conteúdo',
     tagline: 'Construção, expansão e manutenção de infraestruturas de telecomunicações em Portugal e na Bélgica.',
     footer: {
@@ -276,7 +280,7 @@ const STRINGS = {
 
   en: {
     htmlLang: 'en',
-    nav: { index:'Home', sobre:'About', servicos:'Services', areas:'Areas of Operation', recrutamento:'Careers', contacto:'Contact' },
+    nav: { index:'Home', sobre:'About', servicos:'Services', areas:'Areas of Operation', blog:'Blog', recrutamento:'Careers', contacto:'Contact' },
     skip: 'Skip to content',
     tagline: 'Construction, expansion and maintenance of telecommunications infrastructure in Portugal and Belgium.',
     footer: { nav:'Navigation', empresa:'Company', contacto:'Contact', privacidade:'Privacy Policy', rights:'All rights reserved.',
@@ -464,7 +468,7 @@ const STRINGS = {
 
   fr: {
     htmlLang: 'fr',
-    nav: { index:'Accueil', sobre:'À propos', servicos:'Services', areas:"Zones d'intervention", recrutamento:'Recrutement', contacto:'Contact' },
+    nav: { index:'Accueil', sobre:'À propos', servicos:'Services', areas:"Zones d'intervention", blog:'Blog', recrutamento:'Recrutement', contacto:'Contact' },
     skip: 'Aller au contenu',
     tagline: "Construction, expansion et maintenance d'infrastructures de télécommunications au Portugal et en Belgique.",
     footer: { nav:'Navigation', empresa:'Entreprise', contacto:'Contact', privacidade:'Politique de confidentialité', rights:'Tous droits réservés.',
@@ -656,36 +660,39 @@ const STRINGS = {
    ===================================================================== */
 const logoAlt = 'Império Global';
 
-function head(lang, page, S) {
-  const p = S.pages[page];
-  const B = upFor(lang);
-  const canonical = BASE + pathFor(lang, page);
-  const alt = LANGS.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + pathFor(l, page)}">`).join('\n');
-  const jsonld = page === 'index' ? `
+function head(lang, page, S, up = upFor(lang), seo = null) {
+  const p = S.pages[page] || {};
+  const B = up;
+  const title = seo ? seo.title : p.title;
+  const desc = seo ? seo.desc : p.desc;
+  const canonical = seo ? seo.canonical : BASE + pathFor(lang, page);
+  const alt = seo ? seo.alt : LANGS.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + pathFor(l, page)}">`).join('\n');
+  const ogImage = seo && seo.ogImage ? seo.ogImage : `${BASE}/assets/img/og-image.png`;
+  const jsonld = seo && seo.schema ? `\n  <script type="application/ld+json">\n  ${seo.schema}\n  </script>` : (page === 'index' ? `
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"Império Global","legalName":"Império Global Telecomunicações Unipessoal, Lda.","foundingDate":"2017","url":"${BASE}/","logo":"${BASE}/assets/favicon/icon-512.png","description":"${S.tagline}","areaServed":["PT","BE"],"email":"geral@imperioglobal.eu","sameAs":[]}
-  </script>` : '';
+  </script>` : '');
   const noindex = page === 'e404' ? '\n  <meta name="robots" content="noindex">' : '';
   return `<!doctype html>
 <html lang="${S.htmlLang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${p.title}</title>
-  <meta name="description" content="${p.desc}">${noindex}
+  <title>${title}</title>
+  <meta name="description" content="${desc}">${noindex}
   <link rel="canonical" href="${canonical}">
 ${alt}
   <link rel="alternate" hreflang="x-default" href="${BASE}/">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${seo ? 'article' : 'website'}">
   <meta property="og:locale" content="${OG_LOCALE[lang]}">
-  <meta property="og:title" content="${p.title}">
-  <meta property="og:description" content="${p.desc}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${desc}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${BASE}/assets/img/og-image.png">
+  <meta property="og:image" content="${ogImage}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${p.title}">
-  <meta name="twitter:description" content="${p.desc}">
-  <meta name="twitter:image" content="${BASE}/assets/img/og-image.png">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${desc}">
+  <meta name="twitter:image" content="${ogImage}">
   <link rel="icon" href="${B}assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="${B}assets/favicon/icon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="${B}assets/favicon/icon-180.png">
@@ -700,18 +707,19 @@ ${alt}
   <a href="#conteudo" class="skip-link" style="position:absolute;left:-999px">${S.skip}</a>`;
 }
 
-function header(lang, page, S) {
-  const B = upFor(lang);
-  const links = ['index','sobre','servicos','areas','recrutamento','contacto']
-    .map(k => `          <a href="${relLink(lang, lang, k)}"${k === page ? ' aria-current="page"' : ''}>${S.nav[k]}</a>`)
+function header(lang, page, S, up = upFor(lang), opts = {}) {
+  const B = up;
+  const active = opts.active || page;
+  const links = ['index','sobre','servicos','areas','blog','recrutamento','contacto']
+    .map(k => `          <a href="${relLinkUp(up, lang, k)}"${k === active ? ' aria-current="page"' : ''}>${S.nav[k]}</a>`)
     .join('\n');
-  const langsel = LANGS.map(l =>
-    `<a href="${relLink(lang, l, page)}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`
+  const langsel = opts.langsel || LANGS.map(l =>
+    `<a href="${relLinkUp(up, l, page)}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`
   ).join('<span>|</span>');
   return `
   <header class="site-header">
     <div class="container nav">
-      <a class="nav__logo" href="${relLink(lang, lang, 'index')}" aria-label="${logoAlt}">
+      <a class="nav__logo" href="${relLinkUp(up, lang, 'index')}" aria-label="${logoAlt}">
         <img src="${B}assets/logo/imperio-oficial.png" alt="${logoAlt}" width="640" height="197">
       </a>
       <button class="nav__toggle" aria-label="${S.nav.index}" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
@@ -726,8 +734,8 @@ ${links}
   <main id="conteudo">`;
 }
 
-function footer(lang, S) {
-  const B = upFor(lang);
+function footer(lang, S, up = upFor(lang)) {
+  const B = up;
   return `
   </main>
   <footer class="site-footer">
@@ -739,23 +747,24 @@ function footer(lang, S) {
         </div>
         <div>
           <h4>${S.footer.nav}</h4>
-          <a href="${relLink(lang,lang,'index')}">${S.nav.index}</a><br>
-          <a href="${relLink(lang,lang,'sobre')}">${S.nav.sobre}</a><br>
-          <a href="${relLink(lang,lang,'servicos')}">${S.nav.servicos}</a><br>
-          <a href="${relLink(lang,lang,'areas')}">${S.nav.areas}</a>
+          <a href="${relLinkUp(up,lang,'index')}">${S.nav.index}</a><br>
+          <a href="${relLinkUp(up,lang,'sobre')}">${S.nav.sobre}</a><br>
+          <a href="${relLinkUp(up,lang,'servicos')}">${S.nav.servicos}</a><br>
+          <a href="${relLinkUp(up,lang,'areas')}">${S.nav.areas}</a><br>
+          <a href="${relLinkUp(up,lang,'blog')}">${S.nav.blog}</a>
         </div>
         <div>
           <h4>${S.footer.empresa}</h4>
-          <a href="${relLink(lang,lang,'recrutamento')}">${S.nav.recrutamento}</a><br>
-          <a href="${relLink(lang,lang,'contacto')}">${S.nav.contacto}</a>
+          <a href="${relLinkUp(up,lang,'recrutamento')}">${S.nav.recrutamento}</a><br>
+          <a href="${relLinkUp(up,lang,'contacto')}">${S.nav.contacto}</a>
         </div>
         <div>
           <h4>${S.footer.gov}</h4>
-          <a href="${relLink(lang,lang,'privacidade')}">${S.footer.privacidade}</a><br>
-          <a href="${relLink(lang,lang,'cookies')}">${S.footer.cookies}</a><br>
-          <a href="${relLink(lang,lang,'codigoetica')}">${S.footer.codigoetica}</a><br>
-          <a href="${relLink(lang,lang,'canaldenuncias')}">${S.footer.canaldenuncias}</a><br>
-          <a href="${relLink(lang,lang,'termos')}">${S.footer.termos}</a>
+          <a href="${relLinkUp(up,lang,'privacidade')}">${S.footer.privacidade}</a><br>
+          <a href="${relLinkUp(up,lang,'cookies')}">${S.footer.cookies}</a><br>
+          <a href="${relLinkUp(up,lang,'codigoetica')}">${S.footer.codigoetica}</a><br>
+          <a href="${relLinkUp(up,lang,'canaldenuncias')}">${S.footer.canaldenuncias}</a><br>
+          <a href="${relLinkUp(up,lang,'termos')}">${S.footer.termos}</a>
         </div>
         <div>
           <h4>${S.footer.contacto}</h4>
@@ -767,9 +776,9 @@ function footer(lang, S) {
            faixa horizontal, cada selo ~60px de altura em fundo branco.
            Ativar removendo os comentários e fornecendo os PNGs em /assets/certifications/.
       <div class="footer-certifications">
-        <img src="${upFor(lang)}assets/certifications/iso-9001.png" alt="ISO 9001" height="60">
-        <img src="${upFor(lang)}assets/certifications/iso-14001.png" alt="ISO 14001" height="60">
-        <img src="${upFor(lang)}assets/certifications/iso-45001.png" alt="ISO 45001" height="60">
+        <img src="${up}assets/certifications/iso-9001.png" alt="ISO 9001" height="60">
+        <img src="${up}assets/certifications/iso-14001.png" alt="ISO 14001" height="60">
+        <img src="${up}assets/certifications/iso-45001.png" alt="ISO 45001" height="60">
       </div>
       -->
       <!-- TODO: <div class="footer-socials"> LinkedIn, etc. — quando o cliente fornecer perfis. -->
@@ -784,7 +793,7 @@ function footer(lang, S) {
     <div class="cookies__actions">
       <button class="btn btn--primario" data-cookie="accept">${S.cookies.accept}</button>
       <button class="btn btn--secundario" data-cookie="reject">${S.cookies.reject}</button>
-      <a href="${relLink(lang,lang,'privacidade')}" class="btn btn--secundario">${S.cookies.more}</a>
+      <a href="${relLinkUp(up,lang,'privacidade')}" class="btn btn--secundario">${S.cookies.more}</a>
     </div>
   </div>
   <a class="whatsapp-float" href="#" aria-label="WhatsApp" rel="noopener">${ICON.wa}</a>
@@ -1144,8 +1153,210 @@ const BODY = {
   cookies: (l, S) => bodyProse(l, S, 'cookies'),
   termos: (l, S) => bodyProse(l, S, 'termos'),
   canaldenuncias: bodyCanal, codigoetica: bodyCodigo,
+  blog: bodyBlogIndex,
   e404: body404,
 };
+
+/* =====================================================================
+   BLOG — categorias, artigos, helpers e templates
+   Para acrescentar um artigo: adicionar um objeto a ARTICLES (ver README).
+   ===================================================================== */
+const CATEGORIES = {
+  pt: { fibra:'Fibra Ótica', construcao:'Construção de Redes', manutencao:'Manutenção e Operação', regulamentacao:'Regulamentação', casos:'Casos e Projetos', insights:'Insights do Setor' },
+  en: { fibra:'Optical Fibre', construcao:'Network Construction', manutencao:'Maintenance & Operation', regulamentacao:'Regulation', casos:'Cases & Projects', insights:'Industry Insights' },
+  fr: { fibra:'Fibre optique', construcao:'Construction de réseaux', manutencao:'Maintenance et exploitation', regulamentacao:'Réglementation', casos:'Cas et projets', insights:'Perspectives du secteur' },
+};
+const BLOG_UI = {
+  pt: { metaTitle:'Blog — Insights técnicos | Império Global', metaDesc:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Insights técnicos', lead:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projeto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
+  en: { metaTitle:'Blog — Technical insights | Império Global', metaDesc:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', eyebrow:'Blog', h1:'Technical insights', lead:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', all:'All', min:'min read', by:'By', toc:'In this article', related:'Related articles', ctaTitle:'Need technical support for your project?', ctaBtn:'Contact us', author:'Império Global Team', empty:'No articles in this category.' },
+  fr: { metaTitle:'Blog — Perspectives techniques | Império Global', metaDesc:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", eyebrow:'Blog', h1:'Perspectives techniques', lead:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", all:'Toutes', min:'min de lecture', by:'Par', toc:'Dans cet article', related:'Articles liés', ctaTitle:'Besoin d’un appui technique pour votre projet ?', ctaBtn:'Contactez-nous', author:'Équipe Império Global', empty:'Aucun article dans cette catégorie.' },
+};
+// Meta da página índice do blog (programático, para o head genérico)
+for (const l of LANGS) {
+  STRINGS[l].pages.blog = { title: BLOG_UI[l].metaTitle, desc: BLOG_UI[l].metaDesc };
+}
+
+const articleUrl = (lang, art) => (lang === 'pt' ? `/blog/${art.slug}.html` : `/${lang}/blog/${art.slug}.html`);
+const stripTags = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const readingTime = (html) => Math.max(1, Math.round(stripTags(html).split(' ').length / 200));
+// Índice "Neste artigo" derivado dos <h2 id="…"> do corpo
+const tocFromBody = (html) => [...html.matchAll(/<h2 id="([^"]+)">(.*?)<\/h2>/g)].map(m => ({ id: m[1], t: m[2].replace(/<[^>]+>/g, '') }));
+
+// Seletor de idioma para artigos: aponta para a tradução se existir, senão para o índice do blog
+function articleLangSel(lang, art, up) {
+  return LANGS.map(l => {
+    const href = art.langs[l] ? `${art.slug}.html` : relLinkUp(up, l, 'blog');
+    // se estamos noutra pasta de idioma, o slug simples só serve para o próprio idioma
+    const realHref = (l === lang) ? `${art.slug}.html` : (art.langs[l] ? relLinkUp(up, l, 'blog') + `${art.slug}.html` : relLinkUp(up, l, 'blog'));
+    return `<a href="${realHref}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`;
+  }).join('<span>|</span>');
+}
+
+function articleCard(lang, art, up) {
+  const a = art.langs[lang]; if (!a) return '';
+  const cat = CATEGORIES[lang][art.cat] || art.cat;
+  const rt = readingTime(a.body);
+  const href = `${art.slug}.html`;
+  return `
+        <article class="post-card" data-cat="${art.cat}">
+          <a href="${href}" class="post-card__thumb" aria-hidden="true" tabindex="-1"><span>${cat}</span></a>
+          <div class="post-card__body">
+            <span class="badge">${cat}</span>
+            <h3><a href="${href}">${a.title}</a></h3>
+            <p>${a.excerpt}</p>
+            <div class="post-card__meta">${fmtDate(lang, art.date)} · ${rt} ${BLOG_UI[lang].min}</div>
+          </div>
+        </article>`;
+}
+
+function bodyBlogIndex(lang, S, up) {
+  const ui = BLOG_UI[lang];
+  const arts = ARTICLES.filter(a => a.langs[lang]).sort((a, b) => (a.date < b.date ? 1 : -1));
+  const cats = [...new Set(arts.map(a => a.cat))];
+  const filters = `<button class="chip is-active" data-filter="all">${ui.all}</button>` +
+    cats.map(c => `<button class="chip" data-filter="${c}">${CATEGORIES[lang][c]}</button>`).join('');
+  const cards = arts.map(a => articleCard(lang, a, up)).join('') || `<p>${ui.empty}</p>`;
+  return `
+    <section class="hero" style="padding-block:clamp(56px,9vw,100px)">
+      <div class="container hero__inner"><span class="eyebrow">${ui.eyebrow}</span><h1>${ui.h1}</h1><p class="hero__sub" style="margin-bottom:0">${ui.lead}</p></div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="chips" role="group" aria-label="Filtro por categoria">${filters}</div>
+        <div class="post-grid" style="margin-top:2rem">${cards}
+        </div>
+      </div>
+    </section>`;
+}
+
+function headArticle(lang, art, S, up) {
+  const a = art.langs[lang];
+  const canonical = BASE + articleUrl(lang, art);
+  const avail = LANGS.filter(l => art.langs[l]);
+  const alt = avail.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + articleUrl(l, art)}">`).join('\n');
+  const rt = readingTime(a.body);
+  const schema = `{"@context":"https://schema.org","@type":"Article","headline":${JSON.stringify(a.title)},"description":${JSON.stringify(a.desc)},"inLanguage":"${lang}","datePublished":"${art.date}","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"${BASE}/assets/favicon/icon-512.png"}},"mainEntityOfPage":"${canonical}","image":"${BASE}/assets/img/blog/${art.slug}-og.png","timeRequired":"PT${rt}M"}`;
+  return head(lang, 'blog', S, up, {
+    title: `${a.title} — Império Global`, desc: a.desc, canonical, alt,
+    ogImage: `${BASE}/assets/img/blog/${art.slug}-og.png`, schema,
+  });
+}
+
+function bodyArticle(lang, art, S, up) {
+  const a = art.langs[lang]; const ui = BLOG_UI[lang];
+  const cat = CATEGORIES[lang][art.cat] || art.cat;
+  const rt = readingTime(a.body);
+  const toc = tocFromBody(a.body);
+  const tocHtml = toc.length ? `
+        <nav class="toc" aria-label="${ui.toc}">
+          <strong>${ui.toc}</strong>
+          <ul>${toc.map(x => `<li><a href="#${x.id}">${x.t}</a></li>`).join('')}</ul>
+        </nav>` : '';
+  // relacionados: mesma categoria, outros idiomas presentes
+  const related = ARTICLES.filter(x => x.slug !== art.slug && x.cat === art.cat && x.langs[lang]).slice(0, 3);
+  const relHtml = related.length ? `
+    <section class="section section--nevoa">
+      <div class="container">
+        <h2 style="margin-bottom:1.5rem">${ui.related}</h2>
+        <div class="post-grid">${related.map(r => articleCard(lang, r, up)).join('')}</div>
+      </div>
+    </section>` : '';
+  return `
+    <section class="hero" style="padding-block:clamp(48px,8vw,88px)">
+      <div class="container hero__inner" style="max-width:820px">
+        <span class="eyebrow">${cat}</span>
+        <h1 style="font-size:clamp(1.8rem,4.5vw,2.5rem)">${a.title}</h1>
+        <p class="article-meta">${ui.by} ${ui.author} · ${fmtDate(lang, art.date)} · ${rt} ${ui.min}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="article">
+          ${tocHtml}
+          <div class="article__body">${a.body}</div>
+          <div class="article-cta">
+            <h2>${ui.ctaTitle}</h2>
+            <a href="${relLinkUp(up, lang, 'contacto')}" class="btn btn--primario">${ui.ctaBtn}</a>
+          </div>
+        </div>
+      </div>
+    </section>${relHtml}`;
+}
+
+// Datas formatadas por idioma (sem Date.now — recebe string ISO "YYYY-MM-DD")
+function fmtDate(lang, iso) {
+  const [y, m, d] = iso.split('-');
+  const meses = {
+    pt: ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
+    en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+    fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
+  };
+  const mes = meses[lang][parseInt(m, 10) - 1];
+  return lang === 'en' ? `${mes} ${parseInt(d, 10)}, ${y}` : `${parseInt(d, 10)} de ${mes} de ${y}`;
+}
+
+const ARTICLES = [
+  {
+    slug: 'manutencao-preventiva-corretiva-fibra-otica',
+    cat: 'manutencao',
+    date: '2026-07-21',
+    langs: {
+      pt: {
+        title: 'Manutenção preventiva vs. corretiva em redes de fibra ótica',
+        desc: 'Quando a manutenção preventiva justifica o investimento face à corretiva em redes de fibra ótica — critérios técnicos e de custo para gestores de rede.',
+        excerpt: 'Comparação técnica entre manutenção preventiva e corretiva em fibra ótica: indicadores, custos e critérios de decisão para gestores de rede.',
+        body: `
+<p class="lead">Numa rede de fibra ótica, a diferença entre reparar depois da falha e antecipar a falha não é apenas operacional — é económica e contratual. Este artigo enquadra os critérios que ajudam um gestor de rede a decidir onde e quando cada abordagem se justifica.</p>
+
+<h2 id="duas-logicas">Preventiva e corretiva: duas lógicas distintas</h2>
+<p>A manutenção corretiva atua depois da falha: uma avaria interrompe o serviço e a equipa desloca-se para localizar e reparar o troço afetado. A manutenção preventiva atua antes: inspeções, medições e substituições programadas que procuram evitar a falha ou detetá-la na fase inicial, quando o custo de intervenção ainda é baixo.</p>
+<p>A distinção não é meramente terminológica. Cada abordagem tem uma estrutura de custos, um perfil de risco e implicações contratuais próprias — sobretudo quando a rede suporta serviços críticos com níveis de serviço (SLA) associados à disponibilidade. Tratar as duas como opostas é um erro: na prática, uma rede bem gerida combina-as, aplicando cada uma ao segmento onde compensa.</p>
+
+<h2 id="indicadores">Indicadores que justificam a preventiva</h2>
+<p>A decisão de investir em manutenção preventiva depende de indicadores mensuráveis, entre os quais:</p>
+<ul>
+<li><strong>Disponibilidade contratada.</strong> Quanto mais exigente for o SLA, menor é a tolerância a falhas não planeadas — e maior o valor de as antecipar.</li>
+<li><strong>Custo da indisponibilidade.</strong> Inclui penalizações contratuais, perda de serviço a jusante e a mobilização de equipas em regime de urgência, tipicamente mais cara do que uma intervenção planeada.</li>
+<li><strong>Idade e histórico do traçado.</strong> Troços mais antigos, com juntas e caixas sujeitas a infiltração, apresentam maior probabilidade de degradação progressiva.</li>
+<li><strong>Exposição a fatores externos.</strong> Obras de terceiros, roedores, humidade e esforços mecânicos são causas frequentes de degradação que a inspeção periódica deteta cedo.</li>
+</ul>
+<p>A regra de decisão é direta: quando o custo esperado da falha — a probabilidade de ocorrer multiplicada pelo seu impacto — excede o custo do programa preventivo, a preventiva justifica-se economicamente.</p>
+
+<blockquote>A pergunta não é "preventiva ou corretiva?", mas "que parte da rede justifica preventiva e com que frequência?".</blockquote>
+
+<h2 id="modelo-custo">Um modelo simples de custo</h2>
+<p>Sem entrar em modelação complexa, é útil raciocinar em três parcelas. A primeira é o custo do programa preventivo: mão de obra de inspeção, medições e substituições programadas. A segunda é o custo esperado das falhas residuais que a preventiva não elimina. A terceira é o custo das falhas num cenário puramente corretivo, incluindo penalizações e intervenções de urgência.</p>
+<p>A preventiva compensa quando a soma das duas primeiras parcelas é inferior à terceira. Este raciocínio explica por que a mesma rede pode justificar preventiva no backbone e corretiva num troço terminal de baixa criticidade: muda o impacto da falha, muda a conclusão.</p>
+
+<h2 id="otdr">OTDR e monitorização: detetar antes de falhar</h2>
+<p>O reflectómetro ótico no domínio do tempo (OTDR) é o instrumento central da manutenção de fibra. Ao injetar um impulso e medir a luz retrodifundida, permite localizar, ao longo do troço, atenuações anómalas, juntas degradadas e curvaturas excessivas, com indicação da distância a que ocorrem.</p>
+<p>O valor preventivo surge na análise de tendência: comparar medições OTDR sucessivas revela degradação lenta muito antes de esta se traduzir numa interrupção de serviço. Em redes de maior criticidade, a monitorização pode ser contínua, com sistemas que vigiam a atenuação e alertam quando um limiar é ultrapassado. A escolha entre medição periódica e monitorização contínua é, também ela, uma decisão de custo-benefício: a segunda tem custo de instalação, mas reduz o tempo de deteção.</p>
+
+<div class="note"><strong>Nota técnica.</strong> Uma variação de atenuação numa junta, detetável por OTDR muito antes de causar corte, é um exemplo típico de falha que a manutenção preventiva resolve a baixo custo — e que a corretiva só resolve depois da interrupção do serviço.</div>
+
+<h2 id="corretiva-racional">Quando a corretiva é a opção racional</h2>
+<p>A manutenção preventiva não é universalmente superior. Em troços de baixa criticidade, com SLA folgado e baixo custo de indisponibilidade, o investimento em inspeção programada pode não compensar. Nesses casos, uma estratégia essencialmente corretiva minimiza o custo total — desde que a capacidade de resposta esteja garantida.</p>
+<p>O fator determinante é o tempo de reposição (MTTR). Uma organização com equipas, viaturas e materiais prontos consegue reparar avarias com rapidez suficiente para que o impacto de uma abordagem corretiva se mantenha aceitável. Sem essa capacidade de resposta, a corretiva deixa de ser uma escolha racional e passa a ser exposição a risco.</p>
+
+<h2 id="criterios">Um enquadramento prático de decisão</h2>
+<p>Na prática, as redes segmentam o traçado por criticidade:</p>
+<ul>
+<li><strong>Troços críticos</strong> (backbone, ligações a nós importantes, clientes com SLA exigente): preventiva com medição periódica e, quando se justifica, monitorização contínua.</li>
+<li><strong>Troços intermédios:</strong> inspeção preventiva com menor frequência, orientada por histórico e por fatores de exposição.</li>
+<li><strong>Troços de baixa criticidade:</strong> abordagem corretiva, sustentada por capacidade de resposta rápida.</li>
+</ul>
+<p>Esta segmentação evita dois erros simétricos: sobreinvestir em preventiva onde não compensa e expor a corretiva troços cuja falha tem custo elevado.</p>
+
+<h2 id="contexto">Contexto: uma rede em expansão</h2>
+<p>A dimensão da rede de fibra em Portugal reforça a relevância da manutenção. Portugal está entre os países europeus com maior cobertura de fibra ótica até casa (FTTH); os dados atualizados de cobertura e de acessos são publicados periodicamente pela <a href="https://www.anacom.pt" target="_blank" rel="noopener">ANACOM</a>. Uma base instalada extensa significa mais quilómetros de traçado a manter — e maior retorno de uma política de manutenção bem dimensionada.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>Preventiva e corretiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas. O objetivo é o mesmo que orienta toda a operação de infraestruturas de acesso: assegurar a fiabilidade, a disponibilidade e o desempenho das redes ao menor custo total.</p>
+`,
+      },
+    },
+  },
+];
 
 /* =====================================================================
    GERAÇÃO
@@ -1154,9 +1365,27 @@ let count = 0;
 for (const lang of LANGS) {
   const S = STRINGS[lang];
   for (const page of PAGES) {
-    const html = head(lang, page, S) + header(lang, page, S) + BODY[page](lang, S) + footer(lang, S) + '\n';
-    const rel = pathFor(lang, page);
-    const outPath = ROOT + (page === 'index' ? (lang === 'pt' ? 'index.html' : `${lang}/index.html`) : rel.replace(/^\//, ''));
+    const up = upForPage(lang, page);
+    const html = head(lang, page, S, up) + header(lang, page, S, up) + BODY[page](lang, S, up) + footer(lang, S, up) + '\n';
+    let outPath;
+    if (page === 'blog') outPath = ROOT + (lang === 'pt' ? 'blog/index.html' : `${lang}/blog/index.html`);
+    else if (page === 'index') outPath = ROOT + (lang === 'pt' ? 'index.html' : `${lang}/index.html`);
+    else outPath = ROOT + pathFor(lang, page).replace(/^\//, '');
+    mkdirSync(dirname(outPath), { recursive: true });
+    writeFileSync(outPath, html);
+    count++;
+  }
+}
+
+/* -------------------------------------------------- Artigos do blog (páginas individuais) */
+for (const art of ARTICLES) {
+  for (const lang of LANGS) {
+    if (!art.langs[lang]) continue;             // só gera idiomas que existem
+    const S = STRINGS[lang];
+    const up = upFor(lang) + '../';             // artigos vivem em /blog/ (ou /en/blog/)
+    const html = headArticle(lang, art, S, up) + header(lang, 'blog', S, up, { active: 'blog', langsel: articleLangSel(lang, art, up) })
+      + bodyArticle(lang, art, S, up) + footer(lang, S, up) + '\n';
+    const outPath = ROOT + (lang === 'pt' ? `blog/${art.slug}.html` : `${lang}/blog/${art.slug}.html`);
     mkdirSync(dirname(outPath), { recursive: true });
     writeFileSync(outPath, html);
     count++;
@@ -1166,10 +1395,17 @@ console.log(`Gerado(s) ${count} ficheiro(s) HTML (${LANGS.length} idiomas × ${P
 
 /* -------------------------------------------------- sitemap.xml (automático) */
 const SITEMAP_PAGES = PAGES.filter(p => p !== 'e404');
-const urls = SITEMAP_PAGES.map(page => {
+const pageUrls = SITEMAP_PAGES.map(page => {
   const alts = LANGS.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE + pathFor(l, page)}"/>`).join('\n');
   return `  <url>\n    <loc>${BASE + pathFor('pt', page)}</loc>\n${alts}\n  </url>`;
 }).join('\n');
+const artUrls = ARTICLES.map(art => {
+  const avail = LANGS.filter(l => art.langs[l]);
+  const loc = BASE + articleUrl(avail[0], art);
+  const alts = avail.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE + articleUrl(l, art)}"/>`).join('\n');
+  return `  <url>\n    <loc>${loc}</loc>\n${alts}\n  </url>`;
+}).join('\n');
+const urls = pageUrls + '\n' + artUrls;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Gerado automaticamente por build.mjs. Não editar à mão. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

@@ -282,3 +282,16 @@ document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Da
     form.querySelectorAll('[aria-invalid]').forEach(f => f.removeAttribute('aria-invalid'));
   }
 })();
+
+/* -------------------------------------------------- Blog: filtro por categoria */
+(function blogFilter(){
+  const chips = document.querySelectorAll('.chip[data-filter]');
+  if (!chips.length) return;
+  const cards = document.querySelectorAll('.post-card[data-cat]');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    const f = chip.dataset.filter;
+    cards.forEach(card => { card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none'; });
+  }));
+})();

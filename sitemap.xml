@@ -26,6 +26,12 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/areas.html"/>
   </url>
   <url>
+    <loc>https://www.imperioglobal.eu/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/blog/"/>
+  </url>
+  <url>
     <loc>https://www.imperioglobal.eu/recrutamento.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/recrutamento.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/recrutamento.html"/>
@@ -66,5 +72,9 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/termos.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.imperioglobal.eu/en/termos.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/termos.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/blog/manutencao-preventiva-corretiva-fibra-otica.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/manutencao-preventiva-corretiva-fibra-otica.html"/>
   </url>
 </urlset>

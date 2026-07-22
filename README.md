@@ -99,6 +99,33 @@ Ativar em **Settings → Pages → Source: GitHub Actions** e correr o workflow 
 - **Responsivo** mobile-first (480 / 768 / 1100px) com menu hambúrguer.
 - **Marca:** cores e tipografia (Archivo + Inter) conforme o Manual de Identidade Visual; elemento «X» como padrão discreto; ícones de linha.
 
+## Blog — como adicionar um artigo
+
+Os artigos vivem no array `ARTICLES` em **`build.mjs`**. Cada artigo é um objeto:
+
+```js
+{
+  slug: 'ftth-portugal-estado-cobertura',   // URL kebab-case, sem stopwords → /blog/<slug>.html
+  cat: 'fibra',                              // chave de CATEGORIES (fibra, construcao, manutencao, regulamentacao, casos, insights)
+  date: '2026-08-01',                        // ISO YYYY-MM-DD
+  langs: {                                   // só os idiomas que existirem (hreflang liga automaticamente)
+    pt: {
+      title: '…', desc: '…',                 // <title> e meta description
+      excerpt: '…',                          // resumo no card (máx. ~3 linhas)
+      body: `<h2 id="seccao-1">…</h2><p>…</p>…`,  // corpo HTML; os <h2 id> geram o índice "Neste artigo"
+    },
+    // en: {…}, fr: {…}   // opcional; artigo #5 (Bélgica) é só en+fr
+  },
+}
+```
+
+Depois: `node build.mjs` regenera índice, artigo, `hreflang`, schema.org `Article`, tempo de leitura e sitemap.
+
+- **Blocos especiais no corpo:** `<blockquote>…</blockquote>` (citação Azul Sinal) e `<div class="note"><strong>Nota técnica.</strong> …</div>`.
+- **Traduções cruzadas:** basta acrescentar `en`/`fr` ao mesmo objeto — o seletor de idioma e o `hreflang` passam a ligá-las.
+- **Imagem OG (1200×630):** colocar em `assets/img/blog/<slug>-og.png` (ver o template usado no piloto).
+- **Autor com foto/bio (futuro):** hoje o autor é "Equipa Império Global" (`BLOG_UI[lang].author`). Para múltiplos autores, criar um objeto `AUTHORS` e um campo `author` no artigo.
+
 ## Aguardando input do cliente (TODOs)
 
 Elementos que dependem de confirmação — cada um marcado com `<!-- TODO -->` no código:
