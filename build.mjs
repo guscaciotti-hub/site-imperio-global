@@ -838,16 +838,16 @@ function bodyIndex(lang, S) {
       <div class="container">
         <span class="eyebrow rv">${p.servEyebrow}</span>
         <h2 class="rv">${p.servTitle}</h2>
-        <div class="grid grid--4" style="margin-top:2.5rem">${cards}
+        <div class="grid grid--4 stagger" style="margin-top:2.5rem">${cards}
         </div>
         <p class="center" style="margin-top:2.5rem"><a href="${relLink(lang,lang,'servicos')}" class="btn btn--secundario">${p.servAll}</a></p>
       </div>
     </section>
-    <section class="section section--nevoa">
+    <section class="section section--escura section--x">
       <div class="container">
         <span class="eyebrow rv">${p.whyEyebrow}</span>
         <h2 class="rv">${p.whyTitle}</h2>
-        <div class="grid grid--4" style="margin-top:2.5rem">${pillars}
+        <div class="grid grid--4 stagger" style="margin-top:2.5rem">${pillars}
         </div>
       </div>
     </section>
