@@ -60,8 +60,8 @@ const T = I18N[LANG] || I18N.pt;
 
 /* -------------------------------------------------- Hero: feixes de fibra ótica (canvas) */
 (function heroFiber(){
-  // Só a hero da HOME leva a animação de partículas; as tarjas interiores ficam estáticas.
-  const heroes = document.querySelectorAll('.hero--home');
+  // A hero da HOME e heros marcados com .hero--fx levam a animação de partículas.
+  const heroes = document.querySelectorAll('.hero--home, .hero--fx');
   if (!heroes.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Sprites de brilho (bokeh) pré-renderizados — partículas de energia nas cores da marca
@@ -96,7 +96,7 @@ const T = I18N[LANG] || I18N.pt;
   ];
 
   heroes.forEach((hero) => {
-    const light = hero.classList.contains('hero--light');   // fundo claro → pontos azuis, blend normal
+    const light = hero.classList.contains('hero--light') || hero.classList.contains('hero--photo--dark');   // fundo claro → pontos azuis, blend normal
     const sprites = light ? SPRITES_DARK : SPRITES;
     const comp = light ? 'source-over' : 'lighter';
     const baseAlpha = light ? 0.55 : 0.72;

@@ -963,8 +963,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
   const dark = opts.dark ? ' hero--photo--dark' : '';
   const full = opts.full ? ' hero--photo--full' : '';
+  const fx = opts.fx ? ' hero--fx' : '';
   return `
-    <section class="hero hero--photo${dark}${full}" style="background-image:url('${up}assets/img/${img}')">
+    <section class="hero hero--photo${dark}${full}${fx}" style="background-image:url('${up}assets/img/${img}')">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1069,7 +1070,7 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   // Imagem limpa (sem texto) + texto HTML alinhado ao logo. Lado esquerdo claro → texto escuro. Todos os idiomas.
-  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true });
+  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true, fx: true });
   return `${hero}
     <section class="section">
       <div class="container">
@@ -1097,19 +1098,14 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
     </section>`;
 }
 
-function bodyContacto(lang, S) {
+function bodyContacto(lang, S, up = upFor(lang)) {
   const p = S.pages.contacto; const f = p.f;
   const opts = p.assuntos.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  return `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1></div>
-    </section>
+  return `${heroBanner(lang, up, 'contacto-bg.jpg', p.eyebrow, p.h1, { sub: p.intro })}
     <section class="section">
       <div class="container">
-        <p class="lead rv">${p.intro}</p>
-        <div class="grid grid--2" style="margin-top:2.5rem;align-items:start">
+        <div class="grid grid--2" style="margin-top:0;align-items:start">
           <div class="rv">
             <h2 style="margin-bottom:1.5rem">${p.formTitle}</h2>
             <form class="form" data-formspree method="POST" novalidate>
