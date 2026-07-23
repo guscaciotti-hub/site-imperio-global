@@ -13,10 +13,14 @@ const ENABLE_WHATSAPP = false;
 const WHATSAPP_NUMBER  = '351000000000';      // TODO: número real (formato internacional, sem +)
 const WHATSAPP_MESSAGE = 'Olá, gostaria de mais informações.';
 
-// Endpoint Formspree — substituir FORMSPREE_ID pelo id real da conta.
-// Alternativa: se a hospedagem final for Netlify, ver nota no README (Netlify Forms).
-const FORMSPREE_ID = 'FORMSPREE_ID'; // TODO
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/' + FORMSPREE_ID;
+// Endpoint dos formulários.
+// TESTE (sem registo): FormSubmit.co envia para o email indicado. Na 1.ª submissão
+// o FormSubmit envia um email de confirmação a esse endereço — é preciso clicar uma
+// vez para ativar; depois os envios chegam normalmente.
+// PRODUÇÃO: recomendado trocar pelo token do FormSubmit (para não expor o email) ou
+// por um id de conta Formspree ('https://formspree.io/f/<id>').
+const FORM_EMAIL = 'evoluzesuporte@gmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FORM_EMAIL;
 
 /* --------------------------------------------------------------------
    Textos de estado dos formulários por idioma (detetado via <html lang>)
@@ -239,8 +243,13 @@ document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Da
       submitBtn && (submitBtn.disabled = true);
 
       try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method:'POST', body:new FormData(form), headers:{ Accept:'application/json' },
+        const fd = new FormData(form);
+        // Campos de controlo do FormSubmit
+        fd.append('_captcha', 'false');
+        fd.append('_template', 'table');
+        if (!fd.get('_subject')) fd.append('_subject', 'Novo formulário — site Império Global');
+        const res = await fetch(FORM_ENDPOINT, {
+          method:'POST', body:fd, headers:{ Accept:'application/json' },
         });
         if (res.ok){
           form.reset();
