@@ -477,6 +477,9 @@ p{ margin:0 0 1rem }
 /* Banner desenhado (texto embutido): centra e corta cima/baixo; sem overlay */
 .hero--baked{ background-position:center }
 .hero--baked::after{ display:none }
+/* Variante "full": mostra a arte COMPLETA (sem zoom/corte) em qualquer ecrã */
+.hero--baked--full{ min-height:0; height:auto; aspect-ratio:1717 / 916;
+  background-size:contain; background-position:center }
 @media (max-width:640px){
   .hero--photo{ min-height:clamp(360px,56vh,480px); background-position:center right }
   .hero--photo::after{ background:linear-gradient(180deg, rgba(1,18,40,.78) 0%, rgba(1,18,40,.52) 55%, rgba(1,18,40,.42) 100%) }

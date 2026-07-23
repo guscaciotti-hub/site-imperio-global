@@ -936,9 +936,10 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   // em cima/baixo (cover) para caber na tarja, sem texto HTML por cima.
   if (opts.baked && opts.baked[lang]) {
     const pos = opts.pos ? `;background-position:${opts.pos}` : '';
+    const full = opts.full ? ' hero--baked--full' : '';
     return `
     <h1 class="sr-only">${h1}</h1>
-    <section class="hero hero--photo hero--baked" style="background-image:url('${up}assets/img/${opts.baked[lang]}')${pos}" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
+    <section class="hero hero--photo hero--baked${full}" style="background-image:url('${up}assets/img/${opts.baked[lang]}')${pos}" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
   }
   const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
@@ -956,7 +957,14 @@ function bodySobre(lang, S, up = upFor(lang)) {
   const p = S.pages.sobre;
   const valores = p.valores.map(x => `
           <article class="card"><h3>${x.t}</h3><p>${x.d}</p></article>`).join('');
-  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1, { sub: p.heroSub, cta: { href: relLinkUp(up, lang, 'contacto'), label: p.heroCta } })}
+  const hero = lang === 'pt'
+    ? heroBanner(lang, up, 'sobre-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'sobre-hero.jpg' } })
+    : `
+    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.heroSub}</p></div>
+    </section>`;
+  return `${hero}
     <section class="section">
       <div class="container">
         <p class="lead rv">${p.intro}</p>
@@ -991,15 +999,16 @@ function bodySobre(lang, S, up = upFor(lang)) {
 
 function bodyServicos(lang, S) {
   const p = S.pages.servicos;
-  // Página de serviços: TODOS os serviços (não só as 4 categorias), no novo estilo de card.
-  const cards = p.items.map(s => `
+  // 4 serviços-mãe (categorias) com sub-serviços em chips — igual à home.
+  const cards = p.groups.map(g => `
           <article class="svc-card rv">
             <div class="svc-card__top">
-              <span class="svc-card__icon" aria-hidden="true">${ICON[s.i]}</span>
+              <span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span>
             </div>
             <div class="svc-card__body">
-              <h3>${s.t}</h3>
-              <p>${s.d}</p>
+              <h3>${g.t}</h3>
+              <p>${g.d}</p>
+              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
             </div>
           </article>`).join('');
   return `
@@ -1049,8 +1058,14 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  // Foto de fundo + texto HTML alinhado ao logo (sem texto embutido), em todos os idiomas.
-  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro });
+  // PT: arte desenhada completa (sem zoom, sem degradê). EN/FR: hero azul traduzido.
+  const hero = lang === 'pt'
+    ? heroBanner(lang, up, 'recrutamento-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'recrutamento-hero.jpg' }, full: true })
+    : `
+    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.intro}</p></div>
+    </section>`;
   return `${hero}
     <section class="section">
       <div class="container">
