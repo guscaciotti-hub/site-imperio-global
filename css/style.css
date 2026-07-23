@@ -613,20 +613,25 @@ p{ margin:0 0 1rem }
   background:linear-gradient(180deg, rgba(1,20,43,.32) 0%, rgba(1,20,43,0) 24%) }
 .svc-row__media--photo .svc-row__num{ z-index:1; color:rgba(255,255,255,.62); text-shadow:0 2px 12px rgba(0,0,0,.45) }
 .svc-row__media--photo .svc-row__icon{ display:none }
+/* imagem que deve aparecer por inteiro (render com fundo claro) */
+.svc-row__media--contain{ background-size:contain; background-color:#eef1f5 }
+.svc-row__media--contain::after{ display:none }
+.svc-row__media--contain .svc-row__num{ color:rgba(1,63,128,.16); text-shadow:none }
+.svc-card__top--contain{ background-size:contain; background-color:#eef1f5 }
 
 /* Serviços — feixe de conexão de rede (linha neon que "liga" os serviços ao rolar) */
 .svc-rows{ position:relative }
 .svc-rows::before{ content:""; position:absolute; left:50%; top:0; bottom:0; width:2px;
   transform:translateX(-50%); background:rgba(0,114,206,.14); z-index:0; border-radius:2px }
 .svc-beam{ position:absolute; left:50%; top:0; width:2px; height:0; transform:translateX(-50%); z-index:0;
-  border-radius:2px; background:linear-gradient(180deg, rgba(30,155,255,0) 0%, #1e9bff 55%, #6fe0ff 100%);
-  box-shadow:0 0 8px rgba(41,182,255,.85), 0 0 20px rgba(41,182,255,.45); will-change:height }
-.svc-beam::after{ content:""; position:absolute; left:50%; bottom:-4px; width:10px; height:10px;
-  transform:translateX(-50%); border-radius:50%; background:#adf0ff;
-  box-shadow:0 0 12px 3px rgba(111,224,255,.95), 0 0 26px 8px rgba(41,182,255,.5) }
-.svc-node{ position:absolute; left:50%; width:13px; height:13px; transform:translate(-50%,-50%);
-  border-radius:50%; background:#fff; border:2px solid rgba(0,114,206,.35); z-index:1;
+  border-radius:2px; background:linear-gradient(180deg, rgba(0,114,206,0) 0%, rgba(0,114,206,.5) 60%, rgba(0,114,206,.75) 100%);
+  box-shadow:0 0 4px rgba(0,114,206,.3); will-change:height }
+.svc-beam::after{ content:""; position:absolute; left:50%; bottom:-3px; width:7px; height:7px;
+  transform:translateX(-50%); border-radius:50%; background:#6cb4e6;
+  box-shadow:0 0 6px 1px rgba(0,114,206,.45) }
+.svc-node{ position:absolute; left:50%; width:11px; height:11px; transform:translate(-50%,-50%);
+  border-radius:50%; background:#fff; border:2px solid rgba(0,114,206,.28); z-index:1;
   transition:border-color .4s ease, box-shadow .5s ease, background .4s ease }
-.svc-node.lit{ border-color:#3ac1ff; background:#eaf8ff;
-  box-shadow:0 0 12px 2px rgba(58,193,255,.8), 0 0 4px rgba(58,193,255,.9) }
+.svc-node.lit{ border-color:var(--azul-sinal); background:#eef5fb;
+  box-shadow:0 0 6px 1px rgba(0,114,206,.4) }
 @media (max-width:820px){ .svc-rows::before,.svc-beam,.svc-node{ display:none } }
