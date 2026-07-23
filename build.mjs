@@ -71,6 +71,9 @@ const ICON = {
   aerial: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v36"/><path d="M13 13l11-4 11 4"/><path d="M11 22l13-5 13 5"/><path d="M18 42h12"/></svg>',
   underground: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15h38"/><path d="M14 15v6a4 4 0 0 0 4 4h12a4 4 0 0 1 4 4v6"/><circle cx="14" cy="12" r="2"/><circle cx="34" cy="38" r="2"/><path d="M5 30h38" opacity=".45"/></svg>',
   quality: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l16 6v10c0 10-7 17-16 21-9-4-16-11-16-21V11z"/><path d="M17 24l5 5 9-11"/></svg>',
+  activate: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v15"/><path d="M15 15a13 13 0 1 0 18 0"/></svg>',
+  monitor: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="25" rx="2"/><path d="M12 24l6-6 5 7 5-8 4 5"/><path d="M18 41h12M24 34v7"/></svg>',
+  warehouse: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21 24 9l18 12"/><path d="M9 21v19h30V21"/><rect x="18" y="28" width="12" height="12"/></svg>',
 };
 
 /* =====================================================================
@@ -957,13 +960,8 @@ function bodySobre(lang, S, up = upFor(lang)) {
   const p = S.pages.sobre;
   const valores = p.valores.map(x => `
           <article class="card"><h3>${x.t}</h3><p>${x.d}</p></article>`).join('');
-  const hero = lang === 'pt'
-    ? heroBanner(lang, up, 'sobre-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'sobre-hero.jpg' } })
-    : `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.heroSub}</p></div>
-    </section>`;
+  // Imagem limpa (sem texto) + texto HTML nas fontes da marca, alinhado ao logo. Todos os idiomas.
+  const hero = heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1, { sub: p.heroSub, cta: { href: relLinkUp(up, lang, 'contacto'), label: p.heroCta } });
   return `${hero}
     <section class="section">
       <div class="container">
