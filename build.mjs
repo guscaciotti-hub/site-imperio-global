@@ -165,8 +165,8 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, t:'Survey e projeto', d:'Levantamento técnico de campo e desenvolvimento de projeto, com gestão e coordenação integradas — a base para uma execução rigorosa.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
-          { i:'build', home:true, t:'Construção de redes', d:'Construção de infraestruturas de acesso em redes aéreas e subterrâneas, do traçado à ligação, coordenada com as entidades competentes.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
-          { i:'fiber', home:true, t:'Fibra ótica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra ótica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Construção de infraestruturas de acesso em redes aéreas e subterrâneas, do traçado à ligação, coordenada com as entidades competentes.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
+          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra ótica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra ótica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
           { i:'activate', home:false, t:'Instalação e ativação de serviços', d:'Instalação de equipamentos e soluções técnicas, ativação e entrega de serviços de telecomunicações ao cliente final, numa abordagem end-to-end.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
           { i:'monitor', home:false, t:'Supervisão e monitorização', d:'Supervisão e monitorização contínua das redes, assegurando controlo operacional, desempenho e alinhamento das operações no terreno.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
           { i:'maint', home:true, t:'Manutenção e reparação', d:'Manutenção preventiva e corretiva, com diagnóstico, deteção e resolução de avarias e capacidade de resposta rápida para reduzir a indisponibilidade.', subs:['Manutenção preventiva','Manutenção corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
@@ -372,8 +372,8 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, t:'Survey & design', d:'Technical field survey and project development, with integrated management and coordination — the foundation for rigorous delivery.', subs:['Technical survey','Field assessment','Project development','Project management & coordination'] },
-          { i:'build', home:true, t:'Network construction', d:'Construction of access infrastructure across aerial and underground networks, from route to connection, coordinated with the relevant authorities.', subs:['Aerial networks','Underground networks','Ducts','Routes','Poles & supports'] },
-          { i:'fiber', home:true, t:'Optical fibre & copper', d:'Delivery, maintenance and modernisation of optical fibre (FTTH) and copper infrastructure, from the main span to the access point.', subs:['Fibre laying','Splicing','Copper cables','FTTH','Connections','Access point'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Network construction', d:'Construction of access infrastructure across aerial and underground networks, from route to connection, coordinated with the relevant authorities.', subs:['Aerial networks','Underground networks','Ducts','Routes','Poles & supports'] },
+          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Optical fibre & copper', d:'Delivery, maintenance and modernisation of optical fibre (FTTH) and copper infrastructure, from the main span to the access point.', subs:['Fibre laying','Splicing','Copper cables','FTTH','Connections','Access point'] },
           { i:'activate', home:false, t:'Installation & service activation', d:'Installation of equipment and technical solutions, activation and delivery of telecommunications services to the end customer, end-to-end.', subs:['Equipment installation','Service activation','End-customer delivery','End-to-end (E2E)'] },
           { i:'monitor', home:false, t:'Supervision & monitoring', d:'Continuous supervision and monitoring of networks, ensuring operational control, performance and alignment of field operations.', subs:['Network supervision','Monitoring','Operational control','Operations management'] },
           { i:'maint', home:true, t:'Maintenance & repair', d:'Preventive and corrective maintenance, with fault diagnosis, detection and repair and fast response to reduce downtime.', subs:['Preventive maintenance','Corrective maintenance','Fault diagnosis','Repair','Fast response (SLA)'] },
@@ -573,8 +573,8 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, t:'Survey & projet', d:"Relevé technique de terrain et développement de projet, avec gestion et coordination intégrées — la base d'une réalisation rigoureuse.", subs:['Survey technique','Relevé de terrain','Développement de projet','Gestion et coordination de projets'] },
-          { i:'build', home:true, t:'Construction de réseaux', d:"Construction d'infrastructures d'accès en réseaux aériens et souterrains, du tracé au raccordement, coordonnée avec les autorités compétentes.", subs:['Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Appuis et poteaux'] },
-          { i:'fiber', home:true, t:'Fibre optique & cuivre', d:"Réalisation, maintenance et modernisation d'infrastructures en fibre optique (FTTH) et cuivre, du tronçon principal au point d'accès.", subs:['Tirage de fibre','Soudure','Câbles cuivre','FTTH','Raccordements',"Point d'accès"] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construction de réseaux', d:"Construction d'infrastructures d'accès en réseaux aériens et souterrains, du tracé au raccordement, coordonnée avec les autorités compétentes.", subs:['Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Appuis et poteaux'] },
+          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibre optique & cuivre', d:"Réalisation, maintenance et modernisation d'infrastructures en fibre optique (FTTH) et cuivre, du tronçon principal au point d'accès.", subs:['Tirage de fibre','Soudure','Câbles cuivre','FTTH','Raccordements',"Point d'accès"] },
           { i:'activate', home:false, t:'Installation & activation de services', d:"Installation d'équipements et de solutions techniques, activation et livraison de services de télécommunications au client final, end-to-end.", subs:["Installation d'équipements",'Activation de services','Livraison au client final','End-to-end (E2E)'] },
           { i:'monitor', home:false, t:'Supervision & surveillance', d:'Supervision et surveillance continue des réseaux, assurant le contrôle opérationnel, la performance et la coordination des opérations sur le terrain.', subs:['Supervision de réseaux','Surveillance','Contrôle opérationnel','Gestion des opérations'] },
           { i:'maint', home:true, t:'Maintenance & réparation', d:"Maintenance préventive et corrective, avec diagnostic, détection et résolution de pannes et réactivité pour réduire les temps d'indisponibilité.", subs:['Maintenance préventive','Maintenance corrective','Diagnostic de pannes','Réparation','Réponse rapide (SLA)'] },
@@ -861,7 +861,7 @@ function bodyIndex(lang, S, up = upFor(lang)) {
   const HX = HOME_EXTRA[lang];
   const cards = S.pages.servicos.groups.filter(g => g.home).map(g => `
           <article class="svc-card rv">
-            <div class="svc-card__top"><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
+            <div class="svc-card__top${g.img ? ' svc-card__top--photo' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}')"` : ''}><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
             <div class="svc-card__body">
               <h3>${g.t}</h3>
               <p>${g.d}</p>
@@ -962,8 +962,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
   const dark = opts.dark ? ' hero--photo--dark' : '';
+  const full = opts.full ? ' hero--photo--full' : '';
   return `
-    <section class="hero hero--photo${dark}" style="background-image:url('${up}assets/img/${img}')">
+    <section class="hero hero--photo${dark}${full}" style="background-image:url('${up}assets/img/${img}')">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1011,12 +1012,12 @@ function bodySobre(lang, S, up = upFor(lang)) {
     </section>${ctaFinal(lang, S)}`;
 }
 
-function bodyServicos(lang, S) {
+function bodyServicos(lang, S, up = upFor(lang)) {
   const p = S.pages.servicos;
   // Layout premium alternado (imagem + texto), cobrindo todo o âmbito do briefing.
   const rows = p.groups.map((g, idx) => `
         <article class="svc-row${idx % 2 ? ' svc-row--rev' : ''} rv">
-          <div class="svc-row__media">
+          <div class="svc-row__media${g.img ? ' svc-row__media--photo' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}')"` : ''}>
             <span class="svc-row__num" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
             <span class="svc-row__icon" aria-hidden="true">${ICON[g.i]}</span>
           </div>
@@ -1026,11 +1027,7 @@ function bodyServicos(lang, S) {
             <ul class="svc-row__list">${g.subs.map(s => `<li>${s}</li>`).join('')}</ul>
           </div>
         </article>`).join('');
-  return `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.intro}</p></div>
-    </section>
+  return `${heroBanner(lang, up, 'servicos-bg.jpg', p.eyebrow, p.h1, { sub: p.intro })}
     <section class="section">
       <div class="container svc-rows">${rows}
       </div>
@@ -1072,7 +1069,7 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   // Imagem limpa (sem texto) + texto HTML alinhado ao logo. Lado esquerdo claro → texto escuro. Todos os idiomas.
-  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true });
+  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true, full: true });
   return `${hero}
     <section class="section">
       <div class="container">
