@@ -468,14 +468,21 @@ p{ margin:0 0 1rem }
   background-repeat:no-repeat; min-height:clamp(440px,58vh,580px);
   display:flex; align-items:center; padding-block:clamp(40px,6vw,64px) }
 .hero--photo::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(100deg, rgba(1,18,40,.55) 0%, rgba(1,18,40,.28) 42%, rgba(1,18,40,0) 66%) }
+  background:linear-gradient(100deg, rgba(1,20,44,.93) 0%, rgba(1,20,44,.70) 34%, rgba(1,24,52,.22) 62%, rgba(1,20,43,0) 82%) }
 .hero--photo .hero__inner{ position:relative; z-index:3; max-width:var(--max); width:100% }
-.hero--photo .hero__inner > *{ max-width:640px }
-.hero--photo h1{ color:#fff }
-.hero--photo .eyebrow{ color:var(--azul-sinal) }
+.hero--photo .eyebrow{ color:var(--azul-sinal); margin-bottom:1rem }
+.hero--photo h1{ color:#fff; max-width:14ch; margin:0 }
+.hero--photo .hero__sub{ color:#c9dcef; max-width:36ch; margin:1.25rem 0 0; font-size:clamp(1.02rem,1.4vw,1.18rem); line-height:1.6 }
+.hero--photo .hero__cta{ margin-top:2rem }
+/* Banner desenhado (texto embutido): centra e corta cima/baixo; sem overlay */
+.hero--baked{ background-position:center }
+.hero--baked::after{ display:none }
 @media (max-width:640px){
-  .hero--photo{ min-height:clamp(340px,52vh,460px); background-position:center }
-  .hero--photo::after{ background:linear-gradient(180deg, rgba(1,18,40,.62) 0%, rgba(1,18,40,.42) 60%, rgba(1,18,40,.30) 100%) }
+  .hero--photo{ min-height:clamp(360px,56vh,480px); background-position:center right }
+  .hero--photo::after{ background:linear-gradient(180deg, rgba(1,18,40,.78) 0%, rgba(1,18,40,.52) 55%, rgba(1,18,40,.42) 100%) }
+  .hero--photo .hero__sub{ max-width:none }
+  /* No mobile a arte é larga: baixa a tarja para o texto embutido caber todo */
+  .hero--baked{ background-position:left center; min-height:0; height:clamp(230px,74vw,380px) }
 }
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }

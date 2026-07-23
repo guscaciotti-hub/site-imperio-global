@@ -123,6 +123,8 @@ const STRINGS = {
       sobre: {
         title:'Sobre — Império Global', desc:'Especialistas na construção, expansão e manutenção de infraestruturas de telecomunicações, com operação em Portugal e na Bélgica.',
         h1:'Sobre a Império Global', eyebrow:'Quem somos',
+        heroSub:'Construímos, expandimos e mantemos as infraestruturas de telecomunicações que ligam Portugal e a Bélgica — end-to-end, com rigor técnico.',
+        heroCta:'Fale connosco',
         intro:'A Império Global é especialista na construção, expansão e manutenção de infraestruturas de telecomunicações. Desenvolvemos, implementamos e asseguramos a manutenção de redes de fibra ótica e infraestruturas de acesso que suportam os serviços dos principais operadores.',
         missaoT:'Missão',
         missao:'Planeamos, construímos e mantemos infraestruturas de telecomunicações com rigor técnico e compromisso, garantindo redes fiáveis, preparadas para responder às exigências do presente e do futuro. Transformamos desafios em soluções e cada projeto numa relação de confiança.',
@@ -317,6 +319,8 @@ const STRINGS = {
       sobre: {
         title:'About — Império Global', desc:'Specialists in the construction, expansion and maintenance of telecommunications infrastructure, operating in Portugal and Belgium.',
         h1:'About Império Global', eyebrow:'Who we are',
+        heroSub:'We build, expand and maintain the telecommunications infrastructure that connects Portugal and Belgium — end-to-end, with technical rigour.',
+        heroCta:'Get in touch',
         intro:'Império Global specialises in the construction, expansion and maintenance of telecommunications infrastructure. We develop, implement and maintain optical fibre networks and access infrastructure that support the services of leading operators.',
         missaoT:'Mission',
         missao:'We plan, build and maintain telecommunications infrastructure with technical rigour and commitment, ensuring reliable networks ready to meet the demands of today and tomorrow. We turn challenges into solutions and every project into a relationship of trust.',
@@ -505,6 +509,8 @@ const STRINGS = {
       sobre: {
         title:'À propos — Império Global', desc:"Spécialistes de la construction, de l'expansion et de la maintenance d'infrastructures de télécommunications, au Portugal et en Belgique.",
         h1:'À propos d’Império Global', eyebrow:'Qui sommes-nous',
+        heroSub:"Nous construisons, développons et entretenons les infrastructures de télécommunications qui relient le Portugal et la Belgique — end-to-end, avec rigueur technique.",
+        heroCta:'Contactez-nous',
         intro:"Império Global est spécialisée dans la construction, l'expansion et la maintenance d'infrastructures de télécommunications. Nous développons, mettons en œuvre et assurons la maintenance de réseaux en fibre optique et d'infrastructures d'accès qui soutiennent les services des principaux opérateurs.",
         missaoT:'Mission',
         missao:"Nous planifions, construisons et entretenons des infrastructures de télécommunications avec rigueur technique et engagement, en garantissant des réseaux fiables, prêts à répondre aux exigences d'aujourd'hui et de demain. Nous transformons les défis en solutions et chaque projet en une relation de confiance.",
@@ -903,10 +909,23 @@ ${ctaFinal(lang, S)}`;
 // PADRÃO de hero com fotografia de fundo + texto real (HTML) alinhado ao
 // container/logo — como o hero da home. Altura controlada (~60vh). Funciona
 // em qualquer idioma (o texto é HTML, não está embutido na imagem).
-function heroBanner(lang, up, img, eyebrow, h1) {
+function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
+  // Banner desenhado (texto embutido) para idiomas com arte própria — cortado
+  // em cima/baixo (cover) para caber na tarja, sem texto HTML por cima.
+  if (opts.baked && opts.baked[lang]) {
+    return `
+    <h1 class="sr-only">${h1}</h1>
+    <section class="hero hero--photo hero--baked" style="background-image:url('${up}assets/img/${opts.baked[lang]}')" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
+  }
+  const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
+  const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
   return `
     <section class="hero hero--photo" style="background-image:url('${up}assets/img/${img}')">
-      <div class="container hero__inner"><span class="eyebrow">${eyebrow}</span><h1>${h1}</h1></div>
+      <div class="container hero__inner">
+        <span class="eyebrow">${eyebrow}</span>
+        <h1>${h1}</h1>
+        ${sub}${cta}
+      </div>
     </section>`;
 }
 
@@ -914,7 +933,7 @@ function bodySobre(lang, S, up = upFor(lang)) {
   const p = S.pages.sobre;
   const valores = p.valores.map(x => `
           <article class="card"><h3>${x.t}</h3><p>${x.d}</p></article>`).join('');
-  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1)}
+  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1, { sub: p.heroSub, cta: { href: relLinkUp(up, lang, 'contacto'), label: p.heroCta }, baked: { pt: 'sobre-hero.jpg' } })}
     <section class="section">
       <div class="container">
         <p class="lead rv">${p.intro}</p>
