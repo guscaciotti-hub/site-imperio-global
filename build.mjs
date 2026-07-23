@@ -991,16 +991,15 @@ function bodySobre(lang, S, up = upFor(lang)) {
 
 function bodyServicos(lang, S) {
   const p = S.pages.servicos;
-  // Serviços-mãe (categorias) com sub-serviços em chips
-  const cards = p.groups.map(g => `
+  // Página de serviços: TODOS os serviços (não só as 4 categorias), no novo estilo de card.
+  const cards = p.items.map(s => `
           <article class="svc-card rv">
             <div class="svc-card__top">
-              <span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span>
+              <span class="svc-card__icon" aria-hidden="true">${ICON[s.i]}</span>
             </div>
             <div class="svc-card__body">
-              <h3>${g.t}</h3>
-              <p>${g.d}</p>
-              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
+              <h3>${s.t}</h3>
+              <p>${s.d}</p>
             </div>
           </article>`).join('');
   return `
