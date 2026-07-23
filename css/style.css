@@ -475,7 +475,7 @@ p{ margin:0 0 1rem }
 .hero--photo .hero__sub{ color:#c9dcef; max-width:36ch; margin:1.25rem 0 0; font-size:clamp(1.02rem,1.4vw,1.18rem); line-height:1.6 }
 .hero--photo .hero__cta{ margin-top:2rem }
 /* Variante para imagens de fundo CLARAS: texto escuro, sem overlay */
-.hero--photo--dark{ background-color:#cfe0f0; background-position:center 42% }
+.hero--photo--dark{ background-color:#cfe0f0; background-position:center 72% }
 .hero--photo--dark::after{ display:none }
 .hero--photo--dark h1{ color:var(--azul-imperio) }
 .hero--photo--dark .eyebrow{ color:var(--azul-sinal) }
