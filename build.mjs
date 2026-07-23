@@ -164,10 +164,15 @@ const STRINGS = {
           { i:'quality', t:'Controlo de qualidade e auditoria de redes', d:'Verificação, certificação e auditoria técnica das infraestruturas executadas.' },
         ],
         groups:[
-          { i:'build', t:'Construção de redes', d:'Execução de infraestruturas de acesso — do traçado à ligação — em redes aéreas e subterrâneas.', subs:['Survey e levantamento','Redes aéreas','Redes subterrâneas','Condutas','Traçados','Ligações'] },
-          { i:'fiber', t:'Fibra ótica e cobre', d:'Lançamento, fusão e ligação de fibra ótica e cobre, do troço principal ao ponto de acesso.', subs:['Fibra ótica','Fusão','Cabos de cobre','Certificação','Ponto de acesso'] },
-          { i:'maint', t:'Manutenção e operação', d:'Manutenção preventiva e corretiva que assegura a fiabilidade, disponibilidade e desempenho das redes.', subs:['Preventiva','Corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
-          { i:'expand', t:'Expansão e qualidade', d:'Ampliação de redes existentes e auditoria técnica, garantindo qualidade end-to-end.', subs:['Ampliação de traçados','Densificação','Controlo de qualidade','Auditoria','Verificação'] },
+          { i:'survey', home:false, t:'Survey e projeto', d:'Levantamento técnico de campo e desenvolvimento de projeto, com gestão e coordenação integradas — a base para uma execução rigorosa.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
+          { i:'build', home:true, t:'Construção de redes', d:'Construção de infraestruturas de acesso em redes aéreas e subterrâneas, do traçado à ligação, coordenada com as entidades competentes.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
+          { i:'fiber', home:true, t:'Fibra ótica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra ótica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
+          { i:'activate', home:false, t:'Instalação e ativação de serviços', d:'Instalação de equipamentos e soluções técnicas, ativação e entrega de serviços de telecomunicações ao cliente final, numa abordagem end-to-end.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
+          { i:'monitor', home:false, t:'Supervisão e monitorização', d:'Supervisão e monitorização contínua das redes, assegurando controlo operacional, desempenho e alinhamento das operações no terreno.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
+          { i:'maint', home:true, t:'Manutenção e reparação', d:'Manutenção preventiva e corretiva, com diagnóstico, deteção e resolução de avarias e capacidade de resposta rápida para reduzir a indisponibilidade.', subs:['Manutenção preventiva','Manutenção corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
+          { i:'expand', home:true, t:'Expansão e otimização', d:'Ampliação, modernização e otimização de redes existentes, acompanhando o crescimento da procura e a evolução tecnológica.', subs:['Ampliação de traçados','Modernização','Otimização de redes','Densificação'] },
+          { i:'quality', home:false, t:'Qualidade e auditoria', d:'Controlo de qualidade e auditoria técnica de redes e infraestruturas, com verificação e certificação do trabalho executado.', subs:['Controlo de qualidade','Auditoria de redes','Certificação','Verificação técnica'] },
+          { i:'warehouse', home:false, t:'Armazém e logística', d:'Armazenamento e gestão de armazém, gestão logística e suporte técnico — assegurando disponibilidade, rastreabilidade e continuidade das operações.', subs:['Gestão de armazém','Receção e controlo de materiais','Rastreabilidade','Gestão logística','Suporte técnico'] },
         ],
       },
       areas: {
@@ -366,10 +371,15 @@ const STRINGS = {
           { i:'quality', t:'Quality control and network auditing', d:'Verification, certification and technical auditing of the infrastructure delivered.' },
         ],
         groups:[
-          { i:'build', t:'Network construction', d:'Delivery of access infrastructure — from route to connection — across aerial and underground networks.', subs:['Survey & assessment','Aerial networks','Underground networks','Ducts','Routes','Connections'] },
-          { i:'fiber', t:'Optical fibre & copper', d:'Laying, splicing and connecting optical fibre and copper, from the main span to the access point.', subs:['Optical fibre','Splicing','Copper cables','Certification','Access point'] },
-          { i:'maint', t:'Maintenance & operation', d:'Preventive and corrective maintenance ensuring the reliability, availability and performance of networks.', subs:['Preventive','Corrective','Fault diagnosis','Repair','Fast response (SLA)'] },
-          { i:'expand', t:'Expansion & quality', d:'Extension of existing networks and technical auditing, ensuring end-to-end quality.', subs:['Route extension','Densification','Quality control','Auditing','Verification'] },
+          { i:'survey', home:false, t:'Survey & design', d:'Technical field survey and project development, with integrated management and coordination — the foundation for rigorous delivery.', subs:['Technical survey','Field assessment','Project development','Project management & coordination'] },
+          { i:'build', home:true, t:'Network construction', d:'Construction of access infrastructure across aerial and underground networks, from route to connection, coordinated with the relevant authorities.', subs:['Aerial networks','Underground networks','Ducts','Routes','Poles & supports'] },
+          { i:'fiber', home:true, t:'Optical fibre & copper', d:'Delivery, maintenance and modernisation of optical fibre (FTTH) and copper infrastructure, from the main span to the access point.', subs:['Fibre laying','Splicing','Copper cables','FTTH','Connections','Access point'] },
+          { i:'activate', home:false, t:'Installation & service activation', d:'Installation of equipment and technical solutions, activation and delivery of telecommunications services to the end customer, end-to-end.', subs:['Equipment installation','Service activation','End-customer delivery','End-to-end (E2E)'] },
+          { i:'monitor', home:false, t:'Supervision & monitoring', d:'Continuous supervision and monitoring of networks, ensuring operational control, performance and alignment of field operations.', subs:['Network supervision','Monitoring','Operational control','Operations management'] },
+          { i:'maint', home:true, t:'Maintenance & repair', d:'Preventive and corrective maintenance, with fault diagnosis, detection and repair and fast response to reduce downtime.', subs:['Preventive maintenance','Corrective maintenance','Fault diagnosis','Repair','Fast response (SLA)'] },
+          { i:'expand', home:true, t:'Expansion & optimisation', d:'Extension, modernisation and optimisation of existing networks, keeping pace with demand and technological evolution.', subs:['Route extension','Modernisation','Network optimisation','Densification'] },
+          { i:'quality', home:false, t:'Quality & auditing', d:'Quality control and technical auditing of networks and infrastructure, with verification and certification of the work delivered.', subs:['Quality control','Network auditing','Certification','Technical verification'] },
+          { i:'warehouse', home:false, t:'Warehousing & logistics', d:'Warehousing and inventory management, logistics management and technical support — ensuring availability, traceability and operational continuity.', subs:['Warehouse management','Material receipt & control','Traceability','Logistics management','Technical support'] },
         ],
       },
       areas: {
@@ -562,10 +572,15 @@ const STRINGS = {
           { i:'quality', t:'Contrôle qualité et audit des réseaux', d:"Vérification, certification et audit technique des infrastructures réalisées." },
         ],
         groups:[
-          { i:'build', t:'Construction de réseaux', d:"Réalisation d'infrastructures d'accès — du tracé au raccordement — en réseaux aériens et souterrains.", subs:['Survey & relevé','Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Raccordements'] },
-          { i:'fiber', t:'Fibre optique & cuivre', d:"Tirage, soudure et raccordement de la fibre optique et du cuivre, du tronçon principal au point d'accès.", subs:['Fibre optique','Soudure','Câbles cuivre','Certification',"Point d'accès"] },
-          { i:'maint', t:'Maintenance & exploitation', d:'Maintenance préventive et corrective assurant la fiabilité, la disponibilité et la performance des réseaux.', subs:['Préventive','Corrective','Diagnostic de pannes','Réparation','Réponse rapide (SLA)'] },
-          { i:'expand', t:'Expansion & qualité', d:'Extension des réseaux existants et audit technique, garantissant une qualité end-to-end.', subs:['Extension de tracés','Densification','Contrôle qualité','Audit','Vérification'] },
+          { i:'survey', home:false, t:'Survey & projet', d:"Relevé technique de terrain et développement de projet, avec gestion et coordination intégrées — la base d'une réalisation rigoureuse.", subs:['Survey technique','Relevé de terrain','Développement de projet','Gestion et coordination de projets'] },
+          { i:'build', home:true, t:'Construction de réseaux', d:"Construction d'infrastructures d'accès en réseaux aériens et souterrains, du tracé au raccordement, coordonnée avec les autorités compétentes.", subs:['Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Appuis et poteaux'] },
+          { i:'fiber', home:true, t:'Fibre optique & cuivre', d:"Réalisation, maintenance et modernisation d'infrastructures en fibre optique (FTTH) et cuivre, du tronçon principal au point d'accès.", subs:['Tirage de fibre','Soudure','Câbles cuivre','FTTH','Raccordements',"Point d'accès"] },
+          { i:'activate', home:false, t:'Installation & activation de services', d:"Installation d'équipements et de solutions techniques, activation et livraison de services de télécommunications au client final, end-to-end.", subs:["Installation d'équipements",'Activation de services','Livraison au client final','End-to-end (E2E)'] },
+          { i:'monitor', home:false, t:'Supervision & surveillance', d:'Supervision et surveillance continue des réseaux, assurant le contrôle opérationnel, la performance et la coordination des opérations sur le terrain.', subs:['Supervision de réseaux','Surveillance','Contrôle opérationnel','Gestion des opérations'] },
+          { i:'maint', home:true, t:'Maintenance & réparation', d:"Maintenance préventive et corrective, avec diagnostic, détection et résolution de pannes et réactivité pour réduire les temps d'indisponibilité.", subs:['Maintenance préventive','Maintenance corrective','Diagnostic de pannes','Réparation','Réponse rapide (SLA)'] },
+          { i:'expand', home:true, t:'Expansion & optimisation', d:'Extension, modernisation et optimisation des réseaux existants, au rythme de la demande et de l\'évolution technologique.', subs:['Extension de tracés','Modernisation','Optimisation de réseaux','Densification'] },
+          { i:'quality', home:false, t:'Qualité & audit', d:'Contrôle qualité et audit technique des réseaux et infrastructures, avec vérification et certification des travaux réalisés.', subs:['Contrôle qualité','Audit de réseaux','Certification','Vérification technique'] },
+          { i:'warehouse', home:false, t:'Entrepôt & logistique', d:"Stockage et gestion d'entrepôt, gestion logistique et support technique — garantissant disponibilité, traçabilité et continuité des opérations.", subs:["Gestion d'entrepôt",'Réception et contrôle des matériaux','Traçabilité','Gestion logistique','Support technique'] },
         ],
       },
       areas: {
@@ -844,7 +859,7 @@ function ctaFinal(lang, S) {
 function bodyIndex(lang, S, up = upFor(lang)) {
   const p = S.pages.index;
   const HX = HOME_EXTRA[lang];
-  const cards = S.pages.servicos.groups.map(g => `
+  const cards = S.pages.servicos.groups.filter(g => g.home).map(g => `
           <article class="svc-card rv">
             <div class="svc-card__top"><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
             <div class="svc-card__body">
@@ -997,27 +1012,26 @@ function bodySobre(lang, S, up = upFor(lang)) {
 
 function bodyServicos(lang, S) {
   const p = S.pages.servicos;
-  // 4 serviços-mãe (categorias) com sub-serviços em chips — igual à home.
-  const cards = p.groups.map(g => `
-          <article class="svc-card rv">
-            <div class="svc-card__top">
-              <span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span>
-            </div>
-            <div class="svc-card__body">
-              <h3>${g.t}</h3>
-              <p>${g.d}</p>
-              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
-            </div>
-          </article>`).join('');
+  // Layout premium alternado (imagem + texto), cobrindo todo o âmbito do briefing.
+  const rows = p.groups.map((g, idx) => `
+        <article class="svc-row${idx % 2 ? ' svc-row--rev' : ''} rv">
+          <div class="svc-row__media">
+            <span class="svc-row__num" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
+            <span class="svc-row__icon" aria-hidden="true">${ICON[g.i]}</span>
+          </div>
+          <div class="svc-row__text">
+            <h2>${g.t}</h2>
+            <p>${g.d}</p>
+            <ul class="svc-row__list">${g.subs.map(s => `<li>${s}</li>`).join('')}</ul>
+          </div>
+        </article>`).join('');
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.intro}</p></div>
     </section>
-    <section class="section svc-section">
-      <div class="container">
-        <div class="svc-grid">${cards}
-        </div>
+    <section class="section">
+      <div class="container svc-rows">${rows}
       </div>
     </section>${ctaFinal(lang, S)}`;
 }
