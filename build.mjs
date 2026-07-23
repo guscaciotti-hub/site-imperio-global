@@ -160,6 +160,12 @@ const STRINGS = {
           { i:'copper', t:'Instalação e ligação de cabos de cobre', d:'Instalação, ligação e certificação de infraestruturas em cobre.' },
           { i:'quality', t:'Controlo de qualidade e auditoria de redes', d:'Verificação, certificação e auditoria técnica das infraestruturas executadas.' },
         ],
+        groups:[
+          { i:'build', t:'Construção de redes', d:'Execução de infraestruturas de acesso — do traçado à ligação — em redes aéreas e subterrâneas.', subs:['Survey e levantamento','Redes aéreas','Redes subterrâneas','Condutas','Traçados','Ligações'] },
+          { i:'fiber', t:'Fibra ótica e cobre', d:'Lançamento, fusão e ligação de fibra ótica e cobre, do troço principal ao ponto de acesso.', subs:['Fibra ótica','Fusão','Cabos de cobre','Certificação','Ponto de acesso'] },
+          { i:'maint', t:'Manutenção e operação', d:'Manutenção preventiva e corretiva que assegura a fiabilidade, disponibilidade e desempenho das redes.', subs:['Preventiva','Corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
+          { i:'expand', t:'Expansão e qualidade', d:'Ampliação de redes existentes e auditoria técnica, garantindo qualidade end-to-end.', subs:['Ampliação de traçados','Densificação','Controlo de qualidade','Auditoria','Verificação'] },
+        ],
       },
       areas: {
         title:'Áreas de Atuação — Império Global', desc:'Operação em Portugal e na Bélgica, ao serviço de operadores, empresas privadas e entidades públicas.',
@@ -356,6 +362,12 @@ const STRINGS = {
           { i:'copper', t:'Copper cable installation and connection', d:'Installation, connection and certification of copper infrastructure.' },
           { i:'quality', t:'Quality control and network auditing', d:'Verification, certification and technical auditing of the infrastructure delivered.' },
         ],
+        groups:[
+          { i:'build', t:'Network construction', d:'Delivery of access infrastructure — from route to connection — across aerial and underground networks.', subs:['Survey & assessment','Aerial networks','Underground networks','Ducts','Routes','Connections'] },
+          { i:'fiber', t:'Optical fibre & copper', d:'Laying, splicing and connecting optical fibre and copper, from the main span to the access point.', subs:['Optical fibre','Splicing','Copper cables','Certification','Access point'] },
+          { i:'maint', t:'Maintenance & operation', d:'Preventive and corrective maintenance ensuring the reliability, availability and performance of networks.', subs:['Preventive','Corrective','Fault diagnosis','Repair','Fast response (SLA)'] },
+          { i:'expand', t:'Expansion & quality', d:'Extension of existing networks and technical auditing, ensuring end-to-end quality.', subs:['Route extension','Densification','Quality control','Auditing','Verification'] },
+        ],
       },
       areas: {
         title:'Areas of Operation — Império Global', desc:'Operating in Portugal and Belgium, serving operators, private companies and public entities.',
@@ -545,6 +557,12 @@ const STRINGS = {
           { i:'fiber', t:'Installation et raccordement de fibre optique', d:"Tirage, soudure et raccordement de la fibre optique, du tronçon principal au point d'accès." },
           { i:'copper', t:'Installation et raccordement de câbles en cuivre', d:"Installation, raccordement et certification d'infrastructures en cuivre." },
           { i:'quality', t:'Contrôle qualité et audit des réseaux', d:"Vérification, certification et audit technique des infrastructures réalisées." },
+        ],
+        groups:[
+          { i:'build', t:'Construction de réseaux', d:"Réalisation d'infrastructures d'accès — du tracé au raccordement — en réseaux aériens et souterrains.", subs:['Survey & relevé','Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Raccordements'] },
+          { i:'fiber', t:'Fibre optique & cuivre', d:"Tirage, soudure et raccordement de la fibre optique et du cuivre, du tronçon principal au point d'accès.", subs:['Fibre optique','Soudure','Câbles cuivre','Certification',"Point d'accès"] },
+          { i:'maint', t:'Maintenance & exploitation', d:'Maintenance préventive et corrective assurant la fiabilité, la disponibilité et la performance des réseaux.', subs:['Préventive','Corrective','Diagnostic de pannes','Réparation','Réponse rapide (SLA)'] },
+          { i:'expand', t:'Expansion & qualité', d:'Extension des réseaux existants et audit technique, garantissant une qualité end-to-end.', subs:['Extension de tracés','Densification','Contrôle qualité','Audit','Vérification'] },
         ],
       },
       areas: {
@@ -913,9 +931,10 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   // Banner desenhado (texto embutido) para idiomas com arte própria — cortado
   // em cima/baixo (cover) para caber na tarja, sem texto HTML por cima.
   if (opts.baked && opts.baked[lang]) {
+    const pos = opts.pos ? `;background-position:${opts.pos}` : '';
     return `
     <h1 class="sr-only">${h1}</h1>
-    <section class="hero hero--photo hero--baked" style="background-image:url('${up}assets/img/${opts.baked[lang]}')" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
+    <section class="hero hero--photo hero--baked" style="background-image:url('${up}assets/img/${opts.baked[lang]}')${pos}" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
   }
   const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
@@ -968,20 +987,26 @@ function bodySobre(lang, S, up = upFor(lang)) {
 
 function bodyServicos(lang, S) {
   const p = S.pages.servicos;
-  // dados num array único → fácil acrescentar serviços
-  const items = p.items.map(s => `
-          <article class="card rv">
-            <div class="card__icon" aria-hidden="true">${ICON[s.i]}</div>
-            <h3>${s.t}</h3><p>${s.d}</p>
+  // Serviços-mãe (categorias) com sub-serviços em chips
+  const cards = p.groups.map(g => `
+          <article class="svc-card rv">
+            <div class="svc-card__top">
+              <span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span>
+            </div>
+            <div class="svc-card__body">
+              <h3>${g.t}</h3>
+              <p>${g.d}</p>
+              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
+            </div>
           </article>`).join('');
   return `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.intro}</p></div>
     </section>
-    <section class="section">
+    <section class="section svc-section">
       <div class="container">
-        <div class="grid grid--3">${items}
+        <div class="svc-grid">${cards}
         </div>
       </div>
     </section>${ctaFinal(lang, S)}`;
@@ -1017,18 +1042,25 @@ function field(id, label, input, req = true) {
           </div>`;
 }
 
-function bodyRecrutamento(lang, S) {
+function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  return `
+  // PT: banner desenhado como tarja (mesma lógica da Sobre). EN/FR: hero azul
+  // traduzido (não há versão sem-texto da arte, logo evita-se foto+texto embutido).
+  const hero = lang === 'pt'
+    ? heroBanner(lang, up, 'recrutamento-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'recrutamento-hero.jpg' } })
+    : `
     <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
       <div class="hero__pattern" aria-hidden="true"></div>
       <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1></div>
-    </section>
+    </section>`;
+  // O intro está embutido na arte PT — só se mostra o parágrafo em EN/FR.
+  const introHtml = lang === 'pt' ? '' : `<p class="lead rv">${p.intro}</p>`;
+  return `${hero}
     <section class="section">
       <div class="container">
-        <p class="lead rv">${p.intro}</p>
+        ${introHtml}
         <h2 class="rv" style="margin:2.5rem 0 1.5rem">${p.formTitle}</h2>
         <!-- Formspree: ver FORMSPREE_ID em /js/main.js. Alternativa Netlify Forms: ver README. -->
         <form class="form rv" data-formspree method="POST" enctype="multipart/form-data" novalidate>
