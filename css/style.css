@@ -481,8 +481,10 @@ p{ margin:0 0 1rem }
   .hero--photo{ min-height:clamp(360px,56vh,480px); background-position:center right }
   .hero--photo::after{ background:linear-gradient(180deg, rgba(1,18,40,.78) 0%, rgba(1,18,40,.52) 55%, rgba(1,18,40,.42) 100%) }
   .hero--photo .hero__sub{ max-width:none }
-  /* No mobile a arte é larga: baixa a tarja para o texto embutido caber todo */
-  .hero--baked{ background-position:left center; min-height:0; height:clamp(230px,74vw,380px) }
+  /* No mobile mostra a arte COMPLETA (sem cortes): a tarja acompanha a imagem,
+     por isso vê-se o texto e o globo inteiros, sem cortar. */
+  .hero--baked{ min-height:0; height:auto; aspect-ratio:1717 / 916;
+    background-size:contain; background-position:center }
 }
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }

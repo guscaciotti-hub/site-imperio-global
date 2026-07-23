@@ -56,7 +56,8 @@ const T = I18N[LANG] || I18N.pt;
 
 /* -------------------------------------------------- Hero: feixes de fibra ótica (canvas) */
 (function heroFiber(){
-  const heroes = document.querySelectorAll('.hero');
+  // Só a hero da HOME leva a animação de partículas; as tarjas interiores ficam estáticas.
+  const heroes = document.querySelectorAll('.hero--home');
   if (!heroes.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Sprites de brilho (bokeh) pré-renderizados — partículas de energia nas cores da marca
