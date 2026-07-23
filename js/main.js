@@ -159,6 +159,36 @@ const T = I18N[LANG] || I18N.pt;
   });
 })();
 
+/* -------------------------------------------------- Serviços: feixe de conexão (scroll) */
+(function svcBeam(){
+  const rows = document.querySelector('.svc-rows');
+  if (!rows) return;
+  if (matchMedia('(max-width:820px)').matches) return;   // só desktop
+  const items = [...rows.querySelectorAll('.svc-row')];
+  if (!items.length) return;
+  const beam = document.createElement('div'); beam.className = 'svc-beam'; rows.appendChild(beam);
+  const nodes = items.map(() => { const n = document.createElement('div'); n.className = 'svc-node'; rows.appendChild(n); return n; });
+  let centers = [];
+  function layout(){
+    centers = items.map((it, i) => { const cy = it.offsetTop + it.offsetHeight / 2; nodes[i].style.top = cy + 'px'; return cy; });
+  }
+  function update(){
+    const r = rows.getBoundingClientRect();
+    const total = rows.offsetHeight;
+    const ref = window.innerHeight * 0.5;                 // linha de referência no ecrã
+    let h = ref - r.top;                                  // altura "ligada" a partir do topo
+    h = Math.max(0, Math.min(total, h));
+    beam.style.height = h + 'px';
+    for (let i = 0; i < nodes.length; i++) nodes[i].classList.toggle('lit', centers[i] <= h + 6);
+  }
+  function tick(){ update(); }
+  layout(); update();
+  addEventListener('scroll', tick, { passive: true });
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); update(); }, 150); }, { passive: true });
+  // recalcula após imagens/fonts carregarem (alturas mudam)
+  addEventListener('load', () => { layout(); update(); });
+})();
+
 /* -------------------------------------------------- Reveal ao scroll */
 (function reveal(){
   const els = document.querySelectorAll('.rv');
