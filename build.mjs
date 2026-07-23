@@ -961,8 +961,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   }
   const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
+  const dark = opts.dark ? ' hero--photo--dark' : '';
   return `
-    <section class="hero hero--photo" style="background-image:url('${up}assets/img/${img}')">
+    <section class="hero hero--photo${dark}" style="background-image:url('${up}assets/img/${img}')">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1070,14 +1071,8 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  // PT: arte desenhada completa (sem zoom, sem degradê). EN/FR: hero azul traduzido.
-  const hero = lang === 'pt'
-    ? heroBanner(lang, up, 'recrutamento-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'recrutamento-hero.jpg' }, full: true })
-    : `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1><p class="hero__sub" style="margin-bottom:0">${p.intro}</p></div>
-    </section>`;
+  // Imagem limpa (sem texto) + texto HTML alinhado ao logo. Lado esquerdo claro → texto escuro. Todos os idiomas.
+  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true });
   return `${hero}
     <section class="section">
       <div class="container">
