@@ -841,10 +841,14 @@ function ctaFinal(lang, S) {
 function bodyIndex(lang, S, up = upFor(lang)) {
   const p = S.pages.index;
   const HX = HOME_EXTRA[lang];
-  const cards = p.serv.map(s => `
-          <article class="card rv">
-            <div class="card__icon" aria-hidden="true">${ICON[s.i]}</div>
-            <h3>${s.t}</h3><p>${s.d}</p>
+  const cards = S.pages.servicos.groups.map(g => `
+          <article class="svc-card rv">
+            <div class="svc-card__top"><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
+            <div class="svc-card__body">
+              <h3>${g.t}</h3>
+              <p>${g.d}</p>
+              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
+            </div>
           </article>`).join('');
   const pillars = p.pillars.map(x => `
           <div class="pillar rv"><h3>${x.t}</h3><p>${x.d}</p></div>`).join('');
@@ -908,7 +912,7 @@ function bodyIndex(lang, S, up = upFor(lang)) {
       <div class="container">
         <span class="eyebrow rv">${p.servEyebrow}</span>
         <h2 class="rv">${p.servTitle}</h2>
-        <div class="grid grid--4 stagger" style="margin-top:2.5rem">${cards}
+        <div class="svc-grid stagger" style="margin-top:2.5rem">${cards}
         </div>
         <p class="center" style="margin-top:2.5rem"><a href="${relLink(lang,lang,'servicos')}" class="btn btn--secundario">${p.servAll}</a></p>
       </div>
@@ -952,7 +956,7 @@ function bodySobre(lang, S, up = upFor(lang)) {
   const p = S.pages.sobre;
   const valores = p.valores.map(x => `
           <article class="card"><h3>${x.t}</h3><p>${x.d}</p></article>`).join('');
-  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1, { sub: p.heroSub, cta: { href: relLinkUp(up, lang, 'contacto'), label: p.heroCta }, baked: { pt: 'sobre-hero.jpg' } })}
+  return `${heroBanner(lang, up, 'sobre-bg.jpg', p.eyebrow, p.h1, { sub: p.heroSub, cta: { href: relLinkUp(up, lang, 'contacto'), label: p.heroCta } })}
     <section class="section">
       <div class="container">
         <p class="lead rv">${p.intro}</p>
@@ -1046,22 +1050,12 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const p = S.pages.recrutamento; const f = p.f;
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
-  // PT: banner desenhado como tarja (mesma lógica da Sobre). EN/FR: hero azul
-  // traduzido (não há versão sem-texto da arte, logo evita-se foto+texto embutido).
-  const hero = lang === 'pt'
-    ? heroBanner(lang, up, 'recrutamento-hero.jpg', p.eyebrow, p.h1, { baked: { pt: 'recrutamento-hero.jpg' } })
-    : `
-    <section class="hero" style="padding-block:clamp(56px,9vw,110px)">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner"><span class="eyebrow">${p.eyebrow}</span><h1>${p.h1}</h1></div>
-    </section>`;
-  // O intro está embutido na arte PT — só se mostra o parágrafo em EN/FR.
-  const introHtml = lang === 'pt' ? '' : `<p class="lead rv">${p.intro}</p>`;
+  // Foto de fundo + texto HTML alinhado ao logo (sem texto embutido), em todos os idiomas.
+  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro });
   return `${hero}
     <section class="section">
       <div class="container">
-        ${introHtml}
-        <h2 class="rv" style="margin:2.5rem 0 1.5rem">${p.formTitle}</h2>
+        <h2 class="rv" style="margin:0 0 1.5rem">${p.formTitle}</h2>
         <!-- Formspree: ver FORMSPREE_ID em /js/main.js. Alternativa Netlify Forms: ver README. -->
         <form class="form rv" data-formspree method="POST" enctype="multipart/form-data" novalidate>
           <div class="form__row">
