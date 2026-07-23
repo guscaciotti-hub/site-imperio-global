@@ -475,7 +475,7 @@ p{ margin:0 0 1rem }
 .hero--photo .hero__sub{ color:#c9dcef; max-width:36ch; margin:1.25rem 0 0; font-size:clamp(1.02rem,1.4vw,1.18rem); line-height:1.6 }
 .hero--photo .hero__cta{ margin-top:2rem }
 /* Variante para imagens de fundo CLARAS: texto escuro, sem overlay */
-.hero--photo--dark{ background-color:#cfe0f0; background-position:center 26% }
+.hero--photo--dark{ background-color:#cfe0f0; background-position:center 42% }
 .hero--photo--dark::after{ display:none }
 .hero--photo--dark h1{ color:var(--azul-imperio) }
 .hero--photo--dark .eyebrow{ color:var(--azul-sinal) }
@@ -605,10 +605,11 @@ p{ margin:0 0 1rem }
 
 /* Serviços — cards/rows com FOTO real (em vez do painel degradê) */
 .svc-card__top--photo{ background-size:cover; background-position:center }
-.svc-card__top--photo::after{ background:linear-gradient(180deg, rgba(1,20,43,.10) 0%, rgba(1,20,43,.5) 100%) }
+.svc-card__top--photo::after{ display:none }
 .svc-card__top--photo .svc-card__icon{ display:none }
 .svc-row__media--photo{ background-size:cover; background-position:center }
+/* só um leve escurecimento no topo (onde está o número); resto da foto vívido */
 .svc-row__media--photo::after{ content:""; position:absolute; inset:0; z-index:0;
-  background:linear-gradient(180deg, rgba(1,20,43,.12) 0%, rgba(1,20,43,.5) 100%) }
-.svc-row__media--photo .svc-row__num{ z-index:1; color:rgba(255,255,255,.5); text-shadow:0 2px 12px rgba(0,0,0,.4) }
+  background:linear-gradient(180deg, rgba(1,20,43,.32) 0%, rgba(1,20,43,0) 24%) }
+.svc-row__media--photo .svc-row__num{ z-index:1; color:rgba(255,255,255,.62); text-shadow:0 2px 12px rgba(0,0,0,.45) }
 .svc-row__media--photo .svc-row__icon{ display:none }

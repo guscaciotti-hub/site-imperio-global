@@ -1069,7 +1069,7 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const opts = p.areas.map(a => `<option>${a}</option>`).join('');
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   // Imagem limpa (sem texto) + texto HTML alinhado ao logo. Lado esquerdo claro → texto escuro. Todos os idiomas.
-  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true, full: true });
+  const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true });
   return `${hero}
     <section class="section">
       <div class="container">
