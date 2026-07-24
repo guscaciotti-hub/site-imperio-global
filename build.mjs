@@ -730,7 +730,13 @@ function head(lang, page, S, up = upFor(lang), seo = null) {
   const desc = seo ? seo.desc : p.desc;
   const canonical = seo ? seo.canonical : BASE + pathFor(lang, page);
   const alt = seo ? seo.alt : LANGS.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + pathFor(l, page)}">`).join('\n');
-  const ogImage = seo && seo.ogImage ? seo.ogImage : `${BASE}/assets/img/og-image.png`;
+  const ogImageDefault = !(seo && seo.ogImage);
+  const ogImage = ogImageDefault ? `${BASE}/assets/img/og-image.jpg` : seo.ogImage;
+  const ogImageMeta = ogImageDefault ? `
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Império Global — Infraestruturas de Telecomunicações">` : '';
   const jsonld = seo && seo.schema ? `\n  <script type="application/ld+json">\n  ${seo.schema}\n  </script>` : (page === 'index' ? `
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"Império Global","legalName":"Império Global Telecomunicações Unipessoal, Lda.","foundingDate":"2017","url":"${BASE}/","logo":"${BASE}/assets/favicon/icon-512.png","description":"${S.tagline}","areaServed":["PT","BE"],"email":"geral@imperioglobal.eu","sameAs":[]}
@@ -751,7 +757,7 @@ ${alt}
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${desc}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${ogImage}">
+  <meta property="og:image" content="${ogImage}">${ogImageMeta}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${desc}">
