@@ -199,7 +199,7 @@ const STRINGS = {
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
         areas:['Construção de redes','Manutenção e reparação','Fibra ótica e cobre','Engenharia e projeto','Administrativo','Outra'],
         consent:'Li e aceito a <a href="{priv}">Política de Privacidade</a> e autorizo o tratamento dos meus dados para efeitos de recrutamento.',
-        mailSubject:'Nova candidatura — Recrutamento Império Global',
+        mailSubject:'🟦 Recrutamento · Nova candidatura — Império Global',
         mailAuto:'Obrigado pela sua candidatura. Recebemos os seus dados e a nossa equipa da Império Global entrará em contacto, caso o seu perfil corresponda às nossas necessidades. Com os melhores cumprimentos, Equipa Império Global.',
       },
       contacto: {
@@ -210,7 +210,7 @@ const STRINGS = {
         f:{ nome:'Nome', empresa:'Empresa', email:'Email', telefone:'Telefone', assunto:'Assunto', msg:'Mensagem', submit:'Enviar mensagem' },
         assuntos:['Pedido de proposta','Parceria','Recrutamento','Outro'],
         consent:'Li e aceito a <a href="{priv}">Política de Privacidade</a> e autorizo o tratamento dos meus dados para resposta ao meu pedido.',
-        mailSubject:'Novo pedido de contacto — Império Global',
+        mailSubject:'🟢 Contacto · Novo pedido — Império Global',
         mailAuto:'Obrigado pelo seu contacto. Recebemos a sua mensagem e a nossa equipa da Império Global entrará em contacto o mais brevemente possível. Com os melhores cumprimentos, Equipa Império Global.',
         infoTitle:'Contactos',
         email:'geral@imperioglobal.eu',
@@ -411,7 +411,7 @@ const STRINGS = {
         f:{ nome:'Name', email:'Email', telefone:'Phone', area:'Area of interest', msg:'Message', cv:'Résumé (PDF or DOC, max. 5 MB)', submit:'Send application' },
         areas:['Network construction','Maintenance and repair','Optical fibre and copper','Engineering and design','Administrative','Other'],
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data for recruitment purposes.',
-        mailSubject:'New application — Império Global Careers',
+        mailSubject:'🟦 Careers · New application — Império Global',
         mailAuto:'Thank you for your application. We have received your details and our team at Império Global will be in touch should your profile match our needs. Kind regards, The Império Global Team.',
       },
       contacto: {
@@ -422,7 +422,7 @@ const STRINGS = {
         f:{ nome:'Name', empresa:'Company', email:'Email', telefone:'Phone', assunto:'Subject', msg:'Message', submit:'Send message' },
         assuntos:['Request for proposal','Partnership','Careers','Other'],
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data to respond to my request.',
-        mailSubject:'New contact request — Império Global',
+        mailSubject:'🟢 Contact · New enquiry — Império Global',
         mailAuto:'Thank you for your message. We have received your request and our team at Império Global will get back to you as soon as possible. Kind regards, The Império Global Team.',
         infoTitle:'Contacts', email:'geral@imperioglobal.eu', phone:'+351 244 811 076',
         morada:'R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal', mapa:'Map available soon',
@@ -617,7 +617,7 @@ const STRINGS = {
         f:{ nome:'Nom', email:'Email', telefone:'Téléphone', area:'Domaine d’intérêt', msg:'Message', cv:'CV (PDF ou DOC, max. 5 Mo)', submit:'Envoyer la candidature' },
         areas:['Construction de réseaux','Maintenance et réparation','Fibre optique et cuivre','Ingénierie et conception','Administratif','Autre'],
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données à des fins de recrutement.',
-        mailSubject:'Nouvelle candidature — Recrutement Império Global',
+        mailSubject:'🟦 Recrutement · Nouvelle candidature — Império Global',
         mailAuto:'Merci pour votre candidature. Nous avons bien reçu vos informations et notre équipe Império Global vous contactera si votre profil correspond à nos besoins. Cordialement, l’équipe Império Global.',
       },
       contacto: {
@@ -628,7 +628,7 @@ const STRINGS = {
         f:{ nome:'Nom', empresa:'Entreprise', email:'Email', telefone:'Téléphone', assunto:'Objet', msg:'Message', submit:'Envoyer le message' },
         assuntos:['Demande de devis','Partenariat','Recrutement','Autre'],
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données pour répondre à ma demande.',
-        mailSubject:'Nouvelle demande de contact — Império Global',
+        mailSubject:'🟢 Contact · Nouvelle demande — Império Global',
         mailAuto:'Merci pour votre message. Nous avons bien reçu votre demande et notre équipe Império Global vous répondra dans les plus brefs délais. Cordialement, l’équipe Império Global.',
         infoTitle:'Contacts', email:'geral@imperioglobal.eu', phone:'+351 244 811 076',
         morada:'R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal', mapa:'Carte disponible prochainement',
@@ -1102,6 +1102,7 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
           <input type="hidden" name="_autoresponse" value="${p.mailAuto}">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="Formulário" value="${p.h1}">
           <div class="form__row">
             ${field('r-nome', f.nome, '<input id="r-nome" name="nome" type="text" required autocomplete="name">')}
             ${field('r-email', f.email, '<input id="r-email" name="email" type="email" required autocomplete="email">')}
@@ -1138,6 +1139,7 @@ function bodyContacto(lang, S, up = upFor(lang)) {
               <input type="hidden" name="_autoresponse" value="${p.mailAuto}">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="Formulário" value="${p.h1}">
               <div class="form__row">
                 ${field('c-nome', f.nome, '<input id="c-nome" name="nome" type="text" required autocomplete="name">')}
                 ${field('c-empresa', f.empresa, '<input id="c-empresa" name="empresa" type="text" autocomplete="organization">', false)}
