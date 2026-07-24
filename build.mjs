@@ -1371,10 +1371,7 @@ function bodyBlogIndex(lang, S, up) {
   const filters = `<button class="chip is-active" data-filter="all">${ui.all}</button>` +
     cats.map(c => `<button class="chip" data-filter="${c}">${CATEGORIES[lang][c]}</button>`).join('');
   const cards = arts.map(a => articleCard(lang, a, '', up)).join('') || `<p>${ui.empty}</p>`;
-  return `
-    <section class="hero" style="padding-block:clamp(56px,9vw,100px)">
-      <div class="container hero__inner"><span class="eyebrow">${ui.eyebrow}</span><h1>${ui.h1}</h1><p class="hero__sub" style="margin-bottom:0">${ui.lead}</p></div>
-    </section>
+  return `${heroBanner(lang, up, 'blog-bg.jpg', ui.eyebrow, ui.h1, { sub: ui.lead, scrim: true })}
     <section class="section">
       <div class="container">
         <div class="chips" role="group" aria-label="Filtro por categoria">${filters}</div>
