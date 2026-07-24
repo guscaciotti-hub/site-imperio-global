@@ -650,3 +650,9 @@ p{ margin:0 0 1rem }
   font-family:var(--font-titulo); font-weight:700; font-size:.82rem; letter-spacing:.1em; color:#fff;
   background:rgba(1,20,43,.7); padding:.35rem .8rem; border-radius:999px;
   -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px) }
+
+/* Hero foto sobre fundo CLARO/variado — scrim mais forte à esquerda (contraste do texto) */
+.hero--photo--scrim::after{ background:linear-gradient(100deg, rgba(1,15,36,.9) 0%, rgba(1,15,36,.66) 32%, rgba(1,18,42,.3) 56%, rgba(1,20,43,0) 78%) }
+@media (max-width:640px){
+  .hero--photo--scrim::after{ background:linear-gradient(180deg, rgba(1,15,36,.86) 0%, rgba(1,15,36,.6) 55%, rgba(1,15,36,.5) 100%) }
+}

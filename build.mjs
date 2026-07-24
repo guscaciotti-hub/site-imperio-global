@@ -985,8 +985,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const dark = opts.dark ? ' hero--photo--dark' : '';
   const full = opts.full ? ' hero--photo--full' : '';
   const fx = opts.fx ? ' hero--fx' : '';
+  const scrim = opts.scrim ? ' hero--photo--scrim' : '';
   return `
-    <section class="hero hero--photo${dark}${full}${fx}" style="background-image:url('${up}assets/img/${img}')">
+    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}')">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1070,7 +1071,7 @@ function bodyAreas(lang, S, up = upFor(lang)) {
             <figcaption class="pais-flag__label">${((p.flags && p.flags[i]) || 'pt').toUpperCase()}</figcaption>
           </figure>
         </div>`).join('<div style="height:3rem"></div>');
-  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro })}
+  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true })}
     <section class="section">
       <div class="container">${paises}
       </div>
