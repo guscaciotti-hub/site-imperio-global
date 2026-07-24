@@ -274,9 +274,9 @@ document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Da
 
       try {
         const fd = new FormData(form);
-        // Campos de controlo do FormSubmit
-        fd.append('_captcha', 'false');
-        fd.append('_template', 'table');
+        // Campos de controlo do FormSubmit (só se o formulário não os definir já)
+        if (!fd.get('_captcha')) fd.append('_captcha', 'false');
+        if (!fd.get('_template')) fd.append('_template', 'table');
         if (!fd.get('_subject')) fd.append('_subject', 'Novo formulário — site Império Global');
         const res = await fetch(FORM_ENDPOINT, {
           method:'POST', body:fd, headers:{ Accept:'application/json' },

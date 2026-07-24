@@ -66,6 +66,10 @@
           <div class="rv">
             <h2 style="margin-bottom:1.5rem">Envie-nos uma mensagem</h2>
             <form class="form" data-formspree method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Novo pedido de contacto — Império Global">
+              <input type="hidden" name="_autoresponse" value="Obrigado pelo seu contacto. Recebemos a sua mensagem e a nossa equipa da Império Global entrará em contacto o mais brevemente possível. Com os melhores cumprimentos, Equipa Império Global.">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
               <div class="form__row">
                 
           <div class="field">
@@ -112,11 +116,12 @@
             <h2 style="margin-bottom:1.5rem">Contactos</h2>
             <div class="contact-block">
               <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><strong>Email</strong><a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a></div></div>
-              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div><strong>Telefone</strong>+351 000 000 000</div></div>
-              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Morada</strong>Morada a confirmar · Portugal</div></div>
+              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div><strong>Telefone</strong><a href="tel:+351244811076">+351 244 811 076</a></div></div>
+              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Morada</strong><a href="https://maps.google.com/?q=R.+da+Floresta+1521,+2410-021+Leiria,+Portugal" target="_blank" rel="noopener">R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal</a></div></div>
             </div>
-            <div class="pais__mapa" style="margin-top:1.5rem;aspect-ratio:16/9" aria-hidden="true"><svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".8"><ellipse cx="100" cy="75" rx="70" ry="55"/><path d="M30 75h140M100 20v110M45 45c30 20 80 20 110 0M45 105c30-20 80-20 110 0"/><circle cx="100" cy="75" r="5" fill="currentColor" stroke="none"/></svg></div>
-            <!-- TODO: substituir por mapa/morada reais quando definidos. Sem embed de terceiros até então. -->
+            <div class="contact-map" style="margin-top:1.5rem">
+              <iframe title="Mapa — Império Global, Leiria" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20da%20Floresta%201521%2C%202410-021%20Leiria%2C%20Portugal&output=embed"></iframe>
+            </div>
           </div>
         </div>
       </div>
