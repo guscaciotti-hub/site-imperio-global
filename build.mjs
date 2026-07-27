@@ -1034,9 +1034,20 @@ function bodySobre(lang, S, up = upFor(lang)) {
       </div>
     </section>
     <section class="section">
-      <div class="container prose rv">
-        <h2>${p.presencaTitle}</h2>
-        <p>${p.presenca}</p>
+      <div class="container">
+        <div class="prose rv">
+          <h2>${p.presencaTitle}</h2>
+          <p>${p.presenca}</p>
+        </div>
+        <div class="presenca-flags rv">${['pt', 'be'].map((fl, i) => `
+          <div class="presenca-flag">
+            <figure class="presenca-flag__flag">${FLAGS[fl]}</figure>
+            <div class="presenca-flag__body">
+              <span class="presenca-flag__role">${(S.pages.areas.roles && S.pages.areas.roles[i]) || ''}</span>
+              <h3 class="presenca-flag__name">${(S.pages.areas.paises[i] && S.pages.areas.paises[i].nome) || ''}</h3>
+            </div>
+          </div>`).join('')}
+        </div>
       </div>
     </section>${ctaFinal(lang, S)}`;
 }
