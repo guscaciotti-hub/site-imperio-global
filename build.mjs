@@ -1076,21 +1076,24 @@ function bodyServicos(lang, S, up = upFor(lang)) {
 
 function bodyAreas(lang, S, up = upFor(lang)) {
   const p = S.pages.areas;
-  const paises = p.paises.map((c, i) => `
-        <div class="pais rv"${i % 2 ? ' style="direction:rtl"' : ''}>
-          <div style="direction:ltr">
-            <span class="eyebrow">${(p.roles && p.roles[i]) || c.nome}</span>
-            <h2 style="margin-bottom:.75rem">${c.nome}</h2>
-            <p class="lead" style="margin:0">${c.d}</p>
-          </div>
-          <figure class="pais-flag" style="direction:ltr">
-            ${FLAGS[(p.flags && p.flags[i]) || 'pt'] || ''}
-            <figcaption class="pais-flag__label">${((p.flags && p.flags[i]) || 'pt').toUpperCase()}</figcaption>
+  const paises = p.paises.map((c, i) => {
+    const fl = (p.flags && p.flags[i]) || 'pt';
+    return `
+        <article class="area-card rv">
+          <figure class="area-card__flag">
+            ${FLAGS[fl] || ''}
+            <figcaption>${fl.toUpperCase()}</figcaption>
           </figure>
-        </div>`).join('<div style="height:3rem"></div>');
+          <span class="eyebrow">${(p.roles && p.roles[i]) || c.nome}</span>
+          <h2>${c.nome}</h2>
+          <p>${c.d}</p>
+        </article>`;
+  }).join('');
   return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true })}
     <section class="section">
-      <div class="container">${paises}
+      <div class="container">
+        <div class="areas-grid">${paises}
+        </div>
       </div>
     </section>${ctaFinal(lang, S)}`;
 }

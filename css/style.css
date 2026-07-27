@@ -284,7 +284,23 @@ p{ margin:0 0 1rem }
 .mvv{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2rem }
 .mvv .card h3{ color:var(--azul-imperio) }
 
-/* Áreas de atuação (país) */
+/* Áreas de atuação — cartões de país compactos, lado a lado */
+.areas-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem }
+.area-card{ background:#fff; border:1px solid var(--linha); border-top:3px solid var(--azul-sinal);
+  border-radius:18px; padding:2rem 2rem 2.25rem; box-shadow:var(--sombra);
+  transition:transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao) }
+@media (hover:hover){ .area-card:hover{ transform:translateY(-4px); box-shadow:var(--sombra-forte); border-top-color:var(--azul-imperio) } }
+.area-card__flag{ position:relative; margin:0 0 1.5rem; width:118px; border-radius:10px; overflow:hidden;
+  box-shadow:0 4px 14px rgba(1,20,43,.22); border:1px solid var(--linha) }
+.area-card__flag svg{ display:block; width:100%; height:auto; aspect-ratio:3/2 }
+.area-card__flag figcaption{ position:absolute; left:.55rem; bottom:.5rem; font-family:var(--font-titulo);
+  font-weight:700; font-size:.68rem; letter-spacing:.1em; color:#fff; background:rgba(1,20,43,.72);
+  padding:.2rem .55rem; border-radius:999px; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px) }
+.area-card h2{ margin:.4rem 0 .7rem }
+.area-card p{ margin:0; color:var(--grafite) }
+@media (max-width:640px){ .areas-grid{ grid-template-columns:1fr } }
+
+/* Áreas de atuação (país) — legado */
 .pais{ display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center }
 .pais__mapa{
   aspect-ratio:4/3; border-radius:var(--raio); border:1px solid var(--linha);
