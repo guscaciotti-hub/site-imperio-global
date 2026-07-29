@@ -95,7 +95,7 @@ const STRINGS = {
     footer: {
       nav:'Navegação', empresa:'Empresa', contacto:'Contacto',
       privacidade:'Política de Privacidade', rights:'Todos os direitos reservados.',
-      gov:'Governance & Conformidade', cookies:'Política de Cookies', termos:'Termos e Condições',
+      gov:'Governação e Conformidade', cookies:'Política de Cookies', termos:'Termos e Condições',
       codigoetica:'Código de Ética e Conduta', canaldenuncias:'Canal de Denúncias',
     },
     cookies: {
@@ -260,7 +260,7 @@ const STRINGS = {
       codigoetica: {
         title:'Código de Ética e Conduta — Império Global',
         desc:'Código de Ética e Conduta da Império Global: valores, princípios de conduta e relação com clientes, parceiros e colaboradores.',
-        eyebrow:'Governance', h1:'Código de Ética e Conduta',
+        eyebrow:'Governação', h1:'Código de Ética e Conduta',
         updated:'Versão 1.0 · Próxima revisão em 12 meses', download:'Descarregar em PDF',
         sections:[
           { h:'1. Preâmbulo', body:'<p>O presente Código de Ética e Conduta estabelece os princípios e as regras de conduta que orientam a atividade da Império Global Telecomunicações Unipessoal, Lda. Aplica-se a todos os colaboradores, bem como a parceiros, fornecedores e demais terceiros que atuem em nome ou por conta da empresa.</p>' },
@@ -1321,7 +1321,7 @@ const CATEGORIES = {
   fr: { fibra:'Fibre optique', construcao:'Construction de réseaux', manutencao:'Maintenance et exploitation', regulamentacao:'Réglementation', casos:'Cas et projets', insights:'Perspectives du secteur' },
 };
 const BLOG_UI = {
-  pt: { metaTitle:'Blog — Insights técnicos | Império Global', metaDesc:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Insights técnicos', lead:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projeto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
+  pt: { metaTitle:'Blog — Perspetivas técnicas | Império Global', metaDesc:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Perspetivas técnicas', lead:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projeto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
   en: { metaTitle:'Blog — Technical insights | Império Global', metaDesc:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', eyebrow:'Blog', h1:'Technical insights', lead:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', all:'All', min:'min read', by:'By', toc:'In this article', related:'Related articles', ctaTitle:'Need technical support for your project?', ctaBtn:'Contact us', author:'Império Global Team', empty:'No articles in this category.' },
   fr: { metaTitle:'Blog — Perspectives techniques | Império Global', metaDesc:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", eyebrow:'Blog', h1:'Perspectives techniques', lead:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", all:'Toutes', min:'min de lecture', by:'Par', toc:'Dans cet article', related:'Articles liés', ctaTitle:'Besoin d’un appui technique pour votre projet ?', ctaBtn:'Contactez-nous', author:'Équipe Império Global', empty:'Aucun article dans cette catégorie.' },
 };
