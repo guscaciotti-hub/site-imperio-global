@@ -89,7 +89,7 @@ const FLAGS = {
 const STRINGS = {
   pt: {
     htmlLang: 'pt',
-    nav: { index:'Início', sobre:'Sobre', servicos:'Serviços', areas:'Áreas de Atuação', blog:'Blog', recrutamento:'Recrutamento', contacto:'Contacto' },
+    nav: { index:'Início', sobre:'Sobre', servicos:'Serviços', areas:'Áreas de Actuação', blog:'Blog', recrutamento:'Recrutamento', contacto:'Contacto' },
     skip: 'Saltar para o conteúdo',
     tagline: 'Construção, expansão e manutenção de infraestruturas de telecomunicações em Portugal e na Bélgica.',
     footer: {
@@ -102,7 +102,7 @@ const STRINGS = {
       text:'Utilizamos cookies para melhorar a sua experiência e analisar o tráfego. Os cookies de análise só são carregados após o seu consentimento.',
       accept:'Aceitar', reject:'Recusar', more:'Saber mais',
     },
-    cta: { title:'Vamos construir a próxima ligação?', text:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações.', btn:'Fale connosco' },
+    cta: { title:'Vamos construir a próxima ligação?', text:'Fale connosco sobre o seu projecto de infraestruturas de telecomunicações.', btn:'Fale connosco' },
     pages: {
       index: {
         title:'Império Global — Infraestruturas de telecomunicações · Portugal e Bélgica',
@@ -116,8 +116,8 @@ const STRINGS = {
         serv:[
           { i:'build', t:'Construção de redes', d:'Implementação de raiz de infraestruturas de acesso, com rigor de execução e conformidade técnica.' },
           { i:'expand', t:'Expansão de traçados', d:'Ampliação e prolongamento de redes existentes para acompanhar o crescimento da procura.' },
-          { i:'maint', t:'Manutenção e reparação de avarias', d:'Manutenção preventiva e corretiva que assegura a fiabilidade, disponibilidade e desempenho das redes.' },
-          { i:'fiber', t:'Fibra ótica e cobre', d:'Instalação e ligação de cabos de fibra ótica e de cobre, do troço principal ao ponto de acesso.' },
+          { i:'maint', t:'Manutenção e reparação de avarias', d:'Manutenção preventiva e correctiva que assegura a fiabilidade, disponibilidade e desempenho das redes.' },
+          { i:'fiber', t:'Fibra óptica e cobre', d:'Instalação e ligação de cabos de fibra óptica e de cobre, do troço principal ao ponto de acesso.' },
         ],
         servAll:'Ver todos os serviços',
         whyEyebrow:'Porquê a Império Global', whyTitle:'Solidez técnica em cada etapa',
@@ -125,7 +125,7 @@ const STRINGS = {
           { t:'Rigor de execução', d:'Processos técnicos rigorosos, do planeamento à entrega, com foco na conformidade.' },
           { t:'Fiabilidade', d:'Infraestruturas que asseguram a fiabilidade, disponibilidade e desempenho das redes.' },
           { t:'Capacidade de resposta', d:'Equipas e viaturas prontas para intervir e reduzir o tempo de indisponibilidade.' },
-          { t:'Visão de escala', d:'Operação em dois países e capacidade para acompanhar projetos de grande dimensão.' },
+          { t:'Visão de escala', d:'Operação em dois países e capacidade para acompanhar projectos de grande dimensão.' },
         ],
         stats:[ { n:50, pre:'+', l:'Colaboradores' }, { n:2, pre:'', l:'Países de operação' }, { n:20, pre:'', l:'Viaturas de intervenção' } ],
       },
@@ -134,9 +134,9 @@ const STRINGS = {
         h1:'Sobre a Império Global', eyebrow:'Quem somos',
         heroSub:'Construímos, expandimos e mantemos as infraestruturas de telecomunicações que ligam Portugal e a Bélgica — end-to-end, com rigor técnico.',
         heroCta:'Fale connosco',
-        intro:'A Império Global é especialista na construção, expansão e manutenção de infraestruturas de telecomunicações. Desenvolvemos, implementamos e asseguramos a manutenção de redes de fibra ótica e infraestruturas de acesso que suportam os serviços dos principais operadores.',
+        intro:'A Império Global é especialista na construção, expansão e manutenção de infraestruturas de telecomunicações. Desenvolvemos, implementamos e asseguramos a manutenção de redes de fibra óptica e infraestruturas de acesso que suportam os serviços dos principais operadores.',
         missaoT:'Missão',
-        missao:'Planeamos, construímos e mantemos infraestruturas de telecomunicações com rigor técnico e compromisso, garantindo redes fiáveis, preparadas para responder às exigências do presente e do futuro. Transformamos desafios em soluções e cada projeto numa relação de confiança.',
+        missao:'Planeamos, construímos e mantemos infraestruturas de telecomunicações com rigor técnico e compromisso, garantindo redes fiáveis, preparadas para responder às exigências do presente e do futuro. Transformamos desafios em soluções e cada projecto numa relação de confiança.',
         visaoT:'Visão',
         visao:'Ser uma referência internacional na execução de infraestruturas técnicas, reconhecida pela inovação, competência e excelência operacional, crescendo de forma sustentável para novas áreas e mercados.',
         valoresT:'Valores',
@@ -152,43 +152,43 @@ const STRINGS = {
           { v:'2', l:'países', d:'Operação em Portugal e na Bélgica, com a mesma exigência técnica.' },
         ],
         presencaTitle:'Presença internacional',
-        presenca:'Fundada em 2017, a Império Global evoluiu da instalação e manutenção de redes ADSL para as soluções de fibra ótica (FTTH) e infraestruturas de nova geração. Portugal é hoje o mercado principal e concentra a maior parte da operação; a presença na Bélgica reflete uma trajetória de crescimento sustentada, construída sobre a confiança de operadores, empresas privadas e entidades públicas. A operação em dois países permite-nos partilhar competências, escalar equipas e responder a projetos de grande dimensão com a mesma exigência técnica.',
+        presenca:'Fundada em 2017, a Império Global evoluiu da instalação e manutenção de redes ADSL para as soluções de fibra óptica (FTTH) e infraestruturas de nova geração. Portugal é hoje o mercado principal e concentra a maior parte da operação; a presença na Bélgica reflete uma trajetória de crescimento sustentada, construída sobre a confiança de operadores, empresas privadas e entidades públicas. A operação em dois países permite-nos partilhar competências, escalar equipas e responder a projectos de grande dimensão com a mesma exigência técnica.',
       },
       servicos: {
-        title:'Serviços — Império Global', desc:'Construção, expansão e manutenção de infraestruturas de telecomunicações: redes fixas, fibra ótica e cobre, manutenção preventiva e corretiva.',
+        title:'Serviços — Império Global', desc:'Construção, expansão e manutenção de infraestruturas de telecomunicações: redes fixas, fibra óptica e cobre, manutenção preventiva e correctiva.',
         h1:'Serviços', eyebrow:'O que oferecemos',
         intro:'Cobrimos todo o ciclo de vida das infraestruturas de acesso — da construção à manutenção — para operadores, empresas privadas e entidades públicas.',
         items:[
-          { i:'survey', t:'Survey e levantamento técnico', d:'Levantamento de campo e preparação de projeto para a execução das infraestruturas.' },
+          { i:'survey', t:'Survey e levantamento técnico', d:'Levantamento de campo e preparação de projecto para a execução das infraestruturas.' },
           { i:'aerial', t:'Construção de redes aéreas', d:'Instalação de infraestruturas de acesso em apoios aéreos, do traçado à ligação.' },
           { i:'underground', t:'Construção de redes subterrâneas', d:'Execução de condutas e traçados subterrâneos, coordenada com as entidades competentes.' },
           { i:'expand', t:'Expansão e ampliação de traçados', d:'Prolongamento e densificação de redes existentes para acompanhar a procura.' },
           { i:'maint', t:'Manutenção preventiva', d:'Planos de manutenção que asseguram a fiabilidade, disponibilidade e desempenho das redes.' },
-          { i:'repair', t:'Diagnóstico e resolução de avarias', d:'Deteção e reparação de avarias com capacidade de resposta e redução do tempo de indisponibilidade.' },
-          { i:'fiber', t:'Instalação e ligação de cabos de fibra ótica', d:'Lançamento, fusão e ligação de fibra ótica, do troço principal ao ponto de acesso.' },
+          { i:'repair', t:'Diagnóstico e resolução de avarias', d:'Detecção e reparação de avarias com capacidade de resposta e redução do tempo de indisponibilidade.' },
+          { i:'fiber', t:'Instalação e ligação de cabos de fibra óptica', d:'Lançamento, fusão e ligação de fibra óptica, do troço principal ao ponto de acesso.' },
           { i:'copper', t:'Instalação e ligação de cabos de cobre', d:'Instalação, ligação e certificação de infraestruturas em cobre.' },
           { i:'quality', t:'Controlo de qualidade e auditoria de redes', d:'Verificação, certificação e auditoria técnica das infraestruturas executadas.' },
         ],
         groups:[
-          { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey e projeto', d:'Levantamento técnico de campo e desenvolvimento de projeto, com gestão e coordenação integradas — a base para uma execução rigorosa.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
+          { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey e projecto', d:'Levantamento técnico de campo e desenvolvimento de projecto, com gestão e coordenação integradas — a base para uma execução rigorosa.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projecto','Gestão e coordenação de projectos'] },
           { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Construção de infraestruturas de acesso em redes aéreas e subterrâneas, do traçado à ligação, coordenada com as entidades competentes.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
-          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra ótica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra ótica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
-          { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Instalação e ativação de serviços', d:'Instalação de equipamentos e soluções técnicas, ativação e entrega de serviços de telecomunicações ao cliente final, numa abordagem end-to-end.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
+          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra óptica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra óptica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
+          { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Instalação e activação de serviços', d:'Instalação de equipamentos e soluções técnicas, activação e entrega de serviços de telecomunicações ao cliente final, numa abordagem end-to-end.', subs:['Instalação de equipamentos','Activação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervisão e monitorização', d:'Supervisão e monitorização contínua das redes, assegurando controlo operacional, desempenho e alinhamento das operações no terreno.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
-          { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Manutenção e reparação', d:'Manutenção preventiva e corretiva, com diagnóstico, deteção e resolução de avarias e capacidade de resposta rápida para reduzir a indisponibilidade.', subs:['Manutenção preventiva','Manutenção corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
-          { i:'expand', home:true, img:'servicos/expansao-e-otimizacao.jpg', t:'Expansão e otimização', d:'Ampliação, modernização e otimização de redes existentes, acompanhando o crescimento da procura e a evolução tecnológica.', subs:['Ampliação de traçados','Modernização','Otimização de redes','Densificação'] },
+          { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Manutenção e reparação', d:'Manutenção preventiva e correctiva, com diagnóstico, detecção e resolução de avarias e capacidade de resposta rápida para reduzir a indisponibilidade.', subs:['Manutenção preventiva','Manutenção correctiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
+          { i:'expand', home:true, img:'servicos/expansao-e-otimizacao.jpg', t:'Expansão e optimização', d:'Ampliação, modernização e optimização de redes existentes, acompanhando o crescimento da procura e a evolução tecnológica.', subs:['Ampliação de traçados','Modernização','Optimização de redes','Densificação'] },
           { i:'quality', home:false, img:'servicos/qualidade-e-auditoria.jpg', t:'Qualidade e auditoria', d:'Controlo de qualidade e auditoria técnica de redes e infraestruturas, com verificação e certificação do trabalho executado.', subs:['Controlo de qualidade','Auditoria de redes','Certificação','Verificação técnica'] },
-          { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Armazém e logística', d:'Armazenamento e gestão de armazém, gestão logística e suporte técnico — assegurando disponibilidade, rastreabilidade e continuidade das operações.', subs:['Gestão de armazém','Receção e controlo de materiais','Rastreabilidade','Gestão logística','Suporte técnico'] },
+          { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Armazém e logística', d:'Armazenamento e gestão de armazém, gestão logística e suporte técnico — assegurando disponibilidade, rastreabilidade e continuidade das operações.', subs:['Gestão de armazém','Recepção e controlo de materiais','Rastreabilidade','Gestão logística','Suporte técnico'] },
         ],
       },
       areas: {
-        title:'Áreas de Atuação — Império Global', desc:'Operação em Portugal e na Bélgica, ao serviço de operadores, empresas privadas e entidades públicas.',
-        h1:'Áreas de Atuação', eyebrow:'Onde atuamos',
+        title:'Áreas de Actuação — Império Global', desc:'Operação em Portugal e na Bélgica, ao serviço de operadores, empresas privadas e entidades públicas.',
+        h1:'Áreas de Actuação', eyebrow:'Onde actuamos',
         intro:'Operamos em dois países europeus, com equipas próprias e capacidade de intervenção local.',
         roles:['Mercado principal','Expansão internacional'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:'Atuação em território nacional na construção, expansão e manutenção de infraestruturas de acesso, ao serviço de operadores, empresas privadas e entidades públicas.' },
-          { nome:'Bélgica', d:'Operação no mercado belga em infraestruturas de telecomunicações, com equipas dedicadas à construção e manutenção de redes de fibra ótica e cobre.' },
+          { nome:'Portugal', d:'Actuação em território nacional na construção, expansão e manutenção de infraestruturas de acesso, ao serviço de operadores, empresas privadas e entidades públicas.' },
+          { nome:'Bélgica', d:'Operação no mercado belga em infraestruturas de telecomunicações, com equipas dedicadas à construção e manutenção de redes de fibra óptica e cobre.' },
         ],
       },
       recrutamento: {
@@ -197,15 +197,15 @@ const STRINGS = {
         intro:'Junte-se a uma equipa em crescimento, que constrói e mantém as infraestruturas que ligam pessoas e empresas. Valorizamos o rigor técnico, a segurança e o espírito de equipa.',
         formTitle:'Candidatura espontânea',
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
-        areas:['Construção de redes','Manutenção e reparação','Fibra ótica e cobre','Engenharia e projeto','Administrativo','Outra'],
+        areas:['Construção de redes','Manutenção e reparação','Fibra óptica e cobre','Engenharia e projecto','Administrativo','Outra'],
         consent:'Li e aceito a <a href="{priv}">Política de Privacidade</a> e autorizo o tratamento dos meus dados para efeitos de recrutamento.',
         mailSubject:'🟦 Recrutamento · Nova candidatura — Império Global',
         mailAuto:'Obrigado pela sua candidatura. Recebemos os seus dados e a nossa equipa da Império Global entrará em contacto, caso o seu perfil corresponda às nossas necessidades. Com os melhores cumprimentos, Equipa Império Global.',
       },
       contacto: {
-        title:'Contacto — Império Global', desc:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações em Portugal ou na Bélgica.',
+        title:'Contacto — Império Global', desc:'Fale connosco sobre o seu projecto de infraestruturas de telecomunicações em Portugal ou na Bélgica.',
         h1:'Contacto', eyebrow:'Fale connosco',
-        intro:'Tem um projeto de infraestruturas de telecomunicações? Envie-nos a sua mensagem e a nossa equipa entrará em contacto.',
+        intro:'Tem um projecto de infraestruturas de telecomunicações? Envie-nos a sua mensagem e a nossa equipa entrará em contacto.',
         formTitle:'Envie-nos uma mensagem',
         f:{ nome:'Nome', empresa:'Empresa', email:'Email', telefone:'Telefone', assunto:'Assunto', msg:'Mensagem', submit:'Enviar mensagem' },
         assuntos:['Pedido de proposta','Parceria','Recrutamento','Outro'],
@@ -224,8 +224,8 @@ const STRINGS = {
         blocks:[
           ['Responsável pelo tratamento','O responsável pelo tratamento dos dados pessoais é a Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: NIPC e morada da sede -->. Para qualquer questão relacionada com dados pessoais, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
           ['Dados recolhidos e finalidades','Recolhemos os dados que nos fornece através dos formulários de contacto e de recrutamento (nome, email, telefone, empresa, mensagem e, no caso de candidaturas, o currículo). Os dados são tratados para responder aos seus pedidos, gerir candidaturas e cumprir obrigações legais.'],
-          ['Prazos de conservação','Os dados de contacto são conservados pelo período necessário à resposta e ao cumprimento de obrigações legais. Os currículos recebidos em processos de recrutamento são conservados por um período máximo de <!-- TODO: definir prazo, ex. 12 meses --> após a receção, salvo consentimento para conservação mais prolongada.'],
-          ['Direitos do titular','Pode exercer, a qualquer momento, os direitos de acesso, retificação, apagamento, limitação, portabilidade e oposição ao tratamento dos seus dados, bem como retirar o consentimento. Para tal, contacte-nos por email. Tem ainda o direito de apresentar reclamação junto da Comissão Nacional de Proteção de Dados (CNPD).'],
+          ['Prazos de conservação','Os dados de contacto são conservados pelo período necessário à resposta e ao cumprimento de obrigações legais. Os currículos recebidos em processos de recrutamento são conservados por um período máximo de <!-- TODO: definir prazo, ex. 12 meses --> após a recepção, salvo consentimento para conservação mais prolongada.'],
+          ['Direitos do titular','Pode exercer, a qualquer momento, os direitos de acesso, rectificação, apagamento, limitação, portabilidade e oposição ao tratamento dos seus dados, bem como retirar o consentimento. Para tal, contacte-nos por email. Tem ainda o direito de apresentar reclamação junto da Comissão Nacional de Proteção de Dados (CNPD).'],
           ['Cookies','Utilizamos cookies essenciais ao funcionamento do site e, mediante o seu consentimento, cookies de análise. Pode gerir a sua escolha através do banner de cookies.'],
           ['Contacto','Para exercer os seus direitos ou esclarecer dúvidas sobre esta política, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
         ],
@@ -238,7 +238,7 @@ const STRINGS = {
         matTitle:'O que pode denunciar',
         matters:['Contratação pública','Serviços, produtos e mercados financeiros e prevenção do branqueamento de capitais','Segurança e conformidade dos produtos','Segurança dos transportes','Proteção do ambiente','Segurança dos alimentos e saúde animal','Saúde pública','Defesa do consumidor','Proteção da privacidade e dos dados pessoais e segurança das redes e sistemas de informação','Corrupção, fraude e conflitos de interesse','Assédio e discriminação no âmbito profissional'],
         garTitle:'Garantias',
-        garantias:['Confidencialidade da identidade do denunciante e de terceiros mencionados na denúncia','Possibilidade de apresentação de denúncia anónima','Proteção contra atos de retaliação, nos termos do artigo 21.º da Lei n.º 93/2021','Análise das denúncias por responsável designado internamente, com isenção e imparcialidade','Comunicação da receção no prazo de 7 dias e do seguimento no prazo máximo de 3 meses'],
+        garantias:['Confidencialidade da identidade do denunciante e de terceiros mencionados na denúncia','Possibilidade de apresentação de denúncia anónima','Proteção contra atos de retaliação, nos termos do artigo 21.º da Lei n.º 93/2021','Análise das denúncias por responsável designado internamente, com isenção e imparcialidade','Comunicação da recepção no prazo de 7 dias e do seguimento no prazo máximo de 3 meses'],
         comoTitle:'Como denunciar',
         comoIntro:'Disponibilizamos dois canais em paralelo. Para preservar o anonimato, recomenda-se o formulário, deixando em branco o campo de email.',
         canal1T:'Formulário (recomendado para anonimato)',
@@ -263,9 +263,9 @@ const STRINGS = {
         eyebrow:'Governação', h1:'Código de Ética e Conduta',
         updated:'Versão 1.0 · Próxima revisão em 12 meses', download:'Descarregar em PDF',
         sections:[
-          { h:'1. Preâmbulo', body:'<p>O presente Código de Ética e Conduta estabelece os princípios e as regras de conduta que orientam a atividade da Império Global Telecomunicações Unipessoal, Lda. Aplica-se a todos os colaboradores, bem como a parceiros, fornecedores e demais terceiros que atuem em nome ou por conta da empresa.</p>' },
+          { h:'1. Preâmbulo', body:'<p>O presente Código de Ética e Conduta estabelece os princípios e as regras de conduta que orientam a actividade da Império Global Telecomunicações Unipessoal, Lda. Aplica-se a todos os colaboradores, bem como a parceiros, fornecedores e demais terceiros que atuem em nome ou por conta da empresa.</p>' },
           { h:'2. Valores', body:'<p>A nossa conduta assenta em três valores:</p><ul><li><strong>Compromisso</strong> — cumprimos o que prometemos, com responsabilidade e rigor.</li><li><strong>Confiança</strong> — construímos relações sólidas através da transparência e da qualidade.</li><li><strong>Inovação</strong> — evoluímos continuamente para soluções mais eficientes e preparadas para o futuro.</li></ul>' },
-          { h:'3. Princípios de conduta', body:'<ul><li><strong>Integridade e honestidade</strong> — atuamos com verdade e coerência entre o que dizemos e o que fazemos.</li><li><strong>Rigor técnico e segurança</strong> — cumprimos as normas técnicas e de segurança no trabalho, protegendo pessoas e infraestruturas.</li><li><strong>Respeito no local de trabalho</strong> — assumimos tolerância zero perante o assédio e a discriminação.</li><li><strong>Confidencialidade e proteção de dados</strong> — tratamos os dados pessoais em conformidade com o RGPD.</li><li><strong>Prevenção de conflitos de interesse</strong> — declaramos e evitamos situações que oponham interesses pessoais aos da empresa ou dos clientes.</li><li><strong>Concorrência leal</strong> — competimos com base no mérito técnico, respeitando o direito da concorrência.</li><li><strong>Anticorrupção e antissuborno</strong> — não oferecemos nem aceitamos vantagens indevidas, sob qualquer forma.</li><li><strong>Sustentabilidade ambiental</strong> — minimizamos o impacto ambiental das nossas operações.</li></ul>' },
+          { h:'3. Princípios de conduta', body:'<ul><li><strong>Integridade e honestidade</strong> — actuamos com verdade e coerência entre o que dizemos e o que fazemos.</li><li><strong>Rigor técnico e segurança</strong> — cumprimos as normas técnicas e de segurança no trabalho, protegendo pessoas e infraestruturas.</li><li><strong>Respeito no local de trabalho</strong> — assumimos tolerância zero perante o assédio e a discriminação.</li><li><strong>Confidencialidade e proteção de dados</strong> — tratamos os dados pessoais em conformidade com o RGPD.</li><li><strong>Prevenção de conflitos de interesse</strong> — declaramos e evitamos situações que oponham interesses pessoais aos da empresa ou dos clientes.</li><li><strong>Concorrência leal</strong> — competimos com base no mérito técnico, respeitando o direito da concorrência.</li><li><strong>Anticorrupção e antissuborno</strong> — não oferecemos nem aceitamos vantagens indevidas, sob qualquer forma.</li><li><strong>Sustentabilidade ambiental</strong> — minimizamos o impacto ambiental das nossas operações.</li></ul>' },
           { h:'4. Relação com clientes e parceiros', body:'<p>Pautamos a relação com operadores, empreiteiros e entidades públicas pela transparência, pelo cumprimento dos compromissos contratuais e pela confidencialidade da informação a que temos acesso. Recusamos qualquer prática que comprometa a isenção na adjudicação ou execução de trabalhos.</p>' },
           { h:'5. Relação com colaboradores', body:'<p>Promovemos condições de trabalho seguras, o desenvolvimento profissional através da formação e a valorização baseada no mérito. Rejeitamos qualquer forma de discriminação em razão de origem, género, idade, convicções ou qualquer outra característica pessoal.</p>' },
           { h:'6. Cumprimento e comunicação de irregularidades', body:'<p>O incumprimento deste Código pode ser comunicado, em confidencialidade, através do nosso <a href="{canal}">Canal de Denúncias</a>, nos termos da Lei n.º 93/2021. A empresa garante a proteção do denunciante contra retaliação.</p>' },
@@ -280,7 +280,7 @@ const STRINGS = {
           ['O que são cookies','Cookies são pequenos ficheiros de texto guardados no seu dispositivo quando visita um website. Servem para o site funcionar corretamente e, mediante consentimento, para analisar a sua utilização.'],
           ['Cookies que utilizamos','Utilizamos cookies essenciais, necessários ao funcionamento do site e à memorização das suas preferências (por exemplo, a sua escolha quanto a cookies). Utilizamos ainda, apenas após o seu consentimento, cookies de análise que nos ajudam a compreender como o site é utilizado.'],
           ['Gestão do consentimento','No primeiro acesso é apresentado um aviso onde pode aceitar ou recusar os cookies de análise. A sua escolha é guardada no seu navegador e pode ser alterada a qualquer momento, limpando os dados do site no navegador.'],
-          ['Como desativar cookies','Pode configurar o seu navegador para bloquear ou eliminar cookies. A desativação de cookies essenciais pode afetar o funcionamento do site.'],
+          ['Como desativar cookies','Pode configurar o seu navegador para bloquear ou eliminar cookies. A desactivação de cookies essenciais pode afectar o funcionamento do site.'],
           ['Contacto','Para questões sobre esta política, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
         ],
       },
@@ -289,10 +289,10 @@ const STRINGS = {
         desc:'Termos e condições de utilização do website da Império Global.',
         eyebrow:'Legal', h1:'Termos e Condições',
         blocks:[
-          ['Objeto','Os presentes termos regulam a utilização do website da Império Global Telecomunicações Unipessoal, Lda. A navegação no site implica a aceitação integral destes termos.'],
+          ['Objecto','Os presentes termos regulam a utilização do website da Império Global Telecomunicações Unipessoal, Lda. A navegação no site implica a aceitação integral destes termos.'],
           ['Propriedade intelectual','Os conteúdos do site — textos, imagens, logótipos, grafismos e código — são propriedade da Império Global ou de terceiros que autorizaram a sua utilização, estando protegidos por direitos de propriedade intelectual. Não é permitida a reprodução sem autorização.'],
           ['Utilização permitida','O utilizador compromete-se a usar o site de forma lícita e a não praticar atos que possam prejudicar o seu funcionamento ou segurança.'],
-          ['Limitação de responsabilidade','A informação disponibilizada tem caráter informativo. A Império Global não se responsabiliza por eventuais danos decorrentes da utilização do site ou da sua indisponibilidade temporária.'],
+          ['Limitação de responsabilidade','A informação disponibilizada tem carácter informativo. A Império Global não se responsabiliza por eventuais danos decorrentes da utilização do site ou da sua indisponibilidade temporária.'],
           ['Ligações para sites terceiros','O site pode conter ligações para sites de terceiros, sobre cujos conteúdos a Império Global não tem controlo nem responsabilidade.'],
           ['Lei aplicável e foro','Estes termos regem-se pela lei portuguesa. Para a resolução de qualquer litígio é competente o foro da comarca da sede da empresa, com renúncia a qualquer outro. <!-- TODO: confirmar comarca/sede -->'],
           ['Contacto','Para esclarecimentos, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
@@ -1316,12 +1316,12 @@ const BODY = {
    Para acrescentar um artigo: adicionar um objeto a ARTICLES (ver README).
    ===================================================================== */
 const CATEGORIES = {
-  pt: { fibra:'Fibra Ótica', construcao:'Construção de Redes', manutencao:'Manutenção e Operação', regulamentacao:'Regulamentação', casos:'Casos e Projetos', insights:'Insights do Setor' },
+  pt: { fibra:'Fibra Óptica', construcao:'Construção de Redes', manutencao:'Manutenção e Operação', regulamentacao:'Regulamentação', casos:'Casos e Projectos', insights:'Insights do Sector' },
   en: { fibra:'Optical Fibre', construcao:'Network Construction', manutencao:'Maintenance & Operation', regulamentacao:'Regulation', casos:'Cases & Projects', insights:'Industry Insights' },
   fr: { fibra:'Fibre optique', construcao:'Construction de réseaux', manutencao:'Maintenance et exploitation', regulamentacao:'Réglementation', casos:'Cas et projets', insights:'Perspectives du secteur' },
 };
 const BLOG_UI = {
-  pt: { metaTitle:'Blog — Perspetivas técnicas | Império Global', metaDesc:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Perspetivas técnicas', lead:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projeto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
+  pt: { metaTitle:'Blog — Perspectivas técnicas | Império Global', metaDesc:'Análises, boas práticas e perspectivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Perspectivas técnicas', lead:'Análises, boas práticas e perspectivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projecto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
   en: { metaTitle:'Blog — Technical insights | Império Global', metaDesc:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', eyebrow:'Blog', h1:'Technical insights', lead:'Analysis, best practices and perspectives on the construction, expansion and maintenance of telecommunications infrastructure.', all:'All', min:'min read', by:'By', toc:'In this article', related:'Related articles', ctaTitle:'Need technical support for your project?', ctaBtn:'Contact us', author:'Império Global Team', empty:'No articles in this category.' },
   fr: { metaTitle:'Blog — Perspectives techniques | Império Global', metaDesc:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", eyebrow:'Blog', h1:'Perspectives techniques', lead:"Analyses, bonnes pratiques et perspectives sur la construction, l'expansion et la maintenance d'infrastructures de télécommunications.", all:'Toutes', min:'min de lecture', by:'Par', toc:'Dans cet article', related:'Articles liés', ctaTitle:'Besoin d’un appui technique pour votre projet ?', ctaBtn:'Contactez-nous', author:'Équipe Império Global', empty:'Aucun article dans cette catégorie.' },
 };
@@ -1487,14 +1487,14 @@ const ARTICLES = [
     cover: 'manutencao-preventiva-corretiva-fibra-otica-cover.jpg',
     langs: {
       pt: {
-        title: 'Manutenção preventiva vs. corretiva em redes de fibra ótica',
-        desc: 'Quando a manutenção preventiva justifica o investimento face à corretiva em redes de fibra ótica — critérios técnicos e de custo para gestores de rede.',
-        excerpt: 'Comparação técnica entre manutenção preventiva e corretiva em fibra ótica: indicadores, custos e critérios de decisão para gestores de rede.',
+        title: 'Manutenção preventiva vs. correctiva em redes de fibra óptica',
+        desc: 'Quando a manutenção preventiva justifica o investimento face à correctiva em redes de fibra óptica — critérios técnicos e de custo para gestores de rede.',
+        excerpt: 'Comparação técnica entre manutenção preventiva e correctiva em fibra óptica: indicadores, custos e critérios de decisão para gestores de rede.',
         body: `
-<p class="lead">Numa rede de fibra ótica, a diferença entre reparar depois da falha e antecipar a falha não é apenas operacional — é económica e contratual. Este artigo enquadra os critérios que ajudam um gestor de rede a decidir onde e quando cada abordagem se justifica.</p>
+<p class="lead">Numa rede de fibra óptica, a diferença entre reparar depois da falha e antecipar a falha não é apenas operacional — é económica e contratual. Este artigo enquadra os critérios que ajudam um gestor de rede a decidir onde e quando cada abordagem se justifica.</p>
 
-<h2 id="duas-logicas">Preventiva e corretiva: duas lógicas distintas</h2>
-<p>A manutenção corretiva atua depois da falha: uma avaria interrompe o serviço e a equipa desloca-se para localizar e reparar o troço afetado. A manutenção preventiva atua antes: inspeções, medições e substituições programadas que procuram evitar a falha ou detetá-la na fase inicial, quando o custo de intervenção ainda é baixo.</p>
+<h2 id="duas-logicas">Preventiva e correctiva: duas lógicas distintas</h2>
+<p>A manutenção correctiva actua depois da falha: uma avaria interrompe o serviço e a equipa desloca-se para localizar e reparar o troço afectado. A manutenção preventiva actua antes: inspeções, medições e substituições programadas que procuram evitar a falha ou detectá-la na fase inicial, quando o custo de intervenção ainda é baixo.</p>
 <p>A distinção não é meramente terminológica. Cada abordagem tem uma estrutura de custos, um perfil de risco e implicações contratuais próprias — sobretudo quando a rede suporta serviços críticos com níveis de serviço (SLA) associados à disponibilidade. Tratar as duas como opostas é um erro: na prática, uma rede bem gerida combina-as, aplicando cada uma ao segmento onde compensa.</p>
 
 <h2 id="indicadores">Indicadores que justificam a preventiva</h2>
@@ -1503,40 +1503,40 @@ const ARTICLES = [
 <li><strong>Disponibilidade contratada.</strong> Quanto mais exigente for o SLA, menor é a tolerância a falhas não planeadas — e maior o valor de as antecipar.</li>
 <li><strong>Custo da indisponibilidade.</strong> Inclui penalizações contratuais, perda de serviço a jusante e a mobilização de equipas em regime de urgência, tipicamente mais cara do que uma intervenção planeada.</li>
 <li><strong>Idade e histórico do traçado.</strong> Troços mais antigos, com juntas e caixas sujeitas a infiltração, apresentam maior probabilidade de degradação progressiva.</li>
-<li><strong>Exposição a fatores externos.</strong> Obras de terceiros, roedores, humidade e esforços mecânicos são causas frequentes de degradação que a inspeção periódica deteta cedo.</li>
+<li><strong>Exposição a factores externos.</strong> Obras de terceiros, roedores, humidade e esforços mecânicos são causas frequentes de degradação que a inspeção periódica detecta cedo.</li>
 </ul>
 <p>A regra de decisão é direta: quando o custo esperado da falha — a probabilidade de ocorrer multiplicada pelo seu impacto — excede o custo do programa preventivo, a preventiva justifica-se economicamente.</p>
 
-<blockquote>A pergunta não é "preventiva ou corretiva?", mas "que parte da rede justifica preventiva e com que frequência?".</blockquote>
+<blockquote>A pergunta não é "preventiva ou correctiva?", mas "que parte da rede justifica preventiva e com que frequência?".</blockquote>
 
 <h2 id="modelo-custo">Um modelo simples de custo</h2>
-<p>Sem entrar em modelação complexa, é útil raciocinar em três parcelas. A primeira é o custo do programa preventivo: mão de obra de inspeção, medições e substituições programadas. A segunda é o custo esperado das falhas residuais que a preventiva não elimina. A terceira é o custo das falhas num cenário puramente corretivo, incluindo penalizações e intervenções de urgência.</p>
-<p>A preventiva compensa quando a soma das duas primeiras parcelas é inferior à terceira. Este raciocínio explica por que a mesma rede pode justificar preventiva no backbone e corretiva num troço terminal de baixa criticidade: muda o impacto da falha, muda a conclusão.</p>
+<p>Sem entrar em modelação complexa, é útil raciocinar em três parcelas. A primeira é o custo do programa preventivo: mão de obra de inspeção, medições e substituições programadas. A segunda é o custo esperado das falhas residuais que a preventiva não elimina. A terceira é o custo das falhas num cenário puramente correctivo, incluindo penalizações e intervenções de urgência.</p>
+<p>A preventiva compensa quando a soma das duas primeiras parcelas é inferior à terceira. Este raciocínio explica por que a mesma rede pode justificar preventiva no backbone e correctiva num troço terminal de baixa criticidade: muda o impacto da falha, muda a conclusão.</p>
 
-<h2 id="otdr">OTDR e monitorização: detetar antes de falhar</h2>
-<p>O reflectómetro ótico no domínio do tempo (OTDR) é o instrumento central da manutenção de fibra. Ao injetar um impulso e medir a luz retrodifundida, permite localizar, ao longo do troço, atenuações anómalas, juntas degradadas e curvaturas excessivas, com indicação da distância a que ocorrem.</p>
-<p>O valor preventivo surge na análise de tendência: comparar medições OTDR sucessivas revela degradação lenta muito antes de esta se traduzir numa interrupção de serviço. Em redes de maior criticidade, a monitorização pode ser contínua, com sistemas que vigiam a atenuação e alertam quando um limiar é ultrapassado. A escolha entre medição periódica e monitorização contínua é, também ela, uma decisão de custo-benefício: a segunda tem custo de instalação, mas reduz o tempo de deteção.</p>
+<h2 id="otdr">OTDR e monitorização: detectar antes de falhar</h2>
+<p>O reflectómetro óptico no domínio do tempo (OTDR) é o instrumento central da manutenção de fibra. Ao injetar um impulso e medir a luz retrodifundida, permite localizar, ao longo do troço, atenuações anómalas, juntas degradadas e curvaturas excessivas, com indicação da distância a que ocorrem.</p>
+<p>O valor preventivo surge na análise de tendência: comparar medições OTDR sucessivas revela degradação lenta muito antes de esta se traduzir numa interrupção de serviço. Em redes de maior criticidade, a monitorização pode ser contínua, com sistemas que vigiam a atenuação e alertam quando um limiar é ultrapassado. A escolha entre medição periódica e monitorização contínua é, também ela, uma decisão de custo-benefício: a segunda tem custo de instalação, mas reduz o tempo de detecção.</p>
 
-<div class="note"><strong>Nota técnica.</strong> Uma variação de atenuação numa junta, detetável por OTDR muito antes de causar corte, é um exemplo típico de falha que a manutenção preventiva resolve a baixo custo — e que a corretiva só resolve depois da interrupção do serviço.</div>
+<div class="note"><strong>Nota técnica.</strong> Uma variação de atenuação numa junta, detectável por OTDR muito antes de causar corte, é um exemplo típico de falha que a manutenção preventiva resolve a baixo custo — e que a correctiva só resolve depois da interrupção do serviço.</div>
 
-<h2 id="corretiva-racional">Quando a corretiva é a opção racional</h2>
-<p>A manutenção preventiva não é universalmente superior. Em troços de baixa criticidade, com SLA folgado e baixo custo de indisponibilidade, o investimento em inspeção programada pode não compensar. Nesses casos, uma estratégia essencialmente corretiva minimiza o custo total — desde que a capacidade de resposta esteja garantida.</p>
-<p>O fator determinante é o tempo de reposição (MTTR). Uma organização com equipas, viaturas e materiais prontos consegue reparar avarias com rapidez suficiente para que o impacto de uma abordagem corretiva se mantenha aceitável. Sem essa capacidade de resposta, a corretiva deixa de ser uma escolha racional e passa a ser exposição a risco.</p>
+<h2 id="corretiva-racional">Quando a correctiva é a opção racional</h2>
+<p>A manutenção preventiva não é universalmente superior. Em troços de baixa criticidade, com SLA folgado e baixo custo de indisponibilidade, o investimento em inspeção programada pode não compensar. Nesses casos, uma estratégia essencialmente correctiva minimiza o custo total — desde que a capacidade de resposta esteja garantida.</p>
+<p>O factor determinante é o tempo de reposição (MTTR). Uma organização com equipas, viaturas e materiais prontos consegue reparar avarias com rapidez suficiente para que o impacto de uma abordagem correctiva se mantenha aceitável. Sem essa capacidade de resposta, a correctiva deixa de ser uma escolha racional e passa a ser exposição a risco.</p>
 
 <h2 id="criterios">Um enquadramento prático de decisão</h2>
 <p>Na prática, as redes segmentam o traçado por criticidade:</p>
 <ul>
 <li><strong>Troços críticos</strong> (backbone, ligações a nós importantes, clientes com SLA exigente): preventiva com medição periódica e, quando se justifica, monitorização contínua.</li>
-<li><strong>Troços intermédios:</strong> inspeção preventiva com menor frequência, orientada por histórico e por fatores de exposição.</li>
-<li><strong>Troços de baixa criticidade:</strong> abordagem corretiva, sustentada por capacidade de resposta rápida.</li>
+<li><strong>Troços intermédios:</strong> inspeção preventiva com menor frequência, orientada por histórico e por factores de exposição.</li>
+<li><strong>Troços de baixa criticidade:</strong> abordagem correctiva, sustentada por capacidade de resposta rápida.</li>
 </ul>
-<p>Esta segmentação evita dois erros simétricos: sobreinvestir em preventiva onde não compensa e expor a corretiva troços cuja falha tem custo elevado.</p>
+<p>Esta segmentação evita dois erros simétricos: sobreinvestir em preventiva onde não compensa e expor a correctiva troços cuja falha tem custo elevado.</p>
 
 <h2 id="contexto">Contexto: uma rede em expansão</h2>
-<p>A dimensão da rede de fibra em Portugal reforça a relevância da manutenção. Portugal está entre os países europeus com maior cobertura de fibra ótica até casa (FTTH); os dados atualizados de cobertura e de acessos são publicados periodicamente pela <a href="https://www.anacom.pt" target="_blank" rel="noopener">ANACOM</a>. Uma base instalada extensa significa mais quilómetros de traçado a manter — e maior retorno de uma política de manutenção bem dimensionada.</p>
+<p>A dimensão da rede de fibra em Portugal reforça a relevância da manutenção. Portugal está entre os países europeus com maior cobertura de fibra óptica até casa (FTTH); os dados actualizados de cobertura e de acessos são publicados periodicamente pela <a href="https://www.anacom.pt" target="_blank" rel="noopener">ANACOM</a>. Uma base instalada extensa significa mais quilómetros de traçado a manter — e maior retorno de uma política de manutenção bem dimensionada.</p>
 
 <h2 id="conclusao">Conclusão</h2>
-<p>Preventiva e corretiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas. O objetivo é o mesmo que orienta toda a operação de infraestruturas de acesso: assegurar a fiabilidade, a disponibilidade e o desempenho das redes ao menor custo total.</p>
+<p>Preventiva e correctiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas. O objetivo é o mesmo que orienta toda a operação de infraestruturas de acesso: assegurar a fiabilidade, a disponibilidade e o desempenho das redes ao menor custo total.</p>
 `,
       },
     },
@@ -1598,4 +1598,4 @@ ${urls}
 </urlset>
 `;
 writeFileSync(ROOT + 'sitemap.xml', sitemap);
-console.log(`sitemap.xml atualizado (${SITEMAP_PAGES.length} páginas × ${LANGS.length} idiomas).`);
+console.log(`sitemap.xml actualizado (${SITEMAP_PAGES.length} páginas × ${LANGS.length} idiomas).`);
