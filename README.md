@@ -143,3 +143,35 @@ Elementos que dependem de confirmação — cada um marcado com `<!-- TODO -->` 
 - **Traduções EN/FR** foram feitas a partir do PT (validado). **Devem passar por revisão nativa** antes da publicação — FR em registo europeu/Bélgica.
 - **Logótipo:** o site usa o **logótipo oficial** do cliente (`assets/logo/imperio-oficial.png`, recortado e com fundo transparente) no header e no rodapé. O símbolo do favicon (`imperio_symbol.svg`) é uma recriação do globo; substituir pelo símbolo oficial vetorial se disponibilizado. Para logótipo nítido em ecrãs de alta resolução, fornecer versão **SVG** e trocar `imperio-oficial.png` por ela.
 - Idioma de referência: **Português europeu (PT-PT)**.
+
+## Convenção linguística (IMPORTANTE)
+
+Todo o conteúdo em português deste site segue o **Acordo Ortográfico de 1990** (PT-PT atual), aplicado por Portugal desde 2009 e obrigatório desde 2015.
+
+**As consoantes mudas (c, p não pronunciados) são ELIMINADAS.** Escrever "óptica", "actuação", "projecto", "correctiva" em Portugal soa arcaico — é **ERRADO**. A forma correta não tem essas consoantes:
+
+| ❌ Errado (pré-Acordo) | ✅ Correto (AO90 / PT-PT atual) |
+|---|---|
+| actuação, actuar, activo | atuação, atuar, ativo |
+| correctiva, correcção | corretiva, correção |
+| detecção, detectar | deteção, detetar |
+| óptica, óptico, óptimo | ótica, ótico, ótimo |
+| projecto, projectos | projeto, projetos |
+| optimização, optimizar | otimização, otimizar |
+| exacto, exactidão | exato, exatidão |
+| directo, director, direcção | direto, diretor, direção |
+| respectivo, efectivo, aspecto | respetivo, efetivo, aspeto |
+| adopção, excepto, reflectir | adoção, exceto, refletir |
+
+> Consoantes que **são** pronunciadas mantêm-se: `contacto`, `facto`, `impacto`, `receção`. Não são erros.
+
+**Vocabulário europeu obrigatório:** connosco (não "conosco") · contacto (não "contato") · equipa (não "equipe") · ficheiro (não "arquivo") · ecrã (não "tela") · gerir (não "gerenciar") · utilizador (não "usuário") · percentagem (não "porcentagem").
+
+**Antes de qualquer commit de conteúdo**, correr — deve devolver **zero** ocorrências em ficheiros PT (raiz e `/blog/`):
+
+```bash
+grep -rniE "actua|correcti|detecçã|óptic|projec|optimiz|exacto|directo|respectiv|efectiv|aspecto|activo|adopt" \
+  . --include="*.html" --include="*.js" --exclude-dir=en --exclude-dir=fr --exclude-dir=.git
+```
+
+> Nota: o conteúdo PT é gerado a partir de `build.mjs` (objeto `STRINGS.pt`, `BLOG_UI.pt`, `ARTICLES[].langs.pt`). **Corrigir sempre na fonte (`build.mjs`) e recorrer `node build.mjs`** — editar o HTML gerado diretamente é revertido no próximo build.
