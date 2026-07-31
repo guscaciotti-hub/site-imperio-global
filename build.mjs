@@ -205,7 +205,7 @@ const STRINGS = {
       contacto: {
         title:'Contacto — Império Global', desc:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações em Portugal ou na Bélgica.',
         h1:'Contacto', eyebrow:'Fale connosco',
-        intro:'Tem um projeto de infraestruturas de telecomunicações? Envie-nos a sua mensagem e a nossa equipa entrará em contacto.',
+        intro:'Tem um projeto de infraestruturas de telecomunicações? Envie-nos a sua mensagem e a nossa equipa entrará em contacto consigo.',
         formTitle:'Envie-nos uma mensagem',
         f:{ nome:'Nome', empresa:'Empresa', email:'Email', telefone:'Telefone', assunto:'Assunto', msg:'Mensagem', submit:'Enviar mensagem' },
         assuntos:['Pedido de proposta','Parceria','Recrutamento','Outro'],
