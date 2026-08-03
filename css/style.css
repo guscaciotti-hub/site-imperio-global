@@ -650,7 +650,12 @@ p{ margin:0 0 1rem }
   transition:border-color .4s ease, box-shadow .5s ease, background .4s ease }
 .svc-node.lit{ border-color:var(--azul-sinal); background:#eef5fb;
   box-shadow:0 0 6px 1px rgba(0,114,206,.4) }
-@media (max-width:820px){ .svc-rows::before,.svc-beam,.svc-node{ display:none } }
+/* Mobile: feixe passa a calha vertical à ESQUERDA (timeline), com os cards recuados */
+@media (max-width:820px){
+  .svc-rows{ padding-left:1.9rem }
+  .svc-rows::before,.svc-beam{ left:.6rem }
+  .svc-node{ left:.6rem; width:10px; height:10px }
+}
 
 /* Contacto — mapa */
 .contact-map{ border-radius:var(--raio); overflow:hidden; border:1px solid var(--linha); box-shadow:var(--sombra) }

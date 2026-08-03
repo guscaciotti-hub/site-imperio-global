@@ -163,7 +163,7 @@ const T = I18N[LANG] || I18N.pt;
 (function svcBeam(){
   const rows = document.querySelector('.svc-rows');
   if (!rows) return;
-  if (matchMedia('(max-width:820px)').matches) return;   // só desktop
+  // Funciona em desktop (feixe central) e mobile (calha à esquerda) — posição via CSS.
   const items = [...rows.querySelectorAll('.svc-row')];
   if (!items.length) return;
   const beam = document.createElement('div'); beam.className = 'svc-beam'; rows.appendChild(beam);
