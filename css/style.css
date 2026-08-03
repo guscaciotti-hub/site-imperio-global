@@ -514,6 +514,13 @@ p{ margin:0 0 1rem }
      por isso vê-se o texto e o globo inteiros, sem cortar. */
   .hero--baked{ min-height:0; height:auto; aspect-ratio:1717 / 916;
     background-size:contain; background-position:center }
+  /* Recrutamento: no mobile o texto escuro caía sobre zonas escuras da foto.
+     Reativa a tarja escura e passa o texto a claro (contraste garantido). */
+  .hero--photo--dark::after{ display:block }
+  .hero--photo--dark h1{ color:#fff }
+  .hero--photo--dark .hero__sub{ color:#dce8f5 }
+  .hero--photo--dark .eyebrow{ color:var(--azul-sinal) }
+  .hero--photo--dark .eyebrow::after{ background:var(--azul-sinal) }
 }
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }
