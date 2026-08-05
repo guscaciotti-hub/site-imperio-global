@@ -213,21 +213,21 @@ const STRINGS = {
         mailSubject:'🟢 Contacto · Novo pedido — Império Global',
         mailAuto:'Obrigado pelo seu contacto. Recebemos a sua mensagem e a nossa equipa da Império Global entrará em contacto o mais brevemente possível. Com os melhores cumprimentos, Equipa Império Global.',
         infoTitle:'Contactos',
-        email:'geral@imperioglobal.eu',
+        email:'administrativo@imperioglobal.eu',
         phone:'+351 244 811 076', /* TODO: telefone real */
-        morada:'R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal',
+        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena',
         mapa:'Mapa disponível em breve',
       },
       privacidade: {
         title:'Política de Privacidade — Império Global', desc:'Política de privacidade e tratamento de dados pessoais da Império Global, em conformidade com o RGPD.',
         h1:'Política de Privacidade', eyebrow:'RGPD',
         blocks:[
-          ['Responsável pelo tratamento','O responsável pelo tratamento dos dados pessoais é a Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: NIPC e morada da sede -->. Para qualquer questão relacionada com dados pessoais, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Responsável pelo tratamento','O responsável pelo tratamento dos dados pessoais é a Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: NIPC e morada da sede -->. Para qualquer questão relacionada com dados pessoais, contacte <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
           ['Dados recolhidos e finalidades','Recolhemos os dados que nos fornece através dos formulários de contacto e de recrutamento (nome, email, telefone, empresa, mensagem e, no caso de candidaturas, o currículo). Os dados são tratados para responder aos seus pedidos, gerir candidaturas e cumprir obrigações legais.'],
           ['Prazos de conservação','Os dados de contacto são conservados pelo período necessário à resposta e ao cumprimento de obrigações legais. Os currículos recebidos em processos de recrutamento são conservados por um período máximo de <!-- TODO: definir prazo, ex. 12 meses --> após a receção, salvo consentimento para conservação mais prolongada.'],
           ['Direitos do titular','Pode exercer, a qualquer momento, os direitos de acesso, retificação, apagamento, limitação, portabilidade e oposição ao tratamento dos seus dados, bem como retirar o consentimento. Para tal, contacte-nos por email. Tem ainda o direito de apresentar reclamação junto da Comissão Nacional de Proteção de Dados (CNPD).'],
           ['Cookies','Utilizamos cookies essenciais ao funcionamento do site e, mediante o seu consentimento, cookies de análise. Pode gerir a sua escolha através do banner de cookies.'],
-          ['Contacto','Para exercer os seus direitos ou esclarecer dúvidas sobre esta política, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contacto','Para exercer os seus direitos ou esclarecer dúvidas sobre esta política, contacte <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       canaldenuncias: {
@@ -281,7 +281,7 @@ const STRINGS = {
           ['Cookies que utilizamos','Utilizamos cookies essenciais, necessários ao funcionamento do site e à memorização das suas preferências (por exemplo, a sua escolha quanto a cookies). Utilizamos ainda, apenas após o seu consentimento, cookies de análise que nos ajudam a compreender como o site é utilizado.'],
           ['Gestão do consentimento','No primeiro acesso é apresentado um aviso onde pode aceitar ou recusar os cookies de análise. A sua escolha é guardada no seu navegador e pode ser alterada a qualquer momento, limpando os dados do site no navegador.'],
           ['Como desativar cookies','Pode configurar o seu navegador para bloquear ou eliminar cookies. A desativação de cookies essenciais pode afetar o funcionamento do site.'],
-          ['Contacto','Para questões sobre esta política, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contacto','Para questões sobre esta política, contacte <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       termos: {
@@ -295,7 +295,7 @@ const STRINGS = {
           ['Limitação de responsabilidade','A informação disponibilizada tem caráter informativo. A Império Global não se responsabiliza por eventuais danos decorrentes da utilização do site ou da sua indisponibilidade temporária.'],
           ['Ligações para sites terceiros','O site pode conter ligações para sites de terceiros, sobre cujos conteúdos a Império Global não tem controlo nem responsabilidade.'],
           ['Lei aplicável e foro','Estes termos regem-se pela lei portuguesa. Para a resolução de qualquer litígio é competente o foro da comarca da sede da empresa, com renúncia a qualquer outro. <!-- TODO: confirmar comarca/sede -->'],
-          ['Contacto','Para esclarecimentos, contacte <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contacto','Para esclarecimentos, contacte <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       e404: {
@@ -424,19 +424,19 @@ const STRINGS = {
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data to respond to my request.',
         mailSubject:'🟢 Contact · New enquiry — Império Global',
         mailAuto:'Thank you for your message. We have received your request and our team at Império Global will get back to you as soon as possible. Kind regards, The Império Global Team.',
-        infoTitle:'Contacts', email:'geral@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal', mapa:'Map available soon',
+        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
+        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena', mapa:'Map available soon',
       },
       privacidade: {
         title:'Privacy Policy — Império Global', desc:'Privacy and personal data policy of Império Global, in accordance with the GDPR.',
         h1:'Privacy Policy', eyebrow:'GDPR',
         blocks:[
-          ['Data controller','The controller of personal data is Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: tax number and registered address -->. For any question regarding personal data, contact <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Data controller','The controller of personal data is Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: tax number and registered address -->. For any question regarding personal data, contact <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
           ['Data collected and purposes','We collect the data you provide through the contact and recruitment forms (name, email, phone, company, message and, for applications, your résumé). Data is processed to respond to your requests, manage applications and comply with legal obligations.'],
           ['Retention periods','Contact data is kept for as long as necessary to respond and to comply with legal obligations. Résumés received in recruitment processes are kept for a maximum period of <!-- TODO: define period, e.g. 12 months --> after receipt, unless consent is given for longer retention.'],
           ['Your rights','You may exercise, at any time, the rights of access, rectification, erasure, restriction, portability and objection to the processing of your data, as well as withdraw consent. To do so, contact us by email. You also have the right to lodge a complaint with the supervisory authority.'],
           ['Cookies','We use cookies essential to the operation of the site and, with your consent, analytics cookies. You can manage your choice through the cookie banner.'],
-          ['Contact','To exercise your rights or clarify any question about this policy, contact <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','To exercise your rights or clarify any question about this policy, contact <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       canaldenuncias: {
@@ -490,7 +490,7 @@ const STRINGS = {
           ['Cookies we use','We use essential cookies, necessary for the site to work and to remember your preferences (for example, your cookie choice). We also use, only after your consent, analytics cookies that help us understand how the site is used.'],
           ['Managing consent','On your first visit a notice is shown where you can accept or decline analytics cookies. Your choice is stored in your browser and can be changed at any time by clearing the site data in your browser.'],
           ['How to disable cookies','You can configure your browser to block or delete cookies. Disabling essential cookies may affect how the site works.'],
-          ['Contact','For questions about this policy, contact <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','For questions about this policy, contact <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       termos: {
@@ -504,7 +504,7 @@ const STRINGS = {
           ['Limitation of liability','The information provided is for informational purposes. Império Global is not liable for any damages arising from the use of the site or its temporary unavailability.'],
           ['Links to third-party sites','The site may contain links to third-party sites, over whose content Império Global has no control or responsibility.'],
           ['Applicable law and jurisdiction','These terms are governed by Portuguese law. Any dispute shall be subject to the courts of the company’s registered seat, to the exclusion of any other. <!-- TODO: confirm jurisdiction/seat -->'],
-          ['Contact','For clarifications, contact <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','For clarifications, contact <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       e404: { title:'Page not found — Império Global', desc:'The page you are looking for does not exist.', code:'404', h1:'Page not found', text:'The page you are looking for does not exist or has been moved.', btn:'Back to home' },
@@ -630,19 +630,19 @@ const STRINGS = {
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données pour répondre à ma demande.',
         mailSubject:'🟢 Contact · Nouvelle demande — Império Global',
         mailAuto:'Merci pour votre message. Nous avons bien reçu votre demande et notre équipe Império Global vous répondra dans les plus brefs délais. Cordialement, l’équipe Império Global.',
-        infoTitle:'Contacts', email:'geral@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'R. da Floresta 1521, Azabucho, 2410-021 Leiria, Portugal', mapa:'Carte disponible prochainement',
+        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
+        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena', mapa:'Carte disponible prochainement',
       },
       privacidade: {
         title:'Politique de confidentialité — Império Global', desc:'Politique de confidentialité et de traitement des données personnelles d’Império Global, conforme au RGPD.',
         h1:'Politique de confidentialité', eyebrow:'RGPD',
         blocks:[
-          ['Responsable du traitement','Le responsable du traitement des données personnelles est Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: numéro fiscal et adresse du siège -->. Pour toute question relative aux données personnelles, contactez <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Responsable du traitement','Le responsable du traitement des données personnelles est Império Global Telecomunicações Unipessoal, Lda. <!-- TODO: numéro fiscal et adresse du siège -->. Pour toute question relative aux données personnelles, contactez <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
           ['Données collectées et finalités','Nous collectons les données que vous fournissez via les formulaires de contact et de recrutement (nom, email, téléphone, entreprise, message et, pour les candidatures, votre CV). Les données sont traitées pour répondre à vos demandes, gérer les candidatures et respecter les obligations légales.'],
           ['Durées de conservation','Les données de contact sont conservées le temps nécessaire à la réponse et au respect des obligations légales. Les CV reçus dans le cadre du recrutement sont conservés pour une durée maximale de <!-- TODO: définir la durée, ex. 12 mois --> après réception, sauf consentement à une conservation plus longue.'],
           ['Vos droits','Vous pouvez exercer à tout moment les droits d’accès, de rectification, d’effacement, de limitation, de portabilité et d’opposition au traitement de vos données, et retirer votre consentement. Pour cela, contactez-nous par email. Vous avez également le droit d’introduire une réclamation auprès de l’autorité de contrôle compétente.'],
           ['Cookies','Nous utilisons des cookies essentiels au fonctionnement du site et, avec votre consentement, des cookies d’analyse. Vous pouvez gérer votre choix via le bandeau de cookies.'],
-          ['Contact','Pour exercer vos droits ou toute question sur cette politique, contactez <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','Pour exercer vos droits ou toute question sur cette politique, contactez <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       canaldenuncias: {
@@ -696,7 +696,7 @@ const STRINGS = {
           ['Cookies que nous utilisons','Nous utilisons des cookies essentiels, nécessaires au fonctionnement du site et à la mémorisation de vos préférences (par exemple votre choix concernant les cookies). Nous utilisons également, uniquement après votre consentement, des cookies d’analyse qui nous aident à comprendre l’utilisation du site.'],
           ['Gestion du consentement','Lors de votre première visite, un avis vous permet d’accepter ou de refuser les cookies d’analyse. Votre choix est enregistré dans votre navigateur et peut être modifié à tout moment en effaçant les données du site.'],
           ['Comment désactiver les cookies','Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. La désactivation des cookies essentiels peut affecter le fonctionnement du site.'],
-          ['Contact','Pour toute question sur cette politique, contactez <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','Pour toute question sur cette politique, contactez <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       termos: {
@@ -710,7 +710,7 @@ const STRINGS = {
           ['Limitation de responsabilité','Les informations fournies ont un caractère informatif. Império Global n’est pas responsable des dommages éventuels résultant de l’utilisation du site ou de son indisponibilité temporaire.'],
           ['Liens vers des sites tiers','Le site peut contenir des liens vers des sites tiers, sur le contenu desquels Império Global n’a aucun contrôle ni responsabilité.'],
           ['Droit applicable et juridiction','Les présentes conditions sont régies par le droit portugais. Tout litige relève des tribunaux du siège de l’entreprise, à l’exclusion de tout autre. <!-- TODO: confirmer juridiction/siège -->'],
-          ['Contact','Pour tout éclaircissement, contactez <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>.'],
+          ['Contact','Pour tout éclaircissement, contactez <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>.'],
         ],
       },
       e404: { title:'Page introuvable — Império Global', desc:'La page que vous recherchez n’existe pas.', code:'404', h1:'Page introuvable', text:'La page que vous recherchez n’existe pas ou a été déplacée.', btn:'Retour à l’accueil' },
@@ -739,7 +739,7 @@ function head(lang, page, S, up = upFor(lang), seo = null) {
   <meta property="og:image:alt" content="Império Global — Infraestruturas de Telecomunicações">` : '';
   const jsonld = seo && seo.schema ? `\n  <script type="application/ld+json">\n  ${seo.schema}\n  </script>` : (page === 'index' ? `
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Império Global","legalName":"Império Global Telecomunicações Unipessoal, Lda.","foundingDate":"2017","url":"${BASE}/","logo":"${BASE}/assets/favicon/icon-512.png","description":"${S.tagline}","areaServed":["PT","BE"],"email":"geral@imperioglobal.eu","sameAs":[]}
+  {"@context":"https://schema.org","@type":"Organization","name":"Império Global","legalName":"Império Global Telecomunicações Unipessoal, Lda.","foundingDate":"2017","url":"${BASE}/","logo":"${BASE}/assets/favicon/icon-512.png","description":"${S.tagline}","areaServed":["PT","BE"],"email":"administrativo@imperioglobal.eu","sameAs":[]}
   </script>` : '');
   const noindex = page === 'e404' ? '\n  <meta name="robots" content="noindex">' : '';
   return `<!doctype html>
@@ -837,7 +837,7 @@ function footer(lang, S, up = upFor(lang)) {
         </div>
         <div>
           <h4>${S.footer.contacto}</h4>
-          <a href="mailto:geral@imperioglobal.eu">geral@imperioglobal.eu</a>
+          <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>
         </div>
       </div>
       <!-- CERTIFICAÇÕES — aguarda confirmação do cliente.
@@ -1115,8 +1115,9 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   return `${hero}
     <section class="section">
       <div class="container">
-        <h2 class="rv" style="margin:0 0 1.5rem">${p.formTitle}</h2>
-        <!-- Formspree: ver FORMSPREE_ID em /js/main.js. Alternativa Netlify Forms: ver README. -->
+        <h2 class="rv" style="margin:0 0 .75rem">${p.formTitle}</h2>
+        <p class="rv" style="margin:0 0 2rem;color:var(--cinza-texto)">${lang==='fr'?'Ou écrivez-nous directement à':lang==='en'?'Or email us directly at':'Ou escreva-nos diretamente para'} <a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a>.</p>
+        <!-- Formulários: entrega atual em evoluzesuporte@gmail.com (teste). PENDENTE: mudar Contacto->administrativo@ e Recrutamento->rh@ após validação do cliente. -->
         <form class="form rv" data-formspree method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="${p.mailSubject}">
           <input type="hidden" name="_autoresponse" value="${p.mailAuto}">
@@ -1182,11 +1183,12 @@ function bodyContacto(lang, S, up = upFor(lang)) {
             <h2 style="margin-bottom:1.5rem">${p.infoTitle}</h2>
             <div class="contact-block">
               <div class="contact-item">${ICON.mail}<div><strong>Email</strong><a href="mailto:${p.email}">${p.email}</a></div></div>
+              <div class="contact-item">${ICON.mail}<div><strong>${lang==='fr'?'Ressources humaines':lang==='en'?'Human Resources':'Recursos Humanos'}</strong><a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a></div></div>
               <div class="contact-item">${ICON.phone}<div><strong>${f.telefone}</strong><a href="tel:${p.phone.replace(/\s/g, '')}">${p.phone}</a></div></div>
-              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=R.+da+Floresta+1521,+2410-021+Leiria,+Portugal" target="_blank" rel="noopener">${p.morada}</a></div></div>
+              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=Rua+Troviscal+784,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener">${p.morada}</a></div></div>
             </div>
             <div class="contact-map" style="margin-top:1.5rem">
-              <iframe title="Mapa — Império Global, Leiria" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20da%20Floresta%201521%2C%202410-021%20Leiria%2C%20Portugal&output=embed"></iframe>
+              <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20784%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
             </div>
           </div>
         </div>
