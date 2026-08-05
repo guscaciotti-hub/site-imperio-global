@@ -1125,17 +1125,17 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="Formulário" value="${p.h1}">
           <div class="form__row">
-            ${field('r-nome', f.nome, '<input id="r-nome" name="nome" type="text" required autocomplete="name">')}
-            ${field('r-email', f.email, '<input id="r-email" name="email" type="email" required autocomplete="email">')}
+            ${field('r-nome', f.nome, '<input id="r-nome" name="Nome" type="text" required autocomplete="name">')}
+            ${field('r-email', f.email, '<input id="r-email" name="Email" type="email" required autocomplete="email">')}
           </div>
           <div class="form__row">
-            ${field('r-tel', f.telefone, '<input id="r-tel" name="telefone" type="tel" autocomplete="tel">', false)}
-            ${field('r-area', f.area, `<select id="r-area" name="area">${opts}</select>`, false)}
+            ${field('r-tel', f.telefone, '<input id="r-tel" name="Telefone" type="tel" autocomplete="tel">', false)}
+            ${field('r-area', f.area, `<select id="r-area" name="Área de interesse">${opts}</select>`, false)}
           </div>
-          ${field('r-msg', f.msg, '<textarea id="r-msg" name="mensagem"></textarea>', false)}
-          ${field('r-cv', f.cv, '<input id="r-cv" name="cv" type="file" accept=".pdf,.doc,.docx">', false)}
+          ${field('r-msg', f.msg, '<textarea id="r-msg" name="Mensagem"></textarea>', false)}
+          ${field('r-cv', f.cv, '<input id="r-cv" name="Currículo" type="file" accept=".pdf,.doc,.docx">', false)}
           <div class="consent">
-            <input id="r-consent" name="consentimento" type="checkbox" required>
+            <input id="r-consent" name="Consentimento" type="checkbox" required value="Sim, li e aceito a Política de Privacidade">
             <label for="r-consent" style="color:inherit;font-weight:400">${consent}</label>
           </div>
           <div><button type="submit" class="btn btn--primario">${f.submit}</button></div>
@@ -1162,17 +1162,17 @@ function bodyContacto(lang, S, up = upFor(lang)) {
               <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="Formulário" value="${p.h1}">
               <div class="form__row">
-                ${field('c-nome', f.nome, '<input id="c-nome" name="nome" type="text" required autocomplete="name">')}
-                ${field('c-empresa', f.empresa, '<input id="c-empresa" name="empresa" type="text" autocomplete="organization">', false)}
+                ${field('c-nome', f.nome, '<input id="c-nome" name="Nome" type="text" required autocomplete="name">')}
+                ${field('c-empresa', f.empresa, '<input id="c-empresa" name="Empresa" type="text" autocomplete="organization">', false)}
               </div>
               <div class="form__row">
-                ${field('c-email', f.email, '<input id="c-email" name="email" type="email" required autocomplete="email">')}
-                ${field('c-tel', f.telefone, '<input id="c-tel" name="telefone" type="tel" autocomplete="tel">', false)}
+                ${field('c-email', f.email, '<input id="c-email" name="Email" type="email" required autocomplete="email">')}
+                ${field('c-tel', f.telefone, '<input id="c-tel" name="Telefone" type="tel" autocomplete="tel">', false)}
               </div>
-              ${field('c-assunto', f.assunto, `<select id="c-assunto" name="assunto">${opts}</select>`, false)}
-              ${field('c-msg', f.msg, '<textarea id="c-msg" name="mensagem" required></textarea>')}
+              ${field('c-assunto', f.assunto, `<select id="c-assunto" name="Assunto">${opts}</select>`, false)}
+              ${field('c-msg', f.msg, '<textarea id="c-msg" name="Mensagem" required></textarea>')}
               <div class="consent">
-                <input id="c-consent" name="consentimento" type="checkbox" required>
+                <input id="c-consent" name="Consentimento" type="checkbox" required value="Sim, li e aceito a Política de Privacidade">
                 <label for="c-consent" style="color:inherit;font-weight:400">${consent}</label>
               </div>
               <div><button type="submit" class="btn btn--primario">${f.submit}</button></div>
