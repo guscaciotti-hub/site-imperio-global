@@ -122,10 +122,10 @@ const STRINGS = {
         servAll:'Ver todos os serviços',
         whyEyebrow:'Porquê a Império Global', whyTitle:'Solidez técnica em cada etapa',
         pillars:[
-          { t:'Rigor de execução', d:'Processos técnicos rigorosos, do planeamento à entrega, com foco na conformidade.' },
-          { t:'Fiabilidade', d:'Infraestruturas que asseguram a fiabilidade, disponibilidade e desempenho das redes.' },
-          { t:'Capacidade de resposta', d:'Equipas e viaturas prontas para intervir e reduzir o tempo de indisponibilidade.' },
-          { t:'Visão de escala', d:'Operação em dois países e capacidade para acompanhar projetos de grande dimensão.' },
+          { i:'quality', t:'Rigor de execução', d:'Processos técnicos rigorosos, do planeamento à entrega, com foco na conformidade.' },
+          { i:'monitor', t:'Fiabilidade', d:'Infraestruturas que asseguram a fiabilidade, disponibilidade e desempenho das redes.' },
+          { i:'repair', t:'Capacidade de resposta', d:'Equipas e viaturas prontas para intervir e reduzir o tempo de indisponibilidade.' },
+          { i:'globe', t:'Visão de escala', d:'Operação em dois países e capacidade para acompanhar projetos de grande dimensão.' },
         ],
         stats:[ { n:50, pre:'+', l:'Colaboradores' }, { n:2, pre:'', l:'Países de operação' }, { n:20, pre:'', l:'Viaturas de intervenção' } ],
       },
@@ -335,10 +335,10 @@ const STRINGS = {
         servAll:'View all services',
         whyEyebrow:'Why Império Global', whyTitle:'Technical solidity at every stage',
         pillars:[
-          { t:'Execution rigour', d:'Rigorous technical processes, from planning to delivery, focused on compliance.' },
-          { t:'Reliability', d:'Infrastructure that ensures the reliability, availability and performance of networks.' },
-          { t:'Responsiveness', d:'Teams and vehicles ready to intervene and reduce downtime.' },
-          { t:'Scale', d:'Operations in two countries and the capacity to handle large-scale projects.' },
+          { i:'quality', t:'Execution rigour', d:'Rigorous technical processes, from planning to delivery, focused on compliance.' },
+          { i:'monitor', t:'Reliability', d:'Infrastructure that ensures the reliability, availability and performance of networks.' },
+          { i:'repair', t:'Responsiveness', d:'Teams and vehicles ready to intervene and reduce downtime.' },
+          { i:'globe', t:'Scale', d:'Operations in two countries and the capacity to handle large-scale projects.' },
         ],
         stats:[ { n:50, pre:'+', l:'Employees' }, { n:2, pre:'', l:'Countries of operation' }, { n:20, pre:'', l:'Intervention vehicles' } ],
       },
@@ -540,10 +540,10 @@ const STRINGS = {
         servAll:'Voir tous les services',
         whyEyebrow:'Pourquoi Império Global', whyTitle:'Une solidité technique à chaque étape',
         pillars:[
-          { t:"Rigueur d'exécution", d:"Des processus techniques rigoureux, de la planification à la livraison, axés sur la conformité." },
-          { t:'Fiabilité', d:'Des infrastructures qui assurent la fiabilité, la disponibilité et la performance des réseaux.' },
-          { t:'Réactivité', d:"Des équipes et des véhicules prêts à intervenir et à réduire les temps d'indisponibilité." },
-          { t:"Vision d'échelle", d:"Une activité dans deux pays et la capacité de mener des projets d'envergure." },
+          { i:'quality', t:"Rigueur d'exécution", d:"Des processus techniques rigoureux, de la planification à la livraison, axés sur la conformité." },
+          { i:'monitor', t:'Fiabilité', d:'Des infrastructures qui assurent la fiabilité, la disponibilité et la performance des réseaux.' },
+          { i:'repair', t:'Réactivité', d:"Des équipes et des véhicules prêts à intervenir et à réduire les temps d'indisponibilité." },
+          { i:'globe', t:"Vision d'échelle", d:"Une activité dans deux pays et la capacité de mener des projets d'envergure." },
         ],
         stats:[ { n:50, pre:'+', l:'Collaborateurs' }, { n:2, pre:'', l:'Pays' }, { n:20, pre:'', l:"Véhicules d'intervention" } ],
       },
@@ -894,7 +894,7 @@ function bodyIndex(lang, S, up = upFor(lang)) {
             </div>
           </article>`).join('');
   const pillars = p.pillars.map(x => `
-          <div class="pillar rv"><h3>${x.t}</h3><p>${x.d}</p></div>`).join('');
+          <div class="pillar pillar--icon rv">${x.i ? `<span class="pillar__icon" aria-hidden="true">${ICON[x.i]}</span>` : ''}<h3>${x.t}</h3><p>${x.d}</p></div>`).join('');
   // Números do hero — estáticos (valor final desde o 1.º frame; só fade-in via .rv, sem contagem)
   const heroStats = p.heroStats.map(x => `
           <div class="hero-stat"><span class="hero-stat__num">${x.v}</span><span class="hero-stat__label">${x.l}</span></div>`).join('');
