@@ -95,22 +95,22 @@ const STRINGS = {
     footer: {
       nav:'Navegação', empresa:'Empresa', contacto:'Contacto',
       privacidade:'Política de Privacidade', rights:'Todos os direitos reservados.',
-      gov:'Governação e Conformidade', cookies:'Política de Cookies', termos:'Termos e Condições',
+      gov:'Políticas da Empresa', cookies:'Política de Cookies', termos:'Termos e Condições',
       codigoetica:'Código de Ética e Conduta', canaldenuncias:'Canal de Denúncias',
     },
     cookies: {
       text:'Utilizamos cookies para melhorar a sua experiência e analisar o tráfego. Os cookies de análise só são carregados após o seu consentimento.',
       accept:'Aceitar', reject:'Recusar', more:'Saber mais',
     },
-    cta: { title:'Vamos construir a próxima ligação?', text:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações.', btn:'Fale connosco' },
+    cta: { title:'Quer saber mais?', text:'Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!', btn:'Contacte-nos' },
     pages: {
       index: {
         title:'Império Global — Infraestruturas de telecomunicações · Portugal e Bélgica',
         desc:'A Império Global constrói, expande e mantém infraestruturas de telecomunicações em Portugal e na Bélgica, ao serviço de operadores, empresas privadas e entidades públicas.',
-        heroTitle:'Construímos as redes que ligam Portugal e a Bélgica.',
-        heroSub:'Soluções end-to-end para construção, expansão e manutenção de infraestruturas de telecomunicações. Ao serviço de operadores, empreiteiros e entidades públicas.',
+        heroTitle:'Desenvolvemos infraestruturas que ligam pessoas, empresas e comunidades.',
+        heroSub:'Com inovação, rigor e compromisso.',
         ctaPrimary:'Fale connosco', ctaSecondary:'Os nossos serviços',
-        heroStats:[ { v:'8', l:'anos de operação' }, { v:'50+', l:'profissionais especializados' }, { v:'2', l:'países · Portugal e Bélgica' } ],
+        heroStats:[ { v:'8', l:'anos de operação' }, { v:'50+', l:'profissionais especializados' }, { v:'2', l:'países de operação' } ],
         trust:'Parceiro de operadores de referência.',
         servEyebrow:'O que fazemos', servTitle:'Infraestruturas que suportam as redes de acesso',
         serv:[
@@ -132,18 +132,20 @@ const STRINGS = {
       sobre: {
         title:'Sobre — Império Global', desc:'Especialistas na construção, expansão e manutenção de infraestruturas de telecomunicações, com operação em Portugal e na Bélgica.',
         h1:'Sobre a Império Global', eyebrow:'Quem somos',
-        heroSub:'Construímos, expandimos e mantemos as infraestruturas de telecomunicações que ligam Portugal e a Bélgica — end-to-end, com rigor técnico.',
+        heroSub:'Especialistas na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.',
         heroCta:'Fale connosco',
-        intro:'A Império Global é especialista na construção, expansão e manutenção de infraestruturas de telecomunicações. Desenvolvemos, implementamos e asseguramos a manutenção de redes de fibra ótica e infraestruturas de acesso que suportam os serviços dos principais operadores.',
-        missaoT:'Missão',
-        missao:'Planeamos, construímos e mantemos infraestruturas de telecomunicações com rigor técnico e compromisso, garantindo redes fiáveis, preparadas para responder às exigências do presente e do futuro. Transformamos desafios em soluções e cada projeto numa relação de confiança.',
-        visaoT:'Visão',
-        visao:'Ser uma referência internacional na execução de infraestruturas técnicas, reconhecida pela inovação, competência e excelência operacional, crescendo de forma sustentável para novas áreas e mercados.',
-        valoresT:'Valores',
+        intro:'Fundada em 2017, a Império Global Telecomunicações é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações. Com uma equipa experiente e um forte compromisso com a qualidade, a inovação e a segurança, desenvolvemos soluções fiáveis e eficientes, adaptadas às necessidades de cada projeto. Trabalhamos diariamente para construir infraestruturas que ligam pessoas, empresas e comunidades, contribuindo para um futuro mais conectado.',
+        missaoT:'A Nossa Missão',
+        missao:'A nossa missão é desenvolver soluções de telecomunicações que garantam ligações fiáveis, seguras e eficientes, contribuindo para a evolução das infraestruturas de comunicação. Atuamos com rigor, inovação e compromisso, criando valor para os nossos clientes e parceiros em cada projeto.',
+        visaoT:'A Nossa Visão',
+        visao:'Ser uma referência nacional e internacional na execução de infraestruturas técnicas, distinguindo-nos pela inovação, excelência operacional e confiança dos nossos clientes, contribuindo para um futuro mais conectado e sustentável.',
+        valoresT:'Os Nossos Valores',
         valores:[
-          { t:'Compromisso', d:'Cumprimos o que prometemos, com responsabilidade e rigor.' },
-          { t:'Confiança', d:'Construímos relações sólidas através da transparência e da qualidade.' },
-          { t:'Inovação', d:'Evoluímos continuamente para soluções mais eficientes e preparadas para o futuro.' },
+          { t:'Orientação para o Cliente', d:'Colocamos os nossos clientes no centro de tudo o que fazemos, desenvolvendo soluções à medida das suas necessidades.' },
+          { t:'Pessoas', d:'Valorizamos as pessoas, promovendo o trabalho em equipa, o desenvolvimento contínuo e um ambiente de respeito e colaboração.' },
+          { t:'Inovação', d:'Investimos na melhoria contínua, na tecnologia e em novas soluções que impulsionam a eficiência e a evolução do setor.' },
+          { t:'Compromisso', d:'Atuamos com responsabilidade, rigor e dedicação, cumprindo os nossos compromissos em cada projeto.' },
+          { t:'Confiança', d:'Construímos relações duradouras baseadas na transparência, integridade e excelência dos nossos serviços.' },
         ],
         dadosTitle:'A Império Global em números',
         dados:[
@@ -157,7 +159,7 @@ const STRINGS = {
       servicos: {
         title:'Serviços — Império Global', desc:'Construção, expansão e manutenção de infraestruturas de telecomunicações: redes fixas, fibra ótica e cobre, manutenção preventiva e corretiva.',
         h1:'Serviços', eyebrow:'O que oferecemos',
-        intro:'Cobrimos todo o ciclo de vida das infraestruturas de acesso — da construção à manutenção — para operadores, empresas privadas e entidades públicas.',
+        intro:'Projetamos, construímos e certificamos infraestruturas de telecomunicações, desenvolvendo soluções de elevada qualidade que garantem desempenho, fiabilidade e conectividade para um futuro cada vez mais digital.',
         items:[
           { i:'survey', t:'Survey e levantamento técnico', d:'Levantamento de campo e preparação de projeto para a execução das infraestruturas.' },
           { i:'aerial', t:'Construção de redes aéreas', d:'Instalação de infraestruturas de acesso em apoios aéreos, do traçado à ligação.' },
@@ -170,15 +172,14 @@ const STRINGS = {
           { i:'quality', t:'Controlo de qualidade e auditoria de redes', d:'Verificação, certificação e auditoria técnica das infraestruturas executadas.' },
         ],
         groups:[
-          { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey e projeto', d:'Levantamento técnico de campo e desenvolvimento de projeto, com gestão e coordenação integradas — a base para uma execução rigorosa.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
-          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Construção de infraestruturas de acesso em redes aéreas e subterrâneas, do traçado à ligação, coordenada com as entidades competentes.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
-          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra ótica e cobre', d:'Implementação, manutenção e modernização de infraestruturas de fibra ótica (FTTH) e cobre, do troço principal ao ponto de acesso.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
-          { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Instalação e ativação de serviços', d:'Instalação de equipamentos e soluções técnicas, ativação e entrega de serviços de telecomunicações ao cliente final, numa abordagem end-to-end.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
-          { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervisão e monitorização', d:'Supervisão e monitorização contínua das redes, assegurando controlo operacional, desempenho e alinhamento das operações no terreno.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
-          { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Manutenção e reparação', d:'Manutenção preventiva e corretiva, com diagnóstico, deteção e resolução de avarias e capacidade de resposta rápida para reduzir a indisponibilidade.', subs:['Manutenção preventiva','Manutenção corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
-          { i:'expand', home:true, img:'servicos/expansao-e-otimizacao.jpg', t:'Expansão e otimização', d:'Ampliação, modernização e otimização de redes existentes, acompanhando o crescimento da procura e a evolução tecnológica.', subs:['Ampliação de traçados','Modernização','Otimização de redes','Densificação'] },
-          { i:'quality', home:false, img:'servicos/qualidade-e-auditoria.jpg', t:'Qualidade e auditoria', d:'Controlo de qualidade e auditoria técnica de redes e infraestruturas, com verificação e certificação do trabalho executado.', subs:['Controlo de qualidade','Auditoria de redes','Certificação','Verificação técnica'] },
-          { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Armazém e logística', d:'Armazenamento e gestão de armazém, gestão logística e suporte técnico — assegurando disponibilidade, rastreabilidade e continuidade das operações.', subs:['Gestão de armazém','Receção e controlo de materiais','Rastreabilidade','Gestão logística','Suporte técnico'] },
+          { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey e projeto', d:'Desenvolvemos estudos técnicos e projetos de telecomunicações com rigor, inovação e precisão, assegurando um planeamento eficiente e uma execução de excelência em todas as fases do projeto.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Executamos infraestruturas de telecomunicações aéreas e subterrâneas com elevados padrões de qualidade, segurança e eficiência, assegurando uma implementação rigorosa e preparada para responder às exigências das redes do futuro.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
+          { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra ótica e cobre', d:'Somos especialistas em soluções de fibra ótica e cobre, assegurando todas as fases da rede, desde a construção e instalação até à ligação, certificação, manutenção e resolução de avarias.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
+          { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Instalação e ativação de serviços', d:'Garantimos a instalação, configuração e ativação de serviços de telecomunicações, assegurando uma implementação eficiente e uma experiência de excelência para o cliente final, desde a preparação da rede até à entrada em funcionamento.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
+          { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervisão e monitorização', d:'Coordenamos e supervisionamos as operações no terreno com rigor e precisão, assegurando uma execução eficiente, o cumprimento dos padrões de qualidade e a excelência operacional.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
+          { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Manutenção e reparação', d:'A continuidade das comunicações depende de uma resposta rápida e eficaz. Asseguramos a manutenção preventiva e corretiva das redes, com diagnóstico preciso e intervenção especializada.', subs:['Manutenção preventiva','Manutenção corretiva','Diagnóstico de avarias','Reparação','Resposta rápida (SLA)'] },
+          { i:'quality', home:false, img:'servicos/qualidade-e-auditoria.jpg', t:'Qualidade e auditoria', d:'Cada projeto é submetido a um rigoroso processo de verificação técnica, assegurando que todos os trabalhos são executados de acordo com os mais elevados requisitos técnicos e operacionais.', subs:['Controlo de qualidade','Auditoria de redes','Certificação','Verificação técnica'] },
+          { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Armazém e logística', d:'Oferecemos soluções de armazém e logística para empresas de diversos setores de atividade. Gerimos a receção, armazenamento, controlo, preparação e distribuição de materiais e equipamentos, assegurando uma operação eficiente, total rastreabilidade e uma gestão otimizada da cadeia logística.', subs:['Gestão de armazém','Receção e controlo de materiais','Rastreabilidade','Gestão logística','Suporte técnico'] },
         ],
       },
       areas: {
@@ -187,14 +188,14 @@ const STRINGS = {
         intro:'Operamos em dois países europeus, com equipas próprias e capacidade de intervenção local.',
         roles:['Mercado principal','Expansão internacional'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:'Atuação em território nacional na construção, expansão e manutenção de infraestruturas de acesso, ao serviço de operadores, empresas privadas e entidades públicas.' },
-          { nome:'Bélgica', d:'Operação no mercado belga em infraestruturas de telecomunicações, com equipas dedicadas à construção e manutenção de redes de fibra ótica e cobre.' },
+          { nome:'Portugal', d:'Construção, instalação, manutenção e certificação de infraestruturas de telecomunicações, com equipas próprias e capacidade de intervenção local.' },
+          { nome:'Bélgica', d:'Construção, instalação, manutenção e certificação de infraestruturas de telecomunicações, com equipas próprias e capacidade de intervenção local.' },
         ],
       },
       recrutamento: {
         title:'Recrutamento — Império Global', desc:'Junte-se a uma equipa em crescimento nas infraestruturas de telecomunicações em Portugal e na Bélgica.',
         h1:'Recrutamento', eyebrow:'Carreiras',
-        intro:'Junte-se a uma equipa em crescimento, que constrói e mantém as infraestruturas que ligam pessoas e empresas. Valorizamos o rigor técnico, a segurança e o espírito de equipa.',
+        intro:'Na Império Global, acreditamos que o sucesso da empresa é construído pelas pessoas que fazem parte da nossa equipa. Se procura um novo desafio profissional e pretende integrar numa empresa sólida, dinâmica, inovadora e em constante crescimento, envie-nos a sua candidatura.',
         formTitle:'Candidatura espontânea',
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
         areas:['Construção de redes','Manutenção e reparação','Fibra ótica e cobre','Engenharia e projeto','Administrativo','Outra'],
@@ -205,7 +206,7 @@ const STRINGS = {
       contacto: {
         title:'Contacto — Império Global', desc:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações em Portugal ou na Bélgica.',
         h1:'Contacto', eyebrow:'Fale connosco',
-        intro:'Tem um projeto de infraestruturas de telecomunicações? Envie-nos a sua mensagem e a nossa equipa entrará em contacto consigo.',
+        intro:'Se necessitar de informações sobre os nossos serviços ou de qualquer outro esclarecimento relacionado com a atividade da Império Global, não hesite em contactar-nos. Comprometemo-nos a responder com a máxima rapidez e profissionalismo.',
         formTitle:'Envie-nos uma mensagem',
         f:{ nome:'Nome', empresa:'Empresa', email:'Email', telefone:'Telefone', assunto:'Assunto', msg:'Mensagem', submit:'Enviar mensagem' },
         assuntos:['Pedido de proposta','Parceria','Recrutamento','Outro'],
@@ -311,7 +312,7 @@ const STRINGS = {
     skip: 'Skip to content',
     tagline: 'Construction, expansion and maintenance of telecommunications infrastructure in Portugal and Belgium.',
     footer: { nav:'Navigation', empresa:'Company', contacto:'Contact', privacidade:'Privacy Policy', rights:'All rights reserved.',
-      gov:'Governance & Compliance', cookies:'Cookie Policy', termos:'Terms & Conditions',
+      gov:'Company Policies', cookies:'Cookie Policy', termos:'Terms & Conditions',
       codigoetica:'Code of Ethics & Conduct', canaldenuncias:'Whistleblowing Channel' },
     cookies: { text:'We use cookies to improve your experience and analyse traffic. Analytics cookies are only loaded after your consent.', accept:'Accept', reject:'Decline', more:'Learn more' },
     cta: { title:'Shall we build the next connection?', text:'Talk to us about your telecommunications infrastructure project.', btn:'Contact us' },
@@ -388,7 +389,6 @@ const STRINGS = {
           { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Installation & service activation', d:'Installation of equipment and technical solutions, activation and delivery of telecommunications services to the end customer, end-to-end.', subs:['Equipment installation','Service activation','End-customer delivery','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervision & monitoring', d:'Continuous supervision and monitoring of networks, ensuring operational control, performance and alignment of field operations.', subs:['Network supervision','Monitoring','Operational control','Operations management'] },
           { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Maintenance & repair', d:'Preventive and corrective maintenance, with fault diagnosis, detection and repair and fast response to reduce downtime.', subs:['Preventive maintenance','Corrective maintenance','Fault diagnosis','Repair','Fast response (SLA)'] },
-          { i:'expand', home:true, img:'servicos/expansao-e-otimizacao.jpg', t:'Expansion & optimisation', d:'Extension, modernisation and optimisation of existing networks, keeping pace with demand and technological evolution.', subs:['Route extension','Modernisation','Network optimisation','Densification'] },
           { i:'quality', home:false, img:'servicos/qualidade-e-auditoria.jpg', t:'Quality & auditing', d:'Quality control and technical auditing of networks and infrastructure, with verification and certification of the work delivered.', subs:['Quality control','Network auditing','Certification','Technical verification'] },
           { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Warehousing & logistics', d:'Warehousing and inventory management, logistics management and technical support — ensuring availability, traceability and operational continuity.', subs:['Warehouse management','Material receipt & control','Traceability','Logistics management','Technical support'] },
         ],
@@ -517,7 +517,7 @@ const STRINGS = {
     skip: 'Aller au contenu',
     tagline: "Construction, expansion et maintenance d'infrastructures de télécommunications au Portugal et en Belgique.",
     footer: { nav:'Navigation', empresa:'Entreprise', contacto:'Contact', privacidade:'Politique de confidentialité', rights:'Tous droits réservés.',
-      gov:'Gouvernance & Conformité', cookies:'Politique de cookies', termos:'Conditions générales',
+      gov:'Politiques de l’entreprise', cookies:'Politique de cookies', termos:'Conditions générales',
       codigoetica:'Code d’éthique et de conduite', canaldenuncias:'Canal de signalement' },
     cookies: { text:"Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. Les cookies d'analyse ne sont chargés qu'après votre consentement.", accept:'Accepter', reject:'Refuser', more:'En savoir plus' },
     cta: { title:'Construisons la prochaine connexion ?', text:"Parlez-nous de votre projet d'infrastructures de télécommunications.", btn:'Contactez-nous' },
@@ -594,7 +594,6 @@ const STRINGS = {
           { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Installation & activation de services', d:"Installation d'équipements et de solutions techniques, activation et livraison de services de télécommunications au client final, end-to-end.", subs:["Installation d'équipements",'Activation de services','Livraison au client final','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervision & surveillance', d:'Supervision et surveillance continue des réseaux, assurant le contrôle opérationnel, la performance et la coordination des opérations sur le terrain.', subs:['Supervision de réseaux','Surveillance','Contrôle opérationnel','Gestion des opérations'] },
           { i:'maint', home:true, img:'servicos/manutencao-e-reparacao.jpg', t:'Maintenance & réparation', d:"Maintenance préventive et corrective, avec diagnostic, détection et résolution de pannes et réactivité pour réduire les temps d'indisponibilité.", subs:['Maintenance préventive','Maintenance corrective','Diagnostic de pannes','Réparation','Réponse rapide (SLA)'] },
-          { i:'expand', home:true, img:'servicos/expansao-e-otimizacao.jpg', t:'Expansion & optimisation', d:'Extension, modernisation et optimisation des réseaux existants, au rythme de la demande et de l\'évolution technologique.', subs:['Extension de tracés','Modernisation','Optimisation de réseaux','Densification'] },
           { i:'quality', home:false, img:'servicos/qualidade-e-auditoria.jpg', t:'Qualité & audit', d:'Contrôle qualité et audit technique des réseaux et infrastructures, avec vérification et certification des travaux réalisés.', subs:['Contrôle qualité','Audit de réseaux','Certification','Vérification technique'] },
           { i:'warehouse', home:false, img:'servicos/armazem-e-logistica.jpg', t:'Entrepôt & logistique', d:"Stockage et gestion d'entrepôt, gestion logistique et support technique — garantissant disponibilité, traçabilité et continuité des opérations.", subs:["Gestion d'entrepôt",'Réception et contrôle des matériaux','Traçabilité','Gestion logistique','Support technique'] },
         ],
@@ -812,7 +811,6 @@ function footer(lang, S, up = upFor(lang)) {
       <div class="footer__grid">
         <div>
           <img class="footer__logo" src="${B}assets/logo/imperio-oficial.png" alt="${logoAlt}" width="640" height="197">
-          <p>${S.tagline}</p>
         </div>
         <div>
           <h4>${S.footer.nav}</h4>
