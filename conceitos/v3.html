@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Império Global · Conceito V3 — Editorial Contraste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --azul-imperio:#013F80;
@@ -13,7 +16,8 @@
   --light:#f5f7fa;
   --ghost:rgba(1,63,128,0.06);
   --white:#ffffff;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --display:'Archivo',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --serif:Georgia,"Times New Roman",serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -46,16 +50,16 @@ a{color:inherit;text-decoration:none}
 }
 .nav-links a:hover{color:var(--azul-sinal)}
 .nav-lang{display:flex;gap:8px;margin-left:8px;font-size:12px;font-weight:700;color:var(--prata)}
-.nav-lang a:first-child{color:var(--azul-imperio)}
 .nav-lang span{color:var(--prata)}
+.nav-lang .lang-active{color:var(--azul-imperio)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .nav-toggle span{width:24px;height:2px;background:var(--azul-imperio);display:block}
 
 /* ---------- HERO ---------- */
 .hero{
   position:relative;min-height:100vh;display:flex;align-items:flex-end;
-  background:linear-gradient(180deg,rgba(1,63,128,.28) 0%,rgba(1,25,55,.72) 100%),
-    url('../assets/img/areas-bg.jpg') center/cover no-repeat;
+  background:linear-gradient(180deg,rgba(1,63,128,.38) 0%,rgba(1,25,55,.78) 100%),
+    url('../assets/img/hero-bg.jpg') center/cover no-repeat;
   color:var(--white);padding-bottom:80px;padding-top:120px;
 }
 .hero .wrap{width:100%}
@@ -64,7 +68,7 @@ a{color:inherit;text-decoration:none}
   color:var(--prata);margin-bottom:26px;
 }
 .hero h1{
-  font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.05;
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.05;
   font-size:clamp(34px,5.4vw,68px);max-width:16ch;margin-bottom:22px;
 }
 .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
@@ -87,7 +91,7 @@ a{color:inherit;text-decoration:none}
   padding:56px 40px;text-align:center;border-right:1px solid rgba(255,255,255,.12);
 }
 .stat:last-child{border-right:none}
-.stat-num{font-size:clamp(48px,7vw,88px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.stat-num{font-family:var(--display);font-size:clamp(48px,7vw,88px);font-weight:700;line-height:1;letter-spacing:-.03em}
 .stat-num span{color:var(--prata)}
 .stat-label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--prata);margin-top:14px;font-weight:600}
 
@@ -97,7 +101,7 @@ a{color:inherit;text-decoration:none}
 .band-soft{background:var(--light);padding:130px 0}
 .ghost{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--sans);font-weight:800;letter-spacing:-.04em;
+  font-family:var(--display);font-weight:700;letter-spacing:-.04em;
   font-size:clamp(120px,24vw,340px);color:var(--ghost);
   white-space:nowrap;line-height:1;z-index:0;pointer-events:none;user-select:none;
   max-width:130vw;
@@ -109,7 +113,7 @@ a{color:inherit;text-decoration:none}
 }
 .eyebrow::before{content:"";width:38px;height:2px;background:var(--azul-sinal);display:inline-block}
 .sec-title{
-  font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.08;
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.08;
   font-size:clamp(30px,4vw,52px);color:var(--azul-imperio);
 }
 .sec-title em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--grafite)}
@@ -124,7 +128,8 @@ a{color:inherit;text-decoration:none}
   position:absolute;left:-30px;bottom:36px;background:var(--azul-imperio);color:var(--white);
   padding:26px 30px;border-radius:2px;max-width:220px;
 }
-.sobre-media .badge b{font-size:44px;font-weight:800;line-height:1;display:block}
+.sobre-media .badge small{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--prata);font-weight:700;display:block;margin-bottom:6px}
+.sobre-media .badge b{font-family:var(--display);font-size:44px;font-weight:700;line-height:1;display:block}
 .sobre-media .badge span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--prata);margin-top:8px;display:block}
 
 /* ---------- SERVIÇOS ---------- */
@@ -138,9 +143,9 @@ a{color:inherit;text-decoration:none}
 .serv-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .serv-card:hover .serv-photo img{transform:scale(1.06)}
 .serv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(1,63,128,.55))}
-.serv-idx{position:absolute;top:14px;left:16px;z-index:2;font-size:13px;font-weight:800;color:var(--white);letter-spacing:.05em}
+.serv-idx{position:absolute;top:14px;left:16px;z-index:2;font-family:var(--display);font-size:13px;font-weight:700;color:var(--white);letter-spacing:.05em;text-shadow:0 1px 6px rgba(1,25,55,.5)}
 .serv-body{padding:24px 22px 28px}
-.serv-body h3{font-size:17px;font-weight:700;color:var(--azul-imperio);margin-bottom:8px;letter-spacing:-.01em;line-height:1.25}
+.serv-body h3{font-family:var(--display);font-size:17px;font-weight:600;color:var(--azul-imperio);margin-bottom:8px;letter-spacing:-.01em;line-height:1.25}
 .serv-body p{font-size:13.5px;color:var(--grafite);opacity:.72;line-height:1.5}
 
 /* ---------- ÁREAS ---------- */
@@ -150,11 +155,13 @@ a{color:inherit;text-decoration:none}
 .areas-text{padding:110px 60px;display:flex;flex-direction:column;justify-content:center}
 .areas-text .eyebrow{color:var(--prata)}
 .areas-text .eyebrow::before{background:var(--prata)}
-.areas-text h2{font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-bottom:24px}
+.areas-text h2{font-family:var(--display);font-size:clamp(32px,4.2vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:24px}
 .areas-text h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
-.areas-flag{display:flex;align-items:center;gap:16px;margin-top:8px}
-.areas-flag img{width:52px;height:auto;border-radius:2px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.areas-flag span{font-size:15px;color:rgba(255,255,255,.85);font-weight:300}
+.areas-sub{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.85);font-weight:300;max-width:42ch;margin-bottom:28px}
+.areas-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.areas-list li{display:flex;align-items:baseline;gap:14px;border-left:2px solid var(--azul-sinal);padding-left:16px}
+.areas-list b{font-family:var(--display);font-size:18px;font-weight:600;color:var(--white)}
+.areas-list span{font-size:14px;color:var(--prata);font-weight:400}
 .areas-media{background:url('../assets/img/areas-bg.jpg') center/cover no-repeat;position:relative}
 .areas-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--azul-imperio),rgba(1,63,128,.15))}
 
@@ -166,7 +173,7 @@ a{color:inherit;text-decoration:none}
 }
 .cta .eyebrow{color:var(--prata);justify-content:center}
 .cta .eyebrow::before{display:none}
-.cta h2{font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-bottom:22px}
+.cta h2{font-family:var(--display);font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:22px}
 .cta h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
 .cta p{font-size:clamp(16px,1.7vw,20px);color:rgba(255,255,255,.85);max-width:46ch;margin:0 auto 40px;font-weight:300}
 
@@ -180,6 +187,8 @@ a{color:inherit;text-decoration:none}
 .footer-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--prata);margin-bottom:16px;font-weight:700}
 .footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.6);margin-bottom:10px;transition:color .2s}
 .footer-col a:hover{color:var(--white)}
+.footer-lang{display:block;font-size:14px;color:rgba(255,255,255,.35);margin-bottom:10px}
+.footer-lang-active{color:rgba(255,255,255,.75)}
 .footer-bottom{padding-top:28px;font-size:12px;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 /* ---------- CORNER LABEL ---------- */
@@ -231,23 +240,23 @@ a{color:inherit;text-decoration:none}
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="#" class="nav-logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
+    <a href="#top" class="nav-logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
     <nav class="nav-links" id="navLinks">
-      <a href="#">Início</a>
+      <a href="#top">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#areas">Áreas de Atuação</a>
-      <a href="#">Blog</a>
-      <a href="#">Recrutamento</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../recrutamento.html">Recrutamento</a>
       <a href="#cta">Contacto</a>
-      <span class="nav-lang"><a href="#">PT</a><span>|</span><a href="#">EN</a><span>|</span><a href="#">FR</a></span>
+      <span class="nav-lang"><span class="lang-active">PT</span><span>|</span><span>EN</span><span>|</span><span>FR</span></span>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="wrap">
     <p class="hero-kicker">Infraestruturas de Telecomunicações</p>
     <h1>Desenvolvemos infraestruturas que <em>ligam</em> pessoas, empresas e comunidades.</h1>
@@ -260,8 +269,8 @@ a{color:inherit;text-decoration:none}
 <section class="stats">
   <div class="stats-grid">
     <div class="stat"><div class="stat-num">8</div><div class="stat-label">Anos de operação</div></div>
-    <div class="stat"><div class="stat-num">50<span>+</span></div><div class="stat-label">Profissionais</div></div>
-    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Países</div></div>
+    <div class="stat"><div class="stat-num">50<span>+</span></div><div class="stat-label">Profissionais especializados</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Países de operação</div></div>
   </div>
 </section>
 
@@ -273,12 +282,12 @@ a{color:inherit;text-decoration:none}
       <div class="sobre-text">
         <p class="eyebrow">Quem somos</p>
         <h2 class="sec-title">Engenharia de redes com <em>rigor</em> português.</h2>
-        <p>Fundada em 2017, uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.</p>
-        <a href="#" class="btn btn-outline">Saber mais</a>
+        <p>Fundada em 2017, a Império Global é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.</p>
+        <a href="../sobre.html" class="btn btn-outline">Saber mais</a>
       </div>
       <div class="sobre-media">
         <img src="../assets/img/sobre-bg.jpg" alt="Equipa Império Global">
-        <div class="badge"><b>2017</b><span>Ano de fundação</span></div>
+        <div class="badge"><small>Desde</small><b>2017</b><span>Empresa portuguesa</span></div>
       </div>
     </div>
   </div>
@@ -337,10 +346,11 @@ a{color:inherit;text-decoration:none}
     <div class="areas-text">
       <p class="eyebrow">Áreas de Atuação</p>
       <h2>Portugal <em>e</em> Bélgica</h2>
-      <div class="areas-flag">
-        <img src="../assets/img/bandeira-pt.png" alt="Bandeira de Portugal">
-        <span>Presença consolidada em dois mercados europeus.</span>
-      </div>
+      <p class="areas-sub">Presença consolidada em dois mercados europeus, com equipas locais e resposta próxima.</p>
+      <ul class="areas-list">
+        <li><b>Portugal</b><span>Sede e operações nacionais</span></li>
+        <li><b>Bélgica</b><span>Operações internacionais</span></li>
+      </ul>
     </div>
     <div class="areas-media"></div>
   </div>
@@ -352,7 +362,7 @@ a{color:inherit;text-decoration:none}
     <p class="eyebrow">Vamos falar</p>
     <h2>Quer <em>saber</em> mais?</h2>
     <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
-    <a href="#" class="btn btn-light">Contacte-nos</a>
+    <a href="../contacto.html" class="btn btn-light">Contacte-nos</a>
   </div>
 </section>
 
@@ -373,15 +383,15 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="footer-col">
           <h4>Recursos</h4>
-          <a href="#">Blog</a>
-          <a href="#">Recrutamento</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="../recrutamento.html">Recrutamento</a>
           <a href="#cta">Contacto</a>
         </div>
         <div class="footer-col">
           <h4>Idioma</h4>
-          <a href="#">Português</a>
-          <a href="#">English</a>
-          <a href="#">Français</a>
+          <span class="footer-lang footer-lang-active">Português</span>
+          <span class="footer-lang">English</span>
+          <span class="footer-lang">Français</span>
         </div>
       </div>
     </div>

@@ -4,22 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Império Global — Conceito V2 · Navy Impacto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap">
 <style>
 /* ===== RESET / BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#013F80;
-  --navy-900:#012C5A;
+  --navy-900:#012C5A; /* azul institucional a 70% de luminosidade (tom escuro do #013F80) */
   --sinal:#0072CE;
-  --sinal-bright:#1c86e0;
   --prata:#AFC4D6;
   --white:#ffffff;
-  --ink:#0b1b2b;
-  --sans:"Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --black:"Arial Black","Helvetica Neue",system-ui,Arial,sans-serif;
+  --gelo:#f5f7fa;
+  --ink:#2B2F36;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --head:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --wrap:1200px;
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+[id]{scroll-margin-top:78px}
 body{
   font-family:var(--sans);
   color:var(--ink);
@@ -33,42 +37,43 @@ a{color:inherit;text-decoration:none}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
 
 h1,h2,h3{
-  font-family:var(--black);
-  font-weight:900;
+  font-family:var(--head);
+  font-weight:700;
   letter-spacing:-0.03em;
-  line-height:1.02;
+  line-height:1.06;
   text-transform:none;
 }
 
-/* ===== X TEXTURE ===== */
-.x-tex{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.x-tex::before,.x-tex::after{
-  content:"";position:absolute;top:50%;left:50%;
-  width:200%;height:14vw;min-height:120px;
-  background:rgba(255,255,255,.05);
+/* ===== MARCA DE ÁGUA — X OFICIAL DO LOGÓTIPO ===== */
+.x-wm{
+  position:absolute;pointer-events:none;user-select:none;
+  aspect-ratio:174/133;
+  background:url(../assets/img/x-oficial.png) center/contain no-repeat;
+  filter:brightness(2.1) saturate(.9) blur(1.5px);
+  z-index:0;
 }
-.x-tex::before{transform:translate(-50%,-50%) rotate(32deg)}
-.x-tex::after{transform:translate(-50%,-50%) rotate(-32deg)}
+.x-wm--lg{width:min(640px,58vw);right:-6%;top:50%;transform:translateY(-50%);opacity:.07}
+.x-wm--sm{width:clamp(150px,16vw,220px);left:4%;bottom:-4%;opacity:.05}
 
 /* ===== TOP HEADER (white bar) ===== */
 .topbar{
   position:sticky;top:0;z-index:60;
   background:var(--white);
-  border-bottom:1px solid #e6edf3;
+  border-bottom:1px solid rgba(175,196,214,.4);
 }
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px;position:relative}
 .brand img{width:180px;height:auto}
 .nav{display:flex;align-items:center;gap:22px}
 .nav a{
-  font-size:14px;font-weight:600;color:#28425c;letter-spacing:.01em;
+  font-size:14px;font-weight:600;color:var(--ink);letter-spacing:.01em;
   padding:6px 0;position:relative;transition:color .2s;
 }
 .nav a:hover{color:var(--sinal)}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--sinal);transition:width .25s}
 .nav a:hover::after{width:100%}
-.lang{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#8ea3b6;margin-left:6px}
+.lang{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--prata);margin-left:6px}
 .lang b{color:var(--navy)}
-.lang span{cursor:pointer}
+.lang .lang-off{cursor:default}
 .menu-btn{display:none;background:var(--navy);color:#fff;border:0;width:44px;height:40px;border-radius:9px;font-size:20px;cursor:pointer}
 
 /* ===== HERO ===== */
@@ -86,10 +91,10 @@ h1,h2,h3{
     linear-gradient(90deg, rgba(1,44,90,.96) 0%, rgba(1,44,90,.86) 42%, rgba(1,63,128,.62) 100%),
     linear-gradient(0deg, rgba(1,44,90,.9) 0%, rgba(1,44,90,0) 45%);
 }
-.hero .x-tex{z-index:-1}
+.hero .x-wm{z-index:-1}
 .hero__inner{padding:64px 0 40px;max-width:820px}
 .eyebrow{
-  display:inline-block;font-family:var(--sans);font-weight:800;
+  display:inline-block;font-family:var(--sans);font-weight:600;
   font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;
   color:var(--prata);margin-bottom:22px;
 }
@@ -102,16 +107,16 @@ h1,h2,h3{
 }
 .hero__sub{
   margin-top:22px;font-size:clamp(16px,2vw,21px);
-  color:#dbe6f0;font-weight:500;max-width:44ch;
+  color:var(--gelo);font-weight:500;max-width:44ch;
 }
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .btn{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:.01em;
+  font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.01em;
   padding:16px 30px;border-radius:11px;cursor:pointer;transition:.22s;border:2px solid transparent;
 }
 .btn--solid{background:var(--sinal);color:#fff;box-shadow:0 12px 30px -10px rgba(0,114,206,.7)}
-.btn--solid:hover{background:var(--sinal-bright);transform:translateY(-2px)}
+.btn--solid:hover{filter:brightness(1.12);transform:translateY(-2px)}
 .btn--ghost{background:rgba(255,255,255,.04);color:#fff;border-color:rgba(255,255,255,.55)}
 .btn--ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
 .btn .arw{font-size:17px}
@@ -122,8 +127,8 @@ h1,h2,h3{
 }
 .stat{padding-right:40px;margin-right:40px;position:relative}
 .stat + .stat::before{content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:1px;background:rgba(175,196,214,.28)}
-.stat b{display:block;font-family:var(--black);font-weight:900;font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.04em;color:#fff}
-.stat span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--prata);font-weight:700}
+.stat b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.04em;color:#fff}
+.stat span{display:block;max-width:16ch;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--prata);font-weight:600;line-height:1.5;margin-top:4px}
 
 /* ===== SECTION SHELL ===== */
 .section{position:relative;overflow:hidden}
@@ -152,7 +157,7 @@ h1,h2,h3{
 .card__img img{width:100%;height:100%;object-fit:cover;transition:.5s}
 .card:hover .card__img img{transform:scale(1.07)}
 .card__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,44,90,.15),rgba(1,44,90,.75))}
-.card__num{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--black);font-weight:900;font-size:13px;color:var(--prata);letter-spacing:.06em}
+.card__num{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--head);font-weight:700;font-size:13px;color:var(--prata);letter-spacing:.06em}
 .card__body{padding:20px 20px 24px}
 .card__body h3{font-size:18px;letter-spacing:-0.02em;color:#fff;line-height:1.14}
 .card__body p{margin-top:9px;font-size:13.5px;color:var(--prata);line-height:1.5}
@@ -163,7 +168,7 @@ h1,h2,h3{
 .chip{
   width:60px;height:60px;border-radius:16px;
   display:grid;place-items:center;margin-bottom:20px;
-  background:linear-gradient(150deg,var(--sinal),#0a4f96);
+  background:linear-gradient(150deg,var(--sinal),var(--navy));
   box-shadow:0 14px 26px -12px rgba(0,114,206,.8);
 }
 .chip svg{width:28px;height:28px;stroke:#fff;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -178,9 +183,9 @@ h1,h2,h3{
 .areas .wrap{position:relative;z-index:2}
 .areas__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .areas__txt h2{font-size:clamp(30px,4.4vw,52px);color:#fff}
-.areas__txt p{margin-top:20px;color:#dbe6f0;font-size:clamp(16px,1.7vw,19px);max-width:46ch}
+.areas__txt p{margin-top:20px;color:var(--gelo);font-size:clamp(16px,1.7vw,19px);max-width:46ch}
 .flags{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
-.flag-pill{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(175,196,214,.3);padding:12px 20px 12px 14px;border-radius:12px;font-weight:800;font-size:16px;color:#fff}
+.flag-pill{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(175,196,214,.3);padding:12px 20px 12px 14px;border-radius:12px;font-weight:600;font-size:16px;color:#fff}
 .flag-pill img{width:34px;height:auto;border-radius:3px}
 .flag-be{width:34px;height:23px;border-radius:3px;overflow:hidden;display:flex}
 .flag-be i{flex:1;height:100%}
@@ -196,22 +201,24 @@ h1,h2,h3{
 
 /* ===== FOOTER ===== */
 .footer{background:var(--navy-900);color:var(--prata);position:relative;overflow:hidden}
-.footer .wrap{position:relative;z-index:2;padding:64px clamp(20px,5vw,48px) 40px}
+.footer .wrap{position:relative;z-index:2;padding:64px clamp(20px,5vw,48px) 76px}
 .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;border-bottom:1px solid rgba(175,196,214,.16);padding-bottom:34px}
-.wordmark{font-family:var(--black);font-weight:900;font-size:26px;letter-spacing:-0.03em;color:#fff}
+.wordmark{font-family:var(--head);font-weight:700;font-size:26px;letter-spacing:-0.03em;color:#fff}
 .wordmark span{color:var(--sinal)}
 .foot-tag{margin-top:12px;font-size:14px;max-width:34ch;color:var(--prata)}
 .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
-.foot-col h4{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7f97ac;margin-bottom:14px}
-.foot-col a{display:block;font-size:14px;padding:5px 0;color:var(--prata);transition:.2s}
+.foot-col h4{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(175,196,214,.7);margin-bottom:14px}
+.foot-col a,.foot-col span{display:block;font-size:14px;padding:5px 0;color:var(--prata);transition:.2s}
 .foot-col a:hover{color:#fff}
-.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:#7f97ac}
+.foot-col .lang-current{color:#fff;font-weight:600}
+.foot-col .lang-soon{color:rgba(175,196,214,.55);cursor:default}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:rgba(175,196,214,.7)}
 
 /* ===== CORNER LABEL ===== */
 .corner{
   position:fixed;right:16px;bottom:16px;z-index:200;
   background:rgba(1,44,90,.92);color:#fff;border:1px solid rgba(0,114,206,.7);
-  font-family:var(--sans);font-weight:800;font-size:11.5px;letter-spacing:.06em;
+  font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
   padding:9px 15px;border-radius:100px;backdrop-filter:blur(6px);
   box-shadow:0 10px 24px -10px rgba(0,0,0,.6);
 }
@@ -224,17 +231,28 @@ h1,h2,h3{
   .areas__grid{grid-template-columns:1fr;gap:34px}
 }
 @media(max-width:860px){
-  .nav{display:none}
+  .nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:0;
+    background:var(--white);border-bottom:1px solid rgba(175,196,214,.4);
+    padding:8px clamp(20px,5vw,48px) 18px;
+    box-shadow:0 18px 30px -18px rgba(1,44,90,.35);
+  }
+  .nav.open{display:flex}
+  .nav a{width:100%;padding:11px 0;font-size:15px}
+  .nav a::after{display:none}
+  .lang{margin:10px 0 0}
   .menu-btn{display:block}
-  .lang{display:none}
+  .x-wm--lg{width:min(420px,80vw);right:-14%}
 }
 @media(max-width:560px){
   .svc-grid{grid-template-columns:1fr;gap:16px}
   .pillars{grid-template-columns:1fr;gap:28px}
   .brand img{width:150px}
   .hero__inner{padding:44px 0 30px}
-  .stat{padding-right:22px;margin-right:22px}
-  .hero__stats{gap:0}
+  .hero__stats{flex-direction:column;gap:18px;border-top:1px solid rgba(175,196,214,.28)}
+  .stat{padding-right:0;margin-right:0}
+  .stat + .stat::before{display:none}
   .foot-cols{gap:36px}
   .corner{right:10px;bottom:10px;font-size:10.5px;padding:8px 12px}
 }
@@ -249,25 +267,25 @@ h1,h2,h3{
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#top"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
-    <nav class="nav">
+    <nav class="nav" id="nav">
       <a href="#top">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#areas">Áreas de Atuação</a>
-      <a href="#blog">Blog</a>
-      <a href="#recrutamento">Recrutamento</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../recrutamento.html">Recrutamento</a>
       <a href="#contacto">Contacto</a>
-      <span class="lang"><b>PT</b><span>|</span><span>EN</span><span>|</span><span>FR</span></span>
+      <span class="lang"><b>PT</b><span class="lang-off">|</span><span class="lang-off">EN</span><span class="lang-off">|</span><span class="lang-off">FR</span></span>
     </nav>
-    <button class="menu-btn" aria-label="Menu">☰</button>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">☰</button>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero__bg"><img src="../assets/img/servicos-bg.jpg" alt=""></div>
+  <div class="hero__bg"><img src="../assets/img/hero-bg.jpg" alt=""></div>
   <div class="hero__ov"></div>
-  <div class="x-tex"></div>
+  <div class="x-wm x-wm--lg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero__inner">
       <span class="eyebrow line">Infraestruturas de Telecomunicações</span>
@@ -278,9 +296,9 @@ h1,h2,h3{
         <a href="#servicos" class="btn btn--ghost">Os nossos serviços</a>
       </div>
       <div class="hero__stats">
-        <div class="stat"><b>8</b><span>Anos</span></div>
-        <div class="stat"><b>50+</b><span>Profissionais</span></div>
-        <div class="stat"><b>2</b><span>Países</span></div>
+        <div class="stat"><b>8</b><span>anos de operação</span></div>
+        <div class="stat"><b>50+</b><span>profissionais especializados</span></div>
+        <div class="stat"><b>2</b><span>países de operação</span></div>
       </div>
     </div>
   </div>
@@ -288,7 +306,7 @@ h1,h2,h3{
 
 <!-- SERVIÇOS -->
 <section class="section sec-navy pad" id="servicos">
-  <div class="x-tex"></div>
+  <div class="x-wm x-wm--lg" aria-hidden="true" style="top:8%;transform:none"></div>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow line">O que fazemos</span>
@@ -334,7 +352,8 @@ h1,h2,h3{
 
 <!-- WHY -->
 <section class="section sec-deep pad" id="sobre">
-  <div class="x-tex"></div>
+  <div class="x-wm x-wm--lg" aria-hidden="true"></div>
+  <div class="x-wm x-wm--sm" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow line">Porquê a Império Global</span>
@@ -369,7 +388,6 @@ h1,h2,h3{
 <section class="section areas pad" id="areas">
   <div class="areas__bg"><img src="../assets/img/areas-bg.jpg" alt=""></div>
   <div class="areas__ov"></div>
-  <div class="x-tex"></div>
   <div class="wrap">
     <div class="areas__grid">
       <div class="areas__txt">
@@ -381,25 +399,24 @@ h1,h2,h3{
           <span class="flag-pill"><span class="flag-be"><i style="background:#000"></i><i style="background:#FAE042"></i><i style="background:#ED2939"></i></span>Bélgica</span>
         </div>
       </div>
-      <div class="areas__map"><img src="../assets/img/sobre-bg.jpg" alt="Áreas de atuação"></div>
+      <div class="areas__map"><img src="../assets/img/sobre-bg.jpg" alt="Equipa da Império Global em operação no terreno"></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="section sec-navy cta pad" id="contacto">
-  <div class="x-tex"></div>
+  <div class="x-wm x-wm--lg" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow line" style="display:inline-block">Vamos falar</span>
     <h2>Quer saber mais?</h2>
-    <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
-    <a href="#contacto" class="btn btn--solid">Contacte-nos <span class="arw">→</span></a>
+    <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio.</p>
+    <a href="../contacto.html" class="btn btn--solid">Contacte-nos <span class="arw">→</span></a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer" id="recrutamento">
-  <div class="x-tex"></div>
+<footer class="footer">
   <div class="wrap">
     <div class="foot-top">
       <div>
@@ -412,19 +429,19 @@ h1,h2,h3{
           <a href="#sobre">Sobre</a>
           <a href="#servicos">Serviços</a>
           <a href="#areas">Áreas de Atuação</a>
-          <a href="#recrutamento">Recrutamento</a>
+          <a href="../recrutamento.html">Recrutamento</a>
         </div>
         <div class="foot-col">
           <h4>Recursos</h4>
-          <a href="#blog">Blog</a>
+          <a href="../blog/index.html">Blog</a>
           <a href="#contacto">Contacto</a>
           <a href="#top">Início</a>
         </div>
         <div class="foot-col">
           <h4>Idioma</h4>
-          <a href="#">Português</a>
-          <a href="#">English</a>
-          <a href="#">Français</a>
+          <span class="lang-current">Português</span>
+          <span class="lang-soon">English</span>
+          <span class="lang-soon">Français</span>
         </div>
       </div>
     </div>
@@ -434,6 +451,20 @@ h1,h2,h3{
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn');
+  var nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+})();
+</script>
 
 </body>
 </html>

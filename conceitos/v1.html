@@ -4,20 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Império Global — Conceito V1 · Claro Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#013F80;
   --sinal:#0072CE;
   --prata:#AFC4D6;
   --grafite:#2B2F36;
-  --offwhite:#f6f8fb;
+  --offwhite:#f5f7fa;
   --line:#e4eaf1;
   --white:#ffffff;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:90px}
 body{
-  font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   color:var(--grafite);
   background:var(--white);
   line-height:1.65;
@@ -27,11 +31,12 @@ body{
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 
-h1,h2,h3,.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:var(--navy);letter-spacing:-.01em}
+h1,h2,h3{font-family:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-weight:600;color:var(--navy);letter-spacing:-.015em}
+.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400}
 
 .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
 .eyebrow{
-  font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   font-size:12px;letter-spacing:.22em;text-transform:uppercase;
   color:var(--sinal);font-weight:600;margin-bottom:22px;
 }
@@ -78,12 +83,12 @@ header{
 }
 .nav-links a:hover::after{width:100%}
 .lang{display:flex;gap:2px;margin-left:14px;align-items:center}
-.lang a{
+.lang .chip{
   font-size:12px;font-weight:600;color:var(--prata);padding:5px 8px;
-  border-radius:3px;letter-spacing:.05em;
+  border-radius:3px;letter-spacing:.05em;cursor:default;
 }
-.lang a.active{color:var(--navy);border:1px solid var(--line)}
-.lang span{color:var(--line)}
+.lang .chip.active{color:var(--navy);border:1px solid var(--line)}
+.lang .sep{color:var(--line)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
 .burger span{width:24px;height:2px;background:var(--navy);display:block}
 
@@ -94,8 +99,8 @@ header{
   font-size:clamp(34px,4.4vw,58px);line-height:1.08;margin-bottom:26px;
 }
 .hero-sub{
-  font-size:19px;color:var(--grafite);max-width:400px;margin-bottom:38px;
-  font-style:italic;font-family:Georgia,'Times New Roman',serif;color:#5a6572;
+  font-size:19px;max-width:400px;margin-bottom:38px;
+  font-style:italic;font-family:Georgia,'Times New Roman',serif;color:rgba(43,47,54,.72);
 }
 .hero-figure{
   position:relative;border-radius:4px;overflow:hidden;
@@ -117,20 +122,19 @@ header{
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .stat{padding:48px 24px;text-align:center;border-right:1px solid var(--line)}
 .stat:last-child{border-right:none}
-.stat .num{font-family:Georgia,serif;font-size:46px;color:var(--navy);line-height:1}
-.stat .lbl{font-size:14px;color:#6a7683;margin-top:12px;letter-spacing:.02em}
+.stat .num{font-family:'Archivo',system-ui,sans-serif;font-weight:700;font-size:46px;color:var(--navy);line-height:1}
+.stat .lbl{font-size:14px;color:rgba(43,47,54,.68);margin-top:12px;letter-spacing:.02em}
 
 /* ============ SECTION shared ============ */
 .section{padding:110px 0}
 .section-head{max-width:640px;margin:0 auto 66px;text-align:center}
 .section-head h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15;margin-bottom:0}
-.section-head p{margin-top:22px;font-size:17px;color:#5a6572}
+.section-head p{margin-top:22px;font-size:17px;color:rgba(43,47,54,.72)}
 
 /* ============ SERVICES ============ */
 .serv-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:34px 30px;
 }
-.serv{group:card}
 .serv-img{
   position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/5;
   margin-bottom:20px;
@@ -142,7 +146,7 @@ header{
   background:linear-gradient(180deg,rgba(1,63,128,0) 55%,rgba(1,63,128,.18));
 }
 .serv h3{font-size:19px;margin-bottom:6px;line-height:1.25}
-.serv p{font-size:14px;color:#6a7683;line-height:1.55}
+.serv p{font-size:14px;color:rgba(43,47,54,.68);line-height:1.55}
 
 /* ============ ABOUT ============ */
 .about{background:var(--offwhite)}
@@ -150,7 +154,7 @@ header{
 .about-fig{position:relative;border-radius:4px;overflow:hidden}
 .about-fig img{width:100%;height:520px;object-fit:cover}
 .about-txt h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15;margin-bottom:26px}
-.about-txt p{font-size:17px;color:#4f5a66;margin-bottom:36px;max-width:460px}
+.about-txt p{font-size:17px;color:rgba(43,47,54,.78);margin-bottom:36px;max-width:460px}
 
 /* ============ AREAS ============ */
 .areas{
@@ -159,14 +163,13 @@ header{
     url('../assets/img/areas-bg.jpg') center/cover no-repeat;
 }
 .areas h2{color:#fff;font-size:clamp(30px,3.6vw,48px);margin-bottom:20px}
-.areas .flag{width:44px;margin:0 auto 26px;border-radius:2px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-.areas p{font-size:18px;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto}
+.areas p{font-size:18px;color:rgba(255,255,255,.88);max-width:480px;margin:0 auto}
 .areas .eyebrow{color:var(--prata)}
 
 /* ============ CTA ============ */
 .cta{text-align:center;padding:120px 0}
 .cta h2{font-size:clamp(30px,3.6vw,48px);margin-bottom:22px}
-.cta p{font-size:18px;color:#5a6572;max-width:520px;margin:0 auto 40px}
+.cta p{font-size:18px;color:rgba(43,47,54,.72);max-width:520px;margin:0 auto 40px}
 
 /* ============ FOOTER ============ */
 footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
@@ -177,6 +180,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
 .foot-col h4{font-family:system-ui,sans-serif;color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;font-weight:600}
 .foot-col a{display:block;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:11px;transition:color .2s}
 .foot-col a:hover{color:#fff}
+.foot-col .lang-on{display:block;font-size:14px;color:rgba(255,255,255,.9);margin-bottom:11px}
+.foot-col .lang-off{display:block;font-size:14px;color:rgba(255,255,255,.35);margin-bottom:11px}
 .foot-bottom{
   margin-top:56px;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
@@ -186,7 +191,15 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
 /* ============ RESPONSIVE ============ */
 @media(max-width:960px){
   .wrap{padding:0 24px}
-  .nav-links{display:none}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:18px;
+    background:var(--white);padding:22px 24px 28px;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 24px 40px -20px rgba(1,63,128,.18);
+  }
+  .nav-links.open{display:flex}
+  .nav-links .lang{margin-left:0}
   .burger{display:flex}
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .hero-figure img{height:420px}
@@ -222,19 +235,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
 <header>
   <div class="wrap nav">
     <a href="#" class="logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
-    <nav class="nav-links">
-      <a href="#inicio">Início</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#areas">Áreas de Atuação</a>
-      <a href="#">Blog</a>
-      <a href="#">Recrutamento</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../recrutamento.html">Recrutamento</a>
       <a href="#contacto">Contacto</a>
       <span class="lang">
-        <a class="active">PT</a><span>|</span><a>EN</a><span>|</span><a>FR</a>
+        <span class="chip active">PT</span><span class="sep">|</span><span class="chip">EN</span><span class="sep">|</span><span class="chip">FR</span>
       </span>
     </nav>
-    <div class="burger"><span></span><span></span><span></span></div>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links" style="background:none;border:0"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -321,13 +334,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
 <section class="section about" id="sobre">
   <div class="wrap about-grid">
     <div class="about-fig">
-      <img src="../assets/img/servicos/construcao-de-redes.jpg" alt="Equipa Império Global em obra">
+      <img src="../assets/img/servicos/expansao-e-otimizacao.jpg" alt="Equipamento de telecomunicações instalado pela Império Global">
     </div>
     <div class="about-txt">
       <p class="eyebrow">Quem somos</p>
       <h2>Um parceiro português de referência.</h2>
-      <p>Fundada em 2017, uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.</p>
-      <a href="#" class="btn">Saber mais</a>
+      <p>Fundada em 2017, a Império Global é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações. São 8 anos de operação ao serviço dos principais operadores.</p>
+      <a href="../sobre.html" class="btn">Saber mais</a>
     </div>
   </div>
 </section>
@@ -336,7 +349,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
 <section class="areas" id="areas">
   <div class="wrap">
     <p class="eyebrow">Áreas de atuação</p>
-    <img class="flag" src="../assets/img/bandeira-pt.png" alt="Portugal">
     <h2>Portugal e Bélgica</h2>
     <p>Presença em dois países, com a mesma exigência e proximidade em cada projeto.</p>
   </div>
@@ -348,7 +360,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
     <p class="eyebrow">Vamos falar</p>
     <h2>Quer saber mais?</h2>
     <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
-    <a href="#" class="btn btn-accent">Contacte-nos</a>
+    <a href="../contacto.html" class="btn btn-accent">Contacte-nos</a>
   </div>
 </section>
 
@@ -363,22 +375,22 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
       <div class="foot-cols">
         <div class="foot-col">
           <h4>Navegação</h4>
-          <a href="#inicio">Início</a>
+          <a href="#">Início</a>
           <a href="#sobre">Sobre</a>
           <a href="#servicos">Serviços</a>
           <a href="#areas">Áreas de Atuação</a>
         </div>
         <div class="foot-col">
           <h4>Empresa</h4>
-          <a href="#">Blog</a>
-          <a href="#">Recrutamento</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="../recrutamento.html">Recrutamento</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div class="foot-col">
           <h4>Idioma</h4>
-          <a href="#">Português</a>
-          <a href="#">English</a>
-          <a href="#">Français</a>
+          <span class="lang-on">Português</span>
+          <span class="lang-off">English</span>
+          <span class="lang-off">Français</span>
         </div>
       </div>
     </div>
@@ -388,6 +400,23 @@ footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger');
+  var links=document.getElementById('nav-links');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
