@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Império Global — Conceitos de Design</title>
+<style>
+  :root{ --azul-imperio:#013F80; --azul-sinal:#0072CE; --grafite:#2B2F36; --linha:#dce4ee; --nevoa:#f5f7fa; }
+  *{ box-sizing:border-box; margin:0; padding:0 }
+  body{ font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--grafite); background:var(--nevoa); line-height:1.6 }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px }
+  header{ background:var(--azul-imperio); color:#fff; padding:64px 0 72px; background-image:linear-gradient(135deg,#013F80,#012C5A) }
+  header .eyebrow{ letter-spacing:.18em; text-transform:uppercase; font-size:.78rem; color:#9dc2e8; font-weight:600 }
+  header h1{ font-size:clamp(1.8rem,4vw,2.6rem); margin:.6rem 0 .5rem; letter-spacing:-.01em }
+  header p{ color:#cfe0f0; max-width:60ch }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin:-40px 0 64px }
+  .card{ background:#fff; border:1px solid var(--linha); border-radius:18px; overflow:hidden; box-shadow:0 14px 40px rgba(1,44,90,.10); display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s }
+  .card:hover{ transform:translateY(-5px); box-shadow:0 22px 56px rgba(1,44,90,.18) }
+  .thumb{ display:block; aspect-ratio:16/10; overflow:hidden; border-bottom:1px solid var(--linha); background:#eef2f7 }
+  .thumb img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block }
+  .body{ padding:22px 22px 24px; display:flex; flex-direction:column; gap:.5rem; flex:1 }
+  .badge{ align-self:flex-start; font-size:.72rem; font-weight:700; letter-spacing:.08em; color:var(--azul-sinal); background:rgba(0,114,206,.1); border:1px solid rgba(0,114,206,.28); padding:.25rem .6rem; border-radius:999px }
+  .card h2{ font-size:1.2rem; color:var(--azul-imperio); margin-top:.2rem }
+  .card p{ font-size:.95rem; color:#4a5568; flex:1 }
+  .btn{ display:inline-block; margin-top:.4rem; background:var(--azul-imperio); color:#fff; text-decoration:none; font-weight:600; font-size:.95rem; padding:.7rem 1.1rem; border-radius:10px; text-align:center; transition:background .2s }
+  .btn:hover{ background:var(--azul-sinal) }
+  .note{ background:#fff; border:1px solid var(--linha); border-radius:14px; padding:18px 22px; margin-bottom:64px; color:#4a5568; font-size:.92rem }
+  .note strong{ color:var(--azul-imperio) }
+  @media (max-width:860px){ .grid{ grid-template-columns:1fr; margin-top:-30px } }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="eyebrow">Império Global · Proposta de design</span>
+      <h1>Três direções para o novo site</h1>
+      <p>Mesmo conteúdo, mesma marca — três estilos diferentes para escolher. Abra cada um, veja em ecrã inteiro e escolha a direção preferida. Nada disto está publicado no site oficial.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <a class="thumb" href="v1.html" target="_blank" rel="noopener"><img src="prev-1.png" alt="Pré-visualização do Conceito V1"></a>
+        <div class="body">
+          <span class="badge">CONCEITO V1</span>
+          <h2>Claro &amp; Editorial</h2>
+          <p>Claro e arejado, com muito espaço, imagem grande e títulos elegantes. O registo mais premium e sereno.</p>
+          <a class="btn" href="v1.html" target="_blank" rel="noopener">Abrir V1 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <a class="thumb" href="v2.html" target="_blank" rel="noopener"><img src="prev-2.png" alt="Pré-visualização do Conceito V2"></a>
+        <div class="body">
+          <span class="badge">CONCEITO V2</span>
+          <h2>Navy Impacto</h2>
+          <p>Azul-império dominante, título forte, textura «X» e cartões com ícones. Institucional, confiante e direto.</p>
+          <a class="btn" href="v2.html" target="_blank" rel="noopener">Abrir V2 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <a class="thumb" href="v3.html" target="_blank" rel="noopener"><img src="prev-3.png" alt="Pré-visualização do Conceito V3"></a>
+        <div class="body">
+          <span class="badge">CONCEITO V3</span>
+          <h2>Editorial Contraste</h2>
+          <p>Bandas de imagem alternadas e títulos «marca de água» ao fundo. Estilo revista, distinto e moderno.</p>
+          <a class="btn" href="v3.html" target="_blank" rel="noopener">Abrir V3 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Como funciona:</strong> estas são maquetes da página inicial, apenas para escolher o estilo. Assim que a Império Global escolher a direção preferida, aplicamos esse visual ao site real (todas as páginas), nos três idiomas.
+    </div>
+  </div>
+</body>
+</html>

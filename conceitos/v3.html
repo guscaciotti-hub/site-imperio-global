@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Império Global · Conceito V3 — Editorial Contraste</title>
+<style>
+:root{
+  --azul-imperio:#013F80;
+  --azul-sinal:#0072CE;
+  --prata:#AFC4D6;
+  --grafite:#2B2F36;
+  --light:#f5f7fa;
+  --ghost:rgba(1,63,128,0.06);
+  --white:#ffffff;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--grafite);
+  background:var(--white);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(1,63,128,0.08);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.nav-logo img{height:38px;width:auto}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--azul-imperio);
+  position:relative;padding:4px 0;transition:color .2s;
+}
+.nav-links a:hover{color:var(--azul-sinal)}
+.nav-lang{display:flex;gap:8px;margin-left:8px;font-size:12px;font-weight:700;color:var(--prata)}
+.nav-lang a:first-child{color:var(--azul-imperio)}
+.nav-lang span{color:var(--prata)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{width:24px;height:2px;background:var(--azul-imperio);display:block}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;
+  background:linear-gradient(180deg,rgba(1,63,128,.28) 0%,rgba(1,25,55,.72) 100%),
+    url('../assets/img/areas-bg.jpg') center/cover no-repeat;
+  color:var(--white);padding-bottom:80px;padding-top:120px;
+}
+.hero .wrap{width:100%}
+.hero-kicker{
+  font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--prata);margin-bottom:26px;
+}
+.hero h1{
+  font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.05;
+  font-size:clamp(34px,5.4vw,68px);max-width:16ch;margin-bottom:22px;
+}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
+.hero-sub{font-size:clamp(16px,1.6vw,21px);color:rgba(255,255,255,.85);max-width:36ch;margin-bottom:38px;font-weight:300}
+.btn{
+  display:inline-block;font-size:14px;font-weight:700;letter-spacing:.04em;
+  padding:16px 34px;border-radius:2px;transition:transform .2s,background .2s;
+}
+.btn-primary{background:var(--azul-sinal);color:var(--white)}
+.btn-primary:hover{background:#0060ad;transform:translateY(-2px)}
+.btn-light{background:var(--white);color:var(--azul-imperio)}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid var(--azul-imperio);color:var(--azul-imperio)}
+.btn-outline:hover{background:var(--azul-imperio);color:var(--white)}
+
+/* ---------- STATS ---------- */
+.stats{background:var(--azul-imperio);color:var(--white);padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{
+  padding:56px 40px;text-align:center;border-right:1px solid rgba(255,255,255,.12);
+}
+.stat:last-child{border-right:none}
+.stat-num{font-size:clamp(48px,7vw,88px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.stat-num span{color:var(--prata)}
+.stat-label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--prata);margin-top:14px;font-weight:600}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+.band{position:relative;overflow:hidden}
+.band-light{background:var(--white);padding:130px 0}
+.band-soft{background:var(--light);padding:130px 0}
+.ghost{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--sans);font-weight:800;letter-spacing:-.04em;
+  font-size:clamp(120px,24vw,340px);color:var(--ghost);
+  white-space:nowrap;line-height:1;z-index:0;pointer-events:none;user-select:none;
+  max-width:130vw;
+}
+.band .wrap{position:relative;z-index:1}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--azul-sinal);margin-bottom:18px;display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:38px;height:2px;background:var(--azul-sinal);display:inline-block}
+.sec-title{
+  font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.08;
+  font-size:clamp(30px,4vw,52px);color:var(--azul-imperio);
+}
+.sec-title em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--grafite)}
+
+/* ---------- SOBRE ---------- */
+.sobre-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
+.sobre-text .sec-title{margin-bottom:26px}
+.sobre-text p{font-size:clamp(17px,1.7vw,20px);color:var(--grafite);max-width:44ch;margin-bottom:34px;font-weight:300;line-height:1.65}
+.sobre-media{position:relative}
+.sobre-media img{width:100%;height:520px;object-fit:cover;border-radius:2px}
+.sobre-media .badge{
+  position:absolute;left:-30px;bottom:36px;background:var(--azul-imperio);color:var(--white);
+  padding:26px 30px;border-radius:2px;max-width:220px;
+}
+.sobre-media .badge b{font-size:44px;font-weight:800;line-height:1;display:block}
+.sobre-media .badge span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--prata);margin-top:8px;display:block}
+
+/* ---------- SERVIÇOS ---------- */
+.serv-head{max-width:640px;margin-bottom:64px}
+.serv-head .sec-title{margin-bottom:22px}
+.serv-head p{font-size:clamp(16px,1.6vw,19px);color:var(--grafite);font-weight:300;line-height:1.6}
+.serv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(1,63,128,.08)}
+.serv-card{background:var(--white);overflow:hidden;position:relative;transition:transform .3s}
+.serv-card:hover{transform:translateY(-4px);z-index:2;box-shadow:0 24px 50px -20px rgba(1,63,128,.4)}
+.serv-photo{position:relative;height:190px;overflow:hidden}
+.serv-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.serv-card:hover .serv-photo img{transform:scale(1.06)}
+.serv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(1,63,128,.55))}
+.serv-idx{position:absolute;top:14px;left:16px;z-index:2;font-size:13px;font-weight:800;color:var(--white);letter-spacing:.05em}
+.serv-body{padding:24px 22px 28px}
+.serv-body h3{font-size:17px;font-weight:700;color:var(--azul-imperio);margin-bottom:8px;letter-spacing:-.01em;line-height:1.25}
+.serv-body p{font-size:13.5px;color:var(--grafite);opacity:.72;line-height:1.5}
+
+/* ---------- ÁREAS ---------- */
+.areas{background:var(--azul-imperio);color:var(--white);padding:0;position:relative;overflow:hidden}
+.areas .ghost{color:rgba(255,255,255,.05)}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;min-height:460px;position:relative;z-index:1}
+.areas-text{padding:110px 60px;display:flex;flex-direction:column;justify-content:center}
+.areas-text .eyebrow{color:var(--prata)}
+.areas-text .eyebrow::before{background:var(--prata)}
+.areas-text h2{font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-bottom:24px}
+.areas-text h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
+.areas-flag{display:flex;align-items:center;gap:16px;margin-top:8px}
+.areas-flag img{width:52px;height:auto;border-radius:2px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.areas-flag span{font-size:15px;color:rgba(255,255,255,.85);font-weight:300}
+.areas-media{background:url('../assets/img/areas-bg.jpg') center/cover no-repeat;position:relative}
+.areas-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--azul-imperio),rgba(1,63,128,.15))}
+
+/* ---------- CTA ---------- */
+.cta{
+  position:relative;padding:150px 0;text-align:center;color:var(--white);
+  background:linear-gradient(180deg,rgba(1,63,128,.86),rgba(1,30,64,.94)),
+    url('../assets/img/contacto-bg.jpg') center/cover no-repeat;
+}
+.cta .eyebrow{color:var(--prata);justify-content:center}
+.cta .eyebrow::before{display:none}
+.cta h2{font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-bottom:22px}
+.cta h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--prata)}
+.cta p{font-size:clamp(16px,1.7vw,20px);color:rgba(255,255,255,.85);max-width:46ch;margin:0 auto 40px;font-weight:300}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--grafite);color:rgba(255,255,255,.6);padding:64px 0 36px}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand{max-width:280px}
+.footer-brand img{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.9;margin-bottom:18px}
+.footer-brand p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.5)}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--prata);margin-bottom:16px;font-weight:700}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.6);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{padding-top:28px;font-size:12px;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- CORNER LABEL ---------- */
+.concept-label{
+  position:fixed;right:16px;bottom:16px;z-index:200;
+  background:var(--azul-imperio);color:var(--white);
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  padding:9px 15px;border-radius:100px;box-shadow:0 8px 24px rgba(1,63,128,.4);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .serv-grid{grid-template-columns:repeat(2,1fr)}
+  .sobre-grid{grid-template-columns:1fr;gap:48px}
+  .sobre-media img{height:400px}
+  .areas-grid{grid-template-columns:1fr}
+  .areas-media{min-height:280px}
+  .areas-text{padding:80px 40px}
+}
+@media(max-width:760px){
+  .nav-links{
+    position:fixed;top:74px;left:0;right:0;background:var(--white);
+    flex-direction:column;align-items:flex-start;gap:0;padding:16px 40px 26px;
+    border-bottom:1px solid rgba(1,63,128,.08);
+    transform:translateY(-120%);transition:transform .3s;box-shadow:0 20px 40px -20px rgba(1,63,128,.3);
+  }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid rgba(1,63,128,.05);font-size:15px}
+  .nav-lang{margin:14px 0 0}
+  .nav-toggle{display:flex}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding:40px}
+  .stat:last-child{border-bottom:none}
+}
+@media(max-width:560px){
+  .wrap{padding:0 24px}
+  .band-light,.band-soft{padding:88px 0}
+  .hero{padding-bottom:56px}
+  .serv-grid{grid-template-columns:1fr}
+  .sobre-media .badge{left:0;bottom:20px}
+  .areas-text{padding:64px 28px}
+  .cta{padding:100px 0}
+  .footer-cols{gap:36px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="nav-logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#areas">Áreas de Atuação</a>
+      <a href="#">Blog</a>
+      <a href="#">Recrutamento</a>
+      <a href="#cta">Contacto</a>
+      <span class="nav-lang"><a href="#">PT</a><span>|</span><a href="#">EN</a><span>|</span><a href="#">FR</a></span>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">Infraestruturas de Telecomunicações</p>
+    <h1>Desenvolvemos infraestruturas que <em>ligam</em> pessoas, empresas e comunidades.</h1>
+    <p class="hero-sub">Com inovação, rigor e compromisso.</p>
+    <a href="#cta" class="btn btn-primary">Fale connosco</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Anos de operação</div></div>
+    <div class="stat"><div class="stat-num">50<span>+</span></div><div class="stat-label">Profissionais</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Países</div></div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="band band-soft" id="sobre">
+  <div class="ghost" aria-hidden="true">EMPRESA</div>
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <p class="eyebrow">Quem somos</p>
+        <h2 class="sec-title">Engenharia de redes com <em>rigor</em> português.</h2>
+        <p>Fundada em 2017, uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.</p>
+        <a href="#" class="btn btn-outline">Saber mais</a>
+      </div>
+      <div class="sobre-media">
+        <img src="../assets/img/sobre-bg.jpg" alt="Equipa Império Global">
+        <div class="badge"><b>2017</b><span>Ano de fundação</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="band band-light" id="servicos">
+  <div class="ghost" aria-hidden="true">SERVIÇOS</div>
+  <div class="wrap">
+    <div class="serv-head">
+      <p class="eyebrow">O que fazemos</p>
+      <h2 class="sec-title">Do <em>projeto</em> à certificação.</h2>
+      <p>Projetamos, construímos e certificamos infraestruturas de telecomunicações para um futuro cada vez mais digital.</p>
+    </div>
+    <div class="serv-grid">
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">01</span><img src="../assets/img/servicos/survey-e-projeto.jpg" alt="Survey e projeto"></div>
+        <div class="serv-body"><h3>Survey e projeto</h3><p>Levantamento e desenho técnico de rede.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">02</span><img src="../assets/img/servicos/construcao-de-redes.jpg" alt="Construção de redes"></div>
+        <div class="serv-body"><h3>Construção de redes</h3><p>Implementação de infraestrutura física.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">03</span><img src="../assets/img/servicos/fibra-otica-e-cobre.jpg" alt="Fibra ótica e cobre"></div>
+        <div class="serv-body"><h3>Fibra ótica e cobre</h3><p>Instalação e fusão de condutores.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">04</span><img src="../assets/img/servicos/instalacao-e-ativacao.jpg" alt="Instalação e ativação de serviços"></div>
+        <div class="serv-body"><h3>Instalação e ativação de serviços</h3><p>Ligação ao cliente final.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">05</span><img src="../assets/img/servicos/supervisao-e-monitorizacao.jpg" alt="Supervisão e monitorização"></div>
+        <div class="serv-body"><h3>Supervisão e monitorização</h3><p>Acompanhamento contínuo de rede.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">06</span><img src="../assets/img/servicos/manutencao-e-reparacao.jpg" alt="Manutenção e reparação"></div>
+        <div class="serv-body"><h3>Manutenção e reparação</h3><p>Intervenção preventiva e corretiva.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">07</span><img src="../assets/img/servicos/qualidade-e-auditoria.jpg" alt="Qualidade e auditoria"></div>
+        <div class="serv-body"><h3>Qualidade e auditoria</h3><p>Certificação e controlo de padrões.</p></div>
+      </article>
+      <article class="serv-card">
+        <div class="serv-photo"><span class="serv-idx">08</span><img src="../assets/img/servicos/armazem-e-logistica.jpg" alt="Armazém e logística"></div>
+        <div class="serv-body"><h3>Armazém e logística</h3><p>Gestão de materiais e distribuição.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="areas" id="areas">
+  <div class="ghost" aria-hidden="true">ÁREAS</div>
+  <div class="areas-grid">
+    <div class="areas-text">
+      <p class="eyebrow">Áreas de Atuação</p>
+      <h2>Portugal <em>e</em> Bélgica</h2>
+      <div class="areas-flag">
+        <img src="../assets/img/bandeira-pt.png" alt="Bandeira de Portugal">
+        <span>Presença consolidada em dois mercados europeus.</span>
+      </div>
+    </div>
+    <div class="areas-media"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <p class="eyebrow">Vamos falar</p>
+    <h2>Quer <em>saber</em> mais?</h2>
+    <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
+    <a href="#" class="btn btn-light">Contacte-nos</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../assets/logo/imperio-oficial.png" alt="Império Global">
+        <p>Infraestruturas de telecomunicações com inovação, rigor e compromisso. Portugal e Bélgica.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#areas">Áreas de Atuação</a>
+        </div>
+        <div class="footer-col">
+          <h4>Recursos</h4>
+          <a href="#">Blog</a>
+          <a href="#">Recrutamento</a>
+          <a href="#cta">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Idioma</h4>
+          <a href="#">Português</a>
+          <a href="#">English</a>
+          <a href="#">Français</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Império Global. Todos os direitos reservados.</span>
+      <span>Privacidade · Termos · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<div class="concept-label">CONCEITO V3 · Editorial Contraste</div>
+
+<script>
+(function(){
+  var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});
+    l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');});});}
+})();
+</script>
+</body>
+</html>

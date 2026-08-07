@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Império Global — Conceito V2 · Navy Impacto</title>
+<style>
+/* ===== RESET / BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#013F80;
+  --navy-900:#012C5A;
+  --sinal:#0072CE;
+  --sinal-bright:#1c86e0;
+  --prata:#AFC4D6;
+  --white:#ffffff;
+  --ink:#0b1b2b;
+  --sans:"Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --black:"Arial Black","Helvetica Neue",system-ui,Arial,sans-serif;
+  --wrap:1200px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--navy);
+  line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+h1,h2,h3{
+  font-family:var(--black);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  line-height:1.02;
+  text-transform:none;
+}
+
+/* ===== X TEXTURE ===== */
+.x-tex{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.x-tex::before,.x-tex::after{
+  content:"";position:absolute;top:50%;left:50%;
+  width:200%;height:14vw;min-height:120px;
+  background:rgba(255,255,255,.05);
+}
+.x-tex::before{transform:translate(-50%,-50%) rotate(32deg)}
+.x-tex::after{transform:translate(-50%,-50%) rotate(-32deg)}
+
+/* ===== TOP HEADER (white bar) ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:var(--white);
+  border-bottom:1px solid #e6edf3;
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px}
+.brand img{width:180px;height:auto}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{
+  font-size:14px;font-weight:600;color:#28425c;letter-spacing:.01em;
+  padding:6px 0;position:relative;transition:color .2s;
+}
+.nav a:hover{color:var(--sinal)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--sinal);transition:width .25s}
+.nav a:hover::after{width:100%}
+.lang{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#8ea3b6;margin-left:6px}
+.lang b{color:var(--navy)}
+.lang span{cursor:pointer}
+.menu-btn{display:none;background:var(--navy);color:#fff;border:0;width:44px;height:40px;border-radius:9px;font-size:20px;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;isolation:isolate;
+  min-height:clamp(560px,92vh,860px);
+  display:flex;align-items:center;
+  color:#fff;overflow:hidden;
+}
+.hero__bg{position:absolute;inset:0;z-index:-2}
+.hero__bg img{width:100%;height:100%;object-fit:cover}
+.hero__ov{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(90deg, rgba(1,44,90,.96) 0%, rgba(1,44,90,.86) 42%, rgba(1,63,128,.62) 100%),
+    linear-gradient(0deg, rgba(1,44,90,.9) 0%, rgba(1,44,90,0) 45%);
+}
+.hero .x-tex{z-index:-1}
+.hero__inner{padding:64px 0 40px;max-width:820px}
+.eyebrow{
+  display:inline-block;font-family:var(--sans);font-weight:800;
+  font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--prata);margin-bottom:22px;
+}
+.eyebrow.line::before{content:"";display:inline-block;width:34px;height:2px;background:var(--sinal);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
+.hero h1{
+  font-size:clamp(34px,5.6vw,66px);
+  letter-spacing:-0.035em;
+  text-shadow:0 2px 30px rgba(0,0,0,.35);
+  max-width:16ch;
+}
+.hero__sub{
+  margin-top:22px;font-size:clamp(16px,2vw,21px);
+  color:#dbe6f0;font-weight:500;max-width:44ch;
+}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:.01em;
+  padding:16px 30px;border-radius:11px;cursor:pointer;transition:.22s;border:2px solid transparent;
+}
+.btn--solid{background:var(--sinal);color:#fff;box-shadow:0 12px 30px -10px rgba(0,114,206,.7)}
+.btn--solid:hover{background:var(--sinal-bright);transform:translateY(-2px)}
+.btn--ghost{background:rgba(255,255,255,.04);color:#fff;border-color:rgba(255,255,255,.55)}
+.btn--ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
+.btn .arw{font-size:17px}
+
+.hero__stats{
+  margin-top:52px;display:flex;flex-wrap:wrap;gap:0;
+  border-top:1px solid rgba(175,196,214,.28);padding-top:26px;max-width:640px;
+}
+.stat{padding-right:40px;margin-right:40px;position:relative}
+.stat + .stat::before{content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:1px;background:rgba(175,196,214,.28)}
+.stat b{display:block;font-family:var(--black);font-weight:900;font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.04em;color:#fff}
+.stat span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--prata);font-weight:700}
+
+/* ===== SECTION SHELL ===== */
+.section{position:relative;overflow:hidden}
+.sec-navy{background:var(--navy);color:#fff}
+.sec-deep{background:var(--navy-900);color:#fff}
+.pad{padding:clamp(72px,10vw,120px) 0}
+.sec-head{max-width:720px;position:relative;z-index:2}
+.sec-head h2{font-size:clamp(30px,4.4vw,52px);color:#fff}
+.sec-head p{margin-top:20px;color:var(--prata);font-size:clamp(16px,1.7vw,19px);max-width:56ch}
+
+/* ===== SERVICES GRID ===== */
+.svc-grid{
+  position:relative;z-index:2;
+  margin-top:52px;display:grid;gap:20px;
+  grid-template-columns:repeat(4,1fr);
+}
+.card{
+  background:var(--navy-900);
+  border:1px solid rgba(175,196,214,.14);
+  border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:.25s;position:relative;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(0,114,206,.6);box-shadow:0 26px 50px -24px rgba(0,0,0,.7)}
+.card__img{position:relative;aspect-ratio:16/11;overflow:hidden}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.card:hover .card__img img{transform:scale(1.07)}
+.card__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,44,90,.15),rgba(1,44,90,.75))}
+.card__num{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--black);font-weight:900;font-size:13px;color:var(--prata);letter-spacing:.06em}
+.card__body{padding:20px 20px 24px}
+.card__body h3{font-size:18px;letter-spacing:-0.02em;color:#fff;line-height:1.14}
+.card__body p{margin-top:9px;font-size:13.5px;color:var(--prata);line-height:1.5}
+
+/* ===== WHY / PILLARS ===== */
+.pillars{position:relative;z-index:2;margin-top:54px;display:grid;gap:22px;grid-template-columns:repeat(4,1fr)}
+.pillar{padding:6px 4px}
+.chip{
+  width:60px;height:60px;border-radius:16px;
+  display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(150deg,var(--sinal),#0a4f96);
+  box-shadow:0 14px 26px -12px rgba(0,114,206,.8);
+}
+.chip svg{width:28px;height:28px;stroke:#fff;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.pillar h3{font-size:19px;color:#fff;letter-spacing:-0.02em}
+.pillar p{margin-top:9px;color:var(--prata);font-size:14px;line-height:1.55;max-width:26ch}
+
+/* ===== AREAS ===== */
+.areas{position:relative;overflow:hidden}
+.areas__bg{position:absolute;inset:0;z-index:0}
+.areas__bg img{width:100%;height:100%;object-fit:cover}
+.areas__ov{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(1,44,90,.95) 0%,rgba(1,44,90,.8) 50%,rgba(1,63,128,.62) 100%)}
+.areas .wrap{position:relative;z-index:2}
+.areas__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.areas__txt h2{font-size:clamp(30px,4.4vw,52px);color:#fff}
+.areas__txt p{margin-top:20px;color:#dbe6f0;font-size:clamp(16px,1.7vw,19px);max-width:46ch}
+.flags{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.flag-pill{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(175,196,214,.3);padding:12px 20px 12px 14px;border-radius:12px;font-weight:800;font-size:16px;color:#fff}
+.flag-pill img{width:34px;height:auto;border-radius:3px}
+.flag-be{width:34px;height:23px;border-radius:3px;overflow:hidden;display:flex}
+.flag-be i{flex:1;height:100%}
+.areas__map{position:relative;z-index:2;border:1px solid rgba(175,196,214,.28);border-radius:20px;overflow:hidden;aspect-ratio:4/3}
+.areas__map img{width:100%;height:100%;object-fit:cover}
+
+/* ===== CTA ===== */
+.cta{position:relative;overflow:hidden;text-align:center}
+.cta .wrap{position:relative;z-index:2}
+.cta h2{font-size:clamp(34px,5.4vw,64px);color:#fff}
+.cta p{margin:20px auto 0;color:var(--prata);font-size:clamp(16px,1.9vw,21px);max-width:52ch}
+.cta .btn{margin-top:38px}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--navy-900);color:var(--prata);position:relative;overflow:hidden}
+.footer .wrap{position:relative;z-index:2;padding:64px clamp(20px,5vw,48px) 40px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;border-bottom:1px solid rgba(175,196,214,.16);padding-bottom:34px}
+.wordmark{font-family:var(--black);font-weight:900;font-size:26px;letter-spacing:-0.03em;color:#fff}
+.wordmark span{color:var(--sinal)}
+.foot-tag{margin-top:12px;font-size:14px;max-width:34ch;color:var(--prata)}
+.foot-cols{display:flex;gap:64px;flex-wrap:wrap}
+.foot-col h4{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7f97ac;margin-bottom:14px}
+.foot-col a{display:block;font-size:14px;padding:5px 0;color:var(--prata);transition:.2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:#7f97ac}
+
+/* ===== CORNER LABEL ===== */
+.corner{
+  position:fixed;right:16px;bottom:16px;z-index:200;
+  background:rgba(1,44,90,.92);color:#fff;border:1px solid rgba(0,114,206,.7);
+  font-family:var(--sans);font-weight:800;font-size:11.5px;letter-spacing:.06em;
+  padding:9px 15px;border-radius:100px;backdrop-filter:blur(6px);
+  box-shadow:0 10px 24px -10px rgba(0,0,0,.6);
+}
+.corner b{color:var(--sinal)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .areas__grid{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:860px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .lang{display:none}
+}
+@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr;gap:16px}
+  .pillars{grid-template-columns:1fr;gap:28px}
+  .brand img{width:150px}
+  .hero__inner{padding:44px 0 30px}
+  .stat{padding-right:22px;margin-right:22px}
+  .hero__stats{gap:0}
+  .foot-cols{gap:36px}
+  .corner{right:10px;bottom:10px;font-size:10.5px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- CORNER LABEL -->
+<div class="corner">CONCEITO <b>V2</b> · Navy Impacto</div>
+
+<!-- TOP HEADER (WHITE BAR) -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
+    <nav class="nav">
+      <a href="#top">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#areas">Áreas de Atuação</a>
+      <a href="#blog">Blog</a>
+      <a href="#recrutamento">Recrutamento</a>
+      <a href="#contacto">Contacto</a>
+      <span class="lang"><b>PT</b><span>|</span><span>EN</span><span>|</span><span>FR</span></span>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__bg"><img src="../assets/img/servicos-bg.jpg" alt=""></div>
+  <div class="hero__ov"></div>
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <span class="eyebrow line">Infraestruturas de Telecomunicações</span>
+      <h1>Desenvolvemos infraestruturas que ligam pessoas, empresas e comunidades.</h1>
+      <p class="hero__sub">Com inovação, rigor e compromisso.</p>
+      <div class="hero__cta">
+        <a href="#contacto" class="btn btn--solid">Fale connosco <span class="arw">→</span></a>
+        <a href="#servicos" class="btn btn--ghost">Os nossos serviços</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat"><b>8</b><span>Anos</span></div>
+        <div class="stat"><b>50+</b><span>Profissionais</span></div>
+        <div class="stat"><b>2</b><span>Países</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section sec-navy pad" id="servicos">
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow line">O que fazemos</span>
+      <h2>Serviços de ponta a ponta</h2>
+      <p>Projetamos, construímos e certificamos infraestruturas de telecomunicações para um futuro cada vez mais digital.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card">
+        <div class="card__img"><span class="card__num">01</span><img src="../assets/img/servicos/survey-e-projeto.jpg" alt="Survey e projeto"></div>
+        <div class="card__body"><h3>Survey e projeto</h3><p>Levantamento técnico e desenho rigoroso de cada solução.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">02</span><img src="../assets/img/servicos/construcao-de-redes.jpg" alt="Construção de redes"></div>
+        <div class="card__body"><h3>Construção de redes</h3><p>Execução de infraestrutura física com padrões de excelência.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">03</span><img src="../assets/img/servicos/fibra-otica-e-cobre.jpg" alt="Fibra ótica e cobre"></div>
+        <div class="card__body"><h3>Fibra ótica e cobre</h3><p>Instalação e emenda de fibra ótica e redes de cobre.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">04</span><img src="../assets/img/servicos/instalacao-e-ativacao.jpg" alt="Instalação e ativação de serviços"></div>
+        <div class="card__body"><h3>Instalação e ativação de serviços</h3><p>Ligação e ativação de serviços junto do cliente final.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">05</span><img src="../assets/img/servicos/supervisao-e-monitorizacao.jpg" alt="Supervisão e monitorização"></div>
+        <div class="card__body"><h3>Supervisão e monitorização</h3><p>Acompanhamento contínuo do desempenho da rede.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">06</span><img src="../assets/img/servicos/manutencao-e-reparacao.jpg" alt="Manutenção e reparação"></div>
+        <div class="card__body"><h3>Manutenção e reparação</h3><p>Intervenção preventiva e corretiva com resposta rápida.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">07</span><img src="../assets/img/servicos/qualidade-e-auditoria.jpg" alt="Qualidade e auditoria"></div>
+        <div class="card__body"><h3>Qualidade e auditoria</h3><p>Certificação e controlo de qualidade em cada entrega.</p></div>
+      </article>
+      <article class="card">
+        <div class="card__img"><span class="card__num">08</span><img src="../assets/img/servicos/armazem-e-logistica.jpg" alt="Armazém e logística"></div>
+        <div class="card__body"><h3>Armazém e logística</h3><p>Gestão de materiais e logística ao serviço da operação.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section sec-deep pad" id="sobre">
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow line">Porquê a Império Global</span>
+      <h2>Solidez que se traduz em resultados</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="chip"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Rigor de execução</h3>
+        <p>Cada projeto entregue com precisão técnica e padrões elevados.</p>
+      </div>
+      <div class="pillar">
+        <div class="chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Fiabilidade</h3>
+        <p>Infraestruturas robustas em que pode confiar a longo prazo.</p>
+      </div>
+      <div class="pillar">
+        <div class="chip"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-13h-7l0-7z"/></svg></div>
+        <h3>Capacidade de resposta</h3>
+        <p>Equipas ágeis, prontas a intervir quando é preciso.</p>
+      </div>
+      <div class="pillar">
+        <div class="chip"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h3>Visão de escala</h3>
+        <p>Preparados para crescer e acompanhar operações de grande dimensão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="section areas pad" id="areas">
+  <div class="areas__bg"><img src="../assets/img/areas-bg.jpg" alt=""></div>
+  <div class="areas__ov"></div>
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <div class="areas__grid">
+      <div class="areas__txt">
+        <span class="eyebrow line">Áreas de atuação</span>
+        <h2>Portugal e Bélgica</h2>
+        <p>Presença em dois países europeus, com capacidade para operar à escala internacional.</p>
+        <div class="flags">
+          <span class="flag-pill"><img src="../assets/img/bandeira-pt.png" alt="Portugal">Portugal</span>
+          <span class="flag-pill"><span class="flag-be"><i style="background:#000"></i><i style="background:#FAE042"></i><i style="background:#ED2939"></i></span>Bélgica</span>
+        </div>
+      </div>
+      <div class="areas__map"><img src="../assets/img/sobre-bg.jpg" alt="Áreas de atuação"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section sec-navy cta pad" id="contacto">
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <span class="eyebrow line" style="display:inline-block">Vamos falar</span>
+    <h2>Quer saber mais?</h2>
+    <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
+    <a href="#contacto" class="btn btn--solid">Contacte-nos <span class="arw">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="recrutamento">
+  <div class="x-tex"></div>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="wordmark">IMPÉRIO <span>GLOBAL</span></div>
+        <p class="foot-tag">Infraestruturas de telecomunicações com inovação, rigor e compromisso.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Empresa</h4>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#areas">Áreas de Atuação</a>
+          <a href="#recrutamento">Recrutamento</a>
+        </div>
+        <div class="foot-col">
+          <h4>Recursos</h4>
+          <a href="#blog">Blog</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#top">Início</a>
+        </div>
+        <div class="foot-col">
+          <h4>Idioma</h4>
+          <a href="#">Português</a>
+          <a href="#">English</a>
+          <a href="#">Français</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Império Global. Todos os direitos reservados.</span>
+      <span>Portugal · Bélgica</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

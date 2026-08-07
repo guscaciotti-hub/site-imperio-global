@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Império Global — Conceito V1 · Claro Editorial</title>
+<style>
+:root{
+  --navy:#013F80;
+  --sinal:#0072CE;
+  --prata:#AFC4D6;
+  --grafite:#2B2F36;
+  --offwhite:#f6f8fb;
+  --line:#e4eaf1;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  color:var(--grafite);
+  background:var(--white);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+h1,h2,h3,.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:var(--navy);letter-spacing:-.01em}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.eyebrow{
+  font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--sinal);font-weight:600;margin-bottom:22px;
+}
+
+/* Concept flag */
+.concept-flag{
+  position:fixed;left:20px;bottom:20px;z-index:200;
+  background:var(--navy);color:#fff;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 16px;border-radius:40px;
+  box-shadow:0 8px 30px rgba(1,63,128,.28);
+  font-weight:600;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;font-size:14px;letter-spacing:.04em;font-weight:600;
+  padding:15px 34px;border-radius:2px;transition:.25s ease;cursor:pointer;
+  border:1px solid var(--navy);color:var(--navy);background:transparent;
+}
+.btn:hover{background:var(--navy);color:#fff}
+.btn-accent{border-color:var(--sinal);color:var(--sinal)}
+.btn-accent:hover{background:var(--sinal);color:#fff}
+.btn-light{border-color:#fff;color:#fff}
+.btn-light:hover{background:#fff;color:var(--navy)}
+
+/* ============ HEADER ============ */
+header{
+  position:sticky;top:0;z-index:150;background:rgba(255,255,255,.92);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:86px}
+.logo img{width:180px;height:auto}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{
+  font-size:14px;color:var(--grafite);position:relative;padding:4px 0;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;
+  background:var(--navy);transition:width .25s;
+}
+.nav-links a:hover::after{width:100%}
+.lang{display:flex;gap:2px;margin-left:14px;align-items:center}
+.lang a{
+  font-size:12px;font-weight:600;color:var(--prata);padding:5px 8px;
+  border-radius:3px;letter-spacing:.05em;
+}
+.lang a.active{color:var(--navy);border:1px solid var(--line)}
+.lang span{color:var(--line)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--navy);display:block}
+
+/* ============ HERO ============ */
+.hero{padding:80px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.hero h1{
+  font-size:clamp(34px,4.4vw,58px);line-height:1.08;margin-bottom:26px;
+}
+.hero-sub{
+  font-size:19px;color:var(--grafite);max-width:400px;margin-bottom:38px;
+  font-style:italic;font-family:Georgia,'Times New Roman',serif;color:#5a6572;
+}
+.hero-figure{
+  position:relative;border-radius:4px;overflow:hidden;
+  box-shadow:0 40px 80px -30px rgba(1,63,128,.35);
+}
+.hero-figure img{width:100%;height:560px;object-fit:cover}
+.hero-figure::after{
+  content:"";position:absolute;inset:0;
+  border:1px solid rgba(255,255,255,.35);pointer-events:none;
+}
+.hero-tag{
+  position:absolute;left:0;bottom:0;background:var(--white);
+  padding:16px 26px;font-family:Georgia,serif;color:var(--navy);
+  font-size:14px;letter-spacing:.02em;border-top-right-radius:4px;
+}
+
+/* ============ STATS ============ */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:48px 24px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:Georgia,serif;font-size:46px;color:var(--navy);line-height:1}
+.stat .lbl{font-size:14px;color:#6a7683;margin-top:12px;letter-spacing:.02em}
+
+/* ============ SECTION shared ============ */
+.section{padding:110px 0}
+.section-head{max-width:640px;margin:0 auto 66px;text-align:center}
+.section-head h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15;margin-bottom:0}
+.section-head p{margin-top:22px;font-size:17px;color:#5a6572}
+
+/* ============ SERVICES ============ */
+.serv-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:34px 30px;
+}
+.serv{group:card}
+.serv-img{
+  position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/5;
+  margin-bottom:20px;
+}
+.serv-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.serv:hover .serv-img img{transform:scale(1.05)}
+.serv-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(1,63,128,0) 55%,rgba(1,63,128,.18));
+}
+.serv h3{font-size:19px;margin-bottom:6px;line-height:1.25}
+.serv p{font-size:14px;color:#6a7683;line-height:1.55}
+
+/* ============ ABOUT ============ */
+.about{background:var(--offwhite)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-fig{position:relative;border-radius:4px;overflow:hidden}
+.about-fig img{width:100%;height:520px;object-fit:cover}
+.about-txt h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15;margin-bottom:26px}
+.about-txt p{font-size:17px;color:#4f5a66;margin-bottom:36px;max-width:460px}
+
+/* ============ AREAS ============ */
+.areas{
+  position:relative;color:#fff;text-align:center;padding:150px 0;
+  background:linear-gradient(rgba(1,42,88,.72),rgba(1,42,88,.72)),
+    url('../assets/img/areas-bg.jpg') center/cover no-repeat;
+}
+.areas h2{color:#fff;font-size:clamp(30px,3.6vw,48px);margin-bottom:20px}
+.areas .flag{width:44px;margin:0 auto 26px;border-radius:2px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.areas p{font-size:18px;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto}
+.areas .eyebrow{color:var(--prata)}
+
+/* ============ CTA ============ */
+.cta{text-align:center;padding:120px 0}
+.cta h2{font-size:clamp(30px,3.6vw,48px);margin-bottom:22px}
+.cta p{font-size:18px;color:#5a6572;max-width:520px;margin:0 auto 40px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--navy);color:rgba(255,255,255,.75);padding:70px 0 40px}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot-logo{background:#fff;display:inline-block;padding:14px 18px;border-radius:4px}
+.foot-logo img{width:170px}
+.foot-cols{display:flex;gap:70px;flex-wrap:wrap}
+.foot-col h4{font-family:system-ui,sans-serif;color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+.foot-col a{display:block;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:11px;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{
+  margin-top:56px;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:13px;color:rgba(255,255,255,.55);
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .wrap{padding:0 24px}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-figure img{height:420px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-fig img{height:380px}
+  .serv-grid{grid-template-columns:repeat(2,1fr);gap:30px 24px}
+  .section{padding:80px 0}
+  .section-head{margin-bottom:48px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .nav{height:70px}
+  .logo img{width:150px}
+  .hero{padding:48px 0 60px}
+  .hero-figure img{height:340px}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line);padding:34px 20px}
+  .stat:last-child{border-bottom:none}
+  .serv-grid{grid-template-columns:1fr;gap:26px}
+  .serv-img{aspect-ratio:16/11}
+  .areas{padding:100px 0}
+  .cta{padding:80px 0}
+  .foot-cols{gap:40px}
+  .concept-flag{left:14px;bottom:14px;font-size:10px;padding:8px 13px}
+}
+</style>
+</head>
+<body>
+
+<div class="concept-flag">Conceito V1 · Claro Editorial</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></a>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#areas">Áreas de Atuação</a>
+      <a href="#">Blog</a>
+      <a href="#">Recrutamento</a>
+      <a href="#contacto">Contacto</a>
+      <span class="lang">
+        <a class="active">PT</a><span>|</span><a>EN</a><span>|</span><a>FR</a>
+      </span>
+    </nav>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <p class="eyebrow">Infraestruturas de Telecomunicações</p>
+      <h1>Desenvolvemos infraestruturas que ligam pessoas, empresas e comunidades.</h1>
+      <p class="hero-sub">Com inovação, rigor e compromisso.</p>
+      <a href="#contacto" class="btn">Fale connosco</a>
+    </div>
+    <div class="hero-figure">
+      <img src="../assets/img/sobre-bg.jpg" alt="Infraestrutura de telecomunicações">
+      <div class="hero-tag">Ligamos o futuro digital</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">8</div><div class="lbl">anos de operação</div></div>
+      <div class="stat"><div class="num">50+</div><div class="lbl">profissionais especializados</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">países de operação</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">O que fazemos</p>
+      <h2>Projetamos, construímos e certificamos infraestruturas de telecomunicações para um futuro cada vez mais digital.</h2>
+    </div>
+    <div class="serv-grid">
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/survey-e-projeto.jpg" alt="Survey e projeto"></div>
+        <h3>Survey e projeto</h3>
+        <p>Estudo de campo e desenho técnico rigoroso.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/construcao-de-redes.jpg" alt="Construção de redes"></div>
+        <h3>Construção de redes</h3>
+        <p>Execução de infraestrutura de raiz.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/fibra-otica-e-cobre.jpg" alt="Fibra ótica e cobre"></div>
+        <h3>Fibra ótica e cobre</h3>
+        <p>Ligações de alta capacidade e desempenho.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/instalacao-e-ativacao.jpg" alt="Instalação e ativação de serviços"></div>
+        <h3>Instalação e ativação de serviços</h3>
+        <p>Do terreno ao cliente, sem falhas.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/supervisao-e-monitorizacao.jpg" alt="Supervisão e monitorização"></div>
+        <h3>Supervisão e monitorização</h3>
+        <p>Controlo permanente da rede.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/manutencao-e-reparacao.jpg" alt="Manutenção e reparação"></div>
+        <h3>Manutenção e reparação</h3>
+        <p>Intervenção preventiva e corretiva.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/qualidade-e-auditoria.jpg" alt="Qualidade e auditoria"></div>
+        <h3>Qualidade e auditoria</h3>
+        <p>Certificação e conformidade garantidas.</p>
+      </article>
+      <article class="serv">
+        <div class="serv-img"><img src="../assets/img/servicos/armazem-e-logistica.jpg" alt="Armazém e logística"></div>
+        <h3>Armazém e logística</h3>
+        <p>Gestão eficiente de materiais e equipas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-fig">
+      <img src="../assets/img/servicos/construcao-de-redes.jpg" alt="Equipa Império Global em obra">
+    </div>
+    <div class="about-txt">
+      <p class="eyebrow">Quem somos</p>
+      <h2>Um parceiro português de referência.</h2>
+      <p>Fundada em 2017, uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.</p>
+      <a href="#" class="btn">Saber mais</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="areas" id="areas">
+  <div class="wrap">
+    <p class="eyebrow">Áreas de atuação</p>
+    <img class="flag" src="../assets/img/bandeira-pt.png" alt="Portugal">
+    <h2>Portugal e Bélgica</h2>
+    <p>Presença em dois países, com a mesma exigência e proximidade em cada projeto.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow">Vamos falar</p>
+    <h2>Quer saber mais?</h2>
+    <p>Fale connosco e descubra como podemos apoiar o crescimento do seu negócio!</p>
+    <a href="#" class="btn btn-accent">Contacte-nos</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="foot-logo"><img src="../assets/logo/imperio-oficial.png" alt="Império Global"></span>
+        <p style="margin-top:20px;max-width:280px;font-size:14px;line-height:1.7">Infraestruturas de telecomunicações com inovação, rigor e compromisso.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Navegação</h4>
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#areas">Áreas de Atuação</a>
+        </div>
+        <div class="foot-col">
+          <h4>Empresa</h4>
+          <a href="#">Blog</a>
+          <a href="#">Recrutamento</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="foot-col">
+          <h4>Idioma</h4>
+          <a href="#">Português</a>
+          <a href="#">English</a>
+          <a href="#">Français</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Império Global. Todos os direitos reservados.</span>
+      <span>Portugal · Bélgica</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
