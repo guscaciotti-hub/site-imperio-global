@@ -110,7 +110,7 @@ const STRINGS = {
         heroTitle:'Desenvolvemos infraestruturas que ligam pessoas, empresas e comunidades.',
         heroSub:'Com inovação, rigor e compromisso.',
         ctaPrimary:'Fale connosco', ctaSecondary:'Os nossos serviços',
-        heroStats:[ { v:'8', l:'anos de operação' }, { v:'50+', l:'profissionais especializados' }, { v:'2', l:'países de operação' } ],
+        heroStats:[ { v:'9', l:'anos de operação' }, { v:'50+', l:'profissionais especializados' }, { v:'2', l:'países de operação' } ],
         trust:'Parceiro de operadores de referência.',
         servEyebrow:'O que fazemos', servTitle:'Infraestruturas que suportam as redes de acesso',
         serv:[
@@ -134,7 +134,7 @@ const STRINGS = {
         h1:'Sobre a Império Global', eyebrow:'Quem somos',
         heroSub:'Especialistas na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.',
         heroCta:'Fale connosco',
-        intro:'Fundada em 2017, a Império Global Telecomunicações é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações. Com uma equipa experiente e um forte compromisso com a qualidade, a inovação e a segurança, desenvolvemos soluções fiáveis e eficientes, adaptadas às necessidades de cada projeto. Trabalhamos diariamente para construir infraestruturas que ligam pessoas, empresas e comunidades, contribuindo para um futuro mais conectado.',
+        intro:'Fundada em 2017, a Império Global Telecomunicações é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações. Com uma equipa experiente e um forte compromisso com a qualidade, a inovação e a segurança, desenvolvemos soluções fiáveis e eficientes, adaptadas às necessidades de cada projeto.',
         missaoT:'A Nossa Missão',
         missao:'A nossa missão é desenvolver soluções de telecomunicações que garantam ligações fiáveis, seguras e eficientes, contribuindo para a evolução das infraestruturas de comunicação. Atuamos com rigor, inovação e compromisso, criando valor para os nossos clientes e parceiros em cada projeto.',
         visaoT:'A Nossa Visão',
@@ -149,7 +149,7 @@ const STRINGS = {
         ],
         dadosTitle:'A Império Global em números',
         dados:[
-          { v:'8', l:'anos de operação', d:'Desde 2017 a construir e a manter infraestruturas de acesso.' },
+          { v:'9', l:'anos de operação', d:'Desde 2017 a construir e a manter infraestruturas de acesso.' },
           { v:'50+', l:'profissionais especializados', d:'Equipas técnicas de campo e de gestão.' },
           { v:'2', l:'países', d:'Operação em Portugal e na Bélgica, com a mesma exigência técnica.' },
         ],
@@ -195,7 +195,10 @@ const STRINGS = {
       recrutamento: {
         title:'Recrutamento — Império Global', desc:'Junte-se a uma equipa em crescimento nas infraestruturas de telecomunicações em Portugal e na Bélgica.',
         h1:'Recrutamento', eyebrow:'Carreiras',
-        intro:'Na Império Global, acreditamos que o sucesso da empresa é construído pelas pessoas que fazem parte da nossa equipa. Se procura um novo desafio profissional e pretende integrar numa empresa sólida, dinâmica, inovadora e em constante crescimento, envie-nos a sua candidatura.',
+        intro:[
+          'Na Império Global, acreditamos que o sucesso da empresa é construído pelas pessoas que fazem parte da nossa equipa.',
+          'Se procura um novo desafio profissional e pretende integrar numa empresa sólida, dinâmica, inovadora e em constante crescimento, envie-nos a sua candidatura.',
+        ],
         formTitle:'Candidatura espontânea',
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
         areas:['Construção de redes','Manutenção e reparação','Fibra ótica e cobre','Engenharia e projeto','Administrativo','Outra'],
@@ -206,7 +209,10 @@ const STRINGS = {
       contacto: {
         title:'Contacto — Império Global', desc:'Fale connosco sobre o seu projeto de infraestruturas de telecomunicações em Portugal ou na Bélgica.',
         h1:'Contacto', eyebrow:'Fale connosco',
-        intro:'Se necessitar de informações sobre os nossos serviços ou de qualquer outro esclarecimento relacionado com a atividade da Império Global, não hesite em contactar-nos. Comprometemo-nos a responder com a máxima rapidez e profissionalismo.',
+        intro:[
+          'Se necessitar de informações sobre os nossos serviços ou de qualquer outro esclarecimento relacionado com a atividade da Império Global, não hesite em contactar-nos.',
+          'Comprometemo-nos a responder com a máxima rapidez e profissionalismo.',
+        ],
         formTitle:'Envie-nos uma mensagem',
         f:{ nome:'Nome', empresa:'Empresa', email:'Email', telefone:'Telefone', assunto:'Assunto', msg:'Mensagem', submit:'Enviar mensagem' },
         assuntos:['Pedido de proposta','Parceria','Recrutamento','Outro'],
@@ -323,7 +329,7 @@ const STRINGS = {
         heroTitle:'We build the networks that connect Portugal and Belgium.',
         heroSub:'End-to-end solutions for the construction, expansion and maintenance of telecommunications infrastructure. Serving operators, contractors and public entities.',
         ctaPrimary:'Contact us', ctaSecondary:'Our services',
-        heroStats:[ { v:'8', l:'years of operation' }, { v:'50+', l:'specialised professionals' }, { v:'2', l:'countries · Portugal and Belgium' } ],
+        heroStats:[ { v:'9', l:'years of operation' }, { v:'50+', l:'specialised professionals' }, { v:'2', l:'countries · Portugal and Belgium' } ],
         trust:'Trusted partner of leading operators.',
         servEyebrow:'What we do', servTitle:'Infrastructure that supports access networks',
         serv:[
@@ -360,7 +366,7 @@ const STRINGS = {
         ],
         dadosTitle:'Império Global in numbers',
         dados:[
-          { v:'8', l:'years of operation', d:'Building and maintaining access infrastructure since 2017.' },
+          { v:'9', l:'years of operation', d:'Building and maintaining access infrastructure since 2017.' },
           { v:'50+', l:'specialised professionals', d:'Field and management technical teams.' },
           { v:'2', l:'countries', d:'Operating in Portugal and Belgium with the same technical demands.' },
         ],
@@ -406,7 +412,10 @@ const STRINGS = {
       recrutamento: {
         title:'Careers — Império Global', desc:'Join a growing team in telecommunications infrastructure in Portugal and Belgium.',
         h1:'Careers', eyebrow:'Careers',
-        intro:'Join a growing team that builds and maintains the infrastructure connecting people and businesses. We value technical rigour, safety and teamwork.',
+        intro:[
+          'At Império Global, we believe the company\'s success is built by the people who are part of our team.',
+          'If you are looking for a new professional challenge and wish to join a solid, dynamic, innovative and constantly growing company, send us your application.',
+        ],
         formTitle:'Open application',
         f:{ nome:'Name', email:'Email', telefone:'Phone', area:'Area of interest', msg:'Message', cv:'Résumé (PDF or DOC, max. 5 MB)', submit:'Send application' },
         areas:['Network construction','Maintenance and repair','Optical fibre and copper','Engineering and design','Administrative','Other'],
@@ -417,7 +426,10 @@ const STRINGS = {
       contacto: {
         title:'Contact — Império Global', desc:'Talk to us about your telecommunications infrastructure project in Portugal or Belgium.',
         h1:'Contact', eyebrow:'Get in touch',
-        intro:'Do you have a telecommunications infrastructure project? Send us a message and our team will get back to you.',
+        intro:[
+          'If you need information about our services or any other clarification regarding Império Global\'s activity, please do not hesitate to contact us.',
+          'We are committed to responding with the utmost speed and professionalism.',
+        ],
         formTitle:'Send us a message',
         f:{ nome:'Name', empresa:'Company', email:'Email', telefone:'Phone', assunto:'Subject', msg:'Message', submit:'Send message' },
         assuntos:['Request for proposal','Partnership','Careers','Other'],
@@ -528,7 +540,7 @@ const STRINGS = {
         heroTitle:'Nous construisons les réseaux qui relient le Portugal et la Belgique.',
         heroSub:"Des solutions end-to-end pour la construction, l'expansion et la maintenance d'infrastructures de télécommunications. Au service des opérateurs, des entreprises de travaux et des entités publiques.",
         ctaPrimary:'Contactez-nous', ctaSecondary:'Nos services',
-        heroStats:[ { v:'8', l:'ans d’activité' }, { v:'50+', l:'professionnels spécialisés' }, { v:'2', l:'pays · Portugal et Belgique' } ],
+        heroStats:[ { v:'9', l:'ans d’activité' }, { v:'50+', l:'professionnels spécialisés' }, { v:'2', l:'pays · Portugal et Belgique' } ],
         trust:"Partenaire d'opérateurs de référence.",
         servEyebrow:'Ce que nous faisons', servTitle:"Des infrastructures qui soutiennent les réseaux d'accès",
         serv:[
@@ -565,7 +577,7 @@ const STRINGS = {
         ],
         dadosTitle:'Império Global en chiffres',
         dados:[
-          { v:'8', l:'ans d’activité', d:'Construction et maintenance d’infrastructures d’accès depuis 2017.' },
+          { v:'9', l:'ans d’activité', d:'Construction et maintenance d’infrastructures d’accès depuis 2017.' },
           { v:'50+', l:'professionnels spécialisés', d:'Équipes techniques de terrain et de gestion.' },
           { v:'2', l:'pays', d:'Activité au Portugal et en Belgique, avec la même exigence technique.' },
         ],
@@ -611,7 +623,10 @@ const STRINGS = {
       recrutamento: {
         title:'Recrutement — Império Global', desc:"Rejoignez une équipe en croissance dans les infrastructures de télécommunications au Portugal et en Belgique.",
         h1:'Recrutement', eyebrow:'Carrières',
-        intro:'Rejoignez une équipe en croissance qui construit et entretient les infrastructures reliant les personnes et les entreprises. Nous valorisons la rigueur technique, la sécurité et l’esprit d’équipe.',
+        intro:[
+          'Chez Império Global, nous croyons que le succès de l’entreprise repose sur les personnes qui composent notre équipe.',
+          'Si vous recherchez un nouveau défi professionnel et souhaitez rejoindre une entreprise solide, dynamique, innovante et en pleine croissance, envoyez-nous votre candidature.',
+        ],
         formTitle:'Candidature spontanée',
         f:{ nome:'Nom', email:'Email', telefone:'Téléphone', area:'Domaine d’intérêt', msg:'Message', cv:'CV (PDF ou DOC, max. 5 Mo)', submit:'Envoyer la candidature' },
         areas:['Construction de réseaux','Maintenance et réparation','Fibre optique et cuivre','Ingénierie et conception','Administratif','Autre'],
@@ -622,7 +637,10 @@ const STRINGS = {
       contacto: {
         title:'Contact — Império Global', desc:"Parlez-nous de votre projet d'infrastructures de télécommunications au Portugal ou en Belgique.",
         h1:'Contact', eyebrow:'Contactez-nous',
-        intro:"Vous avez un projet d'infrastructures de télécommunications ? Envoyez-nous un message et notre équipe vous recontactera.",
+        intro:[
+          "Si vous avez besoin d'informations sur nos services ou de tout autre éclaircissement concernant l'activité d'Império Global, n'hésitez pas à nous contacter.",
+          'Nous nous engageons à répondre avec la plus grande rapidité et le plus grand professionnalisme.',
+        ],
         formTitle:'Envoyez-nous un message',
         f:{ nome:'Nom', empresa:'Entreprise', email:'Email', telefone:'Téléphone', assunto:'Objet', msg:'Message', submit:'Envoyer le message' },
         assuntos:['Demande de devis','Partenariat','Recrutement','Autre'],
@@ -890,7 +908,6 @@ function bodyIndex(lang, S, up = upFor(lang)) {
             <div class="svc-card__body">
               <h3>${g.t}</h3>
               <p>${g.d}</p>
-              <div class="svc-chips">${g.subs.map(s => `<span class="chip-svc">${s}</span>`).join('')}</div>
             </div>
           </article>`).join('');
   const pillars = p.pillars.map(x => `
@@ -984,7 +1001,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
     <h1 class="sr-only">${h1}</h1>
     <section class="hero hero--photo hero--baked${full}" style="background-image:url('${up}assets/img/${opts.baked[lang]}')${pos}" role="img" aria-label="${eyebrow} — ${h1}"></section>`;
   }
-  const sub = opts.sub ? `<p class="hero__sub">${opts.sub}</p>` : '';
+  // sub aceita string ou array de parágrafos (texto menos compacto, a pedido do cliente)
+  const subList = Array.isArray(opts.sub) ? opts.sub : (opts.sub ? [opts.sub] : []);
+  const sub = subList.map(s => `<p class="hero__sub">${s}</p>`).join('');
   const cta = opts.cta ? `<div class="hero__cta"><a href="${opts.cta.href}" class="btn btn--primario">${opts.cta.label}</a></div>` : '';
   const dark = opts.dark ? ' hero--photo--dark' : '';
   const full = opts.full ? ' hero--photo--full' : '';
@@ -1062,7 +1081,6 @@ function bodyServicos(lang, S, up = upFor(lang)) {
           <div class="svc-row__text">
             <h2>${g.t}</h2>
             <p>${g.d}</p>
-            <ul class="svc-row__list">${g.subs.map(s => `<li>${s}</li>`).join('')}</ul>
           </div>
         </article>`).join('');
   return `${heroBanner(lang, up, 'servicos-bg.jpg', p.eyebrow, p.h1, { sub: p.intro })}
