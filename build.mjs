@@ -1110,7 +1110,7 @@ function bodyAreas(lang, S, up = upFor(lang)) {
         </article>`;
   }).join('');
   // pos: enquadramento deslocado para revelar Portugal (o mapa "anda" para a direita)
-  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 66%' })}
+  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 72%' })}
     <section class="section">
       <div class="container">
         <div class="areas-grid">${paises}
