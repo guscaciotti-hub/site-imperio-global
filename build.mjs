@@ -1014,7 +1014,7 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const fx = opts.fx ? ' hero--fx' : '';
   const scrim = opts.scrim ? ' hero--photo--scrim' : '';
   return `
-    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}')">
+    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}')${opts.pos ? `;background-position:${opts.pos}` : ''}">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1109,7 +1109,8 @@ function bodyAreas(lang, S, up = upFor(lang)) {
           <p>${c.d}</p>
         </article>`;
   }).join('');
-  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true })}
+  // pos: enquadramento deslocado para revelar Portugal (o mapa "anda" para a direita)
+  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 66%' })}
     <section class="section">
       <div class="container">
         <div class="areas-grid">${paises}
