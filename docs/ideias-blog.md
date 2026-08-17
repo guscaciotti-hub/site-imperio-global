@@ -56,6 +56,40 @@ O diferenciador do Brasil **não é uma funcionalidade, é o método**: em Portu
 empresas de infraestruturas têm *sites-folheto* (apresentam e esperam que liguem);
 no Brasil o B2B usa o site como **máquina de captar clientes** (inbound marketing).
 
+## Enquadramento estratégico (decidido com o cliente em mente)
+
+**A função nº 1 do blog é SEO + credibilidade.** Os clientes da Império (operadores,
+empreiteiros, entidades públicas) contratam por concurso, pré-qualificação e relação
+— não por funil de inbound. Logo, quiz/calculadora valem menos aqui do que num SaaS;
+o que compõe valor é **posicionamento no Google e prova de competência**.
+
+**Referência analisada: Eletronet (BR)** — *não* é o mesmo negócio:
+é uma **operadora** (backbone próprio, vende capacidade/trânsito IP/remote peering),
+enquanto a Império é **prestadora** (constrói e mantém para operadores). Os temas
+deles não servem. **Mas** há uma prática a copiar: todas as capas de artigo usam o
+mesmo elemento gráfico da marca → fazer o mesmo com o **«X»** da Império.
+
+## Plano editorial: 2 artigos/mês = 1 técnico (SEO) + 1 institucional
+
+### Banco de temas — técnicos (SEO)
+1. Manutenção preventiva vs. corretiva *(dividir o artigo atual em dois)*
+2. O que é o OTDR e como diagnostica avarias
+3. Fusão de fibra: o que garante uma ligação de qualidade
+4. FTTH — como funciona a ligação até casa
+5. Certificação de redes: o que se mede e porquê
+6. Como se prepara um *survey* técnico
+7. SLA em telecomunicações: o que significa na prática
+8. Logística em obra: o papel do armazém num projeto
+
+### Banco de temas — institucionais
+1. 9 anos de operação — marco da empresa
+2. Investimento em equipamento (ex.: máquinas de fusão Fujikura)
+3. Expansão da operação na Bélgica
+4. Equipa: crescimento para 50+ profissionais
+5. Segurança no trabalho: práticas da empresa
+6. Certificações e conformidade *(quando existirem)*
+7. Presença em feiras e eventos do setor
+
 ## Notas de execução
 - **RGPD:** receber contactos é livre; envio em massa por WhatsApp/email tem regras.
   Material rico exige consentimento explícito e política de privacidade ligada.
