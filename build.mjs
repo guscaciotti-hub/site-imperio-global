@@ -132,9 +132,9 @@ const STRINGS = {
       sobre: {
         title:'Sobre — Império Global', desc:'Especialistas na construção, expansão e manutenção de infraestruturas de telecomunicações, com operação em Portugal e na Bélgica.',
         h1:'Sobre a Império Global', eyebrow:'Quem somos',
-        heroSub:'Especialistas na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações.',
+        heroSub:'Especialistas na construção, instalação, manutenção e certificação de infraestruturas e redes de telecomunicações.',
         heroCta:'Fale connosco',
-        intro:'Fundada em 2017, a Império Global Telecomunicações é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas de telecomunicações. Com uma equipa experiente e um forte compromisso com a qualidade, a inovação e a segurança, desenvolvemos soluções fiáveis e eficientes, adaptadas às necessidades de cada projeto.',
+        intro:'Fundada em 2017, a Império Global Telecomunicações é uma empresa portuguesa especializada na construção, instalação, manutenção e certificação de infraestruturas e redes de telecomunicações. Com uma equipa experiente e um forte compromisso com a qualidade, a inovação e a segurança, desenvolvemos soluções fiáveis e eficientes, adaptadas às necessidades de cada projeto.',
         missaoT:'A Nossa Missão',
         missao:'A nossa missão é desenvolver soluções de telecomunicações que garantam ligações fiáveis, seguras e eficientes, contribuindo para a evolução das infraestruturas de comunicação. Atuamos com rigor, inovação e compromisso, criando valor para os nossos clientes e parceiros em cada projeto.',
         visaoT:'A Nossa Visão',
@@ -173,7 +173,7 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey e projeto', d:'Desenvolvemos estudos técnicos e projetos de telecomunicações com rigor, inovação e precisão, assegurando um planeamento eficiente e uma execução de excelência em todas as fases do projeto.', subs:['Survey técnico','Levantamento de campo','Desenvolvimento de projeto','Gestão e coordenação de projetos'] },
-          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Executamos infraestruturas de telecomunicações aéreas e subterrâneas com elevados padrões de qualidade, segurança e eficiência, assegurando uma implementação rigorosa e preparada para responder às exigências das redes do futuro.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construção de redes', d:'Executamos infraestruturas de telecomunicações com elevados padrões de qualidade, segurança e eficiência, assegurando uma implementação rigorosa e preparada para responder às exigências das redes do futuro.', subs:['Redes aéreas','Redes subterrâneas','Condutas','Traçados','Apoios e postes'] },
           { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibra ótica e cobre', d:'Somos especialistas em soluções de fibra ótica e cobre, assegurando todas as fases da rede, desde a construção e instalação até à ligação, certificação, manutenção e resolução de avarias.', subs:['Lançamento de fibra','Fusão','Cabos de cobre','FTTH','Ligações','Ponto de acesso'] },
           { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Instalação e ativação de serviços', d:'Garantimos a instalação, configuração e ativação de serviços de telecomunicações, assegurando uma implementação eficiente e uma experiência de excelência para o cliente final, desde a preparação da rede até à entrada em funcionamento.', subs:['Instalação de equipamentos','Ativação de serviços','Entrega ao cliente final','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervisão e monitorização', d:'Coordenamos e supervisionamos as operações no terreno com rigor e precisão, assegurando uma execução eficiente, o cumprimento dos padrões de qualidade e a excelência operacional.', subs:['Supervisão de redes','Monitorização','Controlo operacional','Gestão de operações'] },
@@ -201,7 +201,7 @@ const STRINGS = {
         ],
         formTitle:'Candidatura espontânea',
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
-        areas:['Construção de redes','Manutenção e reparação','Fibra ótica e cobre','Engenharia e projeto','Administrativo','Outra'],
+        areas:['Fibra ótica e cobre','Construção e manutenção','Logística','Administrativo'],
         consent:'Li e aceito a <a href="{priv}">Política de Privacidade</a> e autorizo o tratamento dos meus dados para efeitos de recrutamento.',
         mailSubject:'🟦 Recrutamento · Nova candidatura — Império Global',
         mailAuto:'Obrigado pela sua candidatura. Recebemos os seus dados e a nossa equipa da Império Global entrará em contacto, caso o seu perfil corresponda às nossas necessidades. Com os melhores cumprimentos, Equipa Império Global.',
@@ -222,7 +222,7 @@ const STRINGS = {
         infoTitle:'Contactos',
         email:'administrativo@imperioglobal.eu',
         phone:'+351 244 811 076', /* TODO: telefone real */
-        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena',
+        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena',
         mapa:'Mapa disponível em breve',
       },
       privacidade: {
@@ -390,7 +390,7 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey & design', d:'Technical field survey and project development, with integrated management and coordination — the foundation for rigorous delivery.', subs:['Technical survey','Field assessment','Project development','Project management & coordination'] },
-          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Network construction', d:'Construction of access infrastructure across aerial and underground networks, from route to connection, coordinated with the relevant authorities.', subs:['Aerial networks','Underground networks','Ducts','Routes','Poles & supports'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Network construction', d:'Construction of telecommunications infrastructure to high standards of quality, safety and efficiency, ensuring rigorous implementation ready to meet the demands of future networks.', subs:['Aerial networks','Underground networks','Ducts','Routes','Poles & supports'] },
           { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Optical fibre & copper', d:'Delivery, maintenance and modernisation of optical fibre (FTTH) and copper infrastructure, from the main span to the access point.', subs:['Fibre laying','Splicing','Copper cables','FTTH','Connections','Access point'] },
           { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Installation & service activation', d:'Installation of equipment and technical solutions, activation and delivery of telecommunications services to the end customer, end-to-end.', subs:['Equipment installation','Service activation','End-customer delivery','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervision & monitoring', d:'Continuous supervision and monitoring of networks, ensuring operational control, performance and alignment of field operations.', subs:['Network supervision','Monitoring','Operational control','Operations management'] },
@@ -418,7 +418,7 @@ const STRINGS = {
         ],
         formTitle:'Open application',
         f:{ nome:'Name', email:'Email', telefone:'Phone', area:'Area of interest', msg:'Message', cv:'Résumé (PDF or DOC, max. 5 MB)', submit:'Send application' },
-        areas:['Network construction','Maintenance and repair','Optical fibre and copper','Engineering and design','Administrative','Other'],
+        areas:['Optical fibre and copper','Construction and maintenance','Logistics','Administrative'],
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data for recruitment purposes.',
         mailSubject:'🟦 Careers · New application — Império Global',
         mailAuto:'Thank you for your application. We have received your details and our team at Império Global will be in touch should your profile match our needs. Kind regards, The Império Global Team.',
@@ -437,7 +437,7 @@ const STRINGS = {
         mailSubject:'🟢 Contact · New enquiry — Império Global',
         mailAuto:'Thank you for your message. We have received your request and our team at Império Global will get back to you as soon as possible. Kind regards, The Império Global Team.',
         infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena', mapa:'Map available soon',
+        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena', mapa:'Map available soon',
       },
       privacidade: {
         title:'Privacy Policy — Império Global', desc:'Privacy and personal data policy of Império Global, in accordance with the GDPR.',
@@ -601,7 +601,7 @@ const STRINGS = {
         ],
         groups:[
           { i:'survey', home:false, img:'servicos/survey-e-projeto.jpg', t:'Survey & projet', d:"Relevé technique de terrain et développement de projet, avec gestion et coordination intégrées — la base d'une réalisation rigoureuse.", subs:['Survey technique','Relevé de terrain','Développement de projet','Gestion et coordination de projets'] },
-          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construction de réseaux', d:"Construction d'infrastructures d'accès en réseaux aériens et souterrains, du tracé au raccordement, coordonnée avec les autorités compétentes.", subs:['Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Appuis et poteaux'] },
+          { i:'build', home:true, img:'servicos/construcao-de-redes.jpg', t:'Construction de réseaux', d:"Nous réalisons des infrastructures de télécommunications selon des standards élevés de qualité, de sécurité et d'efficacité, garantissant une mise en œuvre rigoureuse et prête à répondre aux exigences des réseaux de demain.", subs:['Réseaux aériens','Réseaux souterrains','Conduites','Tracés','Appuis et poteaux'] },
           { i:'fiber', home:true, img:'servicos/fibra-otica-e-cobre.jpg', t:'Fibre optique & cuivre', d:"Réalisation, maintenance et modernisation d'infrastructures en fibre optique (FTTH) et cuivre, du tronçon principal au point d'accès.", subs:['Tirage de fibre','Soudure','Câbles cuivre','FTTH','Raccordements',"Point d'accès"] },
           { i:'activate', home:false, img:'servicos/instalacao-e-ativacao.jpg', fit:'contain', t:'Installation & activation de services', d:"Installation d'équipements et de solutions techniques, activation et livraison de services de télécommunications au client final, end-to-end.", subs:["Installation d'équipements",'Activation de services','Livraison au client final','End-to-end (E2E)'] },
           { i:'monitor', home:false, img:'servicos/supervisao-e-monitorizacao.jpg', t:'Supervision & surveillance', d:'Supervision et surveillance continue des réseaux, assurant le contrôle opérationnel, la performance et la coordination des opérations sur le terrain.', subs:['Supervision de réseaux','Surveillance','Contrôle opérationnel','Gestion des opérations'] },
@@ -629,7 +629,7 @@ const STRINGS = {
         ],
         formTitle:'Candidature spontanée',
         f:{ nome:'Nom', email:'Email', telefone:'Téléphone', area:'Domaine d’intérêt', msg:'Message', cv:'CV (PDF ou DOC, max. 5 Mo)', submit:'Envoyer la candidature' },
-        areas:['Construction de réseaux','Maintenance et réparation','Fibre optique et cuivre','Ingénierie et conception','Administratif','Autre'],
+        areas:['Fibre optique et cuivre','Construction et maintenance','Logistique','Administratif'],
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données à des fins de recrutement.',
         mailSubject:'🟦 Recrutement · Nouvelle candidature — Império Global',
         mailAuto:'Merci pour votre candidature. Nous avons bien reçu vos informations et notre équipe Império Global vous contactera si votre profil correspond à nos besoins. Cordialement, l’équipe Império Global.',
@@ -648,7 +648,7 @@ const STRINGS = {
         mailSubject:'🟢 Contact · Nouvelle demande — Império Global',
         mailAuto:'Merci pour votre message. Nous avons bien reçu votre demande et notre équipe Império Global vous répondra dans les plus brefs délais. Cordialement, l’équipe Império Global.',
         infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'Rua Troviscal N.º 784, 2380-226 Bugalhos, Alcanena', mapa:'Carte disponible prochainement',
+        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena', mapa:'Carte disponible prochainement',
       },
       privacidade: {
         title:'Politique de confidentialité — Império Global', desc:'Politique de confidentialité et de traitement des données personnelles d’Império Global, conforme au RGPD.',
@@ -1201,10 +1201,10 @@ function bodyContacto(lang, S, up = upFor(lang)) {
               <div class="contact-item">${ICON.mail}<div><strong>Email</strong><a href="mailto:${p.email}">${p.email}</a></div></div>
               <div class="contact-item">${ICON.mail}<div><strong>${lang==='fr'?'Ressources humaines':lang==='en'?'Human Resources':'Recursos Humanos'}</strong><a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a></div></div>
               <div class="contact-item">${ICON.phone}<div><strong>${f.telefone}</strong><a href="tel:${p.phone.replace(/\s/g, '')}">${p.phone}</a></div></div>
-              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=Rua+Troviscal+784,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener">${p.morada}</a></div></div>
+              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=Rua+Troviscal+176,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener">${p.morada}</a></div></div>
             </div>
             <div class="contact-map" style="margin-top:1.5rem">
-              <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20784%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
+              <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20176%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
             </div>
           </div>
         </div>
@@ -1276,7 +1276,7 @@ function bodyCanal(lang, S) {
             <h3 style="margin-bottom:.75rem">${p.canal2T}</h3>
             <p style="color:var(--cinza-texto);margin-bottom:1.25rem">${p.canal2D}</p>
             <div class="contact-block">
-              <div class="contact-item">${ICON.mail}<div><strong>Email</strong><a href="mailto:denuncias@imperioglobal.eu">denuncias@imperioglobal.eu</a></div></div>
+              <div class="contact-item">${ICON.mail}<div><strong>Email</strong><a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a></div></div>
             </div>
           </div>
         </div>
