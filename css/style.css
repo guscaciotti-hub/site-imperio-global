@@ -547,6 +547,16 @@ p{ margin:0 0 1rem }
 .article__body .note{ background:var(--prata-tecnica); color:var(--azul-imperio-900); border-radius:var(--raio);
   padding:1.25rem 1.5rem; margin:2rem 0; font-size:1rem; line-height:1.6 }
 .article__body .note strong{ color:var(--azul-imperio) }
+/* Resumo "Em 30 segundos" — leitura rápida no início do artigo */
+.article__body .tldr{ background:var(--nevoa); border-left:3px solid var(--azul-sinal);
+  border-radius:0 var(--raio) var(--raio) 0; padding:1.25rem 1.5rem; margin:0 0 2.25rem }
+.article__body .tldr > strong{ display:block; font-family:var(--font-titulo); color:var(--azul-imperio);
+  font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.7rem }
+.article__body .tldr ul{ margin:0; padding:0; list-style:none }
+.article__body .tldr li{ position:relative; padding-left:1.15rem; margin:.42rem 0;
+  font-size:.97rem; line-height:1.55; color:var(--grafite) }
+.article__body .tldr li::before{ content:""; position:absolute; left:0; top:.62em;
+  width:6px; height:6px; border-radius:2px; background:var(--azul-sinal) }
 .article-cta{ margin-top:3rem; padding:2rem; background:var(--azul-imperio); border-radius:var(--raio); text-align:center }
 .article-cta h2{ color:#fff; margin:0 0 1.25rem; font-size:1.4rem }
 

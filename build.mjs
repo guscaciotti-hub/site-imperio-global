@@ -1510,6 +1510,14 @@ const ARTICLES = [
         desc: 'Quando a manutenção preventiva justifica o investimento face à corretiva em redes de fibra ótica — critérios técnicos e de custo para gestores de rede.',
         excerpt: 'Comparação técnica entre manutenção preventiva e corretiva em fibra ótica: indicadores, custos e critérios de decisão para gestores de rede.',
         body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>Preventiva e corretiva não são opostas: aplicam-se a segmentos diferentes da mesma rede.</li>
+<li>A preventiva justifica-se quando o custo esperado da falha excede o custo do programa preventivo.</li>
+<li>Decidem quatro indicadores: SLA contratado, custo da indisponibilidade, idade do traçado e exposição externa.</li>
+<li>Sem capacidade de resposta rápida, a corretiva deixa de ser uma escolha e passa a ser exposição a risco.</li>
+</ul></div>
+
 <p class="lead">Numa rede de fibra ótica, a diferença entre reparar depois da falha e antecipar a falha não é apenas operacional — é económica e contratual. Este artigo enquadra os critérios que ajudam um gestor de rede a decidir onde e quando cada abordagem se justifica.</p>
 
 <h2 id="duas-logicas">Preventiva e corretiva: duas lógicas distintas</h2>
@@ -1532,12 +1540,6 @@ const ARTICLES = [
 <p>Sem entrar em modelação complexa, é útil raciocinar em três parcelas. A primeira é o custo do programa preventivo: mão de obra de inspeção, medições e substituições programadas. A segunda é o custo esperado das falhas residuais que a preventiva não elimina. A terceira é o custo das falhas num cenário puramente corretivo, incluindo penalizações e intervenções de urgência.</p>
 <p>A preventiva compensa quando a soma das duas primeiras parcelas é inferior à terceira. Este raciocínio explica por que a mesma rede pode justificar preventiva no backbone e corretiva num troço terminal de baixa criticidade: muda o impacto da falha, muda a conclusão.</p>
 
-<h2 id="otdr">OTDR e monitorização: detetar antes de falhar</h2>
-<p>O reflectómetro ótico no domínio do tempo (OTDR) é o instrumento central da manutenção de fibra. Ao injetar um impulso e medir a luz retrodifundida, permite localizar, ao longo do troço, atenuações anómalas, juntas degradadas e curvaturas excessivas, com indicação da distância a que ocorrem.</p>
-<p>O valor preventivo surge na análise de tendência: comparar medições OTDR sucessivas revela degradação lenta muito antes de esta se traduzir numa interrupção de serviço. Em redes de maior criticidade, a monitorização pode ser contínua, com sistemas que vigiam a atenuação e alertam quando um limiar é ultrapassado. A escolha entre medição periódica e monitorização contínua é, também ela, uma decisão de custo-benefício: a segunda tem custo de instalação, mas reduz o tempo de deteção.</p>
-
-<div class="note"><strong>Nota técnica.</strong> Uma variação de atenuação numa junta, detetável por OTDR muito antes de causar corte, é um exemplo típico de falha que a manutenção preventiva resolve a baixo custo — e que a corretiva só resolve depois da interrupção do serviço.</div>
-
 <h2 id="corretiva-racional">Quando a corretiva é a opção racional</h2>
 <p>A manutenção preventiva não é universalmente superior. Em troços de baixa criticidade, com SLA folgado e baixo custo de indisponibilidade, o investimento em inspeção programada pode não compensar. Nesses casos, uma estratégia essencialmente corretiva minimiza o custo total — desde que a capacidade de resposta esteja garantida.</p>
 <p>O fator determinante é o tempo de reposição (MTTR). Uma organização com equipas, viaturas e materiais prontos consegue reparar avarias com rapidez suficiente para que o impacto de uma abordagem corretiva se mantenha aceitável. Sem essa capacidade de resposta, a corretiva deixa de ser uma escolha racional e passa a ser exposição a risco.</p>
@@ -1551,11 +1553,54 @@ const ARTICLES = [
 </ul>
 <p>Esta segmentação evita dois erros simétricos: sobreinvestir em preventiva onde não compensa e expor a corretiva troços cuja falha tem custo elevado.</p>
 
+<h2 id="conclusao">Conclusão</h2>
+<p>Preventiva e corretiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas.</p>
+<p><strong>Leitura relacionada:</strong> <a href="otdr-monitorizacao-redes-fibra-otica.html">OTDR e monitorização: detetar avarias antes da falha</a> — como se identifica a degradação de um troço antes de ela interromper o serviço.</p>
+`,
+      },
+    },
+  },
+  {
+    slug: 'otdr-monitorizacao-redes-fibra-otica',
+    cat: 'fibra',
+    date: '2026-08-11',
+    cover: 'otdr-monitorizacao-cover.jpg',
+    langs: {
+      pt: {
+        title: 'OTDR e monitorização: detetar avarias antes da falha',
+        desc: 'Como o OTDR e a monitorização contínua permitem identificar a degradação de um troço de fibra ótica antes de causar interrupção de serviço.',
+        excerpt: 'O que faz um OTDR, porque a análise de tendência vale mais do que a medição isolada, e quando compensa passar de medição periódica a monitorização contínua.',
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>O OTDR localiza atenuações anómalas, juntas degradadas e curvaturas excessivas — e indica a que distância ocorrem.</li>
+<li>O valor preventivo não está numa medição isolada, mas na comparação de medições sucessivas.</li>
+<li>A monitorização contínua reduz o tempo de deteção, mas tem custo de instalação: é uma decisão de custo-benefício.</li>
+<li>Com a extensa base FTTH em Portugal, cada quilómetro bem monitorizado aumenta o retorno da manutenção.</li>
+</ul></div>
+
+<p class="lead">Detetar uma avaria antes de ela interromper o serviço é o que distingue uma operação reativa de uma operação previsível. Numa rede de fibra ótica, o instrumento que torna isso possível é o OTDR.</p>
+
+<h2 id="o-que-e">O que faz um OTDR</h2>
+<p>O reflectómetro ótico no domínio do tempo (OTDR) é o instrumento central da manutenção de fibra. Ao injetar um impulso de luz e medir a luz retrodifundida, permite localizar, ao longo do troço, atenuações anómalas, juntas degradadas e curvaturas excessivas — com indicação da distância a que ocorrem.</p>
+<p>Na prática, é o que permite a uma equipa chegar ao local certo à primeira, em vez de percorrer quilómetros de traçado à procura do problema.</p>
+
+<h2 id="tendencia">O valor está na tendência, não na medição isolada</h2>
+<p>Uma medição isolada diz como está o troço hoje. O valor preventivo aparece quando se comparam medições sucessivas: a análise de tendência revela degradação lenta muito antes de esta se traduzir numa interrupção de serviço.</p>
+<p>É por isso que o histórico de medições é um ativo operacional. Sem ele, cada medição é apenas um retrato; com ele, torna-se um sinal de alerta antecipado.</p>
+
+<div class="note"><strong>Nota técnica.</strong> Uma variação de atenuação numa junta, detetável por OTDR muito antes de causar corte, é um exemplo típico de falha que a manutenção preventiva resolve a baixo custo — e que a corretiva só resolve depois da interrupção do serviço.</div>
+
+<h2 id="periodica-vs-continua">Medição periódica ou monitorização contínua?</h2>
+<p>Em redes de maior criticidade, a monitorização pode ser contínua: sistemas que vigiam permanentemente a atenuação e alertam quando um limiar é ultrapassado.</p>
+<p>A escolha entre medição periódica e monitorização contínua é, também ela, uma decisão de custo-benefício. A segunda tem custo de instalação, mas reduz drasticamente o tempo de deteção — e, com ele, o tempo de indisponibilidade. Faz sentido no backbone e em ligações a clientes com SLA exigente; raramente se justifica num troço terminal de baixa criticidade.</p>
+
 <h2 id="contexto">Contexto: uma rede em expansão</h2>
-<p>A dimensão da rede de fibra em Portugal reforça a relevância da manutenção. Portugal está entre os países europeus com maior cobertura de fibra ótica até casa (FTTH); os dados atualizados de cobertura e de acessos são publicados periodicamente pela <a href="https://www.anacom.pt" target="_blank" rel="noopener">ANACOM</a>. Uma base instalada extensa significa mais quilómetros de traçado a manter — e maior retorno de uma política de manutenção bem dimensionada.</p>
+<p>A dimensão da rede de fibra em Portugal reforça a relevância da monitorização. Portugal está entre os países europeus com maior cobertura de fibra ótica até casa (FTTH); os dados atualizados de cobertura e de acessos são publicados periodicamente pela <a href="https://www.anacom.pt" target="_blank" rel="noopener">ANACOM</a>. Uma base instalada extensa significa mais quilómetros de traçado a manter — e maior retorno de uma política de manutenção bem dimensionada.</p>
 
 <h2 id="conclusao">Conclusão</h2>
-<p>Preventiva e corretiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas. O objetivo é o mesmo que orienta toda a operação de infraestruturas de acesso: assegurar a fiabilidade, a disponibilidade e o desempenho das redes ao menor custo total.</p>
+<p>O OTDR não serve apenas para reparar: bem utilizado, e com histórico, é um instrumento de antecipação. A decisão sobre a frequência das medições — ou sobre passar a monitorização contínua — segue a mesma lógica que orienta toda a política de manutenção: a criticidade do troço e o custo da sua indisponibilidade.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-preventiva-corretiva-fibra-otica.html">Manutenção preventiva vs. corretiva em redes de fibra ótica</a> — os critérios que definem onde cada abordagem compensa.</p>
 `,
       },
     },
