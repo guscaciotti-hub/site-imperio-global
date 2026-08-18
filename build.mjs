@@ -14,6 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
+const ASSET_V = 'v=20260818';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -908,7 +909,7 @@ function bodyIndex(lang, S, up = upFor(lang)) {
   const HX = HOME_EXTRA[lang];
   const cards = S.pages.servicos.groups.filter(g => g.home).map(g => `
           <article class="svc-card rv">
-            <div class="svc-card__top${g.img ? ' svc-card__top--photo' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}')"` : ''}><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
+            <div class="svc-card__top${g.img ? ' svc-card__top--photo' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}?${ASSET_V}')"` : ''}><span class="svc-card__icon" aria-hidden="true">${ICON[g.i]}</span></div>
             <div class="svc-card__body">
               <h3>${g.t}</h3>
               <p>${g.d}</p>
@@ -1014,7 +1015,7 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const fx = opts.fx ? ' hero--fx' : '';
   const scrim = opts.scrim ? ' hero--photo--scrim' : '';
   return `
-    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}')${opts.pos ? `;background-position:${opts.pos}` : ''}">
+    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}?${ASSET_V}')${opts.pos ? `;background-position:${opts.pos}` : ''}">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1078,7 +1079,7 @@ function bodyServicos(lang, S, up = upFor(lang)) {
   // Layout premium alternado (imagem + texto), cobrindo todo o âmbito do briefing.
   const rows = p.groups.map((g, idx) => `
         <article class="svc-row${idx % 2 ? ' svc-row--rev' : ''} rv">
-          <div class="svc-row__media${g.img ? ' svc-row__media--photo' : ''}${g.fit === 'contain' ? ' svc-row__media--contain' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}')"` : ''}>
+          <div class="svc-row__media${g.img ? ' svc-row__media--photo' : ''}${g.fit === 'contain' ? ' svc-row__media--contain' : ''}"${g.img ? ` style="background-image:url('${up}assets/img/${g.img}?${ASSET_V}')"` : ''}>
             <span class="svc-row__num" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
             <span class="svc-row__icon" aria-hidden="true">${ICON[g.i]}</span>
           </div>
