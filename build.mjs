@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260818h';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260818i';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -189,8 +189,8 @@ const STRINGS = {
         intro:'Operamos em dois países europeus, com equipas próprias e capacidade de intervenção local.',
         roles:['Mercado principal','Expansão internacional'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:'Construção, instalação, manutenção e certificação de infraestruturas de telecomunicações, com equipas próprias e capacidade de intervenção local.' },
-          { nome:'Bélgica', d:'Construção, instalação, manutenção e certificação de infraestruturas de telecomunicações, com equipas próprias e capacidade de intervenção local.' },
+          { nome:'Portugal', d:'Atuação em território nacional na construção, expansão e manutenção de infraestruturas de acesso, ao serviço de operadores, empresas privadas e entidades públicas.' },
+          { nome:'Bélgica', d:'Operação no mercado belga em infraestruturas de telecomunicações, com equipas dedicadas à construção e manutenção de redes de fibra ótica e cobre.' },
         ],
       },
       recrutamento: {
@@ -1014,8 +1014,9 @@ function heroBanner(lang, up, img, eyebrow, h1, opts = {}) {
   const full = opts.full ? ' hero--photo--full' : '';
   const fx = opts.fx ? ' hero--fx' : '';
   const scrim = opts.scrim ? ' hero--photo--scrim' : '';
+  const cls = opts.cls ? ` ${opts.cls}` : '';
   return `
-    <section class="hero hero--photo${dark}${full}${fx}${scrim}" style="background-image:url('${up}assets/img/${img}?${ASSET_V}')${opts.pos ? `;background-position:${opts.pos}` : ''}">
+    <section class="hero hero--photo${dark}${full}${fx}${scrim}${cls}" style="background-image:url('${up}assets/img/${img}?${ASSET_V}')${opts.pos ? `;background-position:${opts.pos}` : ''}">
       <div class="container hero__inner">
         <span class="eyebrow">${eyebrow}</span>
         <h1>${h1}</h1>
@@ -1111,7 +1112,7 @@ function bodyAreas(lang, S, up = upFor(lang)) {
         </article>`;
   }).join('');
   // pos: enquadramento deslocado para revelar Portugal (o mapa "anda" para a direita)
-  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 42%' })}
+  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 42%', cls: 'hero--areas' })}
     <section class="section">
       <div class="container">
         <div class="areas-grid">${paises}
@@ -1211,7 +1212,10 @@ function bodyContacto(lang, S, up = upFor(lang)) {
             </div>
             <div class="contact-map" style="margin-top:1.5rem">
               <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20176%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
-              <span class="contact-map__pin" aria-hidden="true"><img src="${up}assets/logo/imperio-oficial.png" alt="" width="640" height="197" loading="lazy"></span>
+              <div class="contact-map__bar">
+                <img class="contact-map__logo" src="${up}assets/logo/imperio-oficial.png" alt="Império Global" width="640" height="197" loading="lazy">
+                <span class="contact-map__morada">${p.morada}</span>
+              </div>
             </div>
           </div>
         </div>
