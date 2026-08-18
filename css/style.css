@@ -529,6 +529,10 @@ p{ margin:0 0 1rem }
   .hero--photo--dark .hero__sub{ color:#dce8f5 }
   .hero--photo--dark .eyebrow{ color:var(--azul-sinal) }
   .hero--photo--dark .eyebrow::after{ background:var(--azul-sinal) }
+  /* A arte de Recrutamento tem a zona limpa à esquerda e os técnicos à direita.
+     O corte do telemóvel, ancorado à direita, apanhava só o casaco: puxa-se
+     para 60% para se verem os dois técnicos e o título assentar no céu. */
+  .hero--photo--dark{ background-position:60% center }
 }
 .toc{ background:var(--nevoa); border:1px solid var(--linha); border-radius:var(--raio); padding:1.25rem 1.5rem; margin-bottom:2.5rem }
 .toc strong{ font-family:var(--font-titulo); color:var(--azul-imperio); display:block; margin-bottom:.5rem }

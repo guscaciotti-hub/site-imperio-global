@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260818i';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260818k';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
