@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260818g';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260818h';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -1111,7 +1111,7 @@ function bodyAreas(lang, S, up = upFor(lang)) {
         </article>`;
   }).join('');
   // pos: enquadramento deslocado para revelar Portugal (o mapa "anda" para a direita)
-  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 58%' })}
+  return `${heroBanner(lang, up, 'areas-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, scrim: true, pos: 'center 42%' })}
     <section class="section">
       <div class="container">
         <div class="areas-grid">${paises}
