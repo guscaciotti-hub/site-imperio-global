@@ -74,8 +74,12 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/termos.html"/>
   </url>
   <url>
-    <loc>https://www.imperioglobal.eu/blog/manutencao-preventiva-corretiva-fibra-otica.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/manutencao-preventiva-corretiva-fibra-otica.html"/>
+    <loc>https://www.imperioglobal.eu/blog/manutencao-preventiva-fibra-otica.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/manutencao-preventiva-fibra-otica.html"/>
+  </url>
+  <url>
+    <loc>https://www.imperioglobal.eu/blog/manutencao-corretiva-fibra-otica.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/manutencao-corretiva-fibra-otica.html"/>
   </url>
   <url>
     <loc>https://www.imperioglobal.eu/blog/otdr-monitorizacao-redes-fibra-otica.html</loc>

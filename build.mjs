@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260818l';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260819a';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -1508,25 +1508,25 @@ function fmtDate(lang, iso) {
 
 const ARTICLES = [
   {
-    slug: 'manutencao-preventiva-corretiva-fibra-otica',
+    slug: 'manutencao-preventiva-fibra-otica',
     cat: 'manutencao',
     date: '2026-07-21',
-    cover: 'manutencao-preventiva-corretiva-fibra-otica-cover.jpg',
+    cover: 'manutencao-preventiva-cover.jpg',
     langs: {
       pt: {
-        title: 'Manutenção preventiva vs. corretiva em redes de fibra ótica',
-        desc: 'Quando a manutenção preventiva justifica o investimento face à corretiva em redes de fibra ótica — critérios técnicos e de custo para gestores de rede.',
-        excerpt: 'Comparação técnica entre manutenção preventiva e corretiva em fibra ótica: indicadores, custos e critérios de decisão para gestores de rede.',
+        title: 'Manutenção preventiva em redes de fibra ótica: quando compensa',
+        desc: 'Que indicadores justificam investir em manutenção preventiva numa rede de fibra ótica e como avaliar se o programa compensa face ao custo das falhas.',
+        excerpt: 'Os indicadores que justificam a manutenção preventiva em fibra ótica e um modelo simples para avaliar se o programa compensa.',
         body: `
 <div class="tldr"><strong>Em 30 segundos</strong>
 <ul>
-<li>Preventiva e corretiva não são opostas: aplicam-se a segmentos diferentes da mesma rede.</li>
-<li>A preventiva justifica-se quando o custo esperado da falha excede o custo do programa preventivo.</li>
+<li>A preventiva atua antes da falha: inspeções, medições e substituições programadas.</li>
+<li>Justifica-se quando o custo esperado da falha excede o custo do programa preventivo.</li>
 <li>Decidem quatro indicadores: SLA contratado, custo da indisponibilidade, idade do traçado e exposição externa.</li>
-<li>Sem capacidade de resposta rápida, a corretiva deixa de ser uma escolha e passa a ser exposição a risco.</li>
+<li>A mesma rede pode justificar preventiva no backbone e não a justificar num troço terminal.</li>
 </ul></div>
 
-<p class="lead">Numa rede de fibra ótica, a diferença entre reparar depois da falha e antecipar a falha não é apenas operacional — é económica e contratual. Este artigo enquadra os critérios que ajudam um gestor de rede a decidir onde e quando cada abordagem se justifica.</p>
+<p class="lead">Antecipar uma falha custa dinheiro. Deixá-la acontecer também. Este artigo trata do primeiro lado dessa conta: que indicadores dizem a um gestor de rede que vale a pena investir em manutenção preventiva, e como avaliar se o programa se paga.</p>
 
 <h2 id="duas-logicas">Preventiva e corretiva: duas lógicas distintas</h2>
 <p>A manutenção corretiva atua depois da falha: uma avaria interrompe o serviço e a equipa desloca-se para localizar e reparar o troço afetado. A manutenção preventiva atua antes: inspeções, medições e substituições programadas que procuram evitar a falha ou detetá-la na fase inicial, quando o custo de intervenção ainda é baixo.</p>
@@ -1548,9 +1548,39 @@ const ARTICLES = [
 <p>Sem entrar em modelação complexa, é útil raciocinar em três parcelas. A primeira é o custo do programa preventivo: mão de obra de inspeção, medições e substituições programadas. A segunda é o custo esperado das falhas residuais que a preventiva não elimina. A terceira é o custo das falhas num cenário puramente corretivo, incluindo penalizações e intervenções de urgência.</p>
 <p>A preventiva compensa quando a soma das duas primeiras parcelas é inferior à terceira. Este raciocínio explica por que a mesma rede pode justificar preventiva no backbone e corretiva num troço terminal de baixa criticidade: muda o impacto da falha, muda a conclusão.</p>
 
+<h2 id="conclusao">Conclusão</h2>
+<p>A manutenção preventiva não se justifica por princípio, justifica-se por conta. Onde o SLA é exigente, o custo da indisponibilidade é alto e o traçado está exposto, o programa preventivo paga-se. Onde esses fatores são baixos, o mesmo programa é despesa sem retorno — e a resposta certa é outra.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-corretiva-fibra-otica.html">Manutenção corretiva em redes de fibra ótica: quando é a opção certa</a> — o outro lado da decisão, e o que a torna viável.</p>
+`,
+      },
+    },
+  },
+  {
+    slug: 'manutencao-corretiva-fibra-otica',
+    cat: 'manutencao',
+    date: '2026-07-21',
+    cover: 'manutencao-corretiva-cover.jpg',
+    langs: {
+      pt: {
+        title: 'Manutenção corretiva em redes de fibra ótica: quando é a opção certa',
+        desc: 'Em que troços de uma rede de fibra ótica a manutenção corretiva minimiza o custo total, e por que o tempo de reposição decide se é uma escolha ou uma exposição a risco.',
+        excerpt: 'Onde a manutenção corretiva minimiza o custo total numa rede de fibra ótica — e por que tudo depende do tempo de reposição.',
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>A corretiva não é a opção pobre: em troços de baixa criticidade minimiza o custo total.</li>
+<li>Tudo depende do tempo de reposição (MTTR): equipas, viaturas e materiais prontos.</li>
+<li>Sem capacidade de resposta, a corretiva deixa de ser uma escolha e passa a ser exposição a risco.</li>
+<li>A segmentação do traçado por criticidade evita sobreinvestir e evita expor o que não devia estar exposto.</li>
+</ul></div>
+
+<p class="lead">Nem todos os troços de uma rede merecem um programa de inspeção. Este artigo trata do outro lado da decisão: onde a manutenção corretiva é a escolha economicamente certa, e qual é a condição sem a qual deixa de o ser.</p>
+
 <h2 id="corretiva-racional">Quando a corretiva é a opção racional</h2>
 <p>A manutenção preventiva não é universalmente superior. Em troços de baixa criticidade, com SLA folgado e baixo custo de indisponibilidade, o investimento em inspeção programada pode não compensar. Nesses casos, uma estratégia essencialmente corretiva minimiza o custo total — desde que a capacidade de resposta esteja garantida.</p>
 <p>O fator determinante é o tempo de reposição (MTTR). Uma organização com equipas, viaturas e materiais prontos consegue reparar avarias com rapidez suficiente para que o impacto de uma abordagem corretiva se mantenha aceitável. Sem essa capacidade de resposta, a corretiva deixa de ser uma escolha racional e passa a ser exposição a risco.</p>
+
+<blockquote>A corretiva só é uma decisão quando existe capacidade de resposta. Sem ela, é apenas o nome que se dá a esperar pela avaria.</blockquote>
 
 <h2 id="criterios">Um enquadramento prático de decisão</h2>
 <p>Na prática, as redes segmentam o traçado por criticidade:</p>
@@ -1563,7 +1593,7 @@ const ARTICLES = [
 
 <h2 id="conclusao">Conclusão</h2>
 <p>Preventiva e corretiva não são alternativas mutuamente exclusivas, mas ferramentas para segmentos diferentes da mesma rede. A decisão assenta em indicadores mensuráveis — disponibilidade contratada, custo da indisponibilidade, criticidade do troço e capacidade de resposta — e não em preferências genéricas.</p>
-<p><strong>Leitura relacionada:</strong> <a href="otdr-monitorizacao-redes-fibra-otica.html">OTDR e monitorização: detetar avarias antes da falha</a> — como se identifica a degradação de um troço antes de ela interromper o serviço.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-preventiva-fibra-otica.html">Manutenção preventiva em redes de fibra ótica: quando compensa</a> · <a href="otdr-monitorizacao-redes-fibra-otica.html">OTDR e monitorização: detetar avarias antes da falha</a></p>
 `,
       },
     },
@@ -1608,7 +1638,7 @@ const ARTICLES = [
 
 <h2 id="conclusao">Conclusão</h2>
 <p>O OTDR não serve apenas para reparar: bem utilizado, e com histórico, é um instrumento de antecipação. A decisão sobre a frequência das medições — ou sobre passar a monitorização contínua — segue a mesma lógica que orienta toda a política de manutenção: a criticidade do troço e o custo da sua indisponibilidade.</p>
-<p><strong>Leitura relacionada:</strong> <a href="manutencao-preventiva-corretiva-fibra-otica.html">Manutenção preventiva vs. corretiva em redes de fibra ótica</a> — os critérios que definem onde cada abordagem compensa.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-preventiva-fibra-otica.html">Manutenção preventiva em redes de fibra ótica: quando compensa</a> · <a href="manutencao-corretiva-fibra-otica.html">Manutenção corretiva: quando é a opção certa</a></p>
 `,
       },
     },
