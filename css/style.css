@@ -689,16 +689,20 @@ p{ margin:0 0 1rem }
 /* Contacto — mapa */
 .contact-map{ position:relative; border-radius:var(--raio); overflow:hidden; border:1px solid var(--linha); box-shadow:var(--sombra) }
 .contact-map iframe{ display:block; width:100%; aspect-ratio:16/10; border:0 }
-/* Barra de marca por cima do mapa. O logótipo NÃO marca a localização — quem
-   marca é o pino do próprio Google, que acompanha o mapa quando se arrasta. */
-.contact-map__bar{ position:absolute; left:0; right:0; top:0; z-index:2; pointer-events:none;
-  display:flex; align-items:center; gap:.7rem; padding:.6rem .85rem;
-  background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.88) 70%, rgba(255,255,255,0) 100%) }
-.contact-map__logo{ display:block; width:104px; height:auto; flex:none }
-.contact-map__morada{ font-size:.82rem; font-weight:600; color:var(--azul-imperio); line-height:1.3 }
-@media (max-width:560px){
-  .contact-map__logo{ width:84px }
-  .contact-map__morada{ font-size:.74rem }
+/* Camada que trava o mapa: impede arrastar/zoom (o marcador da marca deixaria
+   de coincidir) e, ao clicar, abre o Google Maps completo noutro separador. */
+.contact-map__lock{ position:absolute; inset:0; z-index:1; display:block }
+/* Marcador com o logótipo da Império sobre a localização.
+   --pin-x/--pin-y permitem afinar a posição sem mexer no resto. */
+.contact-map__pin{ position:absolute; left:var(--pin-x,40%); top:var(--pin-y,56%); z-index:2; pointer-events:none;
+  transform:translate(-50%,calc(-100% - 9px));
+  background:#fff; border:1px solid var(--linha); border-radius:10px; padding:.45rem .6rem;
+  box-shadow:0 8px 20px rgba(1,20,43,.3) }
+.contact-map__pin img{ display:block; width:112px; height:auto }
+.contact-map__pin::after{ content:""; position:absolute; left:50%; bottom:-8px; transform:translateX(-50%);
+  border-left:7px solid transparent; border-right:7px solid transparent; border-top:8px solid #fff;
+  filter:drop-shadow(0 2px 2px rgba(1,20,43,.22)) }
+@media (max-width:560px){ .contact-map__pin img{ width:88px } }
 }
 
 /* Áreas de Atuação — bandeira premium por país */

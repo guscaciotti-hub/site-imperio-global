@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260818k';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260818l';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -1212,10 +1212,8 @@ function bodyContacto(lang, S, up = upFor(lang)) {
             </div>
             <div class="contact-map" style="margin-top:1.5rem">
               <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20176%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
-              <div class="contact-map__bar">
-                <img class="contact-map__logo" src="${up}assets/logo/imperio-oficial.png" alt="Império Global" width="640" height="197" loading="lazy">
-                <span class="contact-map__morada">${p.morada}</span>
-              </div>
+              <a class="contact-map__lock" href="https://maps.google.com/?q=Rua+Troviscal+176,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener" aria-label="${lang==='fr'?'Ouvrir dans Google Maps':lang==='en'?'Open in Google Maps':'Abrir no Google Maps'}"></a>
+              <span class="contact-map__pin" aria-hidden="true"><img src="${up}assets/logo/imperio-oficial.png" alt="" width="640" height="197" loading="lazy"></span>
             </div>
           </div>
         </div>
