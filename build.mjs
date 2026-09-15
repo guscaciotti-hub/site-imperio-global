@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260819c';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20260915a';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -189,9 +189,10 @@ const STRINGS = {
         intro:'Operamos em dois países europeus, com equipas próprias e capacidade de intervenção local.',
         roles:['Mercado principal','Expansão internacional'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:'Atuação em território nacional na construção, expansão e manutenção de infraestruturas de acesso, ao serviço de operadores, empresas privadas e entidades públicas.' },
-          { nome:'Bélgica', d:'Operação no mercado belga em infraestruturas de telecomunicações, com equipas dedicadas à construção e manutenção de redes de fibra ótica e cobre.' },
+          { nome:'Portugal' },
+          { nome:'Bélgica' },
         ],
+        textoUnico:'Operamos em Portugal e na Bélgica na construção, expansão e manutenção de infraestruturas e redes de telecomunicações, ao serviço de operadores, empresas privadas e entidades públicas — com equipas próprias e capacidade de intervenção local em ambos os mercados.',
       },
       recrutamento: {
         title:'Recrutamento — Império Global', desc:'Junte-se a uma equipa em crescimento nas infraestruturas de telecomunicações em Portugal e na Bélgica.',
@@ -408,9 +409,10 @@ const STRINGS = {
         intro:'We operate in two European countries, with in-house teams and local intervention capacity.',
         roles:['Main market','International expansion'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:'Nationwide activity in the construction, expansion and maintenance of access infrastructure, serving operators, private companies and public entities.' },
-          { nome:'Belgium', d:'Operations in the Belgian market in telecommunications infrastructure, with teams dedicated to building and maintaining optical fibre and copper networks.' },
+          { nome:'Portugal' },
+          { nome:'Belgium' },
         ],
+        textoUnico:'We operate in Portugal and Belgium in the construction, expansion and maintenance of telecommunications infrastructure and networks, serving operators, private companies and public entities — with our own teams and local intervention capability in both markets.',
       },
       recrutamento: {
         title:'Careers — Império Global', desc:'Join a growing team in telecommunications infrastructure in Portugal and Belgium.',
@@ -621,9 +623,10 @@ const STRINGS = {
         intro:'Nous intervenons dans deux pays européens, avec des équipes internes et une capacité d’intervention locale.',
         roles:['Marché principal','Expansion internationale'], flags:['pt','be'],
         paises:[
-          { nome:'Portugal', d:"Activité sur tout le territoire national dans la construction, l'expansion et la maintenance d'infrastructures d'accès, au service des opérateurs, des entreprises privées et des entités publiques." },
-          { nome:'Belgique', d:'Activité sur le marché belge en infrastructures de télécommunications, avec des équipes dédiées à la construction et à la maintenance de réseaux en fibre optique et en cuivre.' },
+          { nome:'Portugal' },
+          { nome:'Belgique' },
         ],
+        textoUnico:"Nous intervenons au Portugal et en Belgique dans la construction, l'expansion et la maintenance d'infrastructures et de réseaux de télécommunications, au service des opérateurs, des entreprises privées et des entités publiques — avec nos propres équipes et une capacité d'intervention locale sur les deux marchés.",
       },
       recrutamento: {
         title:'Recrutement — Império Global', desc:"Rejoignez une équipe en croissance dans les infrastructures de télécommunications au Portugal et en Belgique.",
@@ -1108,7 +1111,6 @@ function bodyAreas(lang, S, up = upFor(lang)) {
           </figure>
           <span class="eyebrow">${(p.roles && p.roles[i]) || c.nome}</span>
           <h2>${c.nome}</h2>
-          <p>${c.d}</p>
         </article>`;
   }).join('');
   // pos: enquadramento deslocado para revelar Portugal (o mapa "anda" para a direita)
@@ -1117,6 +1119,7 @@ function bodyAreas(lang, S, up = upFor(lang)) {
       <div class="container">
         <div class="areas-grid">${paises}
         </div>
+        <p class="areas-texto">${p.textoUnico}</p>
       </div>
     </section>${ctaFinal(lang, S)}`;
 }
