@@ -202,6 +202,15 @@ const STRINGS = {
           'Se procura um novo desafio profissional e pretende integrar numa empresa sólida, dinâmica, inovadora e em constante crescimento, envie-nos a sua candidatura.',
         ],
         formTitle:'Candidatura espontânea',
+        vagasTitle:'Vagas abertas',
+        vagasIntro:'Estamos a reforçar as nossas equipas em Portugal. Candidate-se através do formulário abaixo ou envie o seu currículo para <a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a>.',
+        vagasLocal:'Local de trabalho: Portugal.',
+        vagas:[
+          { t:'Técnicos de Telecomunicações — Fibra e Cobre', d:'Instalação, manutenção e reparação de redes de telecomunicações.', r:'Com ou sem experiência.' },
+          { t:'Auxiliares de Telecomunicações', d:'Apoio aos técnicos na instalação e manutenção de redes, preparação de materiais e trabalhos no terreno.', r:'Com ou sem experiência.' },
+          { t:'Auxiliares de Construção Civil', d:'Apoio e execução de trabalhos em obra, com cumprimento das normas de segurança.', r:'Com ou sem experiência.' },
+          { t:'Manobradores de Máquinas', d:'Operação de máquinas em trabalhos de construção civil e infraestruturas.', r:'Experiência valorizada. Obrigatória carta de condução de pesados, conforme os requisitos da função.' },
+        ],
         f:{ nome:'Nome', email:'Email', telefone:'Telefone', area:'Área de interesse', msg:'Mensagem', cv:'Currículo (PDF ou DOC, máx. 5 MB)', submit:'Enviar candidatura' },
         areas:['Fibra ótica e cobre','Construção e manutenção','Logística','Administrativo'],
         consent:'Li e aceito a <a href="{priv}">Política de Privacidade</a> e autorizo o tratamento dos meus dados para efeitos de recrutamento.',
@@ -422,6 +431,15 @@ const STRINGS = {
           'If you are looking for a new professional challenge and wish to join a solid, dynamic, innovative and constantly growing company, send us your application.',
         ],
         formTitle:'Open application',
+        vagasTitle:'Open positions',
+        vagasIntro:'We are strengthening our teams in Portugal. Apply using the form below or send your CV to <a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a>.',
+        vagasLocal:'Workplace: Portugal.',
+        vagas:[
+          { t:'Telecommunications Technicians — Fibre and Copper', d:'Installation, maintenance and repair of telecommunications networks.', r:'With or without experience.' },
+          { t:'Telecommunications Assistants', d:'Supporting technicians in network installation and maintenance, preparing materials and field work.', r:'With or without experience.' },
+          { t:'Civil Construction Assistants', d:'Supporting and carrying out on-site work in compliance with safety regulations.', r:'With or without experience.' },
+          { t:'Machine Operators', d:'Operating machinery in civil construction and infrastructure works.', r:'Experience valued. Heavy vehicle driving licence required, according to the role\'s requirements.' },
+        ],
         f:{ nome:'Name', email:'Email', telefone:'Phone', area:'Area of interest', msg:'Message', cv:'Résumé (PDF or DOC, max. 5 MB)', submit:'Send application' },
         areas:['Optical fibre and copper','Construction and maintenance','Logistics','Administrative'],
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data for recruitment purposes.',
@@ -636,6 +654,15 @@ const STRINGS = {
           'Si vous recherchez un nouveau défi professionnel et souhaitez rejoindre une entreprise solide, dynamique, innovante et en pleine croissance, envoyez-nous votre candidature.',
         ],
         formTitle:'Candidature spontanée',
+        vagasTitle:'Postes à pourvoir',
+        vagasIntro:'Nous renforçons nos équipes au Portugal. Postulez via le formulaire ci-dessous ou envoyez votre CV à <a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a>.',
+        vagasLocal:'Lieu de travail : Portugal.',
+        vagas:[
+          { t:'Techniciens en télécommunications — Fibre et cuivre', d:'Installation, maintenance et réparation de réseaux de télécommunications.', r:'Avec ou sans expérience.' },
+          { t:'Assistants en télécommunications', d:'Appui aux techniciens pour l’installation et la maintenance des réseaux, préparation du matériel et travaux sur le terrain.', r:'Avec ou sans expérience.' },
+          { t:'Manœuvres en construction civile', d:'Appui et exécution de travaux sur chantier, dans le respect des normes de sécurité.', r:'Avec ou sans expérience.' },
+          { t:'Conducteurs d’engins', d:'Conduite d’engins sur des travaux de construction civile et d’infrastructures.', r:'Expérience appréciée. Permis poids lourds obligatoire, selon les exigences du poste.' },
+        ],
         f:{ nome:'Nom', email:'Email', telefone:'Téléphone', area:'Domaine d’intérêt', msg:'Message', cv:'CV (PDF ou DOC, max. 5 Mo)', submit:'Envoyer la candidature' },
         areas:['Fibre optique et cuivre','Construction et maintenance','Logistique','Administratif'],
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données à des fins de recrutement.',
@@ -1138,7 +1165,27 @@ function bodyRecrutamento(lang, S, up = upFor(lang)) {
   const consent = p.consent.replace('{priv}', relLink(lang, lang, 'privacidade'));
   // Imagem limpa (sem texto) + texto HTML alinhado ao logo. Lado esquerdo claro → texto escuro. Todos os idiomas.
   const hero = heroBanner(lang, up, 'recrutamento-bg.jpg', p.eyebrow, p.h1, { sub: p.intro, dark: true });
+  // Vagas abertas (pedido da cliente, out/2026) + JobPosting para o Google for Jobs
+  const vagas = p.vagas.map((v, i) => `
+          <article class="vaga rv"><span class="vaga__num" aria-hidden="true">0${i + 1}</span><h3>${v.t}</h3><p>${v.d}</p><p class="vaga__req">${v.r}</p></article>`).join('');
+  const jobLd = JSON.stringify(p.vagas.map(v => ({
+    '@context': 'https://schema.org', '@type': 'JobPosting', title: v.t, description: `${v.d} ${v.r}`, datePosted: '2026-10-09',
+    hiringOrganization: { '@type': 'Organization', name: 'Império Global', sameAs: 'https://www.imperioglobal.eu' },
+    jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressCountry: 'PT' } },
+    directApply: true,
+  })));
   return `${hero}
+    <section class="section" style="background:var(--nevoa)">
+      <div class="container">
+        <span class="eyebrow rv">${p.eyebrow}</span>
+        <h2 class="rv" style="margin:0 0 .75rem">${p.vagasTitle}</h2>
+        <p class="lead rv">${p.vagasIntro}</p>
+        <div class="vagas">${vagas}
+        </div>
+        <p class="vagas__local rv">${p.vagasLocal}</p>
+      </div>
+      <script type="application/ld+json">${jobLd}</script>
+    </section>
     <section class="section">
       <div class="container">
         <h2 class="rv" style="margin:0 0 .75rem">${p.formTitle}</h2>

@@ -751,3 +751,13 @@ p{ margin:0 0 1rem }
 .areas-texto{ max-width:70ch; margin:2.25rem auto 0; text-align:center;
   font-size:1.06rem; line-height:1.75; color:var(--cinza-texto) }
 @media (max-width:640px){ .areas-texto{ text-align:left; font-size:1rem } }
+
+/* Recrutamento — vagas abertas */
+.vagas{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin-top:1.75rem }
+.vaga{ position:relative; background:#fff; border:1px solid var(--linha); border-radius:var(--raio); padding:1.5rem 1.5rem 1.35rem; box-shadow:var(--sombra) }
+.vaga__num{ font-family:var(--font-titulo); font-weight:700; font-size:.85rem; letter-spacing:.08em; color:var(--azul-sinal) }
+.vaga h3{ margin:.35rem 0 .5rem; color:var(--azul-imperio) }
+.vaga p{ margin:0; color:var(--cinza-texto) }
+.vaga .vaga__req{ margin-top:.65rem; font-weight:600; font-size:.95rem; color:var(--azul-imperio) }
+.vagas__local{ margin:1.5rem 0 0; font-weight:600; color:var(--azul-imperio) }
+@media (max-width:720px){ .vagas{ grid-template-columns:1fr } }
