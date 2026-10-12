@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const ASSET_V = 'v=20260918a';  // muda quando uma imagem é reeditada (força recarregamento)
+const ASSET_V = 'v=20261012a';  // muda quando uma imagem é reeditada (força recarregamento)
 const BASE = 'https://www.imperioglobal.eu'; // TODO: confirmar domínio final
 const LANGS = ['pt', 'en', 'fr'];
 const OG_LOCALE = { pt: 'pt_PT', en: 'en_GB', fr: 'fr_BE' };
@@ -232,8 +232,8 @@ const STRINGS = {
         mailAuto:'Obrigado pelo seu contacto. Recebemos a sua mensagem e a nossa equipa da Império Global entrará em contacto o mais brevemente possível. Com os melhores cumprimentos, Equipa Império Global.',
         infoTitle:'Contactos',
         email:'administrativo@imperioglobal.eu',
-        phone:'+351 244 811 076', /* TODO: telefone real */
-        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena',
+        phone:'+351 249 882 229', phone2:'+351 249 897 510',
+        morada:'Rua do Troviscal N.º 716, 2380-226 Bugalhos, Alcanena',
         mapa:'Mapa disponível em breve',
       },
       privacidade: {
@@ -459,8 +459,8 @@ const STRINGS = {
         consent:'I have read and accept the <a href="{priv}">Privacy Policy</a> and consent to the processing of my data to respond to my request.',
         mailSubject:'🟢 Contact · New enquiry — Império Global',
         mailAuto:'Thank you for your message. We have received your request and our team at Império Global will get back to you as soon as possible. Kind regards, The Império Global Team.',
-        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena', mapa:'Map available soon',
+        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 249 882 229', phone2:'+351 249 897 510',
+        morada:'Rua do Troviscal N.º 716, 2380-226 Bugalhos, Alcanena', mapa:'Map available soon',
       },
       privacidade: {
         title:'Privacy Policy — Império Global', desc:'Privacy and personal data policy of Império Global, in accordance with the GDPR.',
@@ -682,8 +682,8 @@ const STRINGS = {
         consent:'J’ai lu et j’accepte la <a href="{priv}">Politique de confidentialité</a> et je consens au traitement de mes données pour répondre à ma demande.',
         mailSubject:'🟢 Contact · Nouvelle demande — Império Global',
         mailAuto:'Merci pour votre message. Nous avons bien reçu votre demande et notre équipe Império Global vous répondra dans les plus brefs délais. Cordialement, l’équipe Império Global.',
-        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 244 811 076',
-        morada:'Rua Troviscal N.º 176, 2380-226 Bugalhos, Alcanena', mapa:'Carte disponible prochainement',
+        infoTitle:'Contacts', email:'administrativo@imperioglobal.eu', phone:'+351 249 882 229', phone2:'+351 249 897 510',
+        morada:'Rua do Troviscal N.º 716, 2380-226 Bugalhos, Alcanena', mapa:'Carte disponible prochainement',
       },
       privacidade: {
         title:'Politique de confidentialité — Império Global', desc:'Politique de confidentialité et de traitement des données personnelles d’Império Global, conforme au RGPD.',
@@ -1257,12 +1257,12 @@ function bodyContacto(lang, S, up = upFor(lang)) {
             <div class="contact-block">
               <div class="contact-item">${ICON.mail}<div><strong>Email</strong><a href="mailto:${p.email}">${p.email}</a></div></div>
               <div class="contact-item">${ICON.mail}<div><strong>${lang==='fr'?'Ressources humaines':lang==='en'?'Human Resources':'Recursos Humanos'}</strong><a href="mailto:rh@imperioglobal.eu">rh@imperioglobal.eu</a></div></div>
-              <div class="contact-item">${ICON.phone}<div><strong>${f.telefone}</strong><a href="tel:${p.phone.replace(/\s/g, '')}">${p.phone}</a></div></div>
-              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=Rua+Troviscal+176,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener">${p.morada}</a></div></div>
+              <div class="contact-item">${ICON.phone}<div><strong>${f.telefone}</strong><a href="tel:${p.phone.replace(/\s/g, '')}">${p.phone}</a>${p.phone2 ? `<br><a href="tel:${p.phone2.replace(/\s/g, '')}">${p.phone2}</a>` : ''}</div></div>
+              <div class="contact-item">${ICON.pin}<div><strong>${lang==='fr'?'Adresse':lang==='en'?'Address':'Morada'}</strong><a href="https://maps.google.com/?q=Rua+do+Troviscal+716,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener">${p.morada}</a></div></div>
             </div>
             <div class="contact-map" style="margin-top:1.5rem">
-              <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Troviscal%20176%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
-              <a class="contact-map__lock" href="https://maps.google.com/?q=Rua+Troviscal+176,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener" aria-label="${lang==='fr'?'Ouvrir dans Google Maps':lang==='en'?'Open in Google Maps':'Abrir no Google Maps'}"></a>
+              <iframe title="Mapa — Império Global, Alcanena" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20do%20Troviscal%20716%2C%202380-226%20Bugalhos%2C%20Alcanena&output=embed"></iframe>
+              <a class="contact-map__lock" href="https://maps.google.com/?q=Rua+do+Troviscal+716,+2380-226+Bugalhos,+Alcanena" target="_blank" rel="noopener" aria-label="${lang==='fr'?'Ouvrir dans Google Maps':lang==='en'?'Open in Google Maps':'Abrir no Google Maps'}"></a>
               <span class="contact-map__pin" aria-hidden="true"><img src="${up}assets/logo/imperio-oficial.png" alt="" width="640" height="197" loading="lazy"></span>
             </div>
           </div>
