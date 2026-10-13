@@ -1558,6 +1558,107 @@ function fmtDate(lang, iso) {
 
 const ARTICLES = [
   {
+    slug: 'certificacao-redes-fibra-otica',
+    cat: 'fibra',
+    date: '2026-10-13',
+    cover: 'certificacao-redes-fibra-cover.jpg',
+    langs: {
+      pt: {
+        title: 'Certificação de redes de fibra ótica: o que se mede e porquê',
+        desc: 'O que se mede numa certificação de rede de fibra ótica, com que limites, e por que o relatório vale tanto para quem executa como para quem recebe.',
+        excerpt: 'Certificar não é ver se passa luz: é provar com medições que o troço cumpre. O que se mede, com que limites e por que o relatório é a linha de base da rede.',
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>Certificar não é verificar se passa luz — é provar com medições que o troço cumpre o que foi contratado.</li>
+<li>Medem-se duas coisas, com dois instrumentos: a perda total, que aprova ou chumba, e o mapa de eventos, que diz onde está o problema.</li>
+<li>O limite não é um número universal: calcula-se a partir do comprimento, do número de fusões e de conectores.</li>
+<li>Sem certificação, a rede entra em serviço sem linha de base — e a primeira avaria não tem com o que ser comparada.</li>
+</ul></div>
+
+<p class="lead">Uma rede de fibra ótica pode estar a funcionar e, ainda assim, estar mal entregue. A luz passa, o serviço sobe, e o problema só aparece meses depois, quando a margem que ninguém mediu se esgota. Este artigo explica o que se mede numa certificação, com que limites, e por que razão o relatório vale tanto para quem executa como para quem recebe.</p>
+
+<h2 id="o-que-e">O que é certificar — e o que não é</h2>
+<p>A distinção que interessa cabe em duas linhas. Um teste de continuidade confirma que há luz do outro lado. Uma certificação quantifica a perda do troço e compara-a com um limite calculado. O primeiro responde à pergunta «funciona?». O segundo responde à pergunta «cumpre?».</p>
+<p>Apontar uma caneta ótica e ver luz a chegar à outra ponta não é certificar. É um teste de presença, útil durante a obra e sem qualquer valor contratual. A confusão entre os dois é a origem da maioria das receções que correm mal: a empreitada é dada por concluída com base numa verificação que não mede nada.</p>
+
+<h2 id="dois-niveis">Dois níveis, dois propósitos</h2>
+<p>A certificação assenta em duas medições complementares, feitas com equipamentos diferentes.</p>
+<ul>
+<li><strong>Nível 1 — fonte de luz e medidor de potência.</strong> Mede a perda total entre as duas extremidades do troço, em decibéis. É um valor absoluto, medido ponta a ponta. É este número que aprova ou chumba.</li>
+<li><strong>Nível 2 — OTDR.</strong> Devolve o mapa de eventos do troço: a que distância está cada fusão, cada conector e cada anomalia, com a perda e a reflectância de cada um. É este que diagnostica.</li>
+</ul>
+<p>O erro mais comum é entregar apenas o OTDR. O OTDR estima a perda por retrodifusão, a partir da luz que a fibra devolve; a medição com fonte e medidor é direta. São informações diferentes e não se substituem. Um caderno de encargos bem escrito pede as duas.</p>
+
+<h2 id="grandezas">As grandezas que contam</h2>
+<ul>
+<li><strong>Perda de inserção.</strong> Quanto se perde entre as duas pontas, em dB. É o número que decide a aceitação.</li>
+<li><strong>Reflectância.</strong> Quanta luz uma interface devolve na direção da origem. Mede-se em dB negativos e, quanto mais negativo, melhor. Como valores indicativos, conectores APC situam-se em −60 dB ou abaixo, e conectores UPC em −50 dB ou abaixo. Uma reflectância acima do esperado denuncia uma ligação suja, mal polida ou mal encaixada.</li>
+<li><strong>Perda de retorno ótica.</strong> O total de luz devolvido pelo troço no seu conjunto. É determinante em serviços analógicos e em transmissões de alto débito, onde a luz refletida degrada o sinal na origem.</li>
+<li><strong>Comprimento.</strong> O OTDR mede a distância real da fibra. Confrontá-la com o projeto confirma o traçado — e divergências significativas denunciam sobras não declaradas, desvios ou emendas que não constam do que foi entregue.</li>
+</ul>
+
+<h2 id="orcamento">O orçamento de perdas</h2>
+<p>O limite de aceitação não se tira de uma tabela geral. Calcula-se para cada troço, somando aquilo que cada elemento contribui.</p>
+<p>Tomemos um troço de 6 km, medido a 1550 nm, com quatro fusões e dois conectores:</p>
+<table class="art-table">
+<thead><tr><th>Componente</th><th>Cálculo</th><th>Perda</th></tr></thead>
+<tbody>
+<tr><td>Fibra</td><td>6 km × 0,22 dB/km</td><td>1,32 dB</td></tr>
+<tr><td>Fusões</td><td>4 × 0,10 dB</td><td>0,40 dB</td></tr>
+<tr><td>Conectores</td><td>2 × 0,30 dB</td><td>0,60 dB</td></tr>
+<tr><td><strong>Limite do troço</strong></td><td>—</td><td><strong>2,32 dB</strong></td></tr>
+</tbody>
+</table>
+<p>Se a medição der 2,10 dB, o troço cumpre. Se der 3,40 dB, chumba — e é o OTDR que mostra em que metro está o decibel a mais, poupando uma escavação às cegas.</p>
+<p>Os valores acima são indicativos do setor. Os limites que se aplicam numa obra concreta são sempre os do caderno de encargos ou os da especificação do operador.</p>
+
+<h2 id="dois-sentidos">Porque se mede nos dois sentidos</h2>
+<p>Esta é a parte que distingue uma certificação feita com rigor de uma certificação feita à pressa.</p>
+<p>Quando duas fibras fundidas têm diâmetros de campo modal ligeiramente diferentes, o OTDR pode apresentar essa fusão como uma perda negativa — um ganho que fisicamente não existe. Medida no sentido inverso, a mesma fusão aparece com o dobro da perda real. O valor verdadeiro é a média aritmética das duas medições.</p>
+<blockquote>Uma certificação feita num só sentido pode esconder uma fusão má atrás de um número aparentemente bom. Por isso a medição bidirecional não é um extra — é o que torna o relatório defensável.</blockquote>
+
+<h2 id="comprimentos-onda">Os comprimentos de onda e o que cada um denuncia</h2>
+<p>Em fibra monomodo mede-se a 1310 nm e a 1550 nm. Não é redundância: a comparação entre os dois valores é, em si mesma, um diagnóstico.</p>
+<p>Uma curvatura excessiva da fibra perde muito mais a 1550 nm do que a 1310 nm. Se a diferença entre as duas medições for anormalmente grande, existe uma macrocurvatura algures no traçado — mesmo que ambos os valores estejam dentro do limite. É uma anomalia que hoje não dá problema e daqui a dois anos dá.</p>
+<p>Redes preparadas para monitorização contínua acrescentam 1625 nm, um comprimento de onda fora da banda de serviço, que permite medir a fibra com a rede em produção e sem interromper clientes.</p>
+
+<h2 id="relatorio">O que tem de constar no relatório</h2>
+<p>Um relatório de certificação que não permita a outra pessoa repetir a medição nas mesmas condições não serve para receção. O mínimo:</p>
+<ul>
+<li>Identificação do troço, data da medição e técnico responsável.</li>
+<li>Equipamento utilizado, número de série e data da última calibração.</li>
+<li>Comprimentos de onda medidos e sentido de cada medição.</li>
+<li>Bobinas de lançamento e de receção utilizadas.</li>
+<li>Limite aplicado e o critério com que foi calculado.</li>
+<li>Resultado por troço, com o traço do OTDR anexo.</li>
+</ul>
+<p>As bobinas merecem uma nota. Sem bobina de lançamento, o primeiro conector do troço fica dentro da zona morta do instrumento e simplesmente não é medido; sem bobina de receção, acontece o mesmo ao último. São precisamente os dois pontos onde as ligações falham com mais frequência. Um relatório que não as declare está a omitir as duas extremidades.</p>
+
+<h2 id="linha-de-base">A certificação como linha de base</h2>
+<p>Aqui fecha-se o ciclo, e é este o argumento que costuma convencer quem hesita no custo.</p>
+<p>O valor medido no dia da entrega é a referência contra a qual toda a manutenção futura será comparada. Uma medição de rotina que devolva 0,4 dB acima da certificação original diz que alguma coisa mudou no troço — e diz isso antes de o serviço cair. Sem esse valor inicial, a mesma medição não diz nada: 2,5 dB é bom ou mau consoante o que lá estava no princípio, e ninguém sabe.</p>
+<p>É por isso que a certificação não é o fim da obra. É o primeiro registo da vida útil da rede.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-preventiva-fibra-otica.html">Manutenção preventiva em redes de fibra ótica: quando compensa</a> · <a href="manutencao-corretiva-fibra-otica.html">Manutenção corretiva: quando é a opção certa</a>.</p>
+
+<h2 id="faq">Perguntas frequentes</h2>
+<h3>O que é a certificação de uma rede de fibra ótica?</h3>
+<p>É o processo de medir a perda ótica de cada troço instalado e compará-la com um limite calculado a partir do projeto. Resulta num relatório que prova, com números, que a rede cumpre o que foi contratado.</p>
+<h3>Qual é a diferença entre certificar e testar a continuidade?</h3>
+<p>O teste de continuidade confirma apenas que existe luz na outra extremidade. A certificação quantifica quanta luz se perdeu e verifica se essa perda está dentro do limite admissível. Só a segunda tem valor contratual.</p>
+<h3>Que perda é aceitável num troço de fibra ótica?</h3>
+<p>Não existe um valor único. Calcula-se somando a atenuação da fibra pelo seu comprimento, a perda de cada fusão e a perda de cada conector. Num troço de 6 km com quatro fusões e dois conectores, o limite situa-se tipicamente perto de 2,3 dB a 1550 nm.</p>
+<h3>Porque é que a fibra se mede nos dois sentidos?</h3>
+<p>Porque diferenças no diâmetro de campo modal entre fibras fundidas fazem o OTDR apresentar perdas falsas, por vezes negativas. O valor real de cada fusão é a média das medições feitas nos dois sentidos.</p>
+<h3>O que deve constar num relatório de certificação?</h3>
+<p>A identificação do troço, a data, o técnico, o equipamento com número de série e data de calibração, os comprimentos de onda e sentidos medidos, as bobinas de lançamento e receção utilizadas, o limite aplicado e o resultado com o traço anexo.</p>
+
+<p>A Império Global executa certificação de redes de fibra ótica e cobre em Portugal e na Bélgica, com relatório completo por troço.</p>
+`,
+      },
+    },
+  },
+  {
     slug: 'manutencao-preventiva-fibra-otica',
     cat: 'manutencao',
     date: '2026-07-21',
