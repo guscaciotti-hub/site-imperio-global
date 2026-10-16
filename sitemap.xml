@@ -74,6 +74,10 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.imperioglobal.eu/fr/termos.html"/>
   </url>
   <url>
+    <loc>https://www.imperioglobal.eu/blog/survey-projeto-redes-ftth.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/survey-projeto-redes-ftth.html"/>
+  </url>
+  <url>
     <loc>https://www.imperioglobal.eu/blog/manutencao-preventiva-fibra-otica.html</loc>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/manutencao-preventiva-fibra-otica.html"/>
   </url>

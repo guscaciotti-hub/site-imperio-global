@@ -1393,9 +1393,9 @@ const BODY = {
    Para acrescentar um artigo: adicionar um objeto a ARTICLES (ver README).
    ===================================================================== */
 const CATEGORIES = {
-  pt: { fibra:'Fibra Ótica', construcao:'Construção de Redes', manutencao:'Manutenção e Operação', regulamentacao:'Regulamentação', casos:'Casos e Projetos', insights:'Insights do Setor' },
-  en: { fibra:'Optical Fibre', construcao:'Network Construction', manutencao:'Maintenance & Operation', regulamentacao:'Regulation', casos:'Cases & Projects', insights:'Industry Insights' },
-  fr: { fibra:'Fibre optique', construcao:'Construction de réseaux', manutencao:'Maintenance et exploitation', regulamentacao:'Réglementation', casos:'Cas et projets', insights:'Perspectives du secteur' },
+  pt: { fibra:'Fibra Ótica', construcao:'Construção de Redes', manutencao:'Manutenção e Operação', regulamentacao:'Regulamentação', casos:'Casos e Projetos', insights:'Insights do Setor', projeto:'Projeto e Qualidade' },
+  en: { fibra:'Optical Fibre', construcao:'Network Construction', manutencao:'Maintenance & Operation', regulamentacao:'Regulation', casos:'Cases & Projects', insights:'Industry Insights', projeto:'Design & Quality' },
+  fr: { fibra:'Fibre optique', construcao:'Construction de réseaux', manutencao:'Maintenance et exploitation', regulamentacao:'Réglementation', casos:'Cas et projets', insights:'Perspectives du secteur', projeto:'Conception et qualité' },
 };
 const BLOG_UI = {
   pt: { metaTitle:'Blog — Perspetivas técnicas | Império Global', metaDesc:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', eyebrow:'Blog', h1:'Perspetivas técnicas', lead:'Análises, boas práticas e perspetivas sobre construção, expansão e manutenção de infraestruturas de telecomunicações.', all:'Todas', min:'min de leitura', by:'Por', toc:'Neste artigo', related:'Artigos relacionados', ctaTitle:'Precisa de apoio técnico para o seu projeto?', ctaBtn:'Fale connosco', author:'Equipa Império Global', empty:'Sem artigos nesta categoria.' },
@@ -1485,7 +1485,11 @@ function headArticle(lang, art, S, up) {
   const alt = avail.map(l => `  <link rel="alternate" hreflang="${l}" href="${BASE + articleUrl(l, art)}">`).join('\n');
   const rt = readingTime(a.body);
   const ogImg = `${BASE}/assets/img/blog/${art.cover || art.slug + '-og.png'}`;
-  const schema = `{"@context":"https://schema.org","@type":"Article","headline":${JSON.stringify(a.title)},"description":${JSON.stringify(a.desc)},"inLanguage":"${lang}","datePublished":"${art.date}","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"${BASE}/assets/favicon/icon-512.png"}},"mainEntityOfPage":"${canonical}","image":"${ogImg}","timeRequired":"PT${rt}M"}`;
+  const article = `{"@context":"https://schema.org","@type":"Article","headline":${JSON.stringify(a.title)},"description":${JSON.stringify(a.desc)},"inLanguage":"${lang}","datePublished":"${art.date}","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"${BASE}/assets/favicon/icon-512.png"}},"mainEntityOfPage":"${canonical}","image":"${ogImg}","timeRequired":"PT${rt}M"}`;
+  // FAQPage (AEO) quando o artigo define perguntas frequentes
+  const faq = a.faq && a.faq.length ? JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: a.faq.map(q => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) }) : '';
+  const schema = faq ? `[${article},${faq}]` : article;
   return head(lang, 'blog', S, up, {
     title: `${a.title} — Império Global`, desc: a.desc, canonical, alt,
     ogImage: ogImg, schema,
@@ -1503,7 +1507,8 @@ function bodyArticle(lang, art, S, up) {
           <ul>${toc.map(x => `<li><a href="#${x.id}">${x.t}</a></li>`).join('')}</ul>
         </nav>` : '';
   // relacionados: mesma categoria, outros idiomas presentes
-  const related = ARTICLES.filter(x => x.slug !== art.slug && x.cat === art.cat && x.langs[lang]).slice(0, 3);
+  let related = ARTICLES.filter(x => x.slug !== art.slug && x.cat === art.cat && x.langs[lang]).slice(0, 3);
+  if (!related.length) related = ARTICLES.filter(x => x.slug !== art.slug && x.langs[lang]).sort((x, y) => (x.date < y.date ? 1 : -1)).slice(0, 2);
   const relHtml = related.length ? `
     <section class="section section--nevoa">
       <div class="container">
@@ -1517,7 +1522,7 @@ function bodyArticle(lang, art, S, up) {
       <div class="container">
         <a class="article-back" href="${relLinkUp(up, lang, 'blog')}">← ${S.nav.blog}</a>
         <figure class="article-cover">
-          <img src="${up}assets/img/blog/${art.cover}" alt="${a.title}" width="1536" height="1024" loading="eager" fetchpriority="high">
+          <img src="${up}assets/img/blog/${art.cover}" alt="${a.title}" width="${art.coverW || 1536}" height="${art.coverH || 1024}" loading="eager" fetchpriority="high">
         </figure>
         <p class="article-meta article-lead__meta"><span class="badge">${cat}</span>${ui.by} ${ui.author} · ${fmtDate(lang, art.date)} · ${rt} ${ui.min}</p>
       </div>
@@ -1557,6 +1562,89 @@ function fmtDate(lang, iso) {
 }
 
 const ARTICLES = [
+  {
+    slug: 'survey-projeto-redes-ftth',
+    cat: 'projeto',
+    date: '2026-10-16',
+    cover: 'survey-projeto-ftth-cover.jpg', coverW: 1200, coverH: 630,
+    langs: {
+      pt: {
+        title: 'Survey e projeto de redes FTTH: o que deve incluir',
+        desc: 'Saiba o que deve incluir o survey e projeto de uma rede FTTH: levantamento no terreno, traçado, divisão ótica, reservas de cabo e orçamento de perdas.',
+        excerpt: 'O que levantar no terreno e o que decidir no projeto antes de construir uma rede FTTH.',
+        faq: [
+          { q:'Qual é a diferença entre survey e projeto?', a:'O survey é o levantamento no terreno: regista o que existe e em que estado. O projeto usa esse levantamento para decidir como a rede vai ser construída, com traçado, materiais e cálculos definidos.' },
+          { q:'A cartografia existente não chega para projetar?', a:'É um bom ponto de partida, mas não substitui a verificação no local. Os registos nem sempre refletem o estado atual das condutas, dos apoios ou das fachadas, e essas diferenças só aparecem no terreno.' },
+          { q:'Porque é que o orçamento de perdas entra logo no projeto?', a:'Porque determina se cada ligação vai funcionar com margem suficiente. Calculá-lo antes de construir permite ajustar o traçado ou a divisão ótica no papel, em vez de corrigir depois da instalação.' },
+          { q:'O survey e projeto também se aplicam à expansão de redes existentes?', a:'Sim. Numa expansão, o levantamento inclui a capacidade disponível nas caixas e nos cabos já instalados, para que a nova rede se integre na existente sem conflitos de identificação ou de espaço.' },
+        ],
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>O survey é o levantamento no terreno que confirma o que a cartografia não mostra: condutas disponíveis, estado dos apoios, acessos e pontos a servir.</li>
+<li>O projeto transforma esse levantamento em decisões: traçado, cabos, divisão ótica, caixas de junção, reservas de cabo e orçamento de perdas.</li>
+<li>Um projeto completo reduz alterações em obra e encurta o tempo de reparação ao longo da vida da rede.</li>
+<li>Antes de construir, cada fibra deve ter origem, destino e perda prevista definidos no papel.</li>
+</ul></div>
+
+<p class="lead">Corrigir um traçado no papel custa umas horas de desenho. Corrigi-lo com a vala aberta custa obra parada. Um survey e projeto de rede FTTH deve incluir o levantamento físico da infraestrutura disponível (condutas, câmaras de visita, postes e fachadas) e dos pontos a servir. A partir daí, define o traçado, a arquitetura de divisão ótica, a localização das caixas de junção e de distribuição, as reservas de cabo e o orçamento de perdas de cada ligação.</p>
+
+<h2 id="survey">O survey: confirmar no terreno o que o mapa não mostra</h2>
+<p>A cartografia e os cadastros de infraestruturas existentes são o ponto de partida de qualquer projeto. Mas descrevem a rede como foi registada, não necessariamente como está hoje.</p>
+<p>Uma conduta pode estar ocupada ou obstruída. Uma câmara de visita pode ter ficado sob uma rampa de garagem. Um poste pode já não ter capacidade para mais um cabo. Uma fachada pode ter sido renovada desde o último registo.</p>
+<p>O survey existe para responder a estas perguntas antes de a obra começar. Uma equipa percorre o traçado previsto, abre câmaras, verifica apoios e regista o que encontra, troço a troço.</p>
+
+<h2 id="levantar">O que um survey de rede FTTH deve levantar</h2>
+<p>Um levantamento útil para o projetista cobre, no mínimo, seis frentes:</p>
+<ul>
+<li><strong>Infraestrutura subterrânea:</strong> condutas existentes, taxa de ocupação, estado e continuidade; câmaras de visita e respetivo acesso.</li>
+<li><strong>Infraestrutura aérea:</strong> postes e apoios, estado de conservação, cabos já instalados e espaço disponível.</li>
+<li><strong>Fachadas e entradas de edifício:</strong> percursos possíveis para o cabo, pontos de fixação e existência de tubagem ou infraestruturas de telecomunicações no edifício.</li>
+<li><strong>Pontos a servir:</strong> moradas, número de fogos por edifício e construções previstas que já sejam conhecidas.</li>
+<li><strong>Condicionantes:</strong> travessias de estradas, linhas férreas ou cursos de água, e zonas que exijam licenciamento ou condicionamento de trânsito.</li>
+<li><strong>Registo:</strong> fotografias georreferenciadas e notas por ponto, para que o projetista veja o que a equipa viu.</li>
+</ul>
+<p>Este último ponto faz a diferença. Um survey bem documentado permite tomar decisões no gabinete sem voltar ao terreno para tirar dúvidas.</p>
+
+<h2 id="projeto">Do levantamento ao projeto: as decisões que ficam escritas</h2>
+<p>Com o levantamento fechado, o projeto define como a rede vai ser construída. Cada decisão fica registada, para que a equipa de obra execute sem ter de interpretar.</p>
+<ul>
+<li><strong>Traçado e tipo de construção:</strong> aéreo, subterrâneo em conduta existente, nova conduta ou fachada, decidido troço a troço.</li>
+<li><strong>Arquitetura de divisão ótica:</strong> onde ficam os divisores (splitters) e com que níveis de divisão, numa solução centralizada ou em cascata.</li>
+<li><strong>Dimensionamento dos cabos:</strong> número de fibras por troço, com margem para crescimento da procura.</li>
+<li><strong>Caixas de junção e de distribuição:</strong> localização, capacidade e acesso para manutenção.</li>
+<li><strong>Reservas de cabo:</strong> comprimento deixado em pontos estratégicos para futuras fusões e reparações.</li>
+<li><strong>Orçamento de perdas:</strong> soma da atenuação da fibra, das fusões, dos conectores e dos divisores em cada percurso, comparada com o limite admitido pelo equipamento ativo.</li>
+<li><strong>Identificação:</strong> numeração de cabos e fibras segundo o código de cores EIA/TIA-598, para que a documentação corresponda ao que fica instalado.</li>
+</ul>
+
+<blockquote>Um bom projeto é aquele que a equipa de obra consegue executar sem ter de o reinventar no terreno.</blockquote>
+
+<h2 id="poupa">O que um projeto completo poupa depois da entrega</h2>
+<p>O valor de um projeto rigoroso não se esgota na construção. Acompanha a rede durante toda a vida útil.</p>
+<p><strong>Na construção</strong>, reduz alterações de traçado, pedidos de licença repetidos e deslocações desnecessárias. Os materiais podem ser preparados com antecedência e com as quantidades certas, o que simplifica a logística de obra.</p>
+<p><strong>Na certificação</strong>, o orçamento de perdas calculado em projeto é a referência com que se comparam os ensaios de aceitação. Se uma ligação medida se afasta do valor previsto, há um ponto concreto a verificar.</p>
+<p><strong>Na manutenção</strong>, a documentação e as reservas de cabo encurtam o caminho entre o alarme e a reparação. A equipa sabe que fibra procurar, em que caixa e com que folga de cabo pode trabalhar.</p>
+
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3>Qual é a diferença entre survey e projeto?</h3>
+<p>O survey é o levantamento no terreno: regista o que existe e em que estado. O projeto usa esse levantamento para decidir como a rede vai ser construída, com traçado, materiais e cálculos definidos.</p>
+<h3>A cartografia existente não chega para projetar?</h3>
+<p>É um bom ponto de partida, mas não substitui a verificação no local. Os registos nem sempre refletem o estado atual das condutas, dos apoios ou das fachadas, e essas diferenças só aparecem no terreno.</p>
+<h3>Porque é que o orçamento de perdas entra logo no projeto?</h3>
+<p>Porque determina se cada ligação vai funcionar com margem suficiente. Calculá-lo antes de construir permite ajustar o traçado ou a divisão ótica no papel, em vez de corrigir depois da instalação.</p>
+<h3>O survey e projeto também se aplicam à expansão de redes existentes?</h3>
+<p>Sim. Numa expansão, o levantamento inclui a capacidade disponível nas caixas e nos cabos já instalados, para que a nova rede se integre na existente sem conflitos de identificação ou de espaço.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>O survey e o projeto são as fases menos visíveis de uma rede FTTH e as que mais condicionam tudo o que vem depois. Um levantamento completo evita surpresas na obra. Um projeto rigoroso dá à construção, à certificação e à manutenção a mesma referência.</p>
+<p>Construir bem começa por saber exatamente o que se vai construir.</p>
+<p>A Império Global presta serviços de survey e projeto, construção de redes e manutenção de infraestruturas de telecomunicações, do levantamento inicial à rede em serviço.</p>
+<p><strong>Leitura relacionada:</strong> <a href="manutencao-corretiva-fibra-otica.html">Manutenção corretiva em redes de fibra ótica: quando é a opção certa</a> — o que a capacidade de resposta exige da rede construída.</p>
+`,
+      },
+    },
+  },
   {
     slug: 'manutencao-preventiva-fibra-otica',
     cat: 'manutencao',
