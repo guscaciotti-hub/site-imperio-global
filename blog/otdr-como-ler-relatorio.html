@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OTDR: o que mostra e como ler um relatório de fibra ótica — Império Global</title>
+  <meta name="description" content="O que um OTDR mede numa rede de fibra ótica, o que significa cada evento do traçado e como ler o relatório para aceitar ou rejeitar uma ligação.">
+  <link rel="canonical" href="https://www.imperioglobal.eu/blog/otdr-como-ler-relatorio.html">
+  <link rel="alternate" hreflang="pt" href="https://www.imperioglobal.eu/blog/otdr-como-ler-relatorio.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.imperioglobal.eu/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="OTDR: o que mostra e como ler um relatório de fibra ótica — Império Global">
+  <meta property="og:description" content="O que um OTDR mede numa rede de fibra ótica, o que significa cada evento do traçado e como ler o relatório para aceitar ou rejeitar uma ligação.">
+  <meta property="og:url" content="https://www.imperioglobal.eu/blog/otdr-como-ler-relatorio.html">
+  <meta property="og:image" content="https://www.imperioglobal.eu/assets/img/blog/otdr-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OTDR: o que mostra e como ler um relatório de fibra ótica — Império Global">
+  <meta name="twitter:description" content="O que um OTDR mede numa rede de fibra ótica, o que significa cada evento do traçado e como ler o relatório para aceitar ou rejeitar uma ligação.">
+  <meta name="twitter:image" content="https://www.imperioglobal.eu/assets/img/blog/otdr-cover.jpg">
+  <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/icon-180.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#013F80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  [{"@context":"https://schema.org","@type":"Article","headline":"OTDR: o que mostra e como ler um relatório de fibra ótica","description":"O que um OTDR mede numa rede de fibra ótica, o que significa cada evento do traçado e como ler o relatório para aceitar ou rejeitar uma ligação.","inLanguage":"pt","datePublished":"2026-10-30","author":{"@type":"Organization","name":"Império Global"},"publisher":{"@type":"Organization","name":"Império Global","logo":{"@type":"ImageObject","url":"https://www.imperioglobal.eu/assets/favicon/icon-512.png"}},"mainEntityOfPage":"https://www.imperioglobal.eu/blog/otdr-como-ler-relatorio.html","image":"https://www.imperioglobal.eu/assets/img/blog/otdr-cover.jpg","timeRequired":"PT6M"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OTDR ou medidor de potência: qual é o essencial?","acceptedAnswer":{"@type":"Answer","text":"Os dois, com funções diferentes. O medidor de potência com fonte ótica mede a perda total real de cada ligação e é a base da certificação. O OTDR mostra onde a perda acontece e serve para diagnosticar e documentar cada evento."}},{"@type":"Question","name":"Porque se mede a 1310 nm e a 1550 nm?","acceptedAnswer":{"@type":"Answer","text":"Porque os eventos reagem de forma diferente a cada comprimento de onda. Uma curvatura apertada perde muito mais a 1550 nm do que a 1310 nm; uma fusão perde o mesmo nos dois. Comparar as duas medições permite distinguir uma coisa da outra."}},{"@type":"Question","name":"O que é a zona morta e porque importa a bobina de lançamento?","acceptedAnswer":{"@type":"Answer","text":"A zona morta é o troço inicial em que a reflexão do conector do equipamento cega o OTDR. A bobina de lançamento — uma fibra de comprimento conhecido entre o equipamento e a rede — afasta o primeiro conector da rede dessa zona, para que seja medido."}},{"@type":"Question","name":"Uma rede nova precisa de relatório OTDR?","acceptedAnswer":{"@type":"Answer","text":"Para aceitação formal, sim: além da certificação de perda, o relatório OTDR documenta cada fusão e conector e fica como referência de base. Numa avaria futura, compara-se o traçado novo com o original e vê-se de imediato o que mudou."}}]}]
+  </script>
+</head>
+<body>
+  <a href="#conteudo" class="skip-link" style="position:absolute;left:-999px">Saltar para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="nav__logo" href="../" aria-label="Império Global">
+        <img src="../assets/logo/imperio-oficial.png" alt="Império Global" width="640" height="197">
+      </a>
+      <button class="nav__toggle" aria-label="Início" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
+      <div class="nav__menu" id="menu-principal">
+        <nav class="nav__links" aria-label="Navegação">
+          <a href="../">Início</a>
+          <a href="../sobre.html">Sobre</a>
+          <a href="../servicos.html">Serviços</a>
+          <a href="../areas.html">Áreas de Atuação</a>
+          <a href="../blog/" aria-current="page">Blog</a>
+          <a href="../recrutamento.html">Recrutamento</a>
+          <a href="../contacto.html">Contacto</a>
+        </nav>
+        <div class="lang" aria-label="idioma"><a href="otdr-como-ler-relatorio.html" hreflang="pt" aria-current="true">PT</a><span>|</span><a href="../en/blog/" hreflang="en">EN</a><span>|</span><a href="../fr/blog/" hreflang="fr">FR</a></div>
+      </div>
+    </div>
+  </header>
+  <main id="conteudo">
+    <h1 class="sr-only">OTDR: o que mostra e como ler um relatório de fibra ótica</h1>
+    <section class="section article-lead">
+      <div class="container">
+        <a class="article-back" href="../blog/">← Blog</a>
+        <figure class="article-cover">
+          <img src="../assets/img/blog/otdr-cover.jpg" alt="OTDR: o que mostra e como ler um relatório de fibra ótica" width="1200" height="630" loading="eager" fetchpriority="high">
+        </figure>
+        <p class="article-meta article-lead__meta"><span class="badge">Fibra Ótica</span>Por Equipa Império Global · 30 de outubro de 2026 · 6 min de leitura</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:clamp(24px,4vw,40px)">
+      <div class="container">
+        <div class="article">
+          
+        <nav class="toc" aria-label="Neste artigo">
+          <strong>Neste artigo</strong>
+          <ul><li><a href="#o-que-mede">O que o OTDR mede</a></li><li><a href="#cinco-eventos">Ler o traçado: os cinco eventos</a></li><li><a href="#relatorio">O relatório: o que tem de constar</a></li><li><a href="#erros">Erros que invalidam um relatório</a></li><li><a href="#perguntas-frequentes">Perguntas frequentes</a></li><li><a href="#conclusao">Conclusão</a></li></ul>
+        </nav>
+          <div class="article__body">
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>O OTDR envia impulsos de luz pela fibra e mede o que regressa. O traçado mostra onde a fibra perde ou reflete luz, e a que distância.</li>
+<li>Cada evento tem três números: distância, perda e refletância. É a tabela de eventos que se lê, não só o gráfico.</li>
+<li>Um relatório aceita-se comparando a perda total com o orçamento de perdas do projeto, e medindo nos dois sentidos.</li>
+<li>O OTDR localiza; o medidor de potência valida. Numa certificação completa usam-se os dois.</li>
+</ul></div>
+
+<p class="lead">Um traçado de OTDR parece um eletrocardiograma da fibra. E, tal como um, não serve de nada a quem não o sabe ler. Um OTDR (reflectómetro ótico no domínio do tempo) mede a luz que regressa ao longo da fibra e converte-a num gráfico de perda em função da distância. Ler o relatório é identificar cada evento — fusão, conector, curvatura, fim de fibra —, verificar a perda de cada um e confirmar que o total cabe no orçamento de perdas definido em projeto.</p>
+
+<h2 id="o-que-mede">O que o OTDR mede</h2>
+<p>O equipamento lança um impulso curto de luz e escuta. Uma pequena fração da luz é devolvida de forma contínua pela própria fibra (retrodifusão de Rayleigh); nos conectores e nas quebras há reflexões mais fortes (reflexões de Fresnel). Como a velocidade da luz na fibra é conhecida através do índice de refração, o tempo que a luz demora a voltar converte-se em distância.</p>
+<p>O resultado é uma linha descendente: a inclinação é a atenuação da fibra, em dB/km; cada degrau é um evento que perde luz; cada pico é um evento que a reflete.</p>
+<p>Dois parâmetros condicionam tudo o resto. O comprimento de onda — medir a 1310 nm e a 1550 nm dá informação diferente, e 1625 nm usa-se em redes em serviço. E a largura do impulso: quanto mais curto, mais resolução para separar eventos próximos, mas menos alcance.</p>
+
+<h2 id="cinco-eventos">Ler o traçado: os cinco eventos</h2>
+<ul>
+<li><strong>Início e zona morta.</strong> Logo após o conector do equipamento há um troço em que o OTDR está saturado pela reflexão e não vê nada. É por isso que se mede com uma bobina de lançamento: afasta o primeiro conector da rede para fora da zona morta.</li>
+<li><strong>Fusão.</strong> Degrau pequeno, sem reflexão. Valor de referência corrente: até 0,1 dB.</li>
+<li><strong>Conector.</strong> Degrau com pico refletivo. Referência corrente: até 0,5 dB por par de conectores, com refletância dentro do limite do tipo de polimento.</li>
+<li><strong>Curvatura ou esmagamento.</strong> Perda sem reflexão, maior a 1550 nm do que a 1310 nm. Esta diferença entre comprimentos de onda é a assinatura de uma macrocurvatura.</li>
+<li><strong>Fim de fibra ou quebra.</strong> Pico forte seguido de ruído, se a extremidade for limpa; queda abrupta sem reflexão, se a quebra for irregular.</li>
+</ul>
+<p>A inclinação entre eventos deve corresponder à atenuação esperada da fibra. Para fibra monomodo G.652, os valores de referência andam à volta de 0,35 dB/km a 1310 nm e 0,2 dB/km a 1550 nm.</p>
+
+<h2 id="relatorio">O relatório: o que tem de constar</h2>
+<p>Um relatório de OTDR que serve para aceitar uma rede tem de permitir a outra pessoa repetir a medição e chegar ao mesmo resultado. Por isso inclui:</p>
+<ul>
+<li>identificação da fibra, do cabo e do sentido de medição;</li>
+<li>parâmetros: comprimento de onda, largura de impulso, alcance e índice de refração usado;</li>
+<li>tabela de eventos: distância, tipo, perda, refletância e perda acumulada;</li>
+<li>perda total e comprimento da ligação;</li>
+<li>comparação com os limiares definidos em projeto, com resultado de aprovado ou reprovado por fibra;</li>
+<li>data, equipamento e operador.</li>
+</ul>
+<p>Um ponto que separa um relatório sério de um relatório decorativo: a medição nos dois sentidos. Quando duas fibras unidas por fusão têm diâmetros de campo modal ligeiramente diferentes, o OTDR mostra num sentido uma perda exagerada e no outro um ganho aparente. Só a média das duas medições dá o valor real da fusão.</p>
+
+<blockquote>O OTDR diz onde está o problema. O medidor de potência diz se a ligação passa. Confundir os dois é a origem de muitas discussões na aceitação de uma rede.</blockquote>
+
+<h2 id="erros">Erros que invalidam um relatório</h2>
+<ul>
+<li><strong>Medir sem bobina de lançamento.</strong> O primeiro conector da rede fica escondido na zona morta e nunca é avaliado.</li>
+<li><strong>Largura de impulso desadequada.</strong> Com impulsos longos, dois eventos próximos aparecem como um só; com impulsos demasiado curtos, o fim da fibra perde-se no ruído.</li>
+<li><strong>Índice de refração errado.</strong> Todas as distâncias do relatório ficam deslocadas, e a localização de uma avaria futura também.</li>
+<li><strong>Aceitar só com o OTDR.</strong> A certificação de referência (Tier 1) faz-se com medidor de potência e fonte ótica, que medem a perda real de inserção. O OTDR é a camada seguinte (Tier 2): caracteriza cada evento, mas não substitui a primeira.</li>
+<li><strong>Limiares definidos depois da medição.</strong> O critério de aceitação vem do orçamento de perdas do projeto, antes de ligar o equipamento. Se se define depois, o relatório aprova tudo.</li>
+</ul>
+
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3>OTDR ou medidor de potência: qual é o essencial?</h3>
+<p>Os dois, com funções diferentes. O medidor de potência com fonte ótica mede a perda total real de cada ligação e é a base da certificação. O OTDR mostra onde a perda acontece e serve para diagnosticar e documentar cada evento.</p>
+<h3>Porque se mede a 1310 nm e a 1550 nm?</h3>
+<p>Porque os eventos reagem de forma diferente a cada comprimento de onda. Uma curvatura apertada perde muito mais a 1550 nm do que a 1310 nm; uma fusão perde o mesmo nos dois. Comparar as duas medições permite distinguir uma coisa da outra.</p>
+<h3>O que é a zona morta e porque importa a bobina de lançamento?</h3>
+<p>A zona morta é o troço inicial em que a reflexão do conector do equipamento cega o OTDR. A bobina de lançamento — uma fibra de comprimento conhecido entre o equipamento e a rede — afasta o primeiro conector da rede dessa zona, para que seja medido.</p>
+<h3>Uma rede nova precisa de relatório OTDR?</h3>
+<p>Para aceitação formal, sim: além da certificação de perda, o relatório OTDR documenta cada fusão e conector e fica como referência de base. Numa avaria futura, compara-se o traçado novo com o original e vê-se de imediato o que mudou.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>Um relatório de OTDR não é um gráfico bonito para anexar à entrega. É a prova de que cada fusão, cada conector e cada troço da fibra estão dentro do que o projeto previu — e a referência com que se vai comparar a rede durante toda a sua vida.</p>
+<p>Ler bem o traçado é a diferença entre aceitar uma rede e aceitar um ficheiro.</p>
+<p>A Império Global executa a construção, a certificação e a manutenção de redes de fibra ótica, com medição documentada em cada entrega.</p>
+<p><strong>Leitura relacionada:</strong> <a href="survey-projeto-redes-ftth.html">Survey e projeto de redes FTTH: o que deve incluir</a> — onde nasce o orçamento de perdas com que o relatório se compara.</p>
+</div>
+          <div class="article-cta">
+            <h2>Precisa de apoio técnico para o seu projeto?</h2>
+            <a href="../contacto.html" class="btn btn--primario">Fale connosco</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--nevoa">
+      <div class="container">
+        <h2 style="margin-bottom:1.5rem">Artigos relacionados</h2>
+        <div class="post-grid">
+        <article class="post-card" data-cat="projeto">
+          <a href="survey-projeto-redes-ftth.html" class="post-card__thumb post-card__thumb--img" style="background-image:url('../assets/img/blog/survey-projeto-ftth-cover.jpg')" aria-hidden="true" tabindex="-1"><span>Projeto e Qualidade</span></a>
+          <div class="post-card__body">
+            <span class="badge">Projeto e Qualidade</span>
+            <h3><a href="survey-projeto-redes-ftth.html">Survey e projeto de redes FTTH: o que deve incluir</a></h3>
+            <p>O que levantar no terreno e o que decidir no projeto antes de construir uma rede FTTH.</p>
+            <div class="post-card__meta">16 de outubro de 2026 · 5 min de leitura</div>
+          </div>
+        </article>
+        <article class="post-card" data-cat="manutencao">
+          <a href="manutencao-corretiva-fibra-otica.html" class="post-card__thumb post-card__thumb--img" style="background-image:url('../assets/img/blog/manutencao-corretiva-cover.jpg')" aria-hidden="true" tabindex="-1"><span>Manutenção e Operação</span></a>
+          <div class="post-card__body">
+            <span class="badge">Manutenção e Operação</span>
+            <h3><a href="manutencao-corretiva-fibra-otica.html">Manutenção corretiva em redes de fibra ótica: quando é a opção certa</a></h3>
+            <p>Onde a manutenção corretiva minimiza o custo total numa rede de fibra ótica — e por que tudo depende do tempo de reposição.</p>
+            <div class="post-card__meta">21 de julho de 2026 · 2 min de leitura</div>
+          </div>
+        </article></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img class="footer__logo" src="../assets/logo/imperio-oficial.png" alt="Império Global" width="640" height="197">
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <a href="../">Início</a><br>
+          <a href="../sobre.html">Sobre</a><br>
+          <a href="../servicos.html">Serviços</a><br>
+          <a href="../areas.html">Áreas de Atuação</a><br>
+          <a href="../blog/">Blog</a>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <a href="../recrutamento.html">Recrutamento</a><br>
+          <a href="../contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h4>Políticas da Empresa</h4>
+          <a href="../privacidade.html">Política de Privacidade</a><br>
+          <a href="../cookies.html">Política de Cookies</a><br>
+          <a href="../codigo-etica.html">Código de Ética e Conduta</a><br>
+          <a href="../canal-denuncias.html">Canal de Denúncias</a><br>
+          <a href="../termos.html">Termos e Condições</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a href="mailto:administrativo@imperioglobal.eu">administrativo@imperioglobal.eu</a>
+        </div>
+      </div>
+      <!-- CERTIFICAÇÕES — aguarda confirmação do cliente.
+           Slot para 3–6 selos (ISO 9001/14001/45001, Alvará IMPIC, ANACOM, EN 1090…),
+           faixa horizontal, cada selo ~60px de altura em fundo branco.
+           Ativar removendo os comentários e fornecendo os PNGs em /assets/certifications/.
+      <div class="footer-certifications">
+        <img src="../assets/certifications/iso-9001.png" alt="ISO 9001" height="60">
+        <img src="../assets/certifications/iso-14001.png" alt="ISO 14001" height="60">
+        <img src="../assets/certifications/iso-45001.png" alt="ISO 45001" height="60">
+      </div>
+      -->
+      <!-- TODO: <div class="footer-socials"> LinkedIn, etc. — quando o cliente fornecer perfis. -->
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Império Global. Todos os direitos reservados.</span>
+        <span>Portugal · Bélgica</span>
+      </div>
+    </div>
+  </footer>
+  <div class="cookies" role="dialog" aria-label="cookies">
+    <p>Utilizamos cookies para melhorar a sua experiência e analisar o tráfego. Os cookies de análise só são carregados após o seu consentimento.</p>
+    <div class="cookies__actions">
+      <button class="btn btn--primario" data-cookie="accept">Aceitar</button>
+      <button class="btn btn--secundario" data-cookie="reject">Recusar</button>
+      <a href="../privacidade.html" class="btn btn--secundario">Saber mais</a>
+    </div>
+  </div>
+  <a class="whatsapp-float" href="#" aria-label="WhatsApp" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2.1c1.8 1 3.8 1.5 5.9 1.5 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.4 1.2 1.2-4.3-.3-.4a10 10 0 0 1-1.6-5.4c0-5.6 4.6-10.2 10.2-10.2s10.2 4.6 10.2 10.2S21.6 25.8 16 25.8zm5.7-7.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.3 8.3 0 0 1-4.1-3.6c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg></a>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

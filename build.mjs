@@ -1563,6 +1563,90 @@ function fmtDate(lang, iso) {
 
 const ARTICLES = [
   {
+    slug: 'otdr-como-ler-relatorio',
+    cat: 'fibra',
+    date: '2026-10-30',
+    cover: 'otdr-cover.jpg', coverW: 1200, coverH: 630,
+    langs: {
+      pt: {
+        title: 'OTDR: o que mostra e como ler um relatório de fibra ótica',
+        desc: 'O que um OTDR mede numa rede de fibra ótica, o que significa cada evento do traçado e como ler o relatório para aceitar ou rejeitar uma ligação.',
+        excerpt: 'O que o traçado de um OTDR mostra, o que significa cada evento e como ler o relatório antes de aceitar uma rede.',
+        faq: [
+          { q:'OTDR ou medidor de potência: qual é o essencial?', a:'Os dois, com funções diferentes. O medidor de potência com fonte ótica mede a perda total real de cada ligação e é a base da certificação. O OTDR mostra onde a perda acontece e serve para diagnosticar e documentar cada evento.' },
+          { q:'Porque se mede a 1310 nm e a 1550 nm?', a:'Porque os eventos reagem de forma diferente a cada comprimento de onda. Uma curvatura apertada perde muito mais a 1550 nm do que a 1310 nm; uma fusão perde o mesmo nos dois. Comparar as duas medições permite distinguir uma coisa da outra.' },
+          { q:'O que é a zona morta e porque importa a bobina de lançamento?', a:'A zona morta é o troço inicial em que a reflexão do conector do equipamento cega o OTDR. A bobina de lançamento — uma fibra de comprimento conhecido entre o equipamento e a rede — afasta o primeiro conector da rede dessa zona, para que seja medido.' },
+          { q:'Uma rede nova precisa de relatório OTDR?', a:'Para aceitação formal, sim: além da certificação de perda, o relatório OTDR documenta cada fusão e conector e fica como referência de base. Numa avaria futura, compara-se o traçado novo com o original e vê-se de imediato o que mudou.' },
+        ],
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>O OTDR envia impulsos de luz pela fibra e mede o que regressa. O traçado mostra onde a fibra perde ou reflete luz, e a que distância.</li>
+<li>Cada evento tem três números: distância, perda e refletância. É a tabela de eventos que se lê, não só o gráfico.</li>
+<li>Um relatório aceita-se comparando a perda total com o orçamento de perdas do projeto, e medindo nos dois sentidos.</li>
+<li>O OTDR localiza; o medidor de potência valida. Numa certificação completa usam-se os dois.</li>
+</ul></div>
+
+<p class="lead">Um traçado de OTDR parece um eletrocardiograma da fibra. E, tal como um, não serve de nada a quem não o sabe ler. Um OTDR (reflectómetro ótico no domínio do tempo) mede a luz que regressa ao longo da fibra e converte-a num gráfico de perda em função da distância. Ler o relatório é identificar cada evento — fusão, conector, curvatura, fim de fibra —, verificar a perda de cada um e confirmar que o total cabe no orçamento de perdas definido em projeto.</p>
+
+<h2 id="o-que-mede">O que o OTDR mede</h2>
+<p>O equipamento lança um impulso curto de luz e escuta. Uma pequena fração da luz é devolvida de forma contínua pela própria fibra (retrodifusão de Rayleigh); nos conectores e nas quebras há reflexões mais fortes (reflexões de Fresnel). Como a velocidade da luz na fibra é conhecida através do índice de refração, o tempo que a luz demora a voltar converte-se em distância.</p>
+<p>O resultado é uma linha descendente: a inclinação é a atenuação da fibra, em dB/km; cada degrau é um evento que perde luz; cada pico é um evento que a reflete.</p>
+<p>Dois parâmetros condicionam tudo o resto. O comprimento de onda — medir a 1310 nm e a 1550 nm dá informação diferente, e 1625 nm usa-se em redes em serviço. E a largura do impulso: quanto mais curto, mais resolução para separar eventos próximos, mas menos alcance.</p>
+
+<h2 id="cinco-eventos">Ler o traçado: os cinco eventos</h2>
+<ul>
+<li><strong>Início e zona morta.</strong> Logo após o conector do equipamento há um troço em que o OTDR está saturado pela reflexão e não vê nada. É por isso que se mede com uma bobina de lançamento: afasta o primeiro conector da rede para fora da zona morta.</li>
+<li><strong>Fusão.</strong> Degrau pequeno, sem reflexão. Valor de referência corrente: até 0,1 dB.</li>
+<li><strong>Conector.</strong> Degrau com pico refletivo. Referência corrente: até 0,5 dB por par de conectores, com refletância dentro do limite do tipo de polimento.</li>
+<li><strong>Curvatura ou esmagamento.</strong> Perda sem reflexão, maior a 1550 nm do que a 1310 nm. Esta diferença entre comprimentos de onda é a assinatura de uma macrocurvatura.</li>
+<li><strong>Fim de fibra ou quebra.</strong> Pico forte seguido de ruído, se a extremidade for limpa; queda abrupta sem reflexão, se a quebra for irregular.</li>
+</ul>
+<p>A inclinação entre eventos deve corresponder à atenuação esperada da fibra. Para fibra monomodo G.652, os valores de referência andam à volta de 0,35 dB/km a 1310 nm e 0,2 dB/km a 1550 nm.</p>
+
+<h2 id="relatorio">O relatório: o que tem de constar</h2>
+<p>Um relatório de OTDR que serve para aceitar uma rede tem de permitir a outra pessoa repetir a medição e chegar ao mesmo resultado. Por isso inclui:</p>
+<ul>
+<li>identificação da fibra, do cabo e do sentido de medição;</li>
+<li>parâmetros: comprimento de onda, largura de impulso, alcance e índice de refração usado;</li>
+<li>tabela de eventos: distância, tipo, perda, refletância e perda acumulada;</li>
+<li>perda total e comprimento da ligação;</li>
+<li>comparação com os limiares definidos em projeto, com resultado de aprovado ou reprovado por fibra;</li>
+<li>data, equipamento e operador.</li>
+</ul>
+<p>Um ponto que separa um relatório sério de um relatório decorativo: a medição nos dois sentidos. Quando duas fibras unidas por fusão têm diâmetros de campo modal ligeiramente diferentes, o OTDR mostra num sentido uma perda exagerada e no outro um ganho aparente. Só a média das duas medições dá o valor real da fusão.</p>
+
+<blockquote>O OTDR diz onde está o problema. O medidor de potência diz se a ligação passa. Confundir os dois é a origem de muitas discussões na aceitação de uma rede.</blockquote>
+
+<h2 id="erros">Erros que invalidam um relatório</h2>
+<ul>
+<li><strong>Medir sem bobina de lançamento.</strong> O primeiro conector da rede fica escondido na zona morta e nunca é avaliado.</li>
+<li><strong>Largura de impulso desadequada.</strong> Com impulsos longos, dois eventos próximos aparecem como um só; com impulsos demasiado curtos, o fim da fibra perde-se no ruído.</li>
+<li><strong>Índice de refração errado.</strong> Todas as distâncias do relatório ficam deslocadas, e a localização de uma avaria futura também.</li>
+<li><strong>Aceitar só com o OTDR.</strong> A certificação de referência (Tier 1) faz-se com medidor de potência e fonte ótica, que medem a perda real de inserção. O OTDR é a camada seguinte (Tier 2): caracteriza cada evento, mas não substitui a primeira.</li>
+<li><strong>Limiares definidos depois da medição.</strong> O critério de aceitação vem do orçamento de perdas do projeto, antes de ligar o equipamento. Se se define depois, o relatório aprova tudo.</li>
+</ul>
+
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3>OTDR ou medidor de potência: qual é o essencial?</h3>
+<p>Os dois, com funções diferentes. O medidor de potência com fonte ótica mede a perda total real de cada ligação e é a base da certificação. O OTDR mostra onde a perda acontece e serve para diagnosticar e documentar cada evento.</p>
+<h3>Porque se mede a 1310 nm e a 1550 nm?</h3>
+<p>Porque os eventos reagem de forma diferente a cada comprimento de onda. Uma curvatura apertada perde muito mais a 1550 nm do que a 1310 nm; uma fusão perde o mesmo nos dois. Comparar as duas medições permite distinguir uma coisa da outra.</p>
+<h3>O que é a zona morta e porque importa a bobina de lançamento?</h3>
+<p>A zona morta é o troço inicial em que a reflexão do conector do equipamento cega o OTDR. A bobina de lançamento — uma fibra de comprimento conhecido entre o equipamento e a rede — afasta o primeiro conector da rede dessa zona, para que seja medido.</p>
+<h3>Uma rede nova precisa de relatório OTDR?</h3>
+<p>Para aceitação formal, sim: além da certificação de perda, o relatório OTDR documenta cada fusão e conector e fica como referência de base. Numa avaria futura, compara-se o traçado novo com o original e vê-se de imediato o que mudou.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>Um relatório de OTDR não é um gráfico bonito para anexar à entrega. É a prova de que cada fusão, cada conector e cada troço da fibra estão dentro do que o projeto previu — e a referência com que se vai comparar a rede durante toda a sua vida.</p>
+<p>Ler bem o traçado é a diferença entre aceitar uma rede e aceitar um ficheiro.</p>
+<p>A Império Global executa a construção, a certificação e a manutenção de redes de fibra ótica, com medição documentada em cada entrega.</p>
+<p><strong>Leitura relacionada:</strong> <a href="survey-projeto-redes-ftth.html">Survey e projeto de redes FTTH: o que deve incluir</a> — onde nasce o orçamento de perdas com que o relatório se compara.</p>
+`,
+      },
+    },
+  },
+  {
     slug: 'survey-projeto-redes-ftth',
     cat: 'projeto',
     date: '2026-10-16',
