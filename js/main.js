@@ -243,8 +243,12 @@ document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Da
   });
 
   function loadAnalytics(){
-    // TODO: carregar aqui GA/GTM só APÓS consentimento. Placeholder intencional.
-    // Ex.: injetar o script do Google Tag Manager quando o cliente fornecer o ID.
+    // Metricool (analítica web, só após consentimento). Hash da marca «IMPÉRIO GLOBAL» no Metricool.
+    if (window.__igTracker) return; window.__igTracker = true;
+    const s = document.createElement('script'); s.async = true;
+    s.src = 'https://tracker.metricool.com/resources/be.js';
+    s.onload = () => { try { window.beTracker && window.beTracker.t({ hash: '449f242adc635bd155a7767d82daa20b' }); } catch (e) {} };
+    document.head.appendChild(s);
   }
 })();
 
