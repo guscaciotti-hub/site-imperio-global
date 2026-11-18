@@ -351,14 +351,14 @@ function render() {
   const sv = sum(cur, 'siteVisits'), svP = sum(pr, 'siteVisits'), su = sum(cur, 'siteVisitors'), suP = sum(pr, 'siteVisitors'), sp = sum(cur, 'sitePageViews'), spP = sum(pr, 'sitePageViews');
   const has = ST.daily.some(r => (r.siteVisits || 0) > 0), since = ST.meta?.siteSince;
   $('site-note').textContent = since ? `Medição ativa desde ${dmy(since)}` : '';
-  $('sv-v').textContent = N(sv); $('sv-d').innerHTML = has ? pill(sv, svP) : '';
-  $('sv-ch').innerHTML = has ? '<div class="chart"></div>' : emptyChart('A medição do site começou agora', `As visitas contam desde ${since ? dmy(since) : 'hoje'}. O gráfico enche-se dia a dia e a comparação entre períodos aparece assim que houver duas semanas de dados.`);
+  $('sv-v').textContent = has ? N(sv) : '—'; $('sv-d').innerHTML = has ? pill(sv, svP) : '';
+  $('sv-ch').innerHTML = has ? '<div class="chart"></div>' : emptyChart('Medição do site em ativação', 'O site não tinha contagem de visitas até agora. Os números aparecem aqui assim que a medição estiver ativa, e o gráfico enche-se dia a dia.');
   if (has) area($('sv-ch').firstChild, ser(cw, 'siteVisits'), 'Visitas');
-  $('su-v').textContent = N(su); $('su-d').innerHTML = has ? pill(su, suP) : ''; has ? spark($('su-s'), ser(cw, 'siteVisitors')) : ($('su-s').innerHTML = '');
-  $('sp-v').textContent = N(sp); $('sp-d').innerHTML = has ? pill(sp, spP) : ''; has ? spark($('sp-s'), ser(cw, 'sitePageViews')) : ($('sp-s').innerHTML = '');
+  $('su-v').textContent = has ? N(su) : '—'; $('su-d').innerHTML = has ? pill(su, suP) : ''; has ? spark($('su-s'), ser(cw, 'siteVisitors')) : ($('su-s').innerHTML = '');
+  $('sp-v').textContent = has ? N(sp) : '—'; $('sp-d').innerHTML = has ? pill(sp, spP) : ''; has ? spark($('sp-s'), ser(cw, 'sitePageViews')) : ($('sp-s').innerHTML = '');
   const rk = ST.site?.ranges?.[n === 1 ? 'hoje' : String(n)];
   const blog = (rk?.pages || []).filter(([u]) => /\/blog\/./.test(u));
-  $('bl-v').textContent = N(blog.reduce((s, r) => s + r[1], 0)); $('bl-d').innerHTML = `<span>${blog.length ? blog.length + ' artigos lidos' : '4 artigos publicados'}</span>`;
+  $('bl-v').textContent = has ? N(blog.reduce((s, r) => s + r[1], 0)) : '—'; $('bl-d').innerHTML = `<span>${blog.length ? blog.length + ' artigos lidos' : '4 artigos publicados'}</span>`;
   $('sources').innerHTML = donut(rk?.sources) || `<p class="soft">As origens das visitas aparecem com os primeiros dados do site.</p>`;
   $('pages').innerHTML = rank(rk?.pages) || `<p class="soft">O ranking de páginas e artigos aparece com os primeiros dados do site.</p>`;
 
