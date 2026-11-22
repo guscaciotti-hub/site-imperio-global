@@ -1563,6 +1563,89 @@ function fmtDate(lang, iso) {
 
 const ARTICLES = [
   {
+    slug: 'fusao-fibra-otica',
+    cat: 'fibra',
+    date: '2026-11-22',
+    cover: 'fusao-fibra-otica-cover.jpg', coverW: 1200, coverH: 630,
+    langs: {
+      pt: {
+        title: 'Fusão de fibra ótica: como se faz, quanto deve perder e como se verifica',
+        desc: 'Os passos de uma fusão de fibra ótica bem feita, os valores de perda de referência, os erros mais comuns e como se confirma o resultado com OTDR.',
+        excerpt: 'Os passos de uma fusão bem feita, quanto deve perder e porque o valor da máquina não chega para aceitar uma rede.',
+        faq: [
+          { q:'Quanto deve perder uma fusão de fibra ótica?', a:'Em fibra monomodo, uma fusão bem executada fica tipicamente abaixo de 0,1 dB, e muitas ficam entre 0,02 e 0,05 dB. O limite que conta é o definido no projeto ou no caderno de encargos do operador, e é com ele que a medição final se compara.' },
+          { q:'A perda estimada pela máquina de fusão é suficiente?', a:'Não. A máquina calcula uma estimativa a partir da imagem das fibras alinhadas. É útil para refazer logo uma fusão má, mas a aceitação faz-se com medição: OTDR nos dois sentidos para cada fusão e medidor de potência para a perda total da ligação.' },
+          { q:'Porque se mede a fusão nos dois sentidos?', a:'Porque duas fibras com diâmetros de campo modal ligeiramente diferentes fazem o OTDR mostrar, num sentido, uma perda exagerada e, no outro, um ganho aparente. Só a média das duas medições dá o valor real da fusão.' },
+          { q:'Fusão ou conector mecânico: qual escolher?', a:'A fusão tem menor perda, quase nenhuma reflexão e é permanente, por isso é a regra em troços de rede e em caixas de junção. Os conectores e as uniões mecânicas usam-se onde é preciso ligar e desligar, ou em reparações provisórias.' },
+        ],
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>Uma fusão une duas fibras com um arco elétrico. Bem feita, perde tipicamente menos de 0,1 dB em fibra monomodo.</li>
+<li>O resultado decide-se antes do arco: preparação, limpeza e clivagem são a maior parte do trabalho.</li>
+<li>A perda que a máquina mostra é uma estimativa. A aceitação faz-se com OTDR nos dois sentidos e com o orçamento de perdas do projeto.</li>
+<li>Uma fusão perfeita mal arrumada na caixa de junção volta a perder: o raio de curvatura também conta.</li>
+</ul></div>
+
+<p class="lead">Numa rede de fibra ótica há dezenas, por vezes centenas, de fusões entre a central e o cliente. Cada uma consome uma pequena parte da margem da ligação. Uma fusão de fibra ótica é a união permanente de duas fibras por fusão do vidro com um arco elétrico; bem executada em fibra monomodo, perde tipicamente menos de 0,1 dB e quase não reflete luz. Chegar a esse valor de forma repetida, caixa após caixa, é uma questão de método.</p>
+
+<h2 id="o-que-e">O que é uma fusão e porque é a regra</h2>
+<p>Uma fibra monomodo tem um núcleo de cerca de 9 µm dentro de uma bainha de vidro de 125 µm, protegida por um revestimento primário de cerca de 250 µm. Unir duas fibras é alinhar dois núcleos mais finos do que um cabelo e fundi-los sem deixar ar, sujidade ou desvio entre eles.</p>
+<p>A máquina de fusão faz o alinhamento — nos equipamentos de alinhamento pelo núcleo, observando o próprio núcleo — e aplica um arco elétrico entre dois elétrodos que funde as extremidades. O resultado é uma ligação contínua de vidro: menor perda do que um conector, praticamente sem reflexão e permanente. Por isso é a regra nos troços de rede e nas caixas de junção.</p>
+
+<h2 id="passos">Os passos de uma fusão bem feita</h2>
+<ol>
+<li><strong>Preparar o cabo.</strong> Abrir o cabo e o tubo sem marcar as fibras, identificar cada uma pelo código de cores e deixar o comprimento de reserva necessário para a arrumação na bandeja.</li>
+<li><strong>Colocar a manga de proteção.</strong> Antes de cortar seja o que for, enfiar a manga termorretrátil numa das fibras. Esquecê-la obriga a refazer a fusão.</li>
+<li><strong>Remover o revestimento e limpar.</strong> Retirar o revestimento primário com o descarnador próprio e limpar o vidro com álcool isopropílico e toalhete sem pelo. Depois de limpa, a fibra não volta a tocar em nada.</li>
+<li><strong>Clivar.</strong> A clivadora corta a fibra com uma face plana e perpendicular. É o passo que mais decide a perda: a máquina mede o ângulo de corte, e um ângulo fora do limite configurado, tipicamente abaixo de 0,5° a 1°, deve ser repetido.</li>
+<li><strong>Alinhar e fundir.</strong> As fibras entram na máquina, que as alinha, verifica as faces e aplica o arco. O programa de fusão tem de corresponder ao tipo de fibra.</li>
+<li><strong>Ler a estimativa e decidir.</strong> A máquina apresenta uma perda estimada. Se estiver acima do limite, ou se a imagem mostrar bolhas ou desvio, refaz-se de imediato: é o momento mais barato para corrigir.</li>
+<li><strong>Proteger e arrumar.</strong> A manga é aquecida sobre a fusão e a fibra é arrumada na bandeja da caixa de junção, sem tensão e respeitando o raio mínimo de curvatura.</li>
+</ol>
+
+<h2 id="quanto-perde">Quanto deve perder: os valores de referência</h2>
+<p>Em fibra monomodo, uma fusão bem executada fica tipicamente abaixo de 0,1 dB, e muitas ficam entre 0,02 e 0,05 dB. Parecem números irrelevantes até se somarem: vinte fusões a 0,05 dB gastam 1 dB; vinte fusões a 0,3 dB gastam 6 dB. Numa rede com divisores óticos, essa diferença pode ser a margem toda.</p>
+<p>O valor que serve de critério não é o de um manual genérico: é o limite definido no projeto ou no caderno de encargos do operador, que decorre do <a href="survey-projeto-redes-ftth.html">orçamento de perdas da ligação</a>.</p>
+
+<blockquote>A máquina diz quanto a fusão deve ter perdido. Só a medição diz quanto perdeu.</blockquote>
+
+<h2 id="verificar">Como se verifica: estimativa, OTDR e potência</h2>
+<p>A perda que a máquina mostra é calculada a partir da imagem das fibras alinhadas. É uma boa ferramenta de triagem, mas não é uma medição. A verificação faz-se em duas camadas:</p>
+<ul>
+<li><strong>OTDR.</strong> Mostra cada fusão como um degrau no traçado, com a sua distância e perda. Mede-se nos dois sentidos e faz-se a média, porque fibras com diâmetros de campo modal diferentes dão, num sentido, uma perda exagerada e, no outro, um ganho aparente. O <a href="otdr-como-ler-relatorio.html">guia de leitura de um relatório OTDR</a> explica o traçado evento a evento.</li>
+<li><strong>Medidor de potência e fonte ótica.</strong> Medem a perda total real da ligação, que tem de caber no orçamento de perdas.</li>
+</ul>
+<p>Cada fusão fica registada — caixa, bandeja, fibra e perda medida — para que, numa avaria futura, se compare o traçado novo com o original.</p>
+
+<h2 id="erros">Os erros que mais estragam uma fusão</h2>
+<ul>
+<li><strong>Sujidade.</strong> Pó ou resíduos na fibra, nos sulcos em V ou nas lentes da máquina dão perdas altas e bolhas.</li>
+<li><strong>Clivagem má.</strong> Lâmina gasta ou fibra mal assente na clivadora dão faces inclinadas ou lascadas.</li>
+<li><strong>Elétrodos gastos ou arco por calibrar.</strong> A energia do arco varia com o desgaste, a altitude e a humidade; a calibração regular do arco evita fusões fracas.</li>
+<li><strong>Programa de fusão errado.</strong> Fibras de tipos diferentes pedem parâmetros diferentes.</li>
+<li><strong>Arrumação apertada.</strong> Uma fibra dobrada abaixo do raio mínimo na bandeja perde por curvatura — mais a 1550 nm do que a 1310 nm — mesmo com a fusão perfeita.</li>
+</ul>
+
+<h2 id="faq">Perguntas frequentes</h2>
+<h3>Quanto deve perder uma fusão de fibra ótica?</h3>
+<p>Em fibra monomodo, uma fusão bem executada fica tipicamente abaixo de 0,1 dB, e muitas ficam entre 0,02 e 0,05 dB. O limite que conta é o definido no projeto ou no caderno de encargos do operador, e é com ele que a medição final se compara.</p>
+<h3>A perda estimada pela máquina de fusão é suficiente?</h3>
+<p>Não. A máquina calcula uma estimativa a partir da imagem das fibras alinhadas. É útil para refazer logo uma fusão má, mas a aceitação faz-se com medição: OTDR nos dois sentidos para cada fusão e medidor de potência para a perda total da ligação.</p>
+<h3>Porque se mede a fusão nos dois sentidos?</h3>
+<p>Porque duas fibras com diâmetros de campo modal ligeiramente diferentes fazem o OTDR mostrar, num sentido, uma perda exagerada e, no outro, um ganho aparente. Só a média das duas medições dá o valor real da fusão.</p>
+<h3>Fusão ou conector mecânico: qual escolher?</h3>
+<p>A fusão tem menor perda, quase nenhuma reflexão e é permanente, por isso é a regra em troços de rede e em caixas de junção. Os conectores e as uniões mecânicas usam-se onde é preciso ligar e desligar, ou em reparações provisórias.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>Uma fusão bem feita não se vê no fim da obra. Vê-se na margem que a rede guarda, no relatório que a documenta e nas avarias que não acontecem. O método é sempre o mesmo: preparar, limpar, clivar, fundir, verificar e registar — em cada fibra, em cada caixa de junção.</p>
+<p>A Império Global constrói, expande e mantém redes de fibra ótica em Portugal e na Bélgica, com equipas próprias e medição documentada em cada entrega. <a href="../contacto.html">Fale connosco</a>.</p>
+<p><strong>Leitura relacionada:</strong> <a href="otdr-como-ler-relatorio.html">OTDR: o que mostra e como ler um relatório de fibra ótica</a> — como se lê cada fusão no traçado.</p>
+`,
+      },
+    },
+  },
+  {
     slug: 'otdr-como-ler-relatorio',
     cat: 'fibra',
     date: '2026-10-30',
