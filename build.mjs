@@ -1563,6 +1563,90 @@ function fmtDate(lang, iso) {
 
 const ARTICLES = [
   {
+    slug: 'rede-ftth-o-que-e',
+    cat: 'fibra',
+    date: '2026-11-25',
+    cover: 'rede-ftth-cover.jpg', coverW: 1200, coverH: 630,
+    langs: {
+      pt: {
+        title: 'Rede FTTH: o que é, como funciona e como se constrói',
+        desc: 'O que é uma rede FTTH, como chega a fibra ótica da central à casa do cliente, que componentes tem e quais são as fases da sua construção.',
+        excerpt: 'Da central à casa do cliente: o que é uma rede FTTH, como funciona e as fases para a construir bem.',
+        faq: [
+          { q:'O que significa FTTH?', a:'FTTH significa Fiber To The Home: a fibra ótica chega até ao interior da casa ou do escritório do cliente, sem troços em cobre pelo meio. É a forma de ligação que permite as velocidades e a estabilidade mais altas.' },
+          { q:'Qual é a diferença entre FTTH, FTTB e FTTC?', a:'A diferença está em até onde chega a fibra. No FTTH chega à casa do cliente; no FTTB (Fiber To The Building) chega ao edifício e o último troço pode ser em cobre; no FTTC (Fiber To The Cabinet) chega a um armário na rua e o resto da ligação é em cobre.' },
+          { q:'O que é uma rede PON?', a:'É a arquitetura mais usada em FTTH: uma rede ótica passiva em que uma única fibra que sai da central é dividida por divisores óticos, sem equipamentos alimentados pelo caminho, para servir vários clientes. GPON e XGS-PON são as normas mais comuns.' },
+          { q:'Quanto tempo demora a construir uma rede FTTH?', a:'Depende da extensão, do tipo de traçado (aéreo ou subterrâneo), do licenciamento e da infraestrutura que já existe. O que mais encurta o prazo é um survey e um projeto completos antes da obra, porque evitam paragens por surpresas no terreno.' },
+        ],
+        body: `
+<div class="tldr"><strong>Em 30 segundos</strong>
+<ul>
+<li>FTTH (Fiber To The Home) é uma rede em que a fibra ótica chega até à casa ou ao escritório do cliente.</li>
+<li>A arquitetura mais comum é a PON: uma fibra sai da central e é dividida por divisores óticos passivos até servir vários clientes.</li>
+<li>Os componentes principais são a OLT na central, a rede de alimentação, os divisores, as caixas de distribuição, o ramal de cliente e a ONT em casa.</li>
+<li>Construir bem uma rede FTTH é uma sequência: survey, projeto, licenciamento, construção, fusões, certificação e documentação.</li>
+</ul></div>
+
+<p class="lead">Quando se fala em «ter fibra», fala-se quase sempre de FTTH. Uma rede FTTH (Fiber To The Home) é uma rede de telecomunicações em que a fibra ótica vai da central do operador até ao interior da casa ou do escritório do cliente, sem troços em cobre pelo meio. É isso que permite velocidades altas, simétricas e estáveis. Por trás de cada ligação há uma rede construída troço a troço, e a qualidade dessa construção decide o serviço durante décadas.</p>
+
+<h2 id="o-que-e">O que é FTTH — e como se distingue de FTTB e FTTC</h2>
+<p>As siglas FTTx dizem até onde chega a fibra:</p>
+<ul>
+<li><strong>FTTH (Fiber To The Home):</strong> a fibra chega à casa do cliente.</li>
+<li><strong>FTTB (Fiber To The Building):</strong> a fibra chega ao edifício; o último troço até cada fração pode ser feito em cobre.</li>
+<li><strong>FTTC (Fiber To The Cabinet):</strong> a fibra chega a um armário na rua e o resto da ligação é feito em cobre.</li>
+</ul>
+<p>Quanto mais perto do cliente chega a fibra, menos o serviço depende do cobre — e menos perde com a distância e com as interferências.</p>
+
+<h2 id="como-funciona">Como funciona: a arquitetura PON</h2>
+<p>A maior parte das redes FTTH usa uma arquitetura PON (Passive Optical Network, rede ótica passiva). Uma única fibra sai da central e, ao longo do caminho, é dividida por divisores óticos que repartem o sinal por várias fibras — por exemplo, 1 para 32 ou 1 para 64 clientes. Chama-se passiva porque, entre a central e o cliente, não há equipamentos alimentados a eletricidade: só fibra, divisores e ligações.</p>
+<p>As normas mais comuns são o GPON e o XGS-PON, que definem as velocidades e a forma como os clientes partilham a mesma fibra. Para quem constrói a rede, a consequência prática é uma: cada divisor, cada fusão e cada conector consome uma parte da potência do sinal, e a soma tem de caber no <a href="survey-projeto-redes-ftth.html">orçamento de perdas definido em projeto</a>.</p>
+
+<h2 id="componentes">Os componentes de uma rede FTTH</h2>
+<ol>
+<li><strong>OLT (Optical Line Terminal).</strong> O equipamento ativo na central do operador, de onde sai o sinal.</li>
+<li><strong>Rede de alimentação.</strong> Os cabos de maior capacidade que levam as fibras da central até às zonas a servir.</li>
+<li><strong>Divisores óticos.</strong> Repartem o sinal de uma fibra por várias; podem estar concentrados num ponto ou distribuídos em vários níveis.</li>
+<li><strong>Rede de distribuição e caixas.</strong> Os cabos que percorrem ruas e edifícios, com caixas de junção e de distribuição onde se fazem as fusões e as derivações.</li>
+<li><strong>Ramal de cliente (drop).</strong> O último troço de fibra, da caixa de distribuição até à casa.</li>
+<li><strong>ONT (Optical Network Terminal).</strong> O equipamento em casa do cliente que converte o sinal ótico para a rede da casa.</li>
+</ol>
+
+<blockquote>Uma rede FTTH é tão boa quanto o troço mais mal construído. O cliente não vê o traçado — vê a ligação que cai.</blockquote>
+
+<h2 id="como-se-constroi">Como se constrói uma rede FTTH: as fases</h2>
+<ol>
+<li><strong>Survey.</strong> Confirmar no terreno o que existe: condutas, apoios, acessos e obstáculos que o mapa não mostra.</li>
+<li><strong>Projeto.</strong> Definir o traçado, a localização dos divisores e das caixas, as capacidades dos cabos e o orçamento de perdas.</li>
+<li><strong>Licenciamento.</strong> Obter as autorizações necessárias para ocupar a via pública ou infraestruturas existentes.</li>
+<li><strong>Construção.</strong> Abertura de vala ou uso de condutas existentes na rede subterrânea, ou instalação em apoios na rede aérea, e passagem dos cabos.</li>
+<li><strong>Fusões e montagem.</strong> Unir as fibras nas caixas de junção e de distribuição. Cada <a href="fusao-fibra-otica.html">fusão bem feita perde menos de 0,1 dB</a>.</li>
+<li><strong>Certificação.</strong> Medir a rede com medidor de potência e com <a href="otdr-como-ler-relatorio.html">OTDR</a> e comparar com os limites do projeto.</li>
+<li><strong>Documentação.</strong> Registar o que foi construído — traçado, caixas, fusões e medições — para que a rede possa ser mantida e expandida.</li>
+</ol>
+
+<h2 id="depois">Depois da construção: manutenção</h2>
+<p>Uma rede FTTH fica exposta a obras de terceiros, ao tempo e ao crescimento da procura. A <a href="manutencao-preventiva-fibra-otica.html">manutenção preventiva</a> reduz avarias nos troços mais expostos, e a <a href="manutencao-corretiva-fibra-otica.html">manutenção corretiva</a> repõe o serviço quando a avaria acontece. Em ambas, a documentação da obra é o que permite localizar e resolver depressa.</p>
+
+<h2 id="faq">Perguntas frequentes</h2>
+<h3>O que significa FTTH?</h3>
+<p>FTTH significa Fiber To The Home: a fibra ótica chega até ao interior da casa ou do escritório do cliente, sem troços em cobre pelo meio. É a forma de ligação que permite as velocidades e a estabilidade mais altas.</p>
+<h3>Qual é a diferença entre FTTH, FTTB e FTTC?</h3>
+<p>A diferença está em até onde chega a fibra. No FTTH chega à casa do cliente; no FTTB (Fiber To The Building) chega ao edifício e o último troço pode ser em cobre; no FTTC (Fiber To The Cabinet) chega a um armário na rua e o resto da ligação é em cobre.</p>
+<h3>O que é uma rede PON?</h3>
+<p>É a arquitetura mais usada em FTTH: uma rede ótica passiva em que uma única fibra que sai da central é dividida por divisores óticos, sem equipamentos alimentados pelo caminho, para servir vários clientes. GPON e XGS-PON são as normas mais comuns.</p>
+<h3>Quanto tempo demora a construir uma rede FTTH?</h3>
+<p>Depende da extensão, do tipo de traçado (aéreo ou subterrâneo), do licenciamento e da infraestrutura que já existe. O que mais encurta o prazo é um survey e um projeto completos antes da obra, porque evitam paragens por surpresas no terreno.</p>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>Uma rede FTTH parece simples vista de fora: uma fibra que chega a casa. Por dentro, é uma cadeia de decisões e de trabalho no terreno — do survey à certificação — em que cada elo conta para o serviço que o cliente vai ter durante décadas.</p>
+<p>A Império Global constrói, expande e mantém redes de telecomunicações em fibra ótica e cobre em Portugal e na Bélgica, com equipas próprias e medição documentada em cada entrega. <a href="../contacto.html">Fale connosco</a>.</p>
+<p><strong>Leitura relacionada:</strong> <a href="survey-projeto-redes-ftth.html">Survey e projeto de redes FTTH: o que deve incluir</a> — a primeira fase de qualquer rede bem construída.</p>
+`,
+      },
+    },
+  },
+  {
     slug: 'fusao-fibra-otica',
     cat: 'fibra',
     date: '2026-11-22',
