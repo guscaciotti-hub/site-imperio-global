@@ -126,6 +126,33 @@ footer{color:var(--faint);font-size:12px;padding-block:6px 28px}
   .pt .hide{display:none}.pt td.tx{width:auto}.pt .ib span{width:40px}.bar .wrap{justify-content:center}}
 @media (max-width:420px){.seg button{padding:7px 11px}.brand span,.brand i{display:none}}
 @media (max-width:760px){.card .hd{flex-wrap:wrap}.pt thead{display:none}.pt tr{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px 12px;padding:11px 0;border-bottom:1px solid var(--line)}.pt tr:last-child{border-bottom:0}.pt td{border:0!important;padding:0}.pt td.tx{grid-column:1/-1;order:-1;max-width:none;width:auto}.pt td.tx a{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.pt td.r[data-l]::before{content:attr(data-l);color:var(--muted);font-size:11px;margin-right:6px}.pt .ib{justify-content:flex-end}}
+
+/* resumo */
+.hero{background:linear-gradient(135deg,#012C5A,#013F80 60%,#0b4f9c);color:#fff;border-radius:14px;padding:22px 24px;margin-top:18px;box-shadow:0 10px 30px rgba(1,44,90,.18)}
+.hero .ht{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:16px}
+.hero h2{font:700 18px var(--display);color:#fff}
+.hero .ht small{color:#AFC4D6;font-size:12.5px}
+.hbig{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hbig div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:14px 16px}
+.hbig span{display:block;font-size:12px;color:#AFC4D6;font-weight:500}
+.hbig b{display:block;font:700 34px/1.1 var(--display);letter-spacing:-.02em;margin-top:4px}
+.hbig em{display:block;font-style:normal;font-size:12px;color:#d6e2ee;margin-top:2px}
+.hsm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.hsm div{padding:4px 2px;border-top:1px solid rgba(255,255,255,.14);padding-top:10px}
+.hsm span{display:block;font-size:11.5px;color:#AFC4D6}
+.hsm b{display:block;font:700 18px var(--display);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hsm em{display:block;font-style:normal;font-size:11.5px;color:#d6e2ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:52px 74px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+.tl li:last-child{border-bottom:0}
+.tl .dt{color:var(--muted)}
+.tl .ty{font-size:10px;font-weight:700;letter-spacing:.06em;border-radius:4px;padding:2px 6px;text-align:center}
+.tl .ty.li{color:var(--brand);background:var(--brand-soft)}.tl .ty.bl{color:var(--c3);background:#e4f5f3}
+.tl a{color:var(--fg);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.tl a:hover{color:var(--brand)}
+.tl .m{color:var(--muted);font-size:12px;white-space:nowrap}
+@media (max-width:900px){.hbig,.hsm{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.hbig b{font-size:26px}.tl li{grid-template-columns:44px 1fr auto}.tl .ty{display:none}}
 </style>
 </head>
 <body>
@@ -136,12 +163,45 @@ footer{color:var(--faint);font-size:12px;padding-block:6px 28px}
   </div>
 </div></header>
 
+<div class="wrap"><section class="hero">
+  <div class="ht"><h2>Resultados desde o início do trabalho</h2><small id="h-since"></small></div>
+  <div class="hbig">
+    <div><span>Impressões no LinkedIn</span><b class="num" id="h-imp">—</b><em id="h-imp-e">vezes que as publicações foram vistas</em></div>
+    <div><span>Visitas ao site</span><b class="num" id="h-sv">—</b><em id="h-sv-e"></em></div>
+    <div><span>Páginas vistas no site</span><b class="num" id="h-sp">—</b><em id="h-sp-e"></em></div>
+    <div><span>Conteúdos publicados</span><b class="num" id="h-ct">—</b><em id="h-ct-e"></em></div>
+  </div>
+  <div class="hsm">
+    <div><span>Cliques nas publicações</span><b class="num" id="h-cl">—</b><em>no LinkedIn</em></div>
+    <div><span>Publicação com mais alcance</span><b class="num" id="h-bp">—</b><em id="h-bp-e"></em></div>
+    <div><span>Melhor dia do site</span><b class="num" id="h-bd">—</b><em id="h-bd-e"></em></div>
+    <div><span>Países com visitas</span><b class="num" id="h-ps">—</b><em id="h-ps-e"></em></div>
+  </div>
+</section></div>
+
 <div class="wrap sub">
   <div><h1 id="ttl">Últimos 7 dias</h1><p id="range"></p></div>
   <span class="upd"><b></b><span id="upd">A carregar…</span></span>
 </div>
 
 <main><div class="wrap">
+  <div class="sect">LinkedIn · página da empresa</div>
+  <section class="kpis">
+    <div class="card kpi"><div class="l">Impressões</div><div class="v num" id="k-imp">—</div><div class="d" id="k-imp-d"></div><div class="sp" id="k-imp-s"></div></div>
+    <div class="card kpi"><div class="l">Interações</div><div class="v num" id="k-int">—</div><div class="d" id="k-int-d"></div><div class="sp" id="k-int-s"></div></div>
+    <div class="card kpi"><div class="l">Taxa de envolvimento</div><div class="v num" id="k-eng">—</div><div class="d" id="k-eng-d"></div><div class="sp" id="k-eng-s"></div></div>
+    <div class="card kpi"><div class="l">Seguidores</div><div class="v num" id="k-fol">—</div><div class="d" id="k-fol-d"></div><div class="sp" id="k-fol-s"></div></div>
+    <div class="card kpi"><div class="l">Visitas à página</div><div class="v num" id="k-pv">—</div><div class="d" id="k-pv-d"></div><div class="sp" id="k-pv-s"></div></div>
+    <div class="card kpi"><div class="l">Publicações</div><div class="v num" id="k-pub">—</div><div class="d" id="k-pub-d"></div><div class="sp" id="k-pub-s"></div></div>
+  </section>
+  <section class="row">
+    <div class="card"><div class="hd"><h2>Impressões por dia</h2><small id="imp-h"></small></div><div class="chart" id="c-imp"></div></div>
+    <div class="card"><div class="hd"><h2>Interações por tipo</h2><small id="int-h"></small></div><ul class="hb" id="c-int"></ul>
+      <div class="mini"><div><b class="num" id="m-nf">—</b>novos seguidores</div><div><b class="num" id="m-pp">—</b>publicações no total</div></div></div>
+  </section>
+  <section class="card"><div class="hd"><h2>Desempenho das publicações</h2><small id="pt-h"></small></div>
+    <table class="pt"><thead><tr><th>Data</th><th>Publicação</th><th class="r">Impressões</th><th class="r hide">Cliques</th><th class="r hide">Interações</th><th class="r">Envolv.</th></tr></thead><tbody id="c-posts"></tbody></table>
+  </section>
   <div class="sect">Site e blog · imperioglobal.eu</div>
   <section class="kpis">
     <div class="card kpi"><div class="l">Visitas ao site</div><div class="v num" id="k-sv">—</div><div class="d" id="k-sv-d"></div><div class="sp" id="k-sv-s"></div></div>
@@ -160,28 +220,13 @@ footer{color:var(--faint);font-size:12px;padding-block:6px 28px}
     <div class="card"><div class="hd"><h2>Visitantes por país</h2></div><div id="c-geo"></div></div>
   </section>
 
-  <div class="sect">LinkedIn · página da empresa</div>
-  <section class="kpis">
-    <div class="card kpi"><div class="l">Impressões</div><div class="v num" id="k-imp">—</div><div class="d" id="k-imp-d"></div><div class="sp" id="k-imp-s"></div></div>
-    <div class="card kpi"><div class="l">Interações</div><div class="v num" id="k-int">—</div><div class="d" id="k-int-d"></div><div class="sp" id="k-int-s"></div></div>
-    <div class="card kpi"><div class="l">Taxa de envolvimento</div><div class="v num" id="k-eng">—</div><div class="d" id="k-eng-d"></div><div class="sp" id="k-eng-s"></div></div>
-    <div class="card kpi"><div class="l">Seguidores</div><div class="v num" id="k-fol">—</div><div class="d" id="k-fol-d"></div><div class="sp" id="k-fol-s"></div></div>
-    <div class="card kpi"><div class="l">Visitas à página</div><div class="v num" id="k-pv">—</div><div class="d" id="k-pv-d"></div><div class="sp" id="k-pv-s"></div></div>
-    <div class="card kpi"><div class="l">Publicações</div><div class="v num" id="k-pub">—</div><div class="d" id="k-pub-d"></div><div class="sp" id="k-pub-s"></div></div>
-  </section>
-  <section class="row">
-    <div class="card"><div class="hd"><h2>Impressões por dia</h2><small id="imp-h"></small></div><div class="chart" id="c-imp"></div></div>
-    <div class="card"><div class="hd"><h2>Interações por tipo</h2><small id="int-h"></small></div><ul class="hb" id="c-int"></ul>
-      <div class="mini"><div><b class="num" id="m-nf">—</b>novos seguidores</div><div><b class="num" id="m-pp">—</b>publicações no total</div></div></div>
-  </section>
-  <section class="card"><div class="hd"><h2>Desempenho das publicações</h2><small id="pt-h"></small></div>
-    <table class="pt"><thead><tr><th>Data</th><th>Publicação</th><th class="r">Impressões</th><th class="r hide">Cliques</th><th class="r hide">Interações</th><th class="r">Envolv.</th></tr></thead><tbody id="c-posts"></tbody></table>
-  </section>
+  <div class="sect">Trabalho realizado</div>
+  <section class="card"><div class="hd"><h2>Conteúdos publicados</h2><small id="tl-h"></small></div><ul class="tl" id="c-tl"></ul></section>
   <footer>Fonte: Metricool · Página LinkedIn da Império Global e site imperioglobal.eu · Atualização diária</footer>
 </div></main>
 
 <script>
-const ST = { p: 7, daily: [], posts: [], meta: null, site: null };
+const ST = { p: 7, daily: [], posts: [], blog: [], meta: null, site: null };
 const $ = id => document.getElementById(id);
 const N = n => n == null ? '—' : Math.round(n).toLocaleString('pt-PT');
 const PCT = n => (n * 100).toLocaleString('pt-PT', { maximumFractionDigits: 1 }) + '%';
@@ -244,9 +289,10 @@ function bars(el, data, opt = {}) {
 }
 
 const COLORS = ['#0072CE', '#E3892B', '#1FA59A', '#8E6CD8', '#9aa7b8'];
-const SRC = { Direct: 'Acesso direto', direct: 'Acesso direto', Google: 'Google', 'google.com': 'Google', 'www.google.com': 'Google', LinkedIn: 'LinkedIn', 'linkedin.com': 'LinkedIn', 'www.linkedin.com': 'LinkedIn', 'lnkd.in': 'LinkedIn', Others: 'Outras' };
+const SRC = { Direct: 'Acesso direto', direct: 'Acesso direto', Google: 'Google', 'google.com': 'Google', 'www.google.com': 'Google', LinkedIn: 'LinkedIn', 'linkedin.com': 'LinkedIn', 'www.linkedin.com': 'LinkedIn', 'lnkd.in': 'LinkedIn', 'bing.com': 'Bing', 'duckduckgo.com': 'DuckDuckGo', Others: 'Outras' };
 function donut(rs) {
-  if (!rs?.length) return null;
+  rs = (rs || []).filter(([k]) => !/imperioglobal\.eu/i.test(k));
+  if (!rs.length) return null;
   const top = rs.slice(0, 4), rest = rs.slice(4).reduce((s, r) => s + r[1], 0);
   const list = rest ? [...top, ['Outras', rest]] : top, tot = list.reduce((s, r) => s + r[1], 0) || 1;
   let a = -Math.PI / 2, arcs = '';
@@ -266,11 +312,34 @@ function rank(rs, plain = false) {
   return `<ul class="rk">${rs.slice(0, 6).map(([k, v]) => { const p = plain ? String(k) : (String(k).replace(/^https?:\/\/(www\.)?imperioglobal\.eu/, '') || '/'); const nm = plain ? p : (PAG[p.replace(/\/$/, '').replace(/\.html$/, '')] || p);
     return `<li><div class="r1"><span>${esc(nm)}${/\/blog\/./.test(p) ? '<em class="tag">BLOG</em>' : ''}</span><b class="num">${N(v)}</b></div><div class="t"><i style="width:${Math.round(100 * v / max)}%"></i></div></li>`; }).join('')}</ul>`;
 }
-const PAIS = { pt: 'Portugal', be: 'Bélgica', fr: 'França', br: 'Brasil', es: 'Espanha', nl: 'Países Baixos', de: 'Alemanha', lu: 'Luxemburgo', ch: 'Suíça', gb: 'Reino Unido', us: 'Estados Unidos' };
+const PAIS = { pt: 'Portugal', be: 'Bélgica', fr: 'França', br: 'Brasil', es: 'Espanha', nl: 'Países Baixos', de: 'Alemanha', lu: 'Luxemburgo', ch: 'Suíça', gb: 'Reino Unido', us: 'Estados Unidos', ao: 'Angola', in: 'Índia', it: 'Itália', ie: 'Irlanda' };
 const PAG = { '': 'Página inicial', '/index': 'Página inicial', '/servicos': 'Serviços', '/sobre': 'Sobre nós', '/areas': 'Áreas de atuação', '/contacto': 'Contacto', '/blog': 'Blog (lista de artigos)', '/recrutamento': 'Recrutamento', '/projetos': 'Projetos' };
 const empty = t => `<div class="empty">${t}</div>`;
 
+
+function renderHero() {
+  const P = ST.posts, D = ST.daily;
+  const imp = P.reduce((s, p) => s + (p.impressions || 0), 0), cl = P.reduce((s, p) => s + (p.clicks || 0), 0);
+  const sv = D.reduce((s, r) => s + (r.siteVisits || 0), 0), sp = D.reduce((s, r) => s + (r.sitePageViews || 0), 0);
+  if (ST.meta) $('h-since').textContent = `LinkedIn desde ${dmy(ST.meta.linkedinSince)} · site medido desde ${dmy(ST.meta.siteSince)} · atualizado a ${dmy(ST.meta.lastDay)}`;
+  $('h-imp').textContent = N(imp);
+  $('h-sv').textContent = N(sv); $('h-sv-e').textContent = `${N(D.reduce((s, r) => s + (r.siteVisitors || 0), 0))} visitantes únicos`;
+  $('h-sp').textContent = N(sp); $('h-sp-e').textContent = sv ? `${(sp / sv).toLocaleString('pt-PT', { maximumFractionDigits: 1 })} páginas por visita` : '';
+  $('h-ct').textContent = N(P.length + ST.blog.length); $('h-ct-e').textContent = `${P.length} no LinkedIn · ${ST.blog.length} artigos no blog`;
+  $('h-cl').textContent = N(cl);
+  const bp = P.reduce((b, p) => (p.impressions || 0) > (b?.impressions || 0) ? p : b, null);
+  if (bp) { $('h-bp').textContent = `${N(bp.impressions)} impressões`; $('h-bp-e').textContent = bp.text; }
+  const bd = D.reduce((b, r) => (r.siteVisits || 0) > (b?.siteVisits || 0) ? r : b, null);
+  if (bd && bd.siteVisits) { $('h-bd').textContent = `${N(bd.siteVisits)} visitas`; $('h-bd-e').textContent = `${dmy(bd.d)} · ${N(bd.sitePageViews)} páginas vistas`; }
+  const ct = ST.site?.ranges?.['30']?.countries || [];
+  $('h-ps').textContent = N(ct.length); $('h-ps-e').textContent = ct.slice(0, 4).map(([k]) => PAIS[String(k).toLowerCase()] || String(k).toUpperCase()).join(' · ');
+  const items = [...P.map(p => ({ d: p.d, t: 'li', title: p.text, url: p.url, m: `${N(p.impressions || 0)} impressões` })), ...ST.blog.map(b => ({ d: b.d, t: 'bl', title: b.title, url: b.url, m: 'artigo' }))].sort((a, b) => a.d < b.d ? 1 : -1);
+  $('tl-h').textContent = `${P.length} publicações no LinkedIn · ${ST.blog.length} artigos no blog`;
+  $('c-tl').innerHTML = items.map(i => `<li><span class="dt num">${dm(i.d)}</span><span class="ty ${i.t}">${i.t === 'li' ? 'LINKEDIN' : 'BLOG'}</span><a href="${esc(i.url)}" target="_blank" rel="noopener" title="${esc(i.title)}">${esc(i.title)}</a><span class="m num">${i.m}</span></li>`).join('');
+}
+
 function render() {
+  renderHero();
   const n = ST.p, w = win(n), pw = win(n, 1), cur = rows(w), pr = rows(pw), cw = n === 1 ? win(7) : w;
   $('ttl').textContent = n === 1 ? 'Hoje' : `Últimos ${n} dias`;
   $('range').textContent = n === 1 ? `${dmy(w.to)} · comparação com o dia anterior` : `${dmy(w.from)} a ${dmy(w.to)} · comparação com os ${n} dias anteriores`;
@@ -351,7 +420,7 @@ let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout
   try {
     const r = await fetch('dados.json?t=' + Date.now(), { cache: 'no-store' });
     const j = await r.json();
-    ST.meta = j.meta; ST.site = j.site; ST.posts = j.posts || [];
+    ST.meta = j.meta; ST.site = j.site; ST.posts = j.posts || []; ST.blog = j.blog || [];
     ST.daily = (j.daily || []).sort((a, b) => a.d < b.d ? -1 : 1);
     render();
   } catch (e) { $('upd').textContent = 'Não foi possível carregar os dados. Atualize a página.'; }
